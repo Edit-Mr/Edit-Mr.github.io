@@ -9,7 +9,7 @@
   box-shadow:0px 0px 5px;
   padding: 10px;
   transform:translate(-200px,0px);
-  display: block;
+  display: none;
 }
 .dialog>.close{
   position: absolute;
