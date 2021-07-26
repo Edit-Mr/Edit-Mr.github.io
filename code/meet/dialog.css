@@ -3,12 +3,12 @@
   position:fixed;
   top: 100px;
   left: 50%;
-  width: 200px;
+  width: 400px;
   border:1px solid dodgerblue;
   background-color: navy;
   box-shadow:0px 0px 5px;
   padding: 10px;
-  transform:translate(-100px,0px);
+  transform:translate(-200px,0px);
   display: block;
 }
 .dialog>.close{
