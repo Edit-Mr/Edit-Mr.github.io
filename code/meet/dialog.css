@@ -1,0 +1,19 @@
+.dialog{
+  color: white;
+  position:fixed;
+  top: 100px;
+  left: 50%;
+  width: 200px;
+  border:1px solid dodgerblue;
+  background-color: navy;
+  box-shadow:0px 0px 5px;
+  padding: 10px;
+  transform:translate(-100px,0px);
+  display:none;
+}
+.dialog>.close{
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  cursor:pointer;/*cursor游標pointer指針:改變鼠標*/
+}
