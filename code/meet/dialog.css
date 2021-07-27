@@ -12,7 +12,7 @@
   display: block;
 }
 .dialog>.close{
-  position: absolute;
+  position: none;
   top: 0px;
   right: 10px;
   cursor:pointer;/*cursor游標pointer指針:改變鼠標*/
