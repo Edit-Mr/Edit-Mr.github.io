@@ -1,33 +1,9 @@
 <html>
 <head>
-<script>
-function download(href, filename = '')  {
-  const a = document.createElement('a')
-  a.download = filename
-  a.href = href
-  document.body.appendChild(a)  
-  a.click()
-  a.remove()
-}
 
-function downloadFile(url, filename='') {
-  fetch(url, {
-    headers: new Headers({
-      Origin: location.origin,
-    }),
-    mode: 'cors',
-  })
-    .then(res => res.blob())
-    .then(blob => {
-      const blobUrl = window.URL.createObjectURL(blob)
-      download(blobUrl, filename)
-      window.URL.revokeObjectURL(blobUrl)
-    })
-}
-</script>
 </head>
 <body>
-<a id="topath" href="" download>ahh</a>
+<a id="topath" href="" download>wait</a>
 <script>
 var Today=new Date();
 var Month=Today.getMonth()+1;
