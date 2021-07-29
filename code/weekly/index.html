@@ -1,18 +1,42 @@
 <html>
 <head>
+<script>
+function download(href, filename = '')  {
+  const a = document.createElement('a')
+  a.download = filename
+  a.href = href
+  document.body.appendChild(a)  
+  a.click()
+  a.remove()
+}
 
+function downloadFile(url, filename='') {
+  fetch(url, {
+    headers: new Headers({
+      Origin: location.origin,
+    }),
+    mode: 'cors',
+  })
+    .then(res => res.blob())
+    .then(blob => {
+      const blobUrl = window.URL.createObjectURL(blob)
+      download(blobUrl, filename)
+      window.URL.revokeObjectURL(blobUrl)
+    })
+}
+</script>
 </head>
 <body>
-<a class="topath" href="">hradd</a>
-<script type=”text/javascript”>
+<a id="topath" href="https://www.bannerch.org/images/media/weekly/weekly-20210719" download>下載</a>
+<script>
 var Today=new Date();
-var Month=Today.getMonth()+1;
+var Month=Today.getFullMonth()+1;
 if((Month<10)){
 Month=""+0+Month;}
-var Day=Today.getDate();
+var Day=Today.getFullDate();
 if((Day<10)){
 Day=""+0+Day;}
 var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf");
-document.write(Date);
+document.getElementById("topath").href = Date;
 </script>
 </body></html>
