@@ -27,7 +27,7 @@ function downloadFile(url, filename='') {
 </script>
 </head>
 <body>
-<a id="path" href="https://www.bannerch.org/" download>下載</a>
+<a id="topath" href="https://www.bannerch.org/" download>下載</a>
 <script>
 var Today=new Date();
 var Month=Today.getMonth()+1;
@@ -37,6 +37,6 @@ var Day=Today.getDate();
 if((Day<10)){
 Day=""+0+Day;}
 var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf");
-document.getElementById("path").href = Date;
+document.getElementById("topath").href = Date;
 </script>
 </body></html>
