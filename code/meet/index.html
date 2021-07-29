@@ -6,16 +6,6 @@
         <meta name="author" content="Elvis Mao">
         <link href="icon.png" rel="icon" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
-	<script>
-		var dialog,x;
-		window.onload=function(){
-		  dialog=document.getElementById("dialog");
-		  x=document.getElementById("x");
-		}
-		function hideDialog(){
-		  dialog.style.display="none";
-		}
-	</script>
         <script src='https://8x8.vc/external_api.js' async></script>
         <style>html, body, #jaas-container { height: 100%; }</style>
         <script type="text/javascript">
@@ -33,6 +23,16 @@
   <div class="close" onclick="hideDialog();" id="x">x</div>
 	<b>歡迎加入會議!</b><br />在設定可以更換語言<br />左上角圖示連結到Line群組<br />此會議經過加密，因此不可用App加入<br />使用全螢幕(F11)效果更好
 </div>
+		    	<script>
+		var dialog,x;
+		window.onload=function(){
+		  dialog=document.getElementById("dialog");
+		  x=document.getElementById("x");
+		}
+		function hideDialog(){
+		  dialog.style.display="none";
+		}
+	</script>
 <div id="jaas-container" />
 </body>
     </html>
