@@ -1,1 +1,10 @@
-<html><head></head><body><a href="https://www.bannerch.org/images/media/weekly/weekly-20210529.pdf" download>Download the pdf</a></body></html>
+<html><head><script>if ( ! Modernizr.adownload ) {   
+    var $link = $(‘a’);   
+    $link.each(function() {   
+        var $download = $(this).attr(‘download’);   
+        if (typeof $download !== typeof undefined && $download !== false) {   
+      var $el = $(‘<div>’).addClass(‘download-instruction’).text(‘Right-click and select "Download Linked File"’);   
+      $el.insertAfter($(this));   
+        }   
+    });   
+}  </script></head><body><a href="https://www.bannerch.org/images/media/weekly/weekly-20210529.pdf" download>Download the pdf</a></body></html>
