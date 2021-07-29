@@ -31,10 +31,10 @@ function downloadFile(url, filename='') {
 <script>
 var Today=new Date();
 var Month=Today.getMonth()+1;
-if(Month<10){
+if((Month<10)){
 Month=""+0+Month;}
 var Day=Today.getDate();
-if(Day<10){
+if((Day<10)){
 Day=""+0+Day;}
 var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf");
 document.getElementById("path").href = Date;
