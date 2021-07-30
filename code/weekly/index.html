@@ -20,29 +20,13 @@
 	<link rel="stylesheet" type="text/css" href="../../css/cayman.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="../../css/github-light.css" media="screen">
     <script>
-    function download(href, filename = '')  {
-      const a = document.createElement('a')
-      a.download = filename
-      a.href = href
-      document.body.appendChild(a)  
-      a.click()
-      a.remove()
-    }
-
-    function downloadFile(url, filename='') {
-      fetch(url, {
-        headers: new Headers({
-          Origin: location.origin,
-        }),
-        mode: 'cors',
-      })
-        .then(res => res.blob())
-        .then(blob => {
-          const blobUrl = window.URL.createObjectURL(blob)
-          download(blobUrl, filename)
-          window.URL.revokeObjectURL(blobUrl)
-        })
-    }
+var a = document.createElement('a');
+var url = window.URL.createObjectURL(blob);
+var filename = 'what-you-want.txt';
+a.href = url;
+a.download = filename;
+a.click();
+window.URL.revokeObjectURL(url);
   </script>
 </head>
 <body>
