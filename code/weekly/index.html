@@ -40,22 +40,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://github.com/Edit-Mr" class="btn" id="satThis" download>本週週報</a>
     <script type="text/javascript">
 //add day
-Date.prototype.addDays = function(days) {
-  this.setDate(this.getDate() + days);
-      var Month=this.getMonth()+1;
+function addDays(days) {
+  Today.setDate(Today.getDate() + days);
+      var Month=Today.getMonth()+1;
     if(Month<10){
     Month=""+0+Month;}
-    var Day=this.getDate();
+    var Day=Today.getDate();
     if(Day<10){
     Day=""+0+Day;}
-    var link="https://www.bannerch.org/images/media/weekly/weekly-" + this.getFullYear() + Month + Day + ".pdf";
+    var link="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf";
     return link;
 }
 //sat
 var Today=new Date();
-var SatLast=Today.addDays(-1-Today.getday);
+var SatLast=addDays(-1-Today.getDay());
 Today=new Date();
-var SatThis=Today.addDays(6-Today.getday);
+var SatThis=addDays(6-Today.getDay());
     function setUrl(){
       document.getElementById("satLast").href = SatLast;
       document.getElementById("satThis").href = SatThis;
