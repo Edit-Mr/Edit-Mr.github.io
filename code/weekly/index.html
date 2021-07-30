@@ -1,42 +1,70 @@
-<html>
+<!DOCTYPE html>
 <head>
-<script>
-function download(href, filename = '')  {
-  const a = document.createElement('a')
-  a.download = filename
-  a.href = href
-  document.body.appendChild(a)  
-  a.click()
-  a.remove()
-}
+	<meta charset="utf-8">
+	<title>旌旗週報下載器</title>
+  <meta name="description" content="Where I save my codes">
+  <meta name="keywords" content="旌旗教會, Edit Mr., 週報">
+  <meta name="author" content="Elvis Mao">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#00adb5">
+	<link href="https://emsbase.blogspot.com/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../../css/cayman.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../../css/github-light.css" media="screen">
+    <script>
+    function download(href, filename = '')  {
+      const a = document.createElement('a')
+      a.download = filename
+      a.href = href
+      document.body.appendChild(a)  
+      a.click()
+      a.remove()
+    }
 
-function downloadFile(url, filename='') {
-  fetch(url, {
-    headers: new Headers({
-      Origin: location.origin,
-    }),
-    mode: 'cors',
-  })
-    .then(res => res.blob())
-    .then(blob => {
-      const blobUrl = window.URL.createObjectURL(blob)
-      download(blobUrl, filename)
-      window.URL.revokeObjectURL(blobUrl)
-    })
-}
-</script>
+    function downloadFile(url, filename='') {
+      fetch(url, {
+        headers: new Headers({
+          Origin: location.origin,
+        }),
+        mode: 'cors',
+      })
+        .then(res => res.blob())
+        .then(blob => {
+          const blobUrl = window.URL.createObjectURL(blob)
+          download(blobUrl, filename)
+          window.URL.revokeObjectURL(blobUrl)
+        })
+    }
+  </script>
 </head>
 <body>
-<a id="topath" href="https://www.bannerch.org/images/media/weekly/weekly-20210719" download>下載</a>
-<script>
-var Today=new Date();
-var Month=Today.getFullMonth()+1;
-if((Month<10)){
-Month=""+0+Month;}
-var Day=Today.getFullDate();
-if((Day<10)){
-Day=""+0+Day;}
-var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf");
-document.getElementById("topath").href = Date;
-</script>
-</body></html>
+  <section class="page-header">
+    <h1 class="project-name">旌旗週報下載器</h1>
+    <h2 class="project-tagline">輕鬆下載今日週報pdf檔</h2>
+    <a href="https://github.com/Edit-Mr" class="btn" id="download">點我下載</a>
+    <script type="text/javascript">
+    var Today=new Date();
+    var Month=Today.getMonth()+1;
+    if((Month<10)){
+    Month=""+0+Month;}
+    var Day=Today.getDate();
+    if((Day<10)){
+    Day=""+0+Day;}
+    var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf";
+    function setUrl(){
+      document.getElementById("download").href = Date;
+    }
+    window.onload = setUrl
+    </script>
+  </section>
+  <section class="main-content">
+    <h1><a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>關於網站</h1>
+    <p>點擊上方連結即可直接下載今天週報彩色完整的pdf檔。相較青年官網的圖片檔畫質更高，更方便利用。星期六為青年週報，星期日是成人週報。</p>
+    <h1><a id="aboutMe" class="anchor" href="#aboutMe" aria-hidden="true"><span class="octicon octicon-link"></span></a>ios捷徑</h1>
+    <p>若你使用的是ios裝置，你可以使用我製作的捷徑腳本來快速獲取當天，上一次，或指定日期的週報。<br />需要注意的是:若未曾匯入非官方的捷徑，須至設定/捷徑開啟"允許加入不受信任的捷徑"。此網站及捷徑皆為開源項目，歡迎到GitHub查看。<br /><a href="mailto:elvismao@ctemplar.com">elvismao@ctemplar.com</a></p>
+    <footer class="site-footer">
+      <p><a href="https://github.com/Edit-Mr.github.io">本網站由</a><a href="https://github.com/Edit-Mr">毛哥EM(Edit Mr.)</a>製作。若有問題請<a href="mailto:elvismao@ctemplar.com">聯絡我</a></p>
+    </footer>
+  </section>
+</body>
