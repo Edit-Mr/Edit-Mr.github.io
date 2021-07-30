@@ -54,9 +54,11 @@ function addDays(days) {
 //sat
 var Today=new Date();
 var SatLast=addDays(-1-Today.getDay());
+var Month=Today.getMonth()+1;
 var SatLastWord="上週週報 "+Month+Today.getDate();
 Today=new Date();
 var SatThis=addDays(6-Today.getDay());
+var Month=Today.getMonth()+1;
 var SatThisWord="本週週報 "+Month+Today.getDate();
     function setUrl(){
       document.getElementById("satLast").href = SatLast;
@@ -72,42 +74,7 @@ document.getElementById("satThis").innerHTML = SatThisWord;
     <p>點擊上方連結即可直接下載上週或本週報彩色完整的pdf檔。相較青年官網的圖片檔，更方便利用。</p>
     <h1><a id="aboutMe" class="anchor" href="#aboutMe" aria-hidden="true"><span class="octicon octicon-link"></span></a>ios捷徑（稍後更新連結）</h1>
     <p>若你使用的是ios裝置，你可以使用我製作的捷徑腳本來快速獲取當天、上一次、或指定日期的週報。<br />需要注意的是:若未曾匯入非官方的捷徑，須至設定/捷徑開啟"允許加入不受信任的捷徑"。此網站及捷徑皆為開源項目，歡迎到GitHub查看。</p>
-<p>如果你覺得這個網頁有幫助到你，歡迎將它分享出去<a href='javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));' title='分享給 LINE 好友'>（Line分享連結）</a>
-
-<!-- Sharingbutton Facebook -->
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fedit-mr.github.io%2Fcode%2Fweekly%2F" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
-    </div>
-  </div>
-</a>
-
-<!-- Sharingbutton Twitter -->
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=%E6%97%8C%E6%97%97%E9%9D%92%E5%B9%B4%E9%80%B1%E5%A0%B1%E4%B8%8B%E8%BC%89%E5%99%A8%20%E8%BC%95%E9%AC%86%E4%B8%8B%E8%BC%89%E9%80%B1%E5%A0%B1pdf%E6%AA%94&amp;url=https%3A%2F%2Fedit-mr.github.io%2Fcode%2Fweekly%2F" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
-    </div>
-  </div>
-</a>
-
-<!-- Sharingbutton Tumblr -->
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=%E6%97%8C%E6%97%97%E9%9D%92%E5%B9%B4%E9%80%B1%E5%A0%B1%E4%B8%8B%E8%BC%89%E5%99%A8%20%E8%BC%95%E9%AC%86%E4%B8%8B%E8%BC%89%E9%80%B1%E5%A0%B1pdf%E6%AA%94&amp;caption=%E6%97%8C%E6%97%97%E9%9D%92%E5%B9%B4%E9%80%B1%E5%A0%B1%E4%B8%8B%E8%BC%89%E5%99%A8%20%E8%BC%95%E9%AC%86%E4%B8%8B%E8%BC%89%E9%80%B1%E5%A0%B1pdf%E6%AA%94&amp;content=https%3A%2F%2Fedit-mr.github.io%2Fcode%2Fweekly%2F&amp;canonicalUrl=https%3A%2F%2Fedit-mr.github.io%2Fcode%2Fweekly%2F&amp;shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M15.492,17.616C11.401,19.544,9.5,17,9.5,14.031 V9.5h-2V8.142c0.549-0.178,1.236-0.435,1.627-0.768c0.393-0.334,0.707-0.733,0.943-1.2c0.238-0.467,0.401-0.954,0.49-1.675H12.5v3h2 v2h-2v3.719c0,2.468,1.484,2.692,2.992,1.701V17.616z"/>
-     </svg>
-    </div>
-  </div>
-</a>
-
-<!-- Sharingbutton Telegram -->
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%E6%97%8C%E6%97%97%E9%9D%92%E5%B9%B4%E9%80%B1%E5%A0%B1%E4%B8%8B%E8%BC%89%E5%99%A8%20%E8%BC%95%E9%AC%86%E4%B8%8B%E8%BC%89%E9%80%B1%E5%A0%B1pdf%E6%AA%94&amp;url=https%3A%2F%2Fedit-mr.github.io%2Fcode%2Fweekly%2F" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23.5c6.35 0 11.5-5.15 11.5-11.5S18.35.5 12 .5.5 5.65.5 12 5.65 23.5 12 23.5zM2.505 11.053c-.31.118-.505.738-.505.738s.203.62.513.737l3.636 1.355 1.417 4.557a.787.787 0 0 0 1.25.375l2.115-1.72a.29.29 0 0 1 .353-.01L15.1 19.85a.786.786 0 0 0 .746.095.786.786 0 0 0 .487-.573l2.793-13.426a.787.787 0 0 0-1.054-.893l-15.568 6z" fill-rule="evenodd"/></svg>
-    </div>
-  </div>
-</a>
-
+<p>如果你覺得這個網頁有幫助到你，歡迎將它分享出去（<a href='javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));' title='分享給 LINE 好友'>Line分享連結</a>）
     <footer class="site-footer">
       <p>本網站由<a href="https://github.com/Edit-Mr">毛哥EM(Edit Mr.)</a>製作，目前還在實驗階段。若有問題請<a href="mailto:elvismao@ctemplar.com">聯絡我</a></p>
     </footer>
