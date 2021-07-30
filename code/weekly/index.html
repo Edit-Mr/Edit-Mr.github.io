@@ -36,18 +36,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="page-header">
     <h1 class="project-name">旌旗週報下載器</h1>
     <h2 class="project-tagline">輕鬆下載今日週報pdf檔</h2>
-    <a href="https://github.com/Edit-Mr" class="btn" id="download" download>點我下載</a>
+    <a href="https://github.com/Edit-Mr" class="btn" id="satLast" download>上週週報</a>
+<a href="https://github.com/Edit-Mr" class="btn" id="satLast" download>本週週報</a>
     <script type="text/javascript">
-    var Today=new Date();
-    var Month=Today.getMonth()+1;
-    if((Month<10)){
+//add day
+Date.prototype.addDays = function(days) {
+  this.setDate(this.getDate() + days);
+      var Month=this.getMonth()+1;
+    if(Month<10){
     Month=""+0+Month;}
-    var Day=Today.getDate();
-    if((Day<10)){
+    var Day=this.getDate();
+    if(Day<10){
     Day=""+0+Day;}
-    var Date="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf";
+    var link="https://www.bannerch.org/images/media/weekly/weekly-" + this.getFullYear() + Month + Day + ".pdf";
+    return link;
+}
+//sat
+var Today=new Date();
+var SatLast=Today.addDays(-1-Today.getday);
+Today=new Date();
+var SatThis=Today.addDays(6-Today.getday);
     function setUrl(){
-      document.getElementById("download").href = Date;
+      document.getElementById("satLast").href = SatLast;
+      document.getElementById("satThis").href = SatThis;
     }
     window.onload = setUrl
     </script>
