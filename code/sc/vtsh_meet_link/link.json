@@ -50,27 +50,32 @@
   },
   "day":["週一","週二","週三","週四","週五"],
   "code": {
+    "班級經營": "manual",
     "國文": "manual",
-    "數學": "fqoots4",
-    "班會": "fqoots4",
-    "英文": "dojjiz6y54",
+    "地科": "manual",
+    "理化": "gd3skv2dte",
     "地理": "manual",
-    "歷史": "a5yambfwi2",
-    "公民": "g7xwwo3lo3",
+    "公民": "manual",
+    "英聽": "manual",
+    "歷史": "manual",
+    "數學": "manual",
     "生物": "fcp6vlhghk",
-    "理化": "g7e6ba3smn",
-    "數應": "asdqb3d3ft",
-    "表藝": "io2v6u6",
-    "美術": "db4vrmzv6x",
-    "音樂": "exka7cdman",
-    "輔導": "efj7xetqxb",
-    "體育": "manual",
-    "生科": "manual",
-    "健教": "b7x2g24gg5",
-    "閱思": "cyu5kudcts",
-    "英會A": "dquf4zhixn",
-    "英會B": "hvw3b2odgx"
+    "英文": "cdv5zmsbpt"
      },
+    "url": {
+    "班級經營": "Mzc0NzI4MjQ5NjYy",
+    "國文": "Mzc0NTUwNTIwMzg2",
+    "地科": "Mzc0MjQ3OTMxOTcy",
+    "理化": "MjI2MzYyNzYwNjky",
+    "地理": "Njg4MzYyMTIyMjda",
+    "公民": "MjUxMjg0OTU1MTAx",
+    "英聽": "Nzg1NTk1NzI3NjBa",
+    "歷史": "NjkxNjMyMTY3MjNa",
+    "數學": "NzAyNzkwNzcxNDda",
+    "生物": "Njg4MzAyNjM4MDFa",
+    "英文": "NjkyNzg3MzMzNjda"
+     }
+    /*old109-2
     "url": {
     "國文": "NzE2NTMwOTI4NDJa",
     "數學": "NzAyNzkwNzcxNDda",
@@ -93,4 +98,26 @@
     "英會A": "MjU3ODAxNTQ5MTE4",
     "英會B": "MjU3ODAxNTQ5MTE4"
      }
+       "code": {
+    "國文": "manual",
+    "數學": "fqoots4",
+    "班會": "fqoots4",
+    "英文": "dojjiz6y54",
+    "地理": "manual",
+    "歷史": "a5yambfwi2",
+    "公民": "g7xwwo3lo3",
+    "生物": "fcp6vlhghk",
+    "理化": "g7e6ba3smn",
+    "數應": "asdqb3d3ft",
+    "表藝": "io2v6u6",
+    "美術": "db4vrmzv6x",
+    "音樂": "exka7cdman",
+    "輔導": "efj7xetqxb",
+    "體育": "manual",
+    "生科": "manual",
+    "健教": "b7x2g24gg5",
+    "閱思": "cyu5kudcts",
+    "英會A": "dquf4zhixn",
+    "英會B": "hvw3b2odgx"
+     },*/
 }
