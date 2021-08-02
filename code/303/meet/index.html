@@ -44,5 +44,29 @@
       <span aria-hidden class="cybr-btn__glitch">下堂課Classroom</span>
       <span aria-hidden class="cybr-btn__tag">課程</span>
     </button>
-  </body>
-</html>
+    <script>
+    let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function() {
+      const link = request.response;
+      setPath(link);
+    }
+
+    function setPath(obj) {
+      const heroes = obj['members'];
+      document.getElementById("satLast").href = SatLast;
+      document.getElementById("satThis").href = SatThis;
+      document.getElementById("satLast").innerHTML = SatLastWord;
+      document.getElementById("satThis").innerHTML = SatThisWord;
+      myH1.textContent = obj['squadName'];
+      header.appendChild(myH1);
+
+      const myPara = document.createElement('p');
+      myPara.textContent = 'Hometown: ' + obj['homeTown'] + ' // Formed: ' + obj['formed'];
+      header.appendChild(myPara);
+    }
+    </script>
