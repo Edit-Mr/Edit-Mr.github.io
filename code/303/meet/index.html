@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <title>303Classroom/Meet連結</title>
     <meta name="description" content="輕鬆進入Classroom, Meet">
-    <meta name="keywords" content="旌旗教會, Edit Mr., 週報">
+    <meta name="keywords" content=", Edit Mr., 週報">
     <meta name="author" content="Elvis Mao">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#00adb5">
@@ -23,50 +23,91 @@
   <body>
     <h1 style="font-size: 30px;">303 Meet連結</h1>
     <h2 style="font-size: 20px;">資料讀取中...</h1>
-    <button class="cybr-btn">
-      這堂課Meet<span aria-hidden>_</span>
-      <span aria-hidden class="cybr-btn__glitch">這堂課Meet</span>
-      <span aria-hidden class="cybr-btn__tag">代碼</span>
-    </button>
-    <button class="cybr-btn">
+        <button class="cybr-btn" id="thisClass">
       這堂課Classroom<span aria-hidden>_</span>
-      <span aria-hidden class="cybr-btn__glitch">這堂課Classroom</span>
-      <span aria-hidden class="cybr-btn__tag">課程</span>
+      <span aria-hidden class="cybr-btn__glitch" id="thisClassTitle">這堂課Classroom</span>
+      <span aria-hidden class="cybr-btn__tag" id="thisClassCap">課程</span>
     </button>
-        <h2 style="font-size: 20px;">資料讀取中...</h1>
-    <button class="cybr-btn">
-      下堂課Meet<span aria-hidden>_</span>
-      <span aria-hidden class="cybr-btn__glitch">下堂課Meet</span>
-      <span aria-hidden class="cybr-btn__tag">代碼</span>
+    <button class="cybr-btn" id="thisMeet">
+      這堂課Meet<span aria-hidden>_</span>
+      <span aria-hidden class="cybr-btn__glitch" id="thisMeetTitle">這堂課Meet</span>
+      <span aria-hidden class="cybr-btn__tag" id="thisMeetCap">代碼</span>
     </button>
-    <button class="cybr-btn">
+    <h2 style="font-size: 20px;">資料讀取中...</h1>
+    <button class="cybr-btn" id="nextClass">
       下堂課Classroom<span aria-hidden>_</span>
-      <span aria-hidden class="cybr-btn__glitch">下堂課Classroom</span>
-      <span aria-hidden class="cybr-btn__tag">課程</span>
+      <span aria-hidden class="cybr-btn__glitch" id="nextClassTitle">下堂課Classroom</span>
+      <span aria-hidden class="cybr-btn__tag" id="nextClassCap">課程</span>
+    </button>
+    <button class="cybr-btn" id="nextMeet">
+      下堂課Meet<span aria-hidden>_</span>
+      <span aria-hidden class="cybr-btn__glitch" id="NextMeetTitle">下堂課Meet</span>
+      <span aria-hidden class="cybr-btn__tag" id="nextMeetCap">代碼</span>
     </button>
     <script>
-    let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+    let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
     request.send();
-
     request.onload = function() {
       const link = request.response;
       setPath(link);
     }
 
+        /*Array:
+        var thisMeet = ""
+        var thisClass = ""
+        var nextMeet = ""
+        var nextClass = ""
+        var thisMeetTitle = ""
+        var thisClassTitle = ""
+        var nextMeetTitle = ""
+        var nextClassTitle = ""
+        var thisMeetCap = ""
+        var thisClassCap = ""
+        var nextMeetCap = ""
+        var nextClassCap = ""*/
+    function curriculum(index) {
+      var now = "" + day + index;
+      var indexOne = index + 1;
+      var next = "" + day + indexOne;
+      return curriculum[now];
+      return curriculum[now];
+      var display = [url(index), code[day+'0'], url[day+'0'], code[day+'0'], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet', '', '', '', ''];
+    }
+    function code(index) {
+      return code[string];
+    }
+    function url(index) {
+      var string = "" + day + index;
+      return code[string];
+    }
     function setPath(obj) {
-      const heroes = obj['members'];
-      document.getElementById("satLast").href = SatLast;
-      document.getElementById("satThis").href = SatThis;
-      document.getElementById("satLast").innerHTML = SatLastWord;
-      document.getElementById("satThis").innerHTML = SatThisWord;
-      myH1.textContent = obj['squadName'];
-      header.appendChild(myH1);
-
-      const myPara = document.createElement('p');
+      const curriculum = obj['curriculum'];
+      const code = obj['code'];
+      const url = obj['url'];
+      var today = new Date();
+      let day = today.getDay()
+      var hour = today.getHours();
+      var minute = today.getMinutes();
+      if(day === "0" || day === "6"){
+        var display = ['', 'Classroom', '', '', '', '', '', '', '', 'GO', '', ''];
+      }else if(hour < "8" || minute < "30"){
+        var display = [url(index), code[day+'0'], url[day+'0'], code[day+'0'], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet', '', '', '', ''];
+      }
+      document.getElementById("thisMeet").href = "https://meet.google.com/u/2/" + display[0];
+      document.getElementById("thisClass").href = "https://classroom.google.com/u/2/c/" + display[1];
+      document.getElementById("nextMeet").href = "https://meet.google.com/" + display[2];
+      document.getElementById("nextClass").href = "https://classroom.google.com/u/2/c/" + display[3];
+      document.getElementById("thisMeetTitle").innerHTML = display[4];
+      document.getElementById("thisClassTitle").innerHTML = display[5];
+      document.getElementById("nextMeetTitle").innerHTML = display[6];
+      document.getElementById("nextClassTitle").innerHTML = display[7];
+      document.getElementById("thisMeetCap").innerHTML = display[8];
+      document.getElementById("thisClassCap").innerHTML = display[9];
+      document.getElementById("nextMeetCap").innerHTML = display[10];
+      document.getElementById("nextClassCap").innerHTML = display[11];
       myPara.textContent = 'Hometown: ' + obj['homeTown'] + ' // Formed: ' + obj['formed'];
-      header.appendChild(myPara);
     }
     </script>
