@@ -105,14 +105,16 @@
       let index = show[1]
       if(show[0] == 0){
         var now = "" + day + index;
-        var next = "" + day + (index+1);
-        var set = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet', num[index], num[(index+1)]];
+        var tom = index+1;
+        var next = "" + day + tom;
+        var set = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet', num[index], num[tom]];
         document.getElementById("upHeader").innerHTML = "現在在上" + now + "課";
         document.getElementById("upHeader").innerHTML = "下一節是" + next + "課";
       }else if(show[0] == 1){
         var now = "" + day + index;
-        var next = "" + day + (index+1);
-        var set = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet', num[index], num[(index+1)]];
+        var tom = index+1;
+        var next = "" + day + tom;
+        var set = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet', num[index], num[tom]];
         document.getElementById("upHeader").innerHTML = "剛才在上" + now + "課";
         document.getElementById("upHeader").innerHTML = "下一節是" + next + "課";
       }else {
