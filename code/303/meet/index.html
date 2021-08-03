@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1 style="font-size: 30px;">303 Meet連結</h1>
-    <h2 style="font-size: 20px;">資料讀取中...</h1>
+    <h2 style="font-size: 20px;">資料讀取中...</h2 >
         <button class="cybr-btn" id="thisClass">
       <span id="thisClassTitleG">資料讀取中</span><span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch" id="thisClassTitle">資料讀取中</span>
@@ -33,19 +33,19 @@
       <span aria-hidden class="cybr-btn__glitch" id="thisMeetTitle">資料讀取中</span>
       <span aria-hidden class="cybr-btn__tag" id="thisMeetCap">代碼</span>
     </button>
-    <h2 style="font-size: 20px;">資料讀取中...</h1>
+    <h2 style="font-size: 20px;">資料讀取中...</h2>
     <button class="cybr-btn" id="nextClass">
       <span id="nextClassTitleG">資料讀取中</span><span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch" id="nextClassTitle">資料讀取中</span>
       <span aria-hidden class="cybr-btn__tag" id="nextClassCap">課程</span>
     </button>
     <button class="cybr-btn" id="nextMeet">
-      <span id="nextClassTitleG">資料讀取中</span><span aria-hidden>_</span>
+      <span id="nextMeetTitleG">資料讀取中</span><span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch" id="NextMeetTitle">資料讀取中</span>
       <span aria-hidden class="cybr-btn__tag" id="nextMeetCap">代碼</span>
     </button>
     <script>
-    let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
+let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
@@ -111,20 +111,20 @@
         var thisClassCap = ""
         var nextMeetCap = ""
         var nextClassCap = ""*/
-      var index = display[1]
-      if(display[0] = 1){
+      let index = show[1]
+      if(show[0] == 1){
         var now = "" + day + index;
         var next = "" + day + (index+1);
         var display = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet'];
-      }else if(display[0] == 2){
+      }else if(show[0] == 2){
         var now = "" + day + index;
         var next = "" + day + (index+1);
         var display = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet'];
       }else {
         document.getElementById("bbs").style.visibility="none";
-        if(display[0] == 3){
+        if(show[0] == 3){
 
-      }else if(display[0] == 4){
+      }else if(show[0] == 4){
 
       }else{
 
