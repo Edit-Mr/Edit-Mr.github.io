@@ -45,17 +45,7 @@
       <span aria-hidden class="cybr-btn__tag" id="nextMeetCap">代碼</span>
     </button>
     <script>
-let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function() {
-      const link = request.response;
-      setPath(link);
-    }
-
-    function setPath(obj) {
+      function setPath(obj) {
       var today = new Date();
       var day = today.getDay()
       var hour = today.getHours();
@@ -154,6 +144,15 @@ let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
       document.getElementById("thisClassCap").innerHTML = set[8];
       document.getElementById("nextMeetCap").innerHTML = set[9];
       document.getElementById("nextClassCap").innerHTML = set[3];
+    }
+    let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+      const link = request.response;
+      setPath(link);
     }
     </script>
   </body>
