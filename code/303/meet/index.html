@@ -112,22 +112,26 @@ let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
         var nextMeetCap = ""
         var nextClassCap = ""*/
       let index = show[1]
-      if(show[0] == 1){
+      if(show[0] == 0){
         var now = "" + day + index;
         var next = "" + day + (index+1);
         var display = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet'];
-      }else if(show[0] == 2){
+      }else if(show[0] == 1){
         var now = "" + day + index;
         var next = "" + day + (index+1);
         var display = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet'];
       }else {
-        document.getElementById("bbs").style.visibility="none";
-        if(show[0] == 3){
-
-      }else if(show[0] == 4){
-
+        document.getElementById("thisClass").style.visibility="none";
+        document.getElementById("thisMeet").style.visibility="none";
+        if(show[0] == 2){
+          var next = "" + day + (index+1);
+          var display = ['', '', url[next], code[next], '', '', '下節Classroom', '下節Meet'];
+      }else if(show[0] == 3){
+          var next = "" + day + (index+1);
+          var display = ['', '', url[next], code[next], '', '', '剛才Classroom', '剛才Meet'];
       }else{
-
+        document.getElementById("NextMeet").style.visibility="none";
+        var display = ['', '', '', '', '', '', 'Classroom', '首頁'];
       }}
       document.getElementById("thisMeet").href = "https://meet.google.com/lookup/" + set[0];
       document.getElementById("thisClass").href = "https://classroom.google.com/u/2/c/" + set[1];
