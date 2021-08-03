@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1 style="font-size: 30px;">303 Meet連結</h1>
-    <h2 style="font-size: 20px;">資料讀取中...</h2 >
+    <h2 style="font-size: 20px;" id="upHeader">資料讀取中...</h2 >
         <button class="cybr-btn" id="thisClass">
       <span id="thisClassTitleG">資料讀取中</span><span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch" id="thisClassTitle">資料讀取中</span>
@@ -33,7 +33,7 @@
       <span aria-hidden class="cybr-btn__glitch" id="thisMeetTitle">資料讀取中</span>
       <span aria-hidden class="cybr-btn__tag" id="thisMeetCap">代碼</span>
     </button>
-    <h2 style="font-size: 20px;">資料讀取中...</h2>
+    <h2 style="font-size: 20px;" id="downHeader">資料讀取中...</h2>
     <button class="cybr-btn" id="nextClass">
       <span id="nextClassTitleG">資料讀取中</span><span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch" id="nextClassTitle">資料讀取中</span>
@@ -92,6 +92,7 @@ let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
       const curriculum = obj['curriculum'];
       const code = obj['code'];
       const url = obj['url'];
+      const num = obj['number'];
 
               /*Array:
         0:This This Next Next = #, class, class
@@ -115,23 +116,27 @@ let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
       if(show[0] == 0){
         var now = "" + day + index;
         var next = "" + day + (index+1);
-        var display = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet'];
+        var set = [url[now], code[now], url[next], code[next], '這節Classroom', '這節Meet', '下節Classroom', '下節Meet', num[index], num[(index+1)]];
+        document.getElementById("upHeader").innerHTML = "現在在上" + now + "課";
+        document.getElementById("upHeader").innerHTML = "下一節是" + next + "課";
       }else if(show[0] == 1){
         var now = "" + day + index;
         var next = "" + day + (index+1);
-        var display = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet'];
+        var set = [url[now], code[now], url[next], code[next], '上節Classroom', '上節Meet', '下節Classroom', '下節Meet', num[index], num[(index+1)]];
+        document.getElementById("upHeader").innerHTML = "剛才在上" + now + "課";
+        document.getElementById("upHeader").innerHTML = "下一節是" + next + "課";
       }else {
         document.getElementById("thisClass").style.visibility="none";
         document.getElementById("thisMeet").style.visibility="none";
         if(show[0] == 2){
           var next = "" + day + (index+1);
-          var display = ['', '', url[next], code[next], '', '', '下節Classroom', '下節Meet'];
+          var set = ['', '', url[next], code[next], '', '', '下節Classroom', '下節Meet', '', num[index]];
       }else if(show[0] == 3){
           var next = "" + day + (index+1);
-          var display = ['', '', url[next], code[next], '', '', '剛才Classroom', '剛才Meet'];
+          var set = ['', '', url[next], code[next], '', '', '剛才Classroom', '剛才Meet', '', num[index]];
       }else{
         document.getElementById("NextMeet").style.visibility="none";
-        var display = ['', '', '', '', '', '', 'Classroom', '首頁'];
+        var set = ['', '', '', '', '', '', 'Classroom', '首頁', '','HOME'];
       }}
       document.getElementById("thisMeet").href = "https://meet.google.com/lookup/" + set[0];
       document.getElementById("thisClass").href = "https://classroom.google.com/u/2/c/" + set[1];
@@ -146,8 +151,8 @@ let requestURL = 'https://Edit-Mr.github.io/code/303/meet/link.json';
       document.getElementById("nextMeetTitleG").innerHTML = set[6];
       document.getElementById("nextClassTitleG").innerHTML = set[7];
       document.getElementById("thisMeetCap").innerHTML = set[0];
-      document.getElementById("thisClassCap").innerHTML = set[1];
-      document.getElementById("nextMeetCap").innerHTML = set[2];
+      document.getElementById("thisClassCap").innerHTML = set[8];
+      document.getElementById("nextMeetCap").innerHTML = set[9];
       document.getElementById("nextClassCap").innerHTML = set[3];
     }
     </script>
