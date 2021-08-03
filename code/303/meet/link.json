@@ -44,6 +44,14 @@
     "生物": "fcp6vlhghk",
     "英語": "cdv5zmsbpt"
      },
+  "num": {
+    "1": "1ST",
+    "2": "2ND",
+    "3": "3RD",
+    "4": "4TH",
+    "5": "5TH",
+    "0": "HOME"
+     },
     "url": {
     "班級經營": "Mzc0NzI4MjQ5NjYy",
     "國文": "Mzc0NTUwNTIwMzg2",
