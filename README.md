@@ -1,39 +1,47 @@
-# Edit-Mr.github.io
-[Welcome to my base!](#welcome)
-===============================
+# [EM's Base](Edit-Mr.github.io)
 
-Here is where I save my codes for apps or sites, and some of my projects. You can take them for any uses.
+## Welcome to my base!
 
-[About Me](#aboutMe)
-====================
+Here is where I save my codes for apps or sites. Here's some imformation about them. You can take them for any use.
 
-I am EM, a Jr. high student who likes to express my ldeas using technologies. Such as drawing, coding, or making music.  
-If you have any problems or ideas, you are welcome to contact me.  
-[elvismao@ctemplar.com](mailto:elvismao@ctemplar.com)
+* * *
 
-[](#projects)Projects
-=====================
+## VTSH Site Link
 
-Here's all the project I pit on this site
+*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_site_link)
+*   [Blogger](https://emsbase.blogspot.com/2021/06/vtsh-site-link.html)
 
-[](#projects)Shortcuts
+A shortcut that can help you quickly download document or go to pages.
 
-*   [VTSH Site Link](https://emsbase.blogspot.com/2021/06/vtsh-site-link.html)
+## VTSH Class Meet
 
-Project at [Blogger](https://github.com/Edit-Mr.github.io): A shortcut that can help you quickly download document or go to pages.
+*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_meet_link)
+*   [Blogger](https://emsbase.blogspot.com/2021/06/203-meet-link.html)
 
-*   [VtSH Class Meet](https://emsbase.blogspot.com/2021/06/203-meet-link.html)
+A shortcut that can help you quickly join Google Meet of that time.
 
-Project at [Blogger](https://github.com/Edit-Mr.github.io): A shortcut that can help you quickly join Google Meet of that time.
+## Blogger
 
-[Blogger](https://emsbase.blogspot.com/)
+*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/blogger/)
+*   [Blogger](https://emsbase.blogspot.com/)
 
 Where I share my project or ideas, that can solve problems and make better ways of life.
 
-[meet](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/meet)
+## Online Meet
 
-A metting site I made for me and my friend.
+*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/meet)
+*   [Link](code/meet)
 
-[weekly](https://emsbase.blogspot.com/2021/06/vtsh-site-link.html)
+A online metting site I made for me and my friend.
+
+## Weekly Downloader
+
+*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/weekly)
+*   [Link](code/weekly)
 
 Where you can quickly download the weekly document.
+
+* * *
+
+If you appriciae my creation, please consider to buy me a coffee  
+[![](https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:elvismao@ctemplar.com) [![](https://img.shields.io/badge/-elvismao.@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white)](https://www.paypal.me/elvismao) ![](https://komarev.com/ghpvc/?username=edit-mr&style=flat-square)
