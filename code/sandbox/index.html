@@ -24,11 +24,10 @@
 		    request.open('GET', requestURL);
 		    request.responseType = 'json';
 		    request.send();
-		    request.onload = function() {
-			var link = request.response;
+			const link = request.response;
 			var today = new Date();
 			var day = today.getDay();
-			var code = link[day];
+			var code = link['day'];
 			const name = "vpaas-magic-cookie-" + code['room'] + "/玄順小組" + day;
 			const token = code['token'];
 			const api = new JitsiMeetExternalAPI("8x8.vc", {
@@ -37,7 +36,6 @@
 			jwt: token
 			    });
 			  }
-			}
 		</script>
 	</head>
 	<body>
