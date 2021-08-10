@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'G-9R5PZG2VQG');
+		</script>
+		<title>玄順小組視訊會議</title>
+		<meta name="description" content="專為玄順小組設計的視訊會議！24小時上線">
+		<meta name="author" content="Elvis Mao">
+		<link href="icon.png" rel="icon" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+		<script src='https://8x8.vc/external_api.js' async></script>
+		<style>html, body, #jaas-container { height: 100%; width: 100%;}</style>
+		<script type="text/javascript">
+			window.onload = () => {
+			let requestURL = 'https://Edit-Mr.github.io/code/meet/link.json';
+		    let request = new XMLHttpRequest();
+		    request.open('GET', requestURL);
+		    request.responseType = 'json';
+		    request.send();
+		    request.onload = function() {
+			var link = request.response;
+			var today = new Date();
+			var day = today.getDay();
+			var code = link[day];
+			const name = "vpaas-magic-cookie-" + code['room'] + "/玄順小組" + day;
+			const token = code['token'];
+			const api = new JitsiMeetExternalAPI("8x8.vc", {
+			      roomName: name,
+			      parentNode: document.querySelector('#jaas-container'),
+			jwt: token
+			    });
+			  }
+			}
+		</script>
+	</head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<div id="jaas-container" />
+	</body>
+</html>
