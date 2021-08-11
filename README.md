@@ -1,4 +1,4 @@
-# [EM's Base](Edit-Mr.github.io)
+# [EM's Base](https://Edit-Mr.github.io)
 
 ## Welcome to my base!
 
