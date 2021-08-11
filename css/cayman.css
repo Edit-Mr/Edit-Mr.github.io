@@ -189,9 +189,9 @@ a:hover { text-decoration: underline; }
 
 /* EM */
 .slides{padding:1rem 2rem 0}
-.p1{box-shadow: red 0px 0px 8px; padding:1rem; border-radius: 20px;}
-.p2{box-shadow: orange 0px 0px 8px; padding:1rem; border-radius: 20px;}
-.p3{box-shadow: yellow 0px 0px 8px; padding:1rem; border-radius: 20px;}
-.p4{box-shadow: green 0px 0px 8px; padding:1rem; border-radius: 20px;}
-.p5{box-shadow: blue 0px 0px 8px; padding:1rem; border-radius: 20px;}
-.p6{box-shadow: purple 0px 0px 8px; padding:1rem; border-radius: 20px;}
+.p1{box-shadow: red 0px 0px 8px; padding:1rem; border-radius: 10px;}
+.p2{box-shadow: orange 0px 0px 8px; padding:1rem; border-radius: 10px;}
+.p3{box-shadow: yellow 0px 0px 8px; padding:1rem; border-radius: 10px;}
+.p4{box-shadow: green 0px 0px 8px; padding:1rem; border-radius: 10px;}
+.p5{box-shadow: blue 0px 0px 8px; padding:1rem; border-radius: 10px;}
+.p6{box-shadow: purple 0px 0px 8px; padding:1rem; border-radius: 10px;}
