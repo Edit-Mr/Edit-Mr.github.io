@@ -188,4 +188,4 @@ a:hover { text-decoration: underline; }
 @media screen and (max-width: 42em) { .site-footer { font-size: 0.9rem; } }
 
 /* EM */
-.flexslider{box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:1rem 2rem;}
+.slides{box-shadow: red 0px 3px 8px; padding:1rem 2rem;}
