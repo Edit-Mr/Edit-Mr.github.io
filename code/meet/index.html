@@ -1,42 +1,50 @@
 <!DOCTYPE html>
-    <html>
-      <head>
-	      	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9R5PZG2VQG');
-</script>
-	<title>玄順小組視訊會議</title>
-        <meta name="description" content="專為玄順小組設計的視訊會議！24小時上線">
-        <meta name="author" content="Elvis Mao">
-        <link href="icon.png" rel="icon" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
-        <script src='https://8x8.vc/external_api.js' async></script>
-        <style>html, body, #jaas-container { height: 100%; width: 100%;}</style>
-        <script type="text/javascript">
-        window.onload = () => {
-            /* const api = new JitsiMeetExternalAPI("8x8.vc", {
-              roomName: "vpaas-magic-cookie-4431c4fb55214a15a4094d467a5cf2b0/玄順小組",
-              parentNode: document.querySelector('#jaas-container'),
-							jwt: "eyJhbGciOiJSUzI1NiIsImtpZCI6InZwYWFzLW1hZ2ljLWNvb2tpZS00NDMxYzRmYjU1MjE0YTE1YTQwOTRkNDY3YTVjZjJiMC9lMDU3OGEiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJqaXRzaSIsImNvbnRleHQiOnsidXNlciI6eyJpZCI6IjBmOGI3NzYwLWMxN2YtNGExMi1iMTM0LWM2YWMzNzE2NzE0NCIsIm5hbWUiOiLlsI_ntYTmiJDlk6EiLCJhdmF0YXIiOiJodHRwczovL2xpbmsudG8vdXNlci9hdmF0YXIvcGljdHVyZSIsImVtYWlsIjoidXNlckBiYW5uZXIuY29tIiwibW9kZXJhdG9yIjoidHJ1ZSJ9LCJmZWF0dXJlcyI6eyJsaXZlc3RyZWFtaW5nIjoidHJ1ZSIsIm91dGJvdW5kLWNhbGwiOiJ0cnVlIiwidHJhbnNjcmlwdGlvbiI6InR1cmUiLCJyZWNvcmRpbmciOiJ0cnVlIn0sInJvb20iOnsicmVnZXgiOmZhbHNlfX0sImV4cCI6MTY5NjI4NDA1MywiaXNzIjoiY2hhdCIsIm5iZiI6MTU5NjE5NzY1Miwicm9vbSI6IioiLCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtNDQzMWM0ZmI1NTIxNGExNWE0MDk0ZDQ2N2E1Y2YyYjAifQ.XOyBaudyZIn-slcAwYi19QljKwBNvNInkJaj3VEDyO5eQA8qKhOATAtkGOJVixN-xgrvE1efa0MBWF38zxs_3Hdb_FQW8WrukHKQKOc-0XQrKzT6ckUQQc4v5lxV4nRCT_Z7azhHgp43QdDkeu257afm-DqVnkMQWUxOl5H4IjqhNUUR5ecr-_uvKQO_tR5G6vwGZ-P0JrqHG4QPJ6rWTcDvqeiySrYWs0qPRiHvoK5uB9e9CeC9i_X62mBeKAeYQocLYm5AJITSNA9G1A4ws8Ht4PbQ5SCUq80qBZx9fOmBMoXUlnfVO-11CMGcnteS1TIeFg7vlf12MhoYGQ03xg"
-            }); */
-           const api = new JitsiMeetExternalAPI("8x8.vc", {
-              roomName: "vpaas-magic-cookie-42c76eaf97204079aee53fda12ff9d6e/玄順小組2",
-              parentNode: document.querySelector('#jaas-container'),
-							jwt: "eyJhbGciOiJSUzI1NiIsImtpZCI6InZwYWFzLW1hZ2ljLWNvb2tpZS00MmM3NmVhZjk3MjA0MDc5YWVlNTNmZGExMmZmOWQ2ZS8yODc1MDgiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJqaXRzaSIsImNvbnRleHQiOnsidXNlciI6eyJpZCI6IjBmOGI3NzYwLWMxN2YtNGExMi1iMTM0LWM2YWMzNzE2NzE0NCIsIm5hbWUiOiLlsI_ntYTmiJDlk6EiLCJhdmF0YXIiOiJodHRwczovL2xpbmsudG8vdXNlci9hdmF0YXIvcGljdHVyZSIsImVtYWlsIjoidXNlckBiYW5uZXIuY29tIiwibW9kZXJhdG9yIjoidHJ1ZSJ9LCJmZWF0dXJlcyI6eyJsaXZlc3RyZWFtaW5nIjoidHJ1ZSIsIm91dGJvdW5kLWNhbGwiOiJ0cnVlIiwidHJhbnNjcmlwdGlvbiI6InR1cmUiLCJyZWNvcmRpbmciOiJ0cnVlIn0sInJvb20iOnsicmVnZXgiOmZhbHNlfX0sImV4cCI6MTY5NjI4NDA1MywiaXNzIjoiY2hhdCIsIm5iZiI6MTU5NjE5NzY1Miwicm9vbSI6IioiLCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtNDJjNzZlYWY5NzIwNDA3OWFlZTUzZmRhMTJmZjlkNmUifQ.iohuOlY0Fs14u_1tv8mIf9FdpQXqFhXWdLPhNUSnl-DKLnVQxsblDvdq43cfImuZK-yZ-z41hxP2r3-zHZb7cqMIupkp2wBVYCiGQsBi11GvqAfw4sC9-LqQ2VEYXyxc_sLj-kUUf1YPEmDckZ7Ur4exQJiKJT-QIdqipxPNey8Edo64pmiMTZU1eGUai9ciU6BpKLO21MNcM13mLYSLWKrYXR0eW2heFwqC0i2NK3kUob_4S3WBAyrnuG7MkG6ps9LEKq_Sgqi3m3y9LB8KPRvSAb3IpVCXV_TjXS6Y1ZGyc6sKlTXNRMxkPJ6beuNI-pnsVYhvNONg9TCZX49Vyw"
-            });
-          }
-	</script>
-      </head>
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'G-9R5PZG2VQG');
+		</script>
+		<title>玄順小組視訊會議</title>
+		<meta name="description" content="專為玄順小組設計的視訊會議！24小時上線">
+		<meta name="author" content="Elvis Mao">
+		<link href="icon.png" rel="icon" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+		<script src='https://8x8.vc/external_api.js' async></script>
+		<style>html, body, #jaas-container { height: 100%; width: 100%;}</style>
+		<script type="text/javascript">
+			window.onload = () => {
+			let requestURL = 'https://Edit-Mr.github.io/code/meet/link.json';
+		    let request = new XMLHttpRequest();
+		    request.open('GET', requestURL);
+		    request.responseType = 'json';
+		    request.send();
+		    request.onload = function() {
+			var link = request.response;
+			var today = new Date();
+			var day = today.getDay();
+			var code = link[day];
+			const name = "vpaas-magic-cookie-" + code['room'] + "/玄順小組" + day;
+			const token = code['token'];
+			const api = new JitsiMeetExternalAPI("8x8.vc", {
+			      roomName: name,
+			      parentNode: document.querySelector('#jaas-container'),
+			jwt: token
+			    });
+			  }
+			}
+		</script>
+	</head>
 	<body>
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-	<div id="jaas-container" />
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<div id="jaas-container" />
 	</body>
-    </html>
+</html>
