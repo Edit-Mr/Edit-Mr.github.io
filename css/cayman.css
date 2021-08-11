@@ -188,7 +188,7 @@ a:hover { text-decoration: underline; }
 @media screen and (max-width: 42em) { .site-footer { font-size: 0.9rem; } }
 
 /* EM */
-.slides{padding:1rem 2rem 0;}
+.slides{padding:1rem 2rem 0; border-radius: 20px;}
 .p1{box-shadow: red 0px 0px 8px; padding:1rem;}
 .p2{box-shadow: orange 0px 0px 8px; padding:1rem;}
 .p3{box-shadow: yellow 0px 0px 8px; padding:1rem;}
