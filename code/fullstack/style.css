@@ -1,4 +1,4 @@
-body, html { height: 100%; margin: 0px; padding: 1rem; font-size: 18px; background: rgb(245, 245, 245); box-sizing: border-box; overflow: hidden; }
+body, html { height: 100%; margin: 0px; padding: 1rem; font-size: 18px; background: radial-gradient(ellipse at center,  #45484d 0%,#000000 100%); box-sizing: border-box; overflow: hidden; }
 .game { position: relative; display: flex; flex-direction: column; height: 100%; max-width: 400px; margin: 0px auto; }
 .game-header { display: flex; padding: 1rem; white-space: nowrap; color: rgb(255, 255, 255); background: rgb(0, 0, 0); }
 .game-score { margin-left: auto; }

@@ -12,10 +12,11 @@
   </script>
   <meta charset="UTF-8">
   <title>fullstack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <meta name="description" content="A simple fullstack game">
+  <meta name="keywords" content="EM's Base, Edit Mr., fullstack">
+  <meta name="author" content="Elvis Mao">
+  <link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="screen">
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -31,7 +32,7 @@
   <footer class="game-menu">
     <button class="restart">restart</button>
     <button class="mode">easy</button>
-    <span class="byline">by <a target="_blank" href="https://twitter.com/hakimel">@hakimel</a> / <a target="_blank" href="https://hakim.se/">hakim.se</a></span>
+    <span class="byline">by <a target="_blank" href="http://edit-mr.github.io/">Edit Mr.</a></span>
   </footer>
 </div>
 
@@ -140,7 +141,7 @@
 
       state = value;
 
-      if( state === 'playing' ) status.textContent = 'press space or tap';
+      if( state === 'playing' ) status.textContent = 'press space or tap, zoom for levels';
       else if( state === 'won' ) status.textContent = 'you rock 🏅✌️🦄';
       else if( state === 'lost' ) status.textContent = 'checkmate 💥';
 
