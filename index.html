@@ -24,66 +24,67 @@
 	<script src="https://npmcdn.com/jquery@3.1.0"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.js"></script>
 	<script type="text/javascript">
-var colors = new Array(
-  [62,35,255],
-  [60,255,60],
-  [255,35,98],
-  [45,175,230],
-  [255,0,255],
-  [255,128,0]);
-
-var step = 0;
-//color table indices for: 
-// current color left
-// next color left
-// current color right
-// next color right
-var colorIndices = [0,1,2,3];
-
-//transition speed
-var gradientSpeed = 0.002;
-
-function updateGradient()
-{
-  
-  if ( $===undefined ) return;
-  
-var c0_0 = colors[colorIndices[0]];
-var c0_1 = colors[colorIndices[1]];
-var c1_0 = colors[colorIndices[2]];
-var c1_1 = colors[colorIndices[3]];
-
-var istep = 1 - step;
-var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-var color1 = "rgb("+r1+","+g1+","+b1+")";
-
-var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-var color2 = "rgb("+r2+","+g2+","+b2+")";
-
- $('#gradient').css({
-   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
-    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-  
-  step += gradientSpeed;
-  if ( step >= 1 )
-  {
-    step %= 1;
-    colorIndices[0] = colorIndices[1];
-    colorIndices[2] = colorIndices[3];
-    
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
-  }
-}
-
-setInterval(updateGradient,10);
+		var colors = new Array(
+		  [62,35,255],
+		  [60,255,60],
+		  [255,35,98],
+		  [45,175,230],
+		  [255,0,255],
+		  [255,128,0]);
+		
+		var step = 0;
+		//color table indices for: 
+		// current color left
+		// next color left
+		// current color right
+		// next color right
+		var colorIndices = [0,1,2,3];
+		
+		//transition speed
+		var gradientSpeed = 0.002;
+		
+		function updateGradient()
+		{
+		  
+		  if ( $===undefined ) return;
+		  
+		var c0_0 = colors[colorIndices[0]];
+		var c0_1 = colors[colorIndices[1]];
+		var c1_0 = colors[colorIndices[2]];
+		var c1_1 = colors[colorIndices[3]];
+		
+		var istep = 1 - step;
+		var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+		var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+		var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+		var color1 = "rgb("+r1+","+g1+","+b1+")";
+		
+		var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+		var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+		var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+		var color2 = "rgb("+r2+","+g2+","+b2+")";
+		
+		 $('#gradient').css({
+		   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+		    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+		  
+		  step += gradientSpeed;
+		  if ( step >= 1 )
+		  {
+		    step %= 1;
+		    colorIndices[0] = colorIndices[1];
+		    colorIndices[2] = colorIndices[3];
+		    
+		    //pick two new target color indices
+		    //do not pick the same as the current one
+		    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+		    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+		    
+		  }
+		}
+		
+		setInterval(updateGradient,10);
+			
 	</script>
 	<script type="text/javascript">
 		$(function() {
@@ -95,13 +96,14 @@ setInterval(updateGradient,10);
 		});	
 	</script>
 	<style>html,body{
-  heigth:100%;width:100%;min-height:100%;position:relative;oberflow:hidden;
-  color:#fff;
-}
-body {
-  background: radial-gradient(ellipse at center,  #45484d 0%,#000000 100%);
-  text-align:center;
-}</style>
+		heigth:100%;width:100%;min-height:100%;position:relative;oberflow:hidden;
+		color:#fff;
+		}
+		body {
+		background: radial-gradient(ellipse at center,  #45484d 0%,#000000 100%);
+		text-align:center;
+		}
+	</style>
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
@@ -122,11 +124,12 @@ body {
 		<p>Here is where I save my codes for apps or sites. Here's some imformation about them. You can take them for any use.</p>
 		<div class="flexslider" id="projects" style="background-color:transparent;">
 			<ul class="slides" style="text-align:left; padding:1rem 2rem 0;">
-								<li>
+				<li>
 					<article>
 						<h2><a id="Fullstack" class="anchor" href="#Fullstack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fullstack</h2>
 						<p>
 						<ul>
+							<li><a href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/fullstack/">Github</a></li>
 							<li><a href="code/fullstack">Link</a></li>
 						</ul>
 						A simple fillstack game with checkbox.</p>
@@ -165,8 +168,7 @@ body {
 						Where you can quickly download the weekly document.</p>
 					</article>
 				</li>
-			</ul>
-							<li>
+				<li>
 					<article>
 						<h2><a id="VTSHSiteLink" class="anchor" href="#VTSHSiteLink" aria-hidden="true"><span class="octicon octicon-link"></span></a>VTSH Site Link</h2>
 						<p>
@@ -188,6 +190,7 @@ body {
 						A shortcut that can help you quickly join Google Meet of that time.</p>
 					</article>
 				</li>
+			</ul>
 		</div>
 		<h1>
 			<a id="aboutMe" class="anchor" href="#aboutMe" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Me
