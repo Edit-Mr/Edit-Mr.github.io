@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,29 +12,26 @@
   </script>
   <meta charset="UTF-8">
   <title>Fullstack</title>
-    <meta name="description" content="A simple fullstack game">
+  <meta name="description" content="A simple fullstack game">
   <meta name="keywords" content="EM's Base, Edit Mr., fullstack">
   <meta name="author" content="Elvis Mao">
   <link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="screen">
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/cayman.css" media="screen">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<div class="game">
-  <header class="game-header">
-    <span class="game-status">&nbsp;</span>
-    <span class="game-score"></span>
-  </header>
-  <div class="game-canvas"></div>
-  <footer class="game-menu">
-    <button class="restart">restart</button>
-    <button class="mode">easy</button>
-    <span class="byline">by <a target="_blank" href="http://edit-mr.github.io/">Edit Mr.</a></span>
-  </footer>
-</div>
+    <div class="game">
+  <h1 class="project-name">Fullstack</h1>
+  <p>By <a target="_blank" href="http://edit-mr.github.io/">Edit Mr.</a><br />
+  <span class="game-status">&nbsp;</span>
+  <span class="game-score"></span><br/><button class="restart">restart</button>
+  <button class="mode">easy</button></p>
+    <div class="game-canvas"></div>
+  </div>
 
   <script>
     //thanks for hakim.se(https://hakim.se/)
@@ -177,7 +174,7 @@
       let firstRow = generateRow();
       rowHeight = firstRow.offsetHeight;
 
-      Array( Math.floor( canvasHeight / rowHeight ) - 2 ).fill().map( generateRow );
+      Array( Math.floor( canvasHeight / rowHeight ) - 2 ).fill().map( generateRow ); //2
 
       return true;
 
