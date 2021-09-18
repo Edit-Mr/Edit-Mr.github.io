@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,20 +9,14 @@
 
   gtag('config', 'G-9R5PZG2VQG');
 </script>
-	<meta charset="utf-8">
-	<title>旌旗青年週報下載器</title>
-  <meta name="description" content="輕鬆下載旌旗青年週報pdf檔">
+  <meta charset="utf-8">
+  <title>本週旌旗青年週報</title>
+  <meta name="description" content="輕鬆下載旌旗本週旌旗青年週報pdf檔">
   <meta name="keywords" content="旌旗教會, Edit Mr., 週報">
   <meta name="author" content="Elvis Mao">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#00adb5">
-	<link href="https://www.bannerch.org/templates/fortune_bannerch/favicon.png" rel="icon" type="image/x-icon">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../../css/cayman.css" media="screen">
 </head>
 <body>
-	<!-- Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -46,17 +40,25 @@ function addDays(days) {
     return link;
 }
 //sat
-/*var Today=new Date();
+var Today=new Date();
 var SatLast=addDays(-1-Today.getDay());
 var Month=Today.getMonth()+1;
-var SatLastWord="上週週報 "+Month+"/"+Today.getDate();*/
+var SatLastWord="上週週報 "+Month+"/"+Today.getDate();
 Today=new Date();
 var SatThis=addDays(6-Today.getDay());
-document.location.href=SatThis;
+var Month=Today.getMonth()+1;
+var SatThisWord="本週週報 "+Month+"/"+Today.getDate();
+    function setUrl(){
+      document.getElementById("satLast").href = SatLast;
+      document.getElementById("satThis").href = SatThis;
+document.getElementById("satLast").innerHTML = SatLastWord;
+document.getElementById("satThis").innerHTML = SatThisWord;
+    }
+    window.onload = setUrl
     </script>
   </section>
   <section class="main-content">
-	  <a class="anchor" href="../../" aria-hidden="true"><span class="octicon octicon-link">回首頁</span></a>
+    <a class="anchor" href="../../" aria-hidden="true"><span class="octicon octicon-link">回首頁</span></a>
     <h1><a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>關於此網站</h1>
     <p>點擊上方連結即可直接下載上週或本週報彩色完整的pdf檔。相較青年官網的圖片檔，更方便利用。<br />周間時當週週報教會可能還未釋出，若無法下載（出現404）請過一陣子再試。</p>
     <h1><a id="aboutMe" class="anchor" href="#aboutMe" aria-hidden="true"><span class="octicon octicon-link"></span></a>ios捷徑（稍後更新連結）</h1>
@@ -65,7 +67,7 @@ document.location.href=SatThis;
     <footer class="site-footer">
       <p>本網站由<a href="https://github.com/Edit-Mr">毛哥EM(Edit Mr.)</a>製作，若有任何問題歡迎<a href="mailto:elvismao@ctemplar.com">與我聯絡</a><br />也歡迎幫我買杯咖啡</p>
       <a href="mailto:elvismao@ctemplar.com"><img src="https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white"/></a>
-			<a href="https://www.paypal.me/elvismao"><img src="https://img.shields.io/badge/-elvismao.@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white"/></a>
+      <a href="https://www.paypal.me/elvismao"><img src="https://img.shields.io/badge/-elvismao.@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white"/></a>
     </footer>
   </section>
 </body>
