@@ -46,21 +46,13 @@ function addDays(days) {
     return link;
 }
 //sat
-var Today=new Date();
+/*var Today=new Date();
 var SatLast=addDays(-1-Today.getDay());
 var Month=Today.getMonth()+1;
-var SatLastWord="上週週報 "+Month+"/"+Today.getDate();
+var SatLastWord="上週週報 "+Month+"/"+Today.getDate();*/
 Today=new Date();
 var SatThis=addDays(6-Today.getDay());
-var Month=Today.getMonth()+1;
-var SatThisWord="本週週報 "+Month+"/"+Today.getDate();
-    function setUrl(){
-      document.getElementById("satLast").href = SatLast;
-      document.getElementById("satThis").href = SatThis;
-document.getElementById("satLast").innerHTML = SatLastWord;
-document.getElementById("satThis").innerHTML = SatThisWord;
-    }
-    window.onload = setUrl
+document.location.href=SatThis;
     </script>
   </section>
   <section class="main-content">
