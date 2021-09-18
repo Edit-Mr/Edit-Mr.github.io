@@ -32,5 +32,7 @@ function addDays(days) {
     var link="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + ".pdf";
     return link;
 }
+Today=new Date();
+var SatThis=addDays(6-Today.getDay());
     </script>
 </body>
