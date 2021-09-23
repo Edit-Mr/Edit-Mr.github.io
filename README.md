@@ -44,4 +44,4 @@ Where you can quickly download the weekly document.
 * * *
 
 If you appriciae my creation, please consider to buy me a coffee  
-[![](https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:elvismao@ctemplar.com) [![](https://img.shields.io/badge/-elvismao.@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white)](https://www.paypal.me/elvismao) ![](https://komarev.com/ghpvc/?username=edit-mr&style=flat-square)
+[![](https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:elvismao@ctemplar.com) [![](https://img.shields.io/badge/-elvismao.070512@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white)](https://www.paypal.me/elvismao) ![](https://komarev.com/ghpvc/?username=edit-mr&style=flat-square)
