@@ -50,7 +50,7 @@ function send(name){
         // 這邊用get type
         type: "get",
         // api url - google appscript 產出的 url
-        url: "https://script.google.com/macros/s/�xxxxxxxxxxxxxxxxxxxxxxxx/exec",
+        url: "https://script.google.com/macros/s/AKfycbzIzAMKQDlL1V5H0RQCBgTT7ofxo3wmfErHuo8rLHwy2sZ8YAhDDusx7dtChJewkOsj/exec",
         // 剛剛整理好的資料帶入
         data: data,
         // 資料格式是JSON 
@@ -58,7 +58,8 @@ function send(name){
         // 成功送出 會回頭觸發下面這塊感謝
         success: function (response) {
           console.log(response);
-          alert('報到成功!');
+	var msg = '報到成功! 還剩' + response + '堂課';
+          alert(msg);
         }
       });
     }
