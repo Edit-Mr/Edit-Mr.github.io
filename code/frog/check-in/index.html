@@ -8,26 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="deepskyblue">
   <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-</head>
-<body>
-<main>
-	<h1>大眼蛙教練點名系統</h1>
-	<p>點擊姓名即可完成報到</p>
-  <button onclick="send('毛宥恩')">毛宥恩</button>
-  <button>毛宥恩</button>
-  <button>Isaac Mao</button>
-  <button>毛宥恩</button>
-  <button>毛宥恩</button>  <button>毛宥恩</button>
-  <button>毛宥恩</button>
-  <button>Isaac Mao</button>
-  <button>毛宥恩</button>
-  <button>毛宥恩</button>
-</main>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
-function send(name){
+function to(name){
           var currentdate = new Date();
           var filltime = currentdate.getFullYear() + "/"
                 + (currentdate.getMonth() + 1) + "/"
@@ -64,4 +49,19 @@ function send(name){
       });
     }
   </script>
+</head>
+<body>
+<main>
+	<h1>大眼蛙教練點名系統</h1>
+	<p>點擊姓名即可完成報到</p>
+  <button onclick="to('毛宥恩')">毛宥恩</button>
+  <button>毛宥恩</button>
+  <button>Isaac Mao</button>
+  <button>毛宥恩</button>
+  <button>毛宥恩</button>  <button>毛宥恩</button>
+  <button>毛宥恩</button>
+  <button>Isaac Mao</button>
+  <button>毛宥恩</button>
+  <button>毛宥恩</button>
+</main>
 </body>
