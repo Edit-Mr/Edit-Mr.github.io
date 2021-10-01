@@ -41,9 +41,8 @@ alert("loading");
           dataType: "JSON",
           // 成功送出 會回頭觸發下面這塊感謝
           success: function (response) {
-            console.log(response);
-  	var msg = '報到成功! 還剩' + response + '堂課';
-            alert(msg);
+  	var msg = response;
+            alert('報到成功! 還剩' + response + '堂課');
           }
         });
       }
