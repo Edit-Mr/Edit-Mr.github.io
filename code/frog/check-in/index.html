@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <head>
-	  <meta charset="utf-8">
-  <title>大眼蛙教練點名系統</title>
-  <meta name="description" content="快速紀錄出缺席">
-  <meta name="keywords" content="大眼蛙教練, Edit Mr., 毛哥EM">
-  <meta name="author" content="Edit Mr.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="deepskyblue">
-  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-function to(name){
-          var currentdate = new Date();
-          var filltime = currentdate.getFullYear() + "/"
-                + (currentdate.getMonth() + 1) + "/"
-                + currentdate.getDate() + "  "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-          // 打包 要的資料
-          var data = {
-            'name' : name,
-            'time': filltime,
+ <meta charset="utf-8" />
+ <title>大眼蛙教練點名系統</title>
+ <meta name="description" content="快速紀錄出缺席" />
+ <meta name="keywords" content="大眼蛙教練, Edit Mr., 毛哥EM" />
+ <meta name="author" content="Edit Mr." />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="theme-color" content="deepskyblue" />
+ <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <!-- Bootstrap core JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script>
+  function to(name){
+            var currentdate = new Date();
+            var filltime = currentdate.getFullYear() + "/"
+                  + (currentdate.getMonth() + 1) + "/"
+                  + currentdate.getDate() + "  "
+                  + currentdate.getHours() + ":"
+                  + currentdate.getMinutes() + ":"
+                  + currentdate.getSeconds();
+            // 打包 要的資料
+            var data = {
+              'name' : name,
+              'time': filltime,
+            }
+            // 呼叫 send ajax function
+            send(data);
           }
-          // 呼叫 send ajax function
-          send(data);
-        }
+        });
       });
-    });
-    function send(data){
-      $.ajax({
-        // 這邊用get type
-        type: "get",
-        // api url - google appscript 產出的 url
-        url: "https://script.google.com/macros/s/AKfycbzIzAMKQDlL1V5H0RQCBgTT7ofxo3wmfErHuo8rLHwy2sZ8YAhDDusx7dtChJewkOsj/exec",
-        // 剛剛整理好的資料帶入
-        data: data,
-        // 資料格式是JSON 
-        dataType: "JSON",
-        // 成功送出 會回頭觸發下面這塊感謝
-        success: function (response) {
-          console.log(response);
-	var msg = '報到成功! 還剩' + response + '堂課';
-          alert(msg);
-        }
-      });
-    }
-  </script>
+      function send(data){
+        $.ajax({
+          // 這邊用get type
+          type: "get",
+          // api url - google appscript 產出的 url
+          url: "https://script.google.com/macros/s/AKfycbzIzAMKQDlL1V5H0RQCBgTT7ofxo3wmfErHuo8rLHwy2sZ8YAhDDusx7dtChJewkOsj/exec",
+          // 剛剛整理好的資料帶入
+          data: data,
+          // 資料格式是JSON
+          dataType: "JSON",
+          // 成功送出 會回頭觸發下面這塊感謝
+          success: function (response) {
+            console.log(response);
+  	var msg = '報到成功! 還剩' + response + '堂課';
+            alert(msg);
+          }
+        });
+      }
+ </script>
 </head>
 <body>
-<main>
-	<h1>大眼蛙教練點名系統</h1>
-	<p>點擊姓名即可完成報到</p>
+ <main>
+  <h1>大眼蛙教練點名系統</h1>
+  <p>點擊姓名即可完成報到</p>
   <button onclick="to('毛宥恩')">毛宥恩</button>
   <button>毛宥恩</button>
   <button>Isaac Mao</button>
   <button>毛宥恩</button>
-  <button>毛宥恩</button>  <button>毛宥恩</button>
+  <button>毛宥恩</button> <button>毛宥恩</button>
   <button>毛宥恩</button>
   <button>Isaac Mao</button>
   <button>毛宥恩</button>
   <button>毛宥恩</button>
-</main>
+ </main>
 </body>
