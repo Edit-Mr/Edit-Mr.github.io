@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'G-9R5PZG2VQG');
+  </script>
  <meta charset="utf-8" />
  <title>大眼蛙教練點名系統</title>
  <meta name="description" content="快速紀錄出缺席" />
@@ -23,7 +32,7 @@
               'name' : name,
               'time': filltime,
             }
-            var tag="#"+name;
+            var tag= name;
             // 呼叫 send ajax function
             send(data, tag);
         };
@@ -39,19 +48,24 @@
           dataType: "JSON",
           // 成功送出 會回頭觸發下面這塊感謝
           success: function (response) {
-  	var msg = response;
+    var msg = response;
             alert('報到成功! 還剩' + response + '堂課');
           }
         });
 alert(tag +"報到完成!");
-$(tag).fadeOut();
 $("#ed").prepend(tag +" ");
-      }
+var id = "#" + tag;
+$(id).fadeOut();
+      
  </script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
  <main>
-  <h1>大眼蛙教練點名系統</h1>
+  <h1><a href='../../../'>大眼蛙教練點名系統</a></h1>
   <p>點擊姓名即可完成報到</p>
   <button id="毛宥恩" onclick="to('毛宥恩')">毛宥恩</button>
   <button id="ElvisMao" onclick="to('ElvisMao')">ElvisMao</button>
