@@ -18,86 +18,6 @@
  <meta name="theme-color" content="deepskyblue" />
  <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-$(function(){
-        // 監聽 送出訂單 按鈕點擊
-        // 下面這段主要在組合資料，還有擋使用者不填資料不能送出
-        $('#sendOrder').click(function(e){
-        var status = true;
-        // 姓名
-        var name = $('#name').val();
-        // 電話
-        var phone = $('#phone').val(); 
-        // 訂單  後面再加上選項數量*價格
-        var order = '';
-        // 價格 先預設0 後面再加上
-        var price = 0;
-        $('input').focus(function(){
-          $(this).css('border','');
-        });
-        // 處理價格 跟 訂單 資料
-        $('.select').each(function(index) {
-          if($(this).val() !== ''){
-            order += $(this).data('name') + ' - ' + $(this).val() + '份 \n';
-            price += Number($(this).data('price')) * Number($(this).val());
-          }
-        });
-        order = order.substring(0, order.length - 1);
-
-        // 擋住不填資料邏輯
-        if(name == ''){
-          $('#name').css('border','1px solid #ff0000');
-          status = false;
-        }
-        if(phone == ''){
-          $('#phone').css('border','1px solid #ff0000');
-          status = false;
-        }
-        if(order == ''){
-          alert('請選擇訂購品項喔');
-          status = false;
-        }
-        // 如果 �必填欄位都過了 才會到這邊
-        if(status){
-          // 增加日期資料
-          var currentdate = new Date();
-          var filltime = currentdate.getFullYear() + "/"
-                + (currentdate.getMonth() + 1) + "/"
-                + currentdate.getDate() + "  "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-          // 打包 要的資料
-          var data = {
-            'name' : name,
-            'phone':phone,
-            'time': filltime,
-            'order': order,
-            'price': price,
-          }
-          // 呼叫 send ajax function
-          send(data);
-        }
-      });
-    });
-    function send(data){
-      $.ajax({
-        // 這邊用get type
-        type: "get",
-        // api url - google appscript 產出的 url
-        url: "https://script.google.com/macros/s/�xxxxxxxxxxxxxxxxxxxxxxxx/exec",
-        // 剛剛整理好的資料帶入
-        data: data,
-        // 資料格式是JSON 
-        dataType: "JSON",
-        // 成功送出 會回頭觸發下面這塊感謝
-        success: function (response) {
-          console.log(response);
-          alert('感謝您的訂購！！');
-        }
-      });
-    }
- </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -107,8 +27,43 @@ $(function(){
  <main>
   <h1><a href='../'>大眼蛙教練點名系統</a></h1>
   <p>新增學生</p>
-  <button id="毛宥恩" onclick="to('毛宥恩')">毛宥恩</button>
-  <button id="ElvisMao" onclick="to('ElvisMao')">ElvisMao</button>
-<p><a href="../../../">毛哥EM</a>製作</p>
+  <input type="text" class="form-control" id="name">
+<button type="button" id="sendOrder">新增</button>
+<p><a href="../../../">毛哥EM</a>製作<br/>送出後請稍等數秒 勿重複新增</p>
  </main>
+ <script>
+$(function(){
+        // 監聽 送出訂單 按鈕點擊
+        $('#sendOrder').click(function(e){
+        // 姓名
+        var name = $('#name').val();
+        $('input').focus(function(){
+          $(this).css('border','');
+        });
+        // 擋住不填資料邏輯
+        if(name == ''){
+          $('#name').css('border','1px solid #ff0000');
+        }else{
+          var data = {
+            'name' : name,
+          }     
+      $.ajax({
+        // 這邊用get type
+        type: "get",
+        // api url - google appscript 產出的 url
+        url: "https://script.google.com/macros/s/AKfycbyNU2bnrNC1vecUKgWB4lx1D8CePpjQ2MYcnELUtrWSbbqJ-rQ-JvKbngQhZ3NrjXyR/exec",
+        // 剛剛整理好的資料帶入
+        data: data,
+        // 資料格式是JSON 
+        dataType: "JSON",
+        // 成功送出 會回頭觸發下面這塊感謝
+        success: function (response) {
+          console.log(response);
+          alert('新增成功!!');
+        }
+      });
+        }
+      });
+    });
+ </script>
 </body>
