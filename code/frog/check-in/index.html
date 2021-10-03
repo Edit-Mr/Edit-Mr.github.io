@@ -19,6 +19,20 @@
  <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+  window.onload = () => {
+  let requestURL = 'https://script.google.com/macros/s/AKfycbyZUPmPK7GkQQXe6UhI75xVrU3tpnopTmb9O6Ie03j23AgYvZYcj2uIaAP8mx72Dsg_/exec';
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function() {
+      let student = request.response;
+      for(var i in student){
+      var now=student[i];
+
+}
+        }
+        }
   function to(name){
             var currentdate = new Date();
             var filltime = currentdate.getFullYear() + "/"
