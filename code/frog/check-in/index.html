@@ -29,12 +29,18 @@
    request.send();
    request.onload = function () {
     let student = request.response;
+    let half=
     for (var i in student) {
      var now = student[i];
+     vat stu=now["name"];
+     vat left=now["left"];
+     --left;
+var but="<button id=""+stu+"" onclick="to('"+stu+", "+left+"')">"+stu+"</button>";
+     $(but).after("#students");
     }
    };
   };
-  function to(name) {
+  function to(name, have) {
    var currentdate = new Date();
    var filltime = currentdate.getFullYear() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "  " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
    // 打包 要的資料
@@ -44,9 +50,10 @@
    };
    var tag = name;
    // 呼叫 send ajax function
-   send(data, tag);
+   var course=have;
+   send(data, tag, course);
   }
-  function send(data, tag) {
+  function send(data, tag, course) {
    $.ajax({
     // 這邊用get type
     type: "get",
@@ -59,10 +66,9 @@
     // 成功送出 會回頭觸發下面這塊感謝
     success: function (response) {
      var msg = response;
-     alert("報到成功! 還剩" + response + "堂課");
+     alert("報到成功! 還剩" + course + "堂課");
     },
    });
-   alert(tag + "報到完成!");
    $("#ed").prepend("<li>" + tag + "</li>");
    var id = "#" + tag;
    $(id).fadeOut();
