@@ -29,11 +29,11 @@
    request.send();
    request.onload = function () {
     let student = request.response;
-    let half=
     for (var i in student) {
+           console.log(i);
      var now = student[i];
-     vat stu=now["name"];
-     vat left=now["left"];
+     vat stu=now.name;
+     vat left=now.left;
      --left;
 var but="<button id=""+stu+"" onclick="to('"+stu+", "+left+"')">"+stu+"</button>";
      $(but).after("#students");
