@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    gtag('config', 'G-9R5PZG2VQG');
-  </script>
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+   dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-9R5PZG2VQG");
+ </script>
  <meta charset="utf-8" />
  <title>大眼蛙教練點名系統</title>
  <meta name="description" content="快速紀錄出缺席" />
@@ -18,80 +20,70 @@
  <meta name="theme-color" content="deepskyblue" />
  <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
+ <script>
   window.onload = () => {
-  let requestURL = 'https://script.google.com/macros/s/AKfycbyZUPmPK7GkQQXe6UhI75xVrU3tpnopTmb9O6Ie03j23AgYvZYcj2uIaAP8mx72Dsg_/exec';
-        let request = new XMLHttpRequest();
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function() {
-      let student = request.response;
-      for(var i in student){
-      var now=student[i];
-
-}
-        }
-        }
-  function to(name){
-            var currentdate = new Date();
-            var filltime = currentdate.getFullYear() + "/"
-                  + (currentdate.getMonth() + 1) + "/"
-                  + currentdate.getDate() + "  "
-                  + currentdate.getHours() + ":"
-                  + currentdate.getMinutes() + ":"
-                  + currentdate.getSeconds();
-            // 打包 要的資料
-            var data = {
-              'name' : name,
-              'time': filltime,
-            }
-            var tag= name;
-            // 呼叫 send ajax function
-            send(data, tag);
-        };
-      function send(data, tag){
-        $.ajax({
-          // 這邊用get type
-          type: "get",
-          // api url - google appscript 產出的 url
-          url: "https://script.google.com/macros/s/AKfycbzIzAMKQDlL1V5H0RQCBgTT7ofxo3wmfErHuo8rLHwy2sZ8YAhDDusx7dtChJewkOsj/exec",
-          // 剛剛整理好的資料帶入
-          data: data,
-          // 資料格式是JSON
-          dataType: "JSON",
-          // 成功送出 會回頭觸發下面這塊感謝
-          success: function (response) {
-    var msg = response;
-            alert('報到成功! 還剩' + response + '堂課');
-          }
-        });
-alert(tag +"報到完成!");
-$("#ed").prepend("<li>" + tag +"</li>");
-var id = "#" + tag;
-$(id).fadeOut();}
+   let requestURL = "https://script.google.com/macros/s/AKfycbyZUPmPK7GkQQXe6UhI75xVrU3tpnopTmb9O6Ie03j23AgYvZYcj2uIaAP8mx72Dsg_/exec";
+   let request = new XMLHttpRequest();
+   request.open("GET", requestURL);
+   request.responseType = "json";
+   request.send();
+   request.onload = function () {
+    let student = request.response;
+    for (var i in student) {
+     var now = student[i];
+    }
+   };
+  };
+  function to(name) {
+   var currentdate = new Date();
+   var filltime = currentdate.getFullYear() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "  " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+   // 打包 要的資料
+   var data = {
+    name: name,
+    time: filltime,
+   };
+   var tag = name;
+   // 呼叫 send ajax function
+   send(data, tag);
+  }
+  function send(data, tag) {
+   $.ajax({
+    // 這邊用get type
+    type: "get",
+    // api url - google appscript 產出的 url
+    url: "https://script.google.com/macros/s/AKfycbzIzAMKQDlL1V5H0RQCBgTT7ofxo3wmfErHuo8rLHwy2sZ8YAhDDusx7dtChJewkOsj/exec",
+    // 剛剛整理好的資料帶入
+    data: data,
+    // 資料格式是JSON
+    dataType: "JSON",
+    // 成功送出 會回頭觸發下面這塊感謝
+    success: function (response) {
+     var msg = response;
+     alert("報到成功! 還剩" + response + "堂課");
+    },
+   });
+   alert(tag + "報到完成!");
+   $("#ed").prepend("<li>" + tag + "</li>");
+   var id = "#" + tag;
+   $(id).fadeOut();
+  }
  </script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+ <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
  <main>
-  <h1><a href='../'>大眼蛙教練點名系統</a></h1>
+  <h1><a href="../">大眼蛙教練點名系統</a></h1>
   <p>點擊姓名即可完成報到</p>
-  <button id="毛宥恩" onclick="to('毛宥恩')">毛宥恩</button>
-  <button id="ElvisMao" onclick="to('ElvisMao')">ElvisMao</button>
-  <button>毛宥恩</button>
-  <button>Isaac Mao</button>
-  <button>毛宥恩</button>
-  <button>毛宥恩</button> <button>毛宥恩</button>
-  <button>毛宥恩</button>
-  <button>Isaac Mao</button>
-  <button>毛宥恩</button>
-  <button>毛宥恩</button>
+  <div id="students">
+   <button id="毛宥恩" onclick="to('毛宥恩')">毛宥恩</button>
+   <button id="ElvisMao" onclick="to('ElvisMao')">ElvisMao</button>
+   <button>毛宥恩</button>
+   <button>Isaac Mao</button>
+  </div>
   <h2>已到學生</h2>
-<p class="ed" id="ed"></p>
-<p><a href="../../../">毛哥EM</a>製作</p>
+  <p class="ed" id="ed"></p>
+  <p><a href="../../../">毛哥EM</a>製作</p>
  </main>
 </body>
