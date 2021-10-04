@@ -30,13 +30,13 @@
    request.onload = function () {
     let student = request.response;
     for (var i in student) {
-           console.log(i);
      var now = student[i];
      var stu=now.name;
      var left=now.left;
      --left;
-var but="<button id=""+stu+"" onclick="to('"+stu+", "+left+"')">"+stu+"</button>";
-     $(but).after("#students");
+var but="<button id='" + stu + "' onclick='to('" + stu + "', " + left + ")'>"+stu+"</button>";
+console.log(but);
+     $(but).append("#students");
     }
    };
   };
@@ -83,8 +83,8 @@ var but="<button id=""+stu+"" onclick="to('"+stu+", "+left+"')">"+stu+"</button>
   <h1><a href="../">大眼蛙教練點名系統</a></h1>
   <p>點擊姓名即可完成報到</p>
   <div id="students">
-   <button id="毛宥恩" onclick="to('毛宥恩')">毛宥恩</button>
-   <button id="ElvisMao" onclick="to('ElvisMao')">ElvisMao</button>
+   <button id="毛宥恩" onclick="to('毛宥恩', 100)">毛宥恩</button>
+   <button id="ElvisMao" onclick="to('ElvisMao', 6)">ElvisMao</button>
    <button>毛宥恩</button>
    <button>Isaac Mao</button>
   </div>
