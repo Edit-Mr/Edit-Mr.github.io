@@ -40,7 +40,8 @@
 	var iden="#"+stu;
 var click='to("'+stu+'", '+left+');'
 	$(iden).attr("onclick",click);
-    }
+    };
+	   $("#header").text("點擊姓名即可完成報到");
    };
   };
   function to(name, have) {
@@ -84,7 +85,7 @@ var click='to("'+stu+'", '+left+');'
  <!-- End Google Tag Manager (noscript) -->
  <main>
   <h1><a href="../">大眼蛙教練點名系統</a></h1>
-  <p>點擊姓名即可完成報到</p>
+  <p id="header">載入中</p>
   <div id="students">
   </div>
   <h2>已到學生</h2>
