@@ -34,9 +34,10 @@
      var stu=now.name;
      var left=now.left;
      --left;
-var but="<button id='" + stu + "' onclick='to('" + stu + "', " + left + ")'>"+stu+"</button>";
+var a='<button id="' + stu + '" onclick="to("'
+var but=a+stu + '", ' + left + ')">'+stu+'</button>';
 console.log(but);
-     $(but).append("#students");
+     $("#students").append(but);
     }
    };
   };
