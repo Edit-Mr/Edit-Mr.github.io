@@ -31,13 +31,15 @@
     let student = request.response;
     for (var i in student) {
      var now = student[i];
-     var stu=now.name;
-     var left=now.left;
+     var stu =now.name;
+     var left = now.left;
      --left;
-var a='<button id="' + stu + '" onclick="to("'
-var but=a+stu + '", ' + left + ')">'+stu+'</button>';
-console.log(but);
+     var but = '<button id="' + stu + '">' + stu + "</button>";
+     console.log(but);
      $("#students").append(but);
+	var iden="#"+stu;
+var click='to("'+AAA+'", '+-1+');'
+	$(iden).attr("onclick","http://www.w3school.com.cn/jquery");
     }
    };
   };
@@ -51,7 +53,7 @@ console.log(but);
    };
    var tag = name;
    // 呼叫 send ajax function
-   var course=have;
+   var course = have;
    send(data, tag, course);
   }
   function send(data, tag, course) {
