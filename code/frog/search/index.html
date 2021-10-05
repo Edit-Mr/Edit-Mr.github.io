@@ -30,73 +30,66 @@
   <p>紀錄查詢</p>
   <input type="text" class="form-control" id="name" />
   <button type="button" id="sendOrder">查詢</button>
-            <table class="table table-striped" style="display: none;">
-            <thead>
-              <tr>
-                <th>編號</th>
-                <th>姓名</th>
-                <th>時間</th>
-              </tr>
-            </thead>
-            <tbody id="dataView">
-            </tbody>
-          </table>
+  <table class="table table-striped" style="display: none;">
+   <thead>
+    <tr>
+     <th>編號</th>
+     <th>姓名</th>
+     <th>時間</th>
+    </tr>
+   </thead>
+   <tbody id="dataView"></tbody>
+  </table>
   <p>
    <a href="../../../">毛哥EM</a>製作<br />
    送出後請稍等數秒
   </p>
  </main>
-...
-  <script>
-    $(function(){
-        $('#send').click(function(e){
-            var status = true;
-            var name = $('#name').val();
-            $('input').focus(function(){
-              $(this).css('border','');
-            });
-            if(name == ''){
-              $('#name').css('border','1px solid #ff0000');
-            }else{
-                              var data = {
-                'name' : name,
-                'phone':phone,
-                'action': 'query'
-              }
-              sendQuery(data);
-            }
-      });
+ ...
+ <script>
+  $(function () {
+   $("#send").click(function (e) {
+    var status = true;
+    var name = $("#name").val();
+    $("input").focus(function () {
+     $(this).css("border", "");
     });
-    function sendQuery(data){
-      $.ajax({
-        type: "post",
-        url: "https://script.google.com/macros/s/AKfycbz3fU3FVDmIQehtWX6ecKuV_A67lE64FEQ-ekmOZ_jZDyY96z0/exec",
-        data: data,
-        dataType: "JSON",
-        success: function (response) {
-                  var content = '';
-        response.forEach(element => {
-          var [name, phone, time, item, price,, status] = element.data;
-          var index = element.index;
-          content +=
-              `<tr>
+    if (name == "") {
+     $("#name").css("border", "1px solid #ff0000");
+    } else {
+     var data = {
+      name: name,
+     };
+     $.ajax({
+      type: "post",
+      url: "https://script.google.com/macros/s/AKfycbz3fU3FVDmIQehtWX6ecKuV_A67lE64FEQ-ekmOZ_jZDyY96z0/exec",
+      data: data,
+      dataType: "JSON",
+      success: function (response) {
+       var content = "";
+       response.forEach((element) => {
+        var [name, phone, time, item, price, , status] = element.data;
+        var index = element.index;
+        content += `<tr>
                 <td>${name}</td>
                 <td>${phone}</td>
                 <td>${new Date(time)}</td>
                 <td>${item}</td>
                 <td>${price}</td>
-              </tr>`
-        });
-        if (content) {
-          document.getElementsByClassName('table-striped')[0].style.display = 'table';
-        } else {
-          alert('查無資料');
-        }
-        var dataView = document.getElementById('dataView');
-        dataView.innerHTML = content;
-          $('#name').val('');
-        }
-      });
+              </tr>`;
+       });
+       if (content) {
+        document.getElementsByClassName("table-striped")[0].style.display = "table";
+       } else {
+        alert("查無資料");
+       }
+       var dataView = document.getElementById("dataView");
+       dataView.innerHTML = content;
+       $("#name").val("");
+      },
+     });
     }
-  </script>
+   });
+  });
+ </script>
 </body>
