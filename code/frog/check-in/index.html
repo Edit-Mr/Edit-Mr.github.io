@@ -48,13 +48,15 @@ var click='to("'+stu+'", '+left+');'
    var currentdate = new Date();
    var filltime = currentdate.getFullYear() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "  " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
    // 打包 要的資料
+   var course = have;
+   console.log(course);
    var data = {
     name: name,
     time: filltime,
+    remain: course
    };
    var tag = name;
    // 呼叫 send ajax function
-   var course = have;
    send(data, tag, course);
   }
   function send(data, tag, course) {
