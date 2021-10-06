@@ -64,3 +64,28 @@ h1 {
 p {
  color: white;
 }
+table {
+    margin-bottom: 30px;
+    color: black;
+	 border-spacing: 1;
+	 border-collapse: collapse;
+	 background: white;
+	 border-radius: 6px;
+	 max-width: 90%;
+	 width: 100%;
+}
+ table * {
+     position: relative;
+}
+ table td, table th {
+     padding-left: 8px;
+}
+ table thead tr {
+     height: 60px;
+     background: deepskyblue;
+     font-size: 16px;
+}
+ table tbody tr {
+     height: 48px;
+     border-bottom: 1px solid #e3f1d5;
+}
