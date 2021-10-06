@@ -67,7 +67,7 @@
       success: function (response) {
        var content = "";
        response.forEach((element) => {
-        var [,name, time, remain] = element.data;
+        var [name, time, remain] = element.data;
         var index = element.index;
         content += `<tr>
                 <td>${name}</td>
