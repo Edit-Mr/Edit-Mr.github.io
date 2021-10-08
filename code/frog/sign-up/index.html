@@ -17,7 +17,7 @@
  <meta name="keywords" content="大眼蛙教練, Edit Mr., 毛哥EM" />
  <meta name="author" content="Edit Mr." />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <meta name="theme-color" content="deepskyblue" />
+ <meta name="theme-color" content="0088FF" />
  <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
@@ -37,14 +37,14 @@
  </main>
  <script>
   $(function () {
-   // 監聽 送出訂單 按鈕點擊
+   // 監聽 按鈕點擊
    $("#sendOrder").click(function (e) {
     // 姓名
     var name = $("#name").val();
     $("input").focus(function () {
      $(this).css("border", "");
     });
-    // 擋住不填資料邏輯
+    // 擋住不填資料
     if (name == "") {
      $("#name").css("border", "1px solid #ff0000");
     } else {
@@ -60,7 +60,7 @@
       data: data,
       // 資料格式是JSON
       dataType: "JSON",
-      // 成功送出 會回頭觸發下面這塊感謝
+      // 成功送出 會回頭觸發下面這塊
       success: function (response) {
        console.log(response);
        alert("新增成功!!");
