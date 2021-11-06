@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			
-			gtag('config', 'G-9R5PZG2VQG');
-		</script>
-		<title>玄順小組視訊會議</title>
-		<meta name="description" content="專為玄順小組設計的視訊會議！24小時上線">
-		<meta name="author" content="Elvis Mao">
-		<link href="icon.png" rel="icon" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="style.css" media="screen">
-		<script src='https://8x8.vc/external_api.js' async></script>
-		<style>html, body, #jaas-container { height: 100%; width: 100%;}</style>
-		<script type="text/javascript">
-			window.onload = () => {
-			let requestURL = 'https://Edit-Mr.github.io/code/meet/link.json';
-		    let request = new XMLHttpRequest();
-		    request.open('GET', requestURL);
-		    request.responseType = 'json';
-		    request.send();
-		    request.onload = function() {
-			var link = request.response;
-			var today = new Date();
-			var day = today.getDay();
-			var code = link[day];
-			const name = "vpaas-magic-cookie-" + code['room'] + "/玄順小組" + day;
-			const token = code['token'];
-			const api = new JitsiMeetExternalAPI("8x8.vc", {
-			      roomName: name,
-			      parentNode: document.querySelector('#jaas-container'),
-			jwt: token
-			    });
-			  }
-			}
-		</script>
-	</head>
-	<body>
-		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
-			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
-		<div id="jaas-container" />
-	</body>
+    <head>
+      	
+	<meta charset="utf-8">
+	<title>毛哥EM Line進階服務</title>
+        <base target="_top" />
+        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        <script>
+            var liffID = "1656564267-XlA7y2d2";
+
+            liff.init({
+                liffId: liffID,
+            })
+                .then(function () {
+                    console.log("LIFF init");
+                    // 這邊開始寫使用其他功能
+                    // 傳送訊息
+                    // type 的可用值說明：https://developers.line.biz/en/reference/liff/#send-messages
+                    liff.sendMessages([
+                        {
+                            type: 'text',
+                            text: "test",
+                        },
+                    ])
+                        .then(function (res) {
+                            console.log(res);
+                            liff.closeWindow();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        </script>
+    </head>
+    <body style="background: hsl(204 100% 5%); min-block-size: 100%; min-inline-size: 100%; box-sizing: border-box; display: grid; place-content: center; font-family: system-ui; font-size: min(200%, 5vmin);">
+        <article style="background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;">
+            <h1 style="font-size: 10vmin; line-height: 1.1;">毛哥EM Line進階服務</h1>
+            <p>正在發送</p>
+        </article>
+    </body>
 </html>
