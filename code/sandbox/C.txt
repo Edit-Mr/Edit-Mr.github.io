@@ -1,0 +1,648 @@
+{
+  "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "《毛哥日報》",
+            "color": "#ffffff",
+            "size": "xxl",
+            "flex": 0,
+            "weight": "bold",
+            "align": "center",
+            "gravity": "top"
+          },
+          {
+            "type": "text",
+            "text": "— 每日六點 為自己而報 —",
+            "color": "#ffffff66",
+            "size": "sm",
+            "align": "center"
+          }
+        ],
+        "position": "relative"
+      }
+    ],
+    "paddingAll": "10px",
+    "backgroundColor": "#0367D3",
+    "spacing": "md"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "早安~今天是10月31日"
+      },
+      {
+        "type": "text",
+        "text": "歡迎閱讀毛哥日報"
+      },
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "text": "今日活動"
+      },
+      {
+        "type": "text",
+        "text": "取自Google日歷",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "6:30",
+            "size": "sm",
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "height": "12px",
+                "width": "12px",
+                "borderColor": "#EF454D",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "取貨",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm"
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px",
+        "margin": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#B7B7B7"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "flex": 1
+              }
+            ],
+            "width": "12px"
+          },
+          {
+            "type": "text",
+            "text": "蝦皮貨到付款",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8c8c8c"
+          }
+        ],
+        "spacing": "lg",
+        "height": "20px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "8:10",
+            "gravity": "center",
+            "size": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "borderColor": "#6486E3",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "理化",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm"
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#B7B7B7"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "flex": 1
+              }
+            ],
+            "width": "12px"
+          },
+          {
+            "type": "text",
+            "text": "取自課表",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8c8c8c"
+          }
+        ],
+        "spacing": "lg",
+        "height": "20px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "9:10",
+            "gravity": "center",
+            "size": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "borderColor": "#6486E3",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "美術",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm"
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#B7B7B7"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "flex": 1
+              }
+            ],
+            "width": "12px"
+          },
+          {
+            "type": "text",
+            "text": "調課",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8c8c8c"
+          }
+        ],
+        "spacing": "lg",
+        "height": "20px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "10:10",
+            "gravity": "center",
+            "size": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "borderColor": "#6486E3",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "公民",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm"
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "width": "12px"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "調課",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8c8c8c"
+          }
+        ],
+        "spacing": "lg",
+        "height": "20px"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "text": "台灣新冠疫情"
+      },
+      {
+        "type": "text",
+        "text": "取自疾管局",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "昨日新增",
+            "size": "sm",
+            "color": "#555555",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "5",
+            "size": "sm",
+            "color": "#111111",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "size": "sm",
+            "color": "#555555",
+            "flex": 0,
+            "text": "確診"
+          },
+          {
+            "type": "text",
+            "text": "3000",
+            "size": "sm",
+            "color": "#111111",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "死亡",
+            "size": "sm",
+            "color": "#555555",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "800",
+            "size": "sm",
+            "color": "#111111",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "text": "目前匯率"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "USD",
+            "size": "sm",
+            "color": "#555555",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "27.85NTD",
+            "size": "sm",
+            "color": "#111111",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "11/6 9:30更新",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "size": "sm",
+            "color": "#555555",
+            "flex": 0,
+            "text": "CYN"
+          },
+          {
+            "type": "text",
+            "text": "5NTD",
+            "size": "sm",
+            "color": "#111111",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "11/6 9:29更新",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "text": "今日梗圖-Blursed apple"
+      },
+      {
+        "type": "text",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true,
+        "text": "作者：IntrovertNeptune"
+      },
+      {
+        "type": "image",
+        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "size": "full"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": []
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "查看貼文",
+          "uri": "http://linecorp.com/"
+        }
+      },
+      {
+        "type": "text",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "text": "距離會考還有200天",
+        "color": "#1DB446"
+      },
+      {
+        "type": "text",
+        "text": "祝你有個美好的一天~"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "6:00由毛哥電台發送",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true,
+        "align": "center"
+      },
+      {
+        "type": "image",
+        "url": "https://cdn-icons-png.flaticon.com/512/680/680421.png",
+        "position": "relative",
+        "size": "xxs"
+      }
+    ]
+  },
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  }
+}
