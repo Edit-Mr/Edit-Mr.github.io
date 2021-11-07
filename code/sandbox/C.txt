@@ -596,15 +596,24 @@
       {
         "type": "box",
         "layout": "horizontal",
-        "contents": []
-      },
-      {
-        "type": "button",
-        "action": {
-          "type": "uri",
-          "label": "查看貼文",
-          "uri": "http://linecorp.com/"
-        }
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "查看貼文",
+              "uri": "http://linecorp.com/"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "再來一張",
+              "text": "梗圖"
+            }
+          }
+        ]
       },
       {
         "type": "text",
@@ -625,18 +634,18 @@
     "layout": "vertical",
     "contents": [
       {
+        "type": "image",
+        "url": "https://cdn-icons-png.flaticon.com/512/680/680421.png",
+        "position": "relative",
+        "size": "xxs"
+      },
+      {
         "type": "text",
         "text": "6:00由毛哥電台發送",
         "size": "xs",
         "color": "#aaaaaa",
         "wrap": true,
         "align": "center"
-      },
-      {
-        "type": "image",
-        "url": "https://cdn-icons-png.flaticon.com/512/680/680421.png",
-        "position": "relative",
-        "size": "xxs"
       }
     ]
   },
