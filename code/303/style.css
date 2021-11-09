@@ -1,5 +1,5 @@
 body, html { color: #fff; text-align: center; height: 100%; margin: 0px; padding: 1rem; font-size: 18px; background-image: linear-gradient(120deg, #155799, #159957); box-sizing: border-box; overflow: hidden}
-.msg { position: relative; display: flex; flex-direction: column; height: 100%; margin: 0px auto; }
+.msg { border-radius: 20px ; display: flex; flex-direction: column; justify-content: space-around; padding: 0.6rem 0px; flex-grow: 2; background: rgb(255, 255, 255); overflow: hidden; text-align: center; animation: bounceInUp; animation-duration: 1s;}
 
 em { font-style: normal; font-weight: bold; }
 
