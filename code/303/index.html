@@ -32,13 +32,12 @@
             送出後請稍等數秒。每2秒更新
         </p>
   <form action="/formprocess.php" method="post">
-          <input type="text" class="form-control" id="name" placeholder="顯示名稱" autofocus required />
-          <input type="text" class="form-control" id="stuff" placeholder="訊息" required />
-        <button type="button" id="send" class="mode btn">傳送</button>
+          <input type="text" name="name" placeholder="顯示名稱" autofocus required />
+          <input type="text" name="msg" placeholder="訊息" required />
+        <input type="submit" value="送出資料" id="btn" />
     </form>
-      <div class="msg">
-
-  </div>
+<p class="msg">
+  </p>
   <script>
   </script>
 
