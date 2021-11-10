@@ -626,6 +626,13 @@
       {
         "type": "text",
         "text": "祝你有個美好的一天~"
+      },
+      {
+        "type": "text",
+        "text": "#0367D3#0367D3#0367D3#0367D3#0367D3",
+        "color": "#0367D3",
+        "style": "italic",
+        "wrap": true
       }
     ]
   },
