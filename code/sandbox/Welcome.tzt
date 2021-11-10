@@ -1,0 +1,221 @@
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "歡迎來到",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "center"
+      },
+      {
+        "type": "text",
+        "text": "毛哥電台",
+        "weight": "bold",
+        "size": "xxl",
+        "margin": "md",
+        "align": "center"
+      },
+      {
+        "type": "text",
+        "text": "強大的Line機器人",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": true,
+        "align": "center"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "text",
+        "text": "歡迎來到毛哥電台~這個官方帳號當初是為我自己做的，但是隨著功能越做越多，決定開發給大家使用。不過許多功能不是用於所有人，因此之後會可以客製化，麻煩再給我一點時間~",
+        "margin": "md",
+        "align": "start",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "目前支援功能",
+        "size": "xl",
+        "weight": "bold",
+        "margin": "lg"
+      },
+      {
+        "type": "text",
+        "text": "匯率查詢",
+        "size": "lg",
+        "weight": "bold",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "請輸入匯率 [英文代碼]",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "匯率 USD",
+          "text": "匯率 USD"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "text",
+        "text": "梗圖",
+        "size": "lg",
+        "weight": "bold",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "從Reddit上隨機抓取迷因",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "梗圖",
+          "text": "梗圖"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "PAYMENT ID",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "#743289384279",
+            "color": "#aaaaaa",
+            "size": "xs",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "匯率查詢",
+        "size": "lg",
+        "weight": "bold"
+      },
+      {
+        "type": "text",
+        "text": "匯率查詢",
+        "size": "lg",
+        "weight": "bold"
+      },
+      {
+        "type": "text",
+        "text": "匯率查詢",
+        "size": "lg",
+        "weight": "bold"
+      },
+      {
+        "type": "text",
+        "text": "匯率查詢",
+        "size": "lg",
+        "weight": "bold"
+      },
+      {
+        "type": "text",
+        "text": "匯率 [英文代碼]",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "text",
+        "text": "匯率 [英文代碼]",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "text",
+        "text": "匯率 [英文代碼]",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "text",
+        "text": "匯率 [英文代碼]",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm",
+        "align": "start"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "匯率 USD",
+          "text": "匯率 USD"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "匯率 USD",
+          "text": "匯率 USD"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "匯率 USD",
+          "text": "匯率 USD"
+        },
+        "style": "primary"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "匯率 USD",
+          "text": "匯率 USD"
+        },
+        "style": "primary"
+      }
+    ]
+  },
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  }
+}
