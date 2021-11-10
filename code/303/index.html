@@ -31,9 +31,11 @@
             <a href="../../">毛哥EM</a>製作<br />
             送出後請稍等數秒。每2秒更新
         </p>
-          <input type="text" class="form-control" id="name" />
-          <input type="text" class="form-control" id="stuff" />
-        <button type="button" id="send" class="mode btn">送出</button>
+  <form action="/formprocess.php" method="post">
+          <input type="text" class="form-control" id="name" placeholder="顯示名稱" autofocus required />
+          <input type="text" class="form-control" id="stuff" placeholder="訊息" required />
+        <button type="button" id="send" class="mode btn">傳送</button>
+    </form>
       <div class="msg">
 
   </div>
