@@ -48,7 +48,7 @@
             request.responseType = "text";
             request.send();
             request.onload = function () {
-               $(".message").html(request.response);
+               $("#message").html(request.response);
             };
     
             $(function () {
