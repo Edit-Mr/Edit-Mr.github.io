@@ -33,7 +33,7 @@
             送出後請稍等數秒。每2秒更新
         </p>
   <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
-          <input type="text" name="name" placeholder="顯示名稱" class="text" autofocus required />
+          <input type="text" name="name" placeholder="顯示名稱" class="text namee" autofocus required />
           <input type="text" name="msg" placeholder="訊息" class="text" required />
     <button type="button" id="sendOrder" class="btn">新增</button>
     </form>
@@ -42,17 +42,21 @@
   </p>
   </div>
   <script>
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load");
-oReq.open("GET", "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec");
-oReq.send();
-document.getElementById("message").innerHTML = oReq.responseText;
+    window.onload = () => {
+            let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";
+            let request = new XMLHttpRequest();
+            request.open("GET", requestURL);
+            request.responseType = "text";
+            request.send();
+            request.onload = function () {
+               $(".message").html(request.response);
+            };
     
             $(function () {
             // 監聽 按鈕點擊
             $("#sendOrder").click(function (e) {
                 // 姓名
-                var name = $("#text").val();
+                var name = $("#namee").val();
                 $("input").focus(function () {
                     $(this).css("border", "");
                 });
