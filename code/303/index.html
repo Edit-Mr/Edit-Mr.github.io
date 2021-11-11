@@ -43,7 +43,7 @@
   </div>
   <script>
 var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListener);
+oReq.addEventListener("load");
 oReq.open("GET", "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec");
 oReq.send();
 document.getElementById("message").innerHTML = oReq.responseText;
