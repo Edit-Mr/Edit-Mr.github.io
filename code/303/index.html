@@ -20,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="../../css/cayman.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../../css/Animate.css" media="screen">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,21 +35,53 @@
   <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
           <input type="text" name="name" placeholder="顯示名稱" class="text" autofocus required />
           <input type="text" name="msg" placeholder="訊息" class="text" required />
-        <input type="submit" value="傳送" class="btn" />
+    <button type="button" id="sendOrder" class="btn">新增</button>
     </form>
   <div class="msg">
 <p id="message">
   </p>
   </div>
   <script>
-    function reqListener () {
-      document.getElementById("message").innerHTML = this.responseText;
-}
-
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec");
 oReq.send();
+document.getElementById("message").innerHTML = oReq.responseText;
+    
+            $(function () {
+            // 監聽 按鈕點擊
+            $("#sendOrder").click(function (e) {
+                // 姓名
+                var name = $("#text").val();
+                $("input").focus(function () {
+                    $(this).css("border", "");
+                });
+                // 擋住不填資料
+                if (name == "") {
+                    $("#name").css("border", "1px solid #ff0000");
+                } else {
+                    var name = name.replace(" ", "");
+                    var data = {
+                        name: name,
+                    };
+                    $.ajax({
+                        // 這邊用get type
+                        type: "post",
+                        // api url - google appscript 產出的 url
+                        url: "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec",
+                        // 剛剛整理好的資料帶入
+                        data: data,
+                        // 資料格式是JSON
+                        dataType: "JSON",
+                        // 成功送出 會回頭觸發下面這塊
+                        success: function (response) {
+                            console.log(response);
+                            alert("成功!!");
+                        },
+                    });
+                }
+            });
+        });
   </script>
 </body>
 </html>
