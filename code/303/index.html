@@ -33,8 +33,8 @@
             送出後請稍等數秒。每2秒更新
         </p>
   <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
-          <input type="text" name="name" placeholder="顯示名稱" class="text namee" autofocus required />
-          <input type="text" name="msg" placeholder="訊息" class="text msggg" required />
+          <input type="text"placeholder="顯示名稱" class="text" id="name"  autofocus/>
+          <input type="text" name="msg" placeholder="訊息" id="msg" class="text" required />
     <button type="button" id="sendOrder" class="btn">新增</button>
     </form>
   <div class="msg">
@@ -55,11 +55,12 @@
             // 監聽 按鈕點擊
             $("#sendOrder").click(function (e) {
                 // 姓名
-                var name = $("#namee").val();
+                var name = $("#name").val();
+                alert(name);
                 $("input").focus(function () {
                     $(this).css("border", "");
                 });
-                var msg = $("#msggg").val();
+                var msg = $("#msg").val();
                 // 擋住不填資料
                 if (name == "") {
                     $("#name").css("border", "1px solid #ff0000");
