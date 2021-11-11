@@ -34,7 +34,7 @@
         </p>
   <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
           <input type="text" name="name" placeholder="顯示名稱" class="text namee" autofocus required />
-          <input type="text" name="msg" placeholder="訊息" class="text" required />
+          <input type="text" name="msg" placeholder="訊息" class="text msggg" required />
     <button type="button" id="sendOrder" class="btn">新增</button>
     </form>
   <div class="msg">
@@ -59,13 +59,14 @@
                 $("input").focus(function () {
                     $(this).css("border", "");
                 });
+                var msg = $("#msggg").val();
                 // 擋住不填資料
                 if (name == "") {
                     $("#name").css("border", "1px solid #ff0000");
                 } else {
-                    var name = name.replace(" ", "");
                     var data = {
                         name: name,
+                        msg: msg
                     };
                     $.ajax({
                         // 這邊用get type
