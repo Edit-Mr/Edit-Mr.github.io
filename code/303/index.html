@@ -31,7 +31,7 @@
             <a href="../../">毛哥EM</a>製作<br />
             送出後請稍等數秒。每2秒更新
         </p>
-  <form action="/formprocess.php" method="post">
+  <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
           <input type="text" name="name" placeholder="顯示名稱" class="text" autofocus required />
           <input type="text" name="msg" placeholder="訊息" class="text" required />
         <input type="submit" value="傳送" class="btn" />
@@ -41,6 +41,12 @@
   </p>
   <script>
   </script>
-
+            let request = new XMLHttpRequest();
+            request.open("GET", "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec");
+            request.responseType = "text";
+            request.send();
+            request.onload = function () {
+             document.getElementById("message").innerHTML = request.response;
+            };
 </body>
 </html>
