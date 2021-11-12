@@ -70,5 +70,8 @@ btn:hover {
     color: black;
 }
 #message b {
-    color: blue;
+    color: #159957;
+}
+#message em {
+    color: #1E6BB8;
 }
