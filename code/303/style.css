@@ -12,6 +12,7 @@ body, html {
 .msg {
     overflow: auto;
     height: 60vh;
+    width: 80vh;
     border-radius: 20px;
     background: rgb(255, 255, 255);
     text-align: left;
