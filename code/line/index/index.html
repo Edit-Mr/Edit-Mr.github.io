@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-      	
-	<meta charset="utf-8">
-	<title>毛哥EM Line進階服務</title>
-        <base target="_top" />
-        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-        <script>
-            var liffID = "1656564267-XlA7y2d2";
+var liffID = 'XXXXXXXXXXXX';
 
-            liff.init({
-                liffId: liffID,
-            })
-                .then(function () {
-                    console.log("LIFF init");
-// 傳送訊息
+liff.init({
+  liffId: liffID
+}).then(function() {
+  console.log('LIFF init');
+  
+  // 這邊開始寫使用其他功能
+  // 傳送訊息
 // type 的可用值說明：https://developers.line.biz/en/reference/liff/#send-messages
 liff.sendMessages([
   {
@@ -27,21 +19,6 @@ liff.sendMessages([
   .catch(function(error) {
     console.log(error);
   });
-
-// 傳送訊息給朋友
-// 發訊息的可用參數：https://developers.line.biz/en/reference/liff/#share-target-picker
-liff.shareTargetPicker(message)
-  .then(function(res) {
-    console.log(res)
-  }).catch(function(error) {
-    console.log(error);
-  })
-        </script>
-    </head>
-    <body style="background: hsl(204 100% 5%); min-block-size: 100%; min-inline-size: 100%; box-sizing: border-box; display: grid; place-content: center; font-family: system-ui; font-size: min(200%, 5vmin);">
-        <article style="background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;">
-            <h1 style="font-size: 10vmin; line-height: 1.1;">毛哥EM Line進階服務</h1>
-            <p>正在發送<?= msg ?><br /></p>
-        </article>
-    </body>
-</html>
+}).catch(function(error) {
+  console.log(error);
+});
