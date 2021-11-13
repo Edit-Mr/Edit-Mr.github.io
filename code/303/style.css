@@ -45,18 +45,6 @@ btn {
     border-radius: 0.3rem;
     transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 }
-input .text {
-    padding: 5px;
-    display: inline;
-    margin-top: 1rem;
-    color: black;
-    background-color: white;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 0.3rem;
-    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-}
 btn:hover {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
@@ -76,6 +64,19 @@ btn:hover {
 .dialogue-head-window-optionsb{position: absolute; top: 0.4em; left: 1.67em; height: 0.6em; width: 0.6em; border-radius: 100%; float: left; background: rgba(255,197,40,1); border: 0.5px solid rgba(235,177,34,1);}
 .dialogue-head-window-optionsc{position: absolute; top: 0.4em; left: 2.74em; height: 0.6em; width: 0.6em; border-radius: 100%; float: left; background: rgba(82,210,75,1); border: 0.5px solid rgba(70,200,65,1);}
 .NavHead{position: absolute; top:0; left:0; height:1.4em; width:100%; border-bottom:0.7px solid #000; opacity:0;}
-.bubble-wrap{padding-right: 100px; margin-right: -100px;  overflow-y:scroll;}
+.bubble-wrap{    height: 100%;
+    position: absolute;width:100%;padding:10px;overflow-y:scroll;}
 .bubble-text-time{clear: both; text-align: center; font-size: 0.6em; color: rgba(0,0,0,0.5); margin: 0.5em 0;}
 .stuff{color:black;}
+input{
+    padding: 5px;
+    display: inline;
+    margin-top: 1rem;
+    color: black;
+    background-color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
