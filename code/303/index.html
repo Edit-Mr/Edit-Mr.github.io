@@ -38,37 +38,29 @@
          <input type="text" name="msg" placeholder="訊息" id="msg" class="text" required />
          <button type="button" id="sendOrder" class="btn">發送</button>
       </form>
-<<<<<<< HEAD
       <h1>實用連結</h1>
       <button type="button" class="btn" onclick="window.open('https://shellshock.io/')">Shell Shockers</button>
       <button type="button" class="btn" onclick="window.open('https://smashkarts.io/')">Smash Karts</button>
       <button type="button" class="btn" onclick="window.open('https://www.roblox.com/')">Roblox</button>
-      <center>
-    <div class="dialogue-wrap NavFrame" style="position: relative; width: 23.4em; margin: 2em 0em; padding: 0; border: 0.7px solid rgba(0,0,0,0.3); background-color: rgba(255,255,255,1); box-shadow: 0 14px 18px rgba(0,0,0,0.52); border-radius: 0.3em; overflow: hidden;">
-        <div class="dialogue-head" style="position: relative; height: 1.4em; border-bottom:0.7px solid rgba(187,187,187,1); text-align:center; background: linear-gradient(to top, rgba(0,0,0,0.09), rgba(0,0,0,0.06)); color: rgba(0,0,0,0.8);"><span style="position: relative; font-size: 0.8em; line-height: 1.4em; cursor: default;">{{{1}}}</span>
-            <div class="dialogue-head-window-options" style="position: absolute; top: 0.4em; left: 0.6em; height: 0.6em; width: 0.6em; border-radius: 100%; float: left; background: rgba(255,88,77,1); border: 0.5px solid rgba(235,78,67,1);"></div>
-            <div class="dialogue-head-window-options" style="position: absolute; top: 0.4em; left: 1.67em; height: 0.6em; width: 0.6em; border-radius: 100%; float: left; background: rgba(255,197,40,1); border: 0.5px solid rgba(235,177,34,1);"></div>
-            <div class="dialogue-head-window-options" style="position: absolute; top: 0.4em; left: 2.74em; height: 0.6em; width: 0.6em; border-radius: 100%; float: left; background: rgba(82,210,75,1); border: 0.5px solid rgba(70,200,65,1);"></div>
+  </div>
+        <center>
+    <div class="dialogue-wrap">
+        <div class="dialogue-head"><span class="dialogue-title">{{{1}}}</span>
+            <div class="dialogue-head-window-optionsa"></div>
+            <div class="dialogue-head-window-optionsb"></div>
+            <div class="dialogue-head-window-optionsc"></div>
         </div>
-        <div class="NavHead" style="position: absolute; top:0; left:0; height:1.4em; width:100%; border-bottom:0.7px solid #000; opacity:0;"></div>
+        <div class="NavHead"></div>
         <div class="NavContent">
-            <div class="bubble-wrap" style="height: 40em; overflow-y: hidden; overflow-x: hidden; padding-right: 100px; margin-right: -100px;">
-                <div class="bubble-text-time" style="clear: both; text-align: center; font-size: 0.6em; color: rgba(0,0,0,0.5); margin: 0.5em 0;">
+            <div class="bubble-wrap">
+                <div class="bubble-text-time">
                     <div>iMessage</div>
-                        <div>{{{2}}}</div></div>{{{3}}}</div>[[User:Edit Mr./iMessage|<div class="message-input" style="height: 1.7em; border-radius: 0.85em; border: 0.7px solid rgba(0,0,0,0.25); margin: 0.2em 0.3em; color: rgba(0,0,0,0.6); padding: 0 0.5em;">輸入訊息</div>]]
+                        <div>{{{2}}}</div></div><div class="stuff"></div></div>
                 </div>
             </div>
         </div>
     </div>
 </center>
-
-=======
->>>>>>> 4ae3b0bd4d6f3b42de5c5f1438393d198b17f5c0
-  </div>
-      <div class="msg">
-         <p id="message">
-         </p>
-      </div>
       <script>
          var t1 = window.setInterval(hello,1000); 
          function hello(){ 
@@ -78,7 +70,8 @@
                  request.responseType = "text";
                  request.send();
                  request.onload = function () {
-                    $("#message").html(request.response);
+                     console.log("re");
+                    $(".stuff").html(request.response);
                  };
          } 
                  $(function () {
