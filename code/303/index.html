@@ -30,8 +30,7 @@
       <div class="header">
       <h1 class="project-name">303電腦課留言系統</h1>
       <h2 class="project-tagline">
-         <a href="../../" target="_blank">毛哥EM</a>製作(尚未完成)<br />
-         發送後請稍等數秒。每秒更新訊息
+         <a href="../../" target="_blank">毛哥EM</a>製作(尚未完成)
       </h2>
       <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
          <input type="text"placeholder="顯示名稱" class="text" id="name"  autofocus/>
@@ -54,14 +53,14 @@
         <div class="NavContent">
             <div class="bubble-wrap">
                 <div class="bubble-text-time">
-                <div>發送後請稍等數秒<br/>每秒更新訊息</div></div><div class="stuff"></div></div>
+                <div>發送後請稍等數秒<br/>每2秒更新訊息</div></div><div class="stuff"></div></div>
                 </div>
             </div>
         </div>
     </div>
 </center>
       <script>
-         var t1 = window.setInterval(hello,1000); 
+         var t1 = window.setInterval(hello,2000); 
          function hello(){ 
                  let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";
                  let request = new XMLHttpRequest();
@@ -71,6 +70,7 @@
                  request.onload = function () {
                      console.log("re");
                     $(".stuff").html(request.response);
+                    window.scrollTo(0,document.querySelector(".bubble-wrap").scrollHeight);
                  };
          } 
                  $(function () {
