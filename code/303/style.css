@@ -62,7 +62,7 @@ btn:hover {
 .bubble-wrap{    height: 100%;
     position: absolute;width:100%;padding:10px;overflow-y:scroll;}
 .bubble-text-time{clear: both; text-align: center; font-size: 0.6em; color: rgba(0,0,0,0.5); margin: 0.5em 0;}
-.stuff{color:#1E6BB8;}
+.stuff b{color:#1E6BB8;}
 .r{float: right; clear: both; max-width: 63%; display: block; color: rgba(255,255,255,1); background: linear-gradient(to top, rgba(66, 160, 255, 1), rgba(66, 160, 255, 0.8)); border-radius: 1em; padding: 0 0.5em; margin-right: 0.35em; margin-bottom: 0.2em; overflow-wrap: break-word;}
 .l{float: left; clear: both; display: block; color: rgba(0,0,0,1); background: rgba(0,0,0,0.1); border-radius: 1em; padding: 0 0.5em; margin-left:0.35em; margin-bottom: 0.2em; overflow-wrap: break-word;}
 .t{float: left; clear: both; font-size: 0.6em; color: rgba(0,0,0,0.5); margin-right: 0.4em; margin-bottom: 0.2em; margin-top: -0.1em;}
