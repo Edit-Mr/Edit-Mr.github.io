@@ -37,7 +37,7 @@
          <input type="text" placeholder="訊息" id="msg" />
          <button type="button" id="sendOrder" class="btn">發送</button><br />
          <input type="checkbox" id="bubble" />重要標示 | 
-         名稱顏色 <input type="color" value="#ff0000" id="color" />
+         名稱顏色 <input type="color" value="#1E6BB8" id="color" />
       </form>
       <h1>實用連結</h1>
       <button type="button" class="btn" onclick="window.open('https://shellshock.io/')">Shell Shockers</button>
@@ -92,7 +92,7 @@
                              name: name,
                              msg: msg,
                              color: $("#color").val(),
-                             bubble: $("#bubble").val()
+                             bubble: $("#bubble").prop("checked")
                          };
                          $.ajax({
                              // 這邊用get type
