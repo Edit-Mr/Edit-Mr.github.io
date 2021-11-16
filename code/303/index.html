@@ -33,9 +33,11 @@
          <a href="../../" target="_blank">毛哥EM</a>製作(尚未完成)
       </h2>
       <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
-         <input type="text"placeholder="顯示名稱" class="text" id="name"  autofocus/>
-         <input type="text" name="msg" placeholder="訊息" id="msg" class="text" required />
-         <button type="button" id="sendOrder" class="btn">發送</button>
+         <input type="text"placeholder="顯示名稱" id="name"  autofocus/>
+         <input type="text" placeholder="訊息" id="msg" />
+         <button type="button" id="sendOrder" class="btn">發送</button><br />
+         <input type="checkbox" id="bubble" />重要標示 | 
+         名稱顏色 <input type="color" value="#ff0000" id="color" />
       </form>
       <h1>實用連結</h1>
       <button type="button" class="btn" onclick="window.open('https://shellshock.io/')">Shell Shockers</button>
@@ -88,7 +90,9 @@
                      } else {
                          var data = {
                              name: name,
-                             msg: msg
+                             msg: msg,
+                             color: $("#color").val(),
+                             bubble: $("#bubble").val()
                          };
                          $.ajax({
                              // 這邊用get type
