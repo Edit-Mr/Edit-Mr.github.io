@@ -87,6 +87,8 @@
                      // 擋住不填資料
                      if (name == "") {
                          $("#name").css("border", "1px solid #ff0000");
+                     } else if (msg == "") {
+                         $("#msg").css("border", "1px solid #ff0000");
                      } else {
                          var data = {
                              name: name,
