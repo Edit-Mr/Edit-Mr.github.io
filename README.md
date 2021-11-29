@@ -1,47 +1,26 @@
-# [EM's Base](https://Edit-Mr.github.io)
+303電腦課留言系統
+https://Edit-Mr.github.io/code/303
+電腦課的自由時間我和同學常常會玩一些線上的io遊戲，不過很多的房間代碼很常，且溝通很不方便。因此我做了這個線上留言板，不用登入、下載軟體即可輕鬆溝通。
 
-## Welcome to my base!
+大眼蛙教練點名系統
+https://Edit-Mr.github.io/code/
+大眼蛙教練的課程是以堂數做計算，也就是來一次算一次，而不是一段時間。因此每次學生上課都需要簽到，最後還需要人工來統計。因此我做了一個簡單的點名系統，讓電腦來做統計和計算的工作。
 
-Here is where I save my codes for apps or sites. Here's some imformation about them. You can take them for any use.
+毛哥EM資訊密技
+https://EM-Tec.github.io
+我的個人部落格，分享各種有關科技的軟體及技巧
 
-* * *
+玄順小組視訊會議	https://Edit-Mr.github.io/code/meet
+一個使用Jitsi為後端的視訊會議系統，在教會線上小組時使用。有許多其他線上會議系統沒有的功能，如絕不卡頓的分享YouTube影片
 
-## VTSH Site Link
+旌旗教會週報下載器	https://Edit-Mr.github.io/code/weekly
+之前青年官網及直播只有提供圖片檔，較不方便利用，不過透過這個網站即可快速下載之前或本週報彩色完整的pdf檔。
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_site_link)
-*   [Blogger](https://emsbase.blogspot.com/2021/06/vtsh-site-link.html)
+衛道官網連結
+https://Edit-Mr.github.io/code/sc/vtsh-site-link
+一個ios捷徑腳本。只須點一下即可快速連結到衛道的網頁或檔案
 
-A shortcut that can help you quickly download document or go to pages.
-
-## VTSH Class Meet
-
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_meet_link)
-*   [Blogger](https://emsbase.blogspot.com/2021/06/203-meet-link.html)
-
-A shortcut that can help you quickly join Google Meet of that time.
-
-## Blogger
-
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/blogger/)
-*   [Blogger](https://emsbase.blogspot.com/)
-
-Where I share my project or ideas, that can solve problems and make better ways of life.
-
-## Online Meet
-
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/meet)
-*   [Link](code/meet)
-
-A online metting site I made for me and my friend.
-
-## Weekly Downloader
-
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/weekly)
-*   [Link](code/weekly)
-
-Where you can quickly download the weekly document.
-
-* * *
-
-If you appriciae my creation, please consider to buy me a coffee  
-[![](https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:elvismao@ctemplar.com) [![](https://img.shields.io/badge/-elvismao.070512@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white)](https://www.paypal.me/elvismao) ![](https://komarev.com/ghpvc/?username=edit-mr&style=flat-square)
+203Meet連結
+https://Edit-Mr.github.io/code/sc/vtsh-meet-link
+在國二在家上課的時候常常忘記記課表及找不到Meet代碼，或著是來不及再去Classroom找。不過透過這個捷徑只要點擊一下即可快速進入當堂課的Google Meet或Classroom																																	
+				
