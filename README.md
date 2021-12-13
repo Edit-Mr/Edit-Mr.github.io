@@ -39,3 +39,7 @@
 > https://Edit-Mr.github.io/code/sc/vtsh-meet-link
 
 在國二在家上課的時候常常忘記記課表及找不到Meet代碼，或著是來不及再去Classroom找。不過透過這個捷徑只要點擊一下即可快速進入當堂課的Google Meet或Classroom					
+
+# 圖標使用
+所有使用的網路資源來自Flaticon
+<div>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
