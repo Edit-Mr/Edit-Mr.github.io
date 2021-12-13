@@ -42,4 +42,5 @@
 
 # 圖標使用
 所有使用的網路資源來自Flaticon
-<div>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+![bukeicon](https://cdn-teams-slug.flaticon.com/bukeicon.jpg)
+<a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
