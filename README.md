@@ -1,5 +1,9 @@
 # [毛哥EM的基地](https://Edit-Mr.github.io/code)
 歡迎來到我的基地 這裡存放了我的各種網頁專案 希望你們喜歡
+## 3D觸控秤
+> https://edit-mr.github.io/code/weight-with-iPhone/
+
+iPhone 6s到iPhone XS Max之間的機型支援3D 觸控。這個網站可以讓你測量可以導電的東西的重量。
 ## 國三3畢冊檔案上傳
 > https://script.google.com/macros/s/AKfycbwxcwsSJq06IGJjBOc3X6XKAhFrCrsbVXnDJg8AeObwGlMjAQaA-GfZCoBHFIV1x4gFQw/exec
 
