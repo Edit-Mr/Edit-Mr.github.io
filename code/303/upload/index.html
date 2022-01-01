@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9R5PZG2VQG');
+</script>
+  <meta charset="utf-8">
+  <title>國三3畢冊檔案上傳</title>
+  <meta name="description" content="為國三3設計的畢冊檔案上傳平台">
+  <meta name="keywords" content="衛道中學, 國三3">
+  <meta name="author" content="毛哥EM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D8AA96">
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  align-items: center;
+  background: #D8AA96;
+  color: rgba(0, 0, 0, 0.8);
+  display: grid;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100vh;
+  justify-items: center;
+  weight: 100vw;
+}
+ 
+.signup-container {
+  display: grid;
+  grid-template-areas: "left right";
+  max-width: 900px;
+}
+ 
+.left-container {
+  background: #807182;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 40px 10px 10px 10px;
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+  ul{padding-left:15px;
+  text-align:left;}
+.left-container h1 {
+  color: rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+ 
+.right-container {
+  background: #f9c7c2;
+  display: grid;
+  grid-template-areas: "." ".";
+  width: 500px;
+}
+.right-container h1:nth-of-type(1) {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 28px;
+  font-weight: 600;
+}
+.right-container .set {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.right-container input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 5px;
+}
+.right-container input, .right-container label {
+  color: rgba(0, 0, 0, 0.8);
+}
+.right-container header {
+  padding: 40px;
+}
+.right-container label, .right-container input {
+  width: 176px;
+}
+  
+.right-container .kind .radio-container ,.right-container .include .radio-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.right-container footer {
+  align-items: center;
+  background: #fff;
+  display: grid;
+  padding: 5px 40px;
+}
+.right-container footer button, .right-container footer input{
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+}
+.right-container footer #back {
+  background: #fff;
+  transition: 0.2s all ease-in-out;
+}
+.right-container footer #back:hover {
+  background: #171A2B;
+  color: white;
+}
+.right-container footer #next {
+  background: #807182;
+  border: 1px solid transparent;
+  color: #fff;
+}
+.right-container footer #next:hover {
+  background: #171A2B;
+}
+ 
+.user label, .photo label, .about label, .kind label, .include label{
+  display: block;
+  margin-bottom: 5px;
+}
+ 
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+ 
+.radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 78px;
+}
+ 
+ .radio-container input[type="radio"],.radio-container input[type="checkbox"] {
+   display: none;
+}
+ .radio-container input[type="radio"]:checked + label,.radio-container input[type="checkbox"]:checked + label {
+   background: #f7b1ab;
+   border: 1px solid rgba(0, 0, 0, .1);
+}
+   .author{
+text-align: left;
+}
+.author a{
+  color: #FFF;
+}
+ </style>
+ <script src="https://kit.fontawesome.com/e2ac9cc532.js" crossorigin="anonymous"></script>
+  </head>
+<body>
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class='signup-container'>
+  <div class='left-container'>
+    <h1>
+      ⚠️注意事項
+    </h1>
+          <ul>
+    <li>檔案一次只能上傳一件，格式不拘</li>
+<li>不使用模糊照片（拍攝時晃動，未對焦，失焦，解析度不足）</li>
+<li>不使用過亮（人物面部過曝白掉）、過暗照片（拍照時在暗處，陰影下，未開閃光燈）</li>
+<li>不使用色偏照片（偏黃，紅，綠，藍）</li>
+<li>不使用主角不明確照片（人與背景同色，背景比例大過人，人物臉部遭裁切）</li>
+<li>不使用姿勢不雅照片</li>
+<li>收集數量-每人10張以上為佳（越多越好）個人照1〜2張，合照3〜7張
+照片檔案大小最好在1MB以上，相素尺寸1600x1200以上</li>
+<li>影片是用於畢業紀念冊的AR功能（三班專屬）</li>
+ 
+      </ul>
+  </div>
+  <div class='right-container'>
+<form method="post">
+
+    <header>
+      <h1>國三3畢冊檔案上傳</h1>
+      <div class='set'>
+        <div class='user'>
+          <label for='user'>上傳者</label>
+           <input list="user" name="user" required></label>
+<datalist id="user" placeholder="請選擇座號">
+<option value="班導">
+<option value="1丁尹然">
+<option value="2毛宥鈞">
+<option value="3黃守呈">
+<option value="4楊祚恩">
+<option value="5李宇洋">
+<option value="6李侑宸">
+<option value="7李孟樸">
+<option value="8李恩齊">
+<option value="9卓煜晉">
+<option value="10林重佑">
+<option value="11林蔚然">
+<option value="12林嵩皓">
+<option value="13施冠任">
+<option value="14胡凱鈞">
+<option value="15張銓益">
+<option value="16莊証傑">
+<option value="17許安頡">
+<option value="18許鈞凱">
+<option value="19陳亦敬">
+<option value="20陳信凱">
+<option value="21陳宣儒">
+<option value="22陳柏諺">
+<option value="23陳泰銘">
+<option value="24曾瀞頡">
+<option value="25童仕博">
+<option value="26黃伯瑄">
+<option value="27黃榮基">
+<option value="28張宇寬">
+<option value="29劉政佑">
+<option value="30張兆霖">
+<option value="31鄭為桓">
+<option value="32鄭原任">
+<option value="33盧建安">
+<option value="34賴郁中">
+<option value="35簡葳鋐">
+<option value="36賴富瑋">
+<option value="37傅偉勝">
+<option value="38季佳穎">
+<option value="39施欣彤">
+<option value="40吳佩穎">
+<option value="41張棋淇">
+<option value="42陳涵妘">
+<option value="43陳思縈">
+<option value="44曾若溱">
+<option value="45黃宜珏">
+<option value="46詹云宜">
+<option value="47蔡依潔">
+<option value="48鄭少涵">
+<option value="49何佩儀">
+<option value="50蘇郁婷">
+<option value="其他">
+</datalist>
+        </div>
+        <div class='photo'>
+          <label for="photo">選擇檔案(可拖至視窗)</label>
+          
+          <input type="file" name="photo" required draggable="true" />
+
+        </div>
+      </div>
+      <div class='set'>
+        <div class='about'>
+          <label for='about'>標題（選填）</label>
+          <input id='about' placeholder="請輸入標題" type='text' name="about">
+        </div>
+        <div class='kind'>
+          <label for='kind-solo'>檔案分類</label>
+          <div class='radio-container'>
+            <input checked='' id='kind-solo' name='kind' type='radio' value='個人生活'>
+            <label for='kind-solo'>個人生活</label>
+            <input id='kind-group' name='kind' type='radio' value='團體'>
+            <label for='kind-group'>團體</label>
+          </div>
+        </div>
+      </div>
+      <div class='inclide'>
+        <label for='0'>內含學生</label>
+        <div class='radio-container'>
+          <input type="checkbox" id="include-1" name="include" value="1" >
+<label for="include-1">1丁尹然</label>
+<input type="checkbox" id="include-2" name="include" value="2">
+<label for="include-2">2毛宥鈞</label>
+<input type="checkbox" id="include-3" name="include" value="3">
+<label for="include-3">3黃守呈</label>
+<input type="checkbox" id="include-4" name="include" value="4">
+<label for="include-4">4楊祚恩</label>
+<input type="checkbox" id="include-5" name="include" value="5">
+<label for="include-5">5李宇洋</label>
+<input type="checkbox" id="include-6" name="include" value="6">
+<label for="include-6">6李侑宸</label>
+<input type="checkbox" id="include-7" name="include" value="7">
+<label for="include-7">7李孟樸</label>
+<input type="checkbox" id="include-8" name="include" value="8">
+<label for="include-8">8李恩齊</label>
+<input type="checkbox" id="include-9" name="include" value="9">
+<label for="include-9">9卓煜晉</label>
+<input type="checkbox" id="include-10" name="include" value="10">
+<label for="include-10">10林重佑</label>
+<input type="checkbox" id="include-11" name="include" value="11">
+<label for="include-11">11林蔚然</label>
+<input type="checkbox" id="include-12" name="include" value="12">
+<label for="include-12">12林嵩皓</label>
+<input type="checkbox" id="include-13" name="include" value="13">
+<label for="include-13">13施冠任</label>
+<input type="checkbox" id="include-14" name="include" value="14">
+<label for="include-14">14胡凱鈞</label>
+<input type="checkbox" id="include-15" name="include" value="15">
+<label for="include-15">15張銓益</label>
+<input type="checkbox" id="include-16" name="include" value="16">
+<label for="include-16">16莊証傑</label>
+<input type="checkbox" id="include-17" name="include" value="17">
+<label for="include-17">17許安頡</label>
+<input type="checkbox" id="include-18" name="include" value="18">
+<label for="include-18">18許鈞凱</label>
+<input type="checkbox" id="include-19" name="include" value="19">
+<label for="include-19">19陳亦敬</label>
+<input type="checkbox" id="include-20" name="include" value="20">
+<label for="include-20">20陳信凱</label>
+<input type="checkbox" id="include-21" name="include" value="21">
+<label for="include-21">21陳宣儒</label>
+<input type="checkbox" id="include-22" name="include" value="22">
+<label for="include-22">22陳柏諺</label>
+<input type="checkbox" id="include-23" name="include" value="23">
+<label for="include-23">23陳泰銘</label>
+<input type="checkbox" id="include-24" name="include" value="24">
+<label for="include-24">24曾瀞頡</label>
+<input type="checkbox" id="include-25" name="include" value="25">
+<label for="include-25">25童仕博</label>
+<input type="checkbox" id="include-26" name="include" value="26">
+<label for="include-26">26黃伯瑄</label>
+<input type="checkbox" id="include-27" name="include" value="27">
+<label for="include-27">27黃榮基</label>
+<input type="checkbox" id="include-28" name="include" value="28">
+<label for="include-28">28張宇寬</label>
+<input type="checkbox" id="include-29" name="include" value="29">
+<label for="include-29">29劉政佑</label>
+<input type="checkbox" id="include-30" name="include" value="30">
+<label for="include-30">30張兆霖</label>
+<input type="checkbox" id="include-31" name="include" value="31">
+<label for="include-31">31鄭為桓</label>
+<input type="checkbox" id="include-32" name="include" value="32">
+<label for="include-32">32鄭原任</label>
+<input type="checkbox" id="include-33" name="include" value="33">
+<label for="include-33">33盧建安</label>
+<input type="checkbox" id="include-34" name="include" value="34">
+<label for="include-34">34賴郁中</label>
+<input type="checkbox" id="include-35" name="include" value="35">
+<label for="include-35">35簡葳鋐</label>
+<input type="checkbox" id="include-36" name="include" value="36">
+<label for="include-36">36賴富瑋</label>
+<input type="checkbox" id="include-37" name="include" value="37">
+<label for="include-37">37傅偉勝</label>
+<input type="checkbox" id="include-38" name="include" value="38">
+<label for="include-38">38季佳穎</label>
+<input type="checkbox" id="include-39" name="include" value="39">
+<label for="include-39">39施欣彤</label>
+<input type="checkbox" id="include-40" name="include" value="40">
+<label for="include-40">40吳佩穎</label>
+<input type="checkbox" id="include-41" name="include" value="41">
+<label for="include-41">41張棋淇</label>
+<input type="checkbox" id="include-42" name="include" value="42">
+<label for="include-42">42陳涵妘</label>
+<input type="checkbox" id="include-43" name="include" value="43">
+<label for="include-43">43陳思縈</label>
+<input type="checkbox" id="include-44" name="include" value="44">
+<label for="include-44">44曾若溱</label>
+<input type="checkbox" id="include-45" name="include" value="45">
+<label for="include-45">45黃宜珏</label>
+<input type="checkbox" id="include-46" name="include" value="46">
+<label for="include-46">46詹云宜</label>
+<input type="checkbox" id="include-47" name="include" value="47">
+<label for="include-47">47蔡依潔</label>
+<input type="checkbox" id="include-48" name="include" value="48">
+<label for="include-48">48鄭少涵</label>
+<input type="checkbox" id="include-49" name="include" value="49">
+<label for="include-49">49何佩儀</label>
+<input type="checkbox" id="include-50" name="include" value="50">
+<label for="include-50">50蘇郁婷</label>
+<input type="checkbox" id="include-51" name="include" value="51">
+<label for="include-51">班導</label>
+<input type="checkbox" id="include-52" name="include" value="52">
+<label for="include-52">其他</label>
+        </div>
+      </div>
+    </header>
+    <footer>
+      <div class='set'>
+        <button id='back' onclick="location.href='https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fis.gd%2Fajamas'">分享</button>
+          <input id="next" type="submit" value="上傳檔案" 
+           onclick="this.value='上傳中...';
+                          google.script.run.withSuccessHandler(fileUploaded)
+                          .uploadFiles(this.parentNode.parentNode.parentNode);
+                          return false;">        
+      </div>
+    </footer></form>
+
+  </div><div class="author"><a href="https://edit-mr.github.io/code/">毛哥EM製作</a></div>
+</div>
+ 
+<script>
+    function fileUploaded(status) {
+console.log(status);
+  document.getElementById("next").setAttribute("value","上傳檔案");
+        alert(status);
+
+    }
+</script>
+</body>
+</html>
