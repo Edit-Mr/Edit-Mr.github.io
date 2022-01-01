@@ -23,7 +23,8 @@
   <script type="text/javascript">
 function goTo(){
 var Date = document.querySelector('#date').value;
-Link = "https://www.bannerch.org/images/media/weekly/weekly-"+ Date.replace('-', '').replace('-','')+".pdf";
+console.log(Date);
+Link = "https://www.bannerch.org/images/media/weekly/weekly-"+ Date.replace('-', '.').replace('-','')+"b.pdf";
 window.open(Link);
 }
 </script>
