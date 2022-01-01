@@ -1,47 +1,50 @@
-# [EM's Base](https://Edit-Mr.github.io)
+# [毛哥EM的基地](https://Edit-Mr.github.io/code)
+歡迎來到我的基地 這裡存放了我的各種網頁專案 希望你們喜歡
+## 3D觸控秤
+> https://edit-mr.github.io/code/weight-with-iPhone/
 
-## Welcome to my base!
+iPhone 6s到iPhone XS Max之間的機型支援3D 觸控。這個網站可以讓你測量可以導電的東西的重量。
+## 國三3畢冊檔案上傳
+> https://script.google.com/macros/s/AKfycbwxcwsSJq06IGJjBOc3X6XKAhFrCrsbVXnDJg8AeObwGlMjAQaA-GfZCoBHFIV1x4gFQw/exec
 
-Here is where I save my codes for apps or sites. Here's some imformation about them. You can take them for any use.
+一個設計來上傳檔案的網站。解決了Line的保存期限、Gmail的檔案大小、雲端硬碟的安全性等限制。
 
-* * *
+## 303電腦課留言系統
+> https://Edit-Mr.github.io/code/303
 
-## VTSH Site Link
+電腦課的自由時間我和同學常常會玩一些線上的io遊戲，不過很多的房間代碼很常，且溝通很不方便。因此我做了這個線上留言板，不用登入、下載軟體即可輕鬆溝通。
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_site_link)
-*   [Blogger](https://emsbase.blogspot.com/2021/06/vtsh-site-link.html)
+## 大眼蛙教練點名系統
+> https://Edit-Mr.github.io/code/
 
-A shortcut that can help you quickly download document or go to pages.
+大眼蛙教練的課程是以堂數做計算，也就是來一次算一次，而不是一段時間。因此每次學生上課都需要簽到，最後還需要人工來統計。因此我做了一個簡單的點名系統，讓電腦來做統計和計算的工作。
 
-## VTSH Class Meet
+## 毛哥EM資訊密技
+> https://EM-Tec.github.io
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_meet_link)
-*   [Blogger](https://emsbase.blogspot.com/2021/06/203-meet-link.html)
+我的個人部落格，分享各種有關科技的軟體及技巧
 
-A shortcut that can help you quickly join Google Meet of that time.
+## 玄順小組視訊會議
+> https://Edit-Mr.github.io/code/meet
 
-## Blogger
+一個使用Jitsi為後端的視訊會議系統，在教會線上小組時使用。有許多其他線上會議系統沒有的功能，如絕不卡頓的分享YouTube影片
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/blogger/)
-*   [Blogger](https://emsbase.blogspot.com/)
+## 旌旗教會週報下載器
+> https://Edit-Mr.github.io/code/weekly
 
-Where I share my project or ideas, that can solve problems and make better ways of life.
+之前青年官網及直播只有提供圖片檔，較不方便利用，不過透過這個網站即可快速下載之前或本週報彩色完整的pdf檔。
 
-## Online Meet
+## 衛道官網連結
+> https://Edit-Mr.github.io/code/sc/vtsh-site-link
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/meet)
-*   [Link](code/meet)
+一個ios捷徑腳本。只須點一下即可快速連結到衛道的網頁或檔案
 
-A online metting site I made for me and my friend.
+## 203Meet連結
+> https://Edit-Mr.github.io/code/sc/vtsh-meet-link
 
-## Weekly Downloader
+在國二在家上課的時候常常忘記記課表及找不到Meet代碼，或著是來不及再去Classroom找。不過透過這個捷徑只要點擊一下即可快速進入當堂課的Google Meet或Classroom					
 
-*   [Github](https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/weekly)
-*   [Link](code/weekly)
-
-Where you can quickly download the weekly document.
-
-* * *
-
-If you appriciae my creation, please consider to buy me a coffee  
-[![](https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:elvismao@ctemplar.com) [![](https://img.shields.io/badge/-elvismao.070512@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white)](https://www.paypal.me/elvismao) ![](https://komarev.com/ghpvc/?username=edit-mr&style=flat-square)
+# 圖標使用
+所有使用的網路資源來自Flaticon
+![bukeicon](https://cdn-teams-slug.flaticon.com/bukeicon.jpg)
+<a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

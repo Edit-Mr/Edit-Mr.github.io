@@ -30,12 +30,14 @@
       <div class="header">
       <h1 class="project-name">303電腦課留言系統</h1>
       <h2 class="project-tagline">
-         <a href="../../" target="_blank">毛哥EM</a>製作(尚未完成)
+         <a href="../../" target="_blank">毛哥EM</a>製作<br />新訊息在上方
       </h2>
       <form action="https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec" method="post">
-         <input type="text"placeholder="顯示名稱" class="text" id="name"  autofocus/>
-         <input type="text" name="msg" placeholder="訊息" id="msg" class="text" required />
-         <button type="button" id="sendOrder" class="btn">發送</button>
+         <input type="text"placeholder="顯示名稱" id="name"  autofocus/>
+         <input type="text" placeholder="訊息" id="msg" />
+         <button type="button" id="sendOrder" class="btn">發送</button><br />
+         <input type="checkbox" id="bubble" />重要標示 | 
+         名稱顏色 <input type="color" value="#1E6BB8" id="color" />
       </form>
       <h1>實用連結</h1>
       <button type="button" class="btn" onclick="window.open('https://shellshock.io/')">Shell Shockers</button>
@@ -85,10 +87,14 @@
                      // 擋住不填資料
                      if (name == "") {
                          $("#name").css("border", "1px solid #ff0000");
+                     } else if (msg == "") {
+                         $("#msg").css("border", "1px solid #ff0000");
                      } else {
                          var data = {
                              name: name,
-                             msg: msg
+                             msg: msg,
+                             color: $("#color").val(),
+                             bubble: $("#bubble").prop("checked")
                          };
                          $.ajax({
                              // 這邊用get type
