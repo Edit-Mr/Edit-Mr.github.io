@@ -19,7 +19,8 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <script type="text/javascript">
+  <p id="link" style=“display:hidden;”></p>
+ <script type="text/javascript">
 //add day
 function addDays(days) {
   Today.setDate(Today.getDate() + days);
@@ -34,6 +35,7 @@ function addDays(days) {
 }
 Today=new Date();
 var SatThis=addDays(6-Today.getDay());
+document.getElementById("link").innerHTML= SatThis;
 document.location.href=SatThis;
     </script>
 </body>
