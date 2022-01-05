@@ -1,4 +1,4 @@
-# [毛哥EM的基地](https://Edit-Mr.github.io/code)
+# [毛哥EM的基地](https://Edit-Mr.github.io)
 歡迎來到我的基地 這裡存放了我的各種網頁專案 希望你們喜歡
 ## 3D觸控秤
 > https://edit-mr.github.io/code/weight-with-iPhone/
