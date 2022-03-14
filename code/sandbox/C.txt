@@ -1,1 +1,4 @@
+ apt update && apt upgrade && apt install python ffmpeg && pip install youtube-dl
+
+
 youtube-dl -x --audio-format mp3 --embed-thumbnail --playlist-start 1 --playlist-end 5 --add-metadata -o '%(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLqTN0oMHPUr_k819C34G67_oFMLftXXtW
