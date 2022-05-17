@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>图文的想法</title>
+        <meta name="author" content="EDM" />
+        <meta name="description" content="一个图文的表现方式" />
+        <meta name="Resource-type" content="Document" />
+        <link rel="stylesheet" type="text/css" href="fullpage.css" />
+        <style>
+            	@CHARSET "ISO-8859-1";
+            /* Reset CSS
+             * --------------------------------------- */
+            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+            form,fieldset,input,textarea,p,blockquote,th,td {
+                padding: 0;
+                margin: 0;
+            }
+            a{
+            	text-decoration:none;
+            }
+            table {
+                border-spacing: 0;
+            }
+            fieldset,img {
+                border: 0;
+            }
+            address,caption,cite,code,dfn,em,strong,th,var {
+                font-weight: normal;
+                font-style: normal;
+            }
+            strong{
+            	font-weight: bold;
+            }
+            ol,ul {
+                list-style: none;
+                margin:0;
+                padding:0;
+            }
+            caption,th {
+                text-align: left;
+
+            }
+            h1,h2,h3,h4,h5,h6 {
+                font-weight: normal;
+                font-size: 100%;
+                margin:0;
+                padding:0;
+                color:#444;
+            }
+            q:before,q:after {
+                content:'';
+            }
+            abbr,acronym { border: 0;
+            }
+
+
+            /* Custom CSS
+             * --------------------------------------- */
+            body{
+            	font-family: arial,helvetica;
+            	color: #333;
+            	color: rgba(0,0,0,0.5);
+            }
+            .wrap{
+            	margin-left: auto;
+            	margin-right: auto;
+            	width: 960px;
+            	position: relative;
+            }
+            h1{
+            	font-size: 6em;
+            }
+            p{
+            	font-size: 1em;
+            }
+            .section{
+            	text-align:center;
+            }
+            #menu li {
+            	display:inline-block;
+            	margin: 10px;
+            	color: #000;
+            	background:#fff;
+            	background: rgba(255,255,255, 0.5);
+            	-webkit-border-radius: 10px;
+                        border-radius: 10px;
+            }
+            #menu li.active{
+            	background:#666;
+            	background: rgba(0,0,0, 0.5);
+            	color: #fff;
+            }
+            #menu li a{
+            	text-decoration:none;
+            	color: #000;
+            }
+            #menu li.active a:hover{
+            	color: #000;
+            }
+            #menu li:hover{
+            	background: rgba(255,255,255, 0.8);
+            }
+            #menu li a,
+            #menu li.active a{
+            	padding: 9px 18px;
+            	display:block;
+            }
+            #menu li.active a{
+            	color: #fff;
+            }
+            #menu{
+            	position:fixed;
+            	top:0;
+            	left:0;
+            	height: 40px;
+            	z-index: 70;
+            	width: 100%;
+            	padding: 0;
+            	margin:0;
+            }
+
+            /* Style for our header texts
+            * --------------------------------------- */
+            h1{
+            	font-size: 4em;
+            	font-family: arial,helvetica;
+            	color: #fff;
+            	margin:0;
+            }
+            h2{font-size: 3em;
+            	font-family: arial,helvetica;
+            	color: #ffffff;
+            	margin:0;}
+
+            .intro{
+            		top: 50%;
+            		transform: translateY(-50%);
+            		position: relative;
+            	}
+            .section p,
+            .intro p{
+            	color: #fff;
+            }
+
+            /* Centered texts in each section
+            * --------------------------------------- */
+            .section{
+            	text-align:center;
+            }
+
+            /* Sections backgrounds
+            * --------------------------------------- */
+            #section4{
+            	background-image: linear-gradient(128deg,#40fff2,#3fbcff);
+            	height: 300px;
+
+            }
+
+
+            	/* Backgrounds will cover all the section
+            	* --------------------------------------- */
+            	#section0,
+            	#section1,
+            	#section2,
+            	#section5,
+                #slide1,
+                #slide2,
+                #slide3,
+                #slide4,
+                #slide5{
+                background-hight:100%;
+            		background-size: cover;
+            		background-attachment: fixed;
+            	}
+
+            	/* Defining each sectino background and styles
+            	* --------------------------------------- */
+            	#section0{
+            		background-image: url(head.jpeg);
+            	}
+
+            	#section1{
+            		background-image: url(regular.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            	#section1 h2{
+            	right: 1%;
+            	transform: translateX(230%);
+            		max-width: 30vw;
+            		text-align: right;
+            		color:#fff
+            		position: relative;
+            		font-size: 1em;
+            	}
+
+            	#section3 h1{
+            		color: #000;
+            	}
+
+
+            	/*Adding background for the slides
+            	* --------------------------------------- */
+            	#slide1{
+            		background-image: url(IMG_0086.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            	#slide2{
+            		background-image: url(IMG_0087.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            		#slide3{
+            		background-image: url(IMG_0088.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            		#slide4{
+            		background-image: url(IMG_0089.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            		#slide5{
+            		background-image: url(IMG_0090.jpeg);
+            		padding: 6% 0 0 0;
+            	}
+            	#section6{
+            	background-image: linear-gradient(128deg,#fc40ff,#543fff);
+            	padding: 1.5em;}
+            	#section3{
+            		background-image: linear-gradient(128deg,#40fff2,#3fbcff);
+            		display: flex;
+                justify-content: space-between;
+            	}
+            	#section3 img{
+            		/*hight:100vh;*/
+            		width: 50%;
+            		margin: 0;
+            	padding: 0;
+            		}
+            		.myContent{
+                    padding: 1em;
+                    size: 2em;
+                  }
+            	.right{
+            		margin: 0;
+            		padding:2em 1em;
+            		width: 50%;
+            		}
+            	#section5{
+            		background-color: #FFF;
+            		padding: 6% 0 0 0;
+            		padding-top:0;
+            	}
+            	#section5 img{
+            	width: 100%;
+            	margin: 0;
+            	padding: 0;}
+
+            	/* Bottom menu
+            	* --------------------------------------- */
+        </style>
+
+        <!--[if IE]>
+            <script type="text/javascript">
+                var console = { log: function () {} };
+            </script>
+        <![endif]-->
+    </head>
+    <body>
+        <ul id="menu">
+            <li data-menuanchor="top"><a href="#top">顶端</a></li>
+            <li data-menuanchor="image"><a href="#image">图文</a></li>
+            <li data-menuanchor="compare"><a href="#compare">差分</a></li>
+            <li data-menuanchor="long"><a href="#long">长文图</a></li>
+            <li data-menuanchor="text"><a href="#text">文字</a></li>
+            <li data-menuanchor="comic"><a href="#comic">漫画</a></li>
+        </ul>
+
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <div class="intro">
+                    <h1>有趣的圖文的想法</h1>
+                    <p>这是一个我突然想到的几个呈现形式 制作简单又可以达到图文并重</p>
+                </div>
+            </div>
+            <div class="section" id="section1"><h2>基路伯正在教弟弟亚契如何进行数据交换，而崇拜着基路伯的亚契希望能够像哥哥一样成为很强的A.I</h2></div>
+            <div class="section" id="section2">
+                <div class="slide" id="slide1"><h1>差分</h1></div>
+                <div class="slide" id="slide2"></div>
+                <div class="slide" id="slide3"></div>
+                <div class="slide" id="slide4"></div>
+                <div class="slide" id="slide5"></div>
+            </div>
+            <div class="section fp-auto-height" id="section3">
+                <img src="texts.jpeg" />
+                <div class="myContent right">
+                    <h2>长图文</h2>
+                    耐力訓練是通過控制射精和高潮來增加克隆人耐力的一種訓練方式，也是對戰士質量進行評級的手段。<br />
+                    通常訓練時長為30分鐘，1小時，2小時，半天，全天，一周。每當戰士能夠在規定時間內不射，便能進入下一個時間更長的訓練任務，並得到對應的"榮譽分數" 。反之若隨意射精，將會受到懲罰，重新開始訓練週期，一個月禁止射精並減低分數。
+                    <br />
+                    榮譽分數越高的個體便能加入更加精英的戰隊，反之，沒有價值的個體將會被剝奪生育權，會遭到閹割並將切下的生殖器放到市場出售，其本身也會淪為商品，或成為有錢人的洩欲工具。
+                </div>
+            </div>
+            <div class="section fp-auto-height" id="section4">
+                <div class="myContent">
+                    <h1>一段文字</h1>
+                    <p>
+                        每段可以视大小缩放方块，如这是一段小文字。图片可放大至全荧幕塞满，也可向下面漫画确保所有内容可呈现。使用这种网页的方式呈现除了可以在不太增加时间成本之下达到自由的排版，图文并重，且可以加入自己想要的动画或效果。重点是不受到平台的条款限制，也无需担心画质被压缩。當然，如果你要的話，也可以插入廣告來獲取收益。
+                    </p>
+                </div>
+            </div>
+            <div class="section fp-auto-height" id="section5"><img src="comic.jpeg" /></div>
+            <div class="section" id="section6">
+            <h2>這是一段佔滿全屏的文字</h2>
+                <p>
+                    给后来画手的一条小心得，也是是写给所有挣扎在数字里的创作者，作为前辈应该给后辈一些帮助：
+                    <br />
+                    粉丝数并不是衡量创作者价值的唯一标准，也不是决定你的生活是否成功和幸福的关键。<br />
+                    任何创作者的作品都有其独到的见解，都有其独特的价值，数字最多也只是市场的表现形式而已，你画的快，有一定基础，主题或角色吸引力强，就会有人看。但请千万别把数字和自己作品的价值挂钩，那更不是你人生的价值。在我心目中每一个画手都很棒，都可以成为我的老师，任何有独到见解，所有在努力的人都值得尊重。
+                    <br />
+                    一个人可以喜欢很多不同的创作者，并不会因为喜欢一个人而讨厌另一个人，同样你也无法控制别人的喜好。
+                    粉丝数比别人少，并不代表画师的水平比别人差。粉丝数比别人多，也不代表你的画技和能力就比别人好。如果你十分幸运的得到了市场的宠幸，那么恭喜你，你将取得商业上的成功，迎合了大众的口味。
+                    <br />
+                    如果相反，也别自责，既不会让你的生活变得悲惨，也不代表你没有价值，只是市场规律而已，别让他毁掉了你的生活和你美丽的头脑。当然如果你想取得商业上的成功的话，不妨试试看在市场和自我表达上寻找一个平衡点。只要你能表达自己的想法，不论是取得商业还是艺术上的成就，或仅仅是为了开心都值得称赞
+                    <br />
+                    不管你怎么做，我想让你们明白，只有你的思想，你的心理健康，在创作中感受到的快乐和创造自己世界的成就感才是最重要的。别人创作什么，得到了什么，跟你没有任何关系。你可以从对方身上学习，甚至成为朋友。这个世界上并不是只存在竞争的二元对立关系，人是一种十分复杂的生物，也是自私的生物。但正是因为我们懂得合作，懂得欣赏彼此的差异，分享彼此的情感，才是人类的闪光点。如果你对竞争感到疲惫，不妨问问自己：究竟我想成为什么样的人，想做什么事情，别人所追求的成功真的是我想要的成功吗，别人所追求的成功是成功的唯一可能性吗？是否还有其它选择和路径呢？
+                    <br />
+                    就像海明威说过的：真正的高贵不是比别人优越，而是超越过去的自己 。
+                    <br />
+                    最后：
+                    <br />
+                    希望所有朋友能够专注于自己的成长和提升，自己的情绪快乐和健康，同时请记住：兽圈也不是你人生的全部，那只是你兴趣生活中的一部分而已，请多多照顾身边那些在意你的人和你在意的人。
+                </p>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="fullpage.js"></script>
+
+        <script type="text/javascript">
+            var myFullpage = new fullpage("#fullpage", {
+                anchors: ["top", "image", "compare", "long", "text", "comic", "p"],
+                menu: "#menu",
+                verticalCentered: false,
+                navigation: true,
+                //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+                css3: false,
+            });
+        </script>
+    </body>
+</html>
