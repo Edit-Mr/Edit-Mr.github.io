@@ -23,6 +23,7 @@ h1 {
   line-height: 1em;
   text-align: center;
   color: #4dc3fa;
+  max-width: 90%;
 }
 
 h2 {
