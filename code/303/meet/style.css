@@ -13,17 +13,24 @@ body {
   line-height: 1.42em;
   color: #a7a1ae;
   background-color: #1f2739;
-  text-align:  center;
+  text-align: center;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 h1 {
-  margin:1em;
+  margin: 2vw;
+  margin-top: 1em;
   font-size: 3em;
   font-weight: 300;
   line-height: 1em;
   text-align: center;
   color: #4dc3fa;
   max-width: 90%;
+}
+
+#title {
+  width: 100vw;
 }
 
 h2 {
@@ -43,6 +50,7 @@ h3 {
   line-height: 1em;
   color: #fb667a;
 }
+
 h2 a {
   font-weight: 700;
   text-transform: uppercase;
@@ -53,6 +61,7 @@ h2 a {
 .blue {
   color: #185875;
 }
+
 .yellow {
   color: #fff842;
 }
@@ -71,9 +80,10 @@ h2 a {
   -moz-box-shadow: 0 2px 2px -2px #0e1119;
   box-shadow: 0 2px 2px -2px #0e1119;
 }
-td a{
+
+td a {
   text-decoration: none;
-   color: #a7a1ae;
+  color: #a7a1ae;
 
 }
 
@@ -129,4 +139,12 @@ td a{
   transition-duration: 0.4s;
   transition-property: all;
   transition-timing-function: line;
+}
+
+@media all and (max-width: 600px) {
+  .yellow {
+    display: block;
+    width: 100vw;
+    padding: 0px;
+  }
 }

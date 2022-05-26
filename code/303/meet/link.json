@@ -43,7 +43,7 @@
     "數學": "manual",
     "生物": "fcp6vlhghk",
     "英語": "cdv5zmsbpt"
-     },
+  },
   "num": {
     "1": "1ST",
     "2": "2ND",
@@ -51,8 +51,8 @@
     "4": "4TH",
     "5": "5TH",
     "0": "HOME"
-     },
-    "url": {
+  },
+  "url": {
     "班級經營": "Mzc0NzI4MjQ5NjYy",
     "國文": "Mzc0NTUwNTIwMzg2",
     "地科": "Mzc0MjQ3OTMxOTcy",
@@ -64,5 +64,5 @@
     "數學": "NzAyNzkwNzcxNDda",
     "生物": "Njg4MzAyNjM4MDFa",
     "英語": "NjkyNzg3MzMzNjda"
-     }
+  }
 }
