@@ -1,41 +1,45 @@
 <!DOCTYPE html>
+
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-9R5PZG2VQG');
-</script>
+    gtag('config', 'G-9R5PZG2VQG');
+  </script>
   <meta charset="utf-8">
   <title>本週旌旗青年週報</title>
   <meta name="description" content="輕鬆下載旌旗本週旌旗青年週報pdf檔">
   <meta name="keywords" content="旌旗教會, Edit Mr., 週報">
   <meta name="author" content="Elvis Mao">
+
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <p id="link" style=“size: 100px;”></p>
- <script type="text/javascript">
-//add day
-function addDays(days) {
-  Today.setDate(Today.getDate() + days);
-      var Month=Today.getMonth()+1;
-    if(Month<10){
-    Month=""+0+Month;}
-    var Day=Today.getDate();
-    if(Day<10){
-    Day=""+0+Day;}
-    var link="https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + "."+ Month + Day + "b.pdf";
-    return link;
-}
-Today=new Date();
-var SatThis=addDays(6-Today.getDay());
-document.getElementById("link").innerHTML= "跳轉中...";
-document.location.href=SatThis;
-    </script>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <h1 id="link"></h1>
+  <script type="text/javascript">
+    //add day
+    function addDays(days) {
+      Today.setDate(Today.getDate() + days);
+      var Month = Today.getMonth() + 1;
+      if (Month < 10) {
+        Month = "" + 0 + Month;
+      }
+      var Day = Today.getDate();
+      if (Day < 10) {
+        Day = "" + 0 + Day;
+      }
+      var link = "https://www.bannerch.org/images/media/weekly/weekly-" + Today.getFullYear() + Month + Day + "b.pdf";
+      return link;
+    }
+    Today = new Date();
+    var SatThis = addDays(6 - Today.getDay());
+    document.getElementById("link").innerHTML = "跳轉中...";
+    document.location.href = SatThis;
+  </script>
 </body>
