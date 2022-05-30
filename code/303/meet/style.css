@@ -149,4 +149,17 @@ td a {
     width: 100vw;
     padding: 0px;
   }
+  body {
+    font-weight: 100;
+  }
+  .container td {
+    font-size: 0.5em;
+  }
+  h1 {
+    font-size: 1.5em;
+  }h2 {
+    font-size: 1em;
+  }h3 {
+    font-size: 0.5em;
+  }
 }
