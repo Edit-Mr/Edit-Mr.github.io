@@ -161,5 +161,10 @@ td a {
     font-size: 1em;
   }h3 {
     font-size: 0.5em;
+    line-height: 2em;
+
+  }
+  .container th h1 {
+    font-size: 1em;
   }
 }
