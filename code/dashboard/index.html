@@ -1571,9 +1571,17 @@
     }();
 
     !function () {
-        var data = [
-            { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-            { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
+        var dataUrl= "https://script.google.com/macros/s/AKfycbzuxYaENoUYk36N_CO4NR8MKL8UQR6KpW54E3xHxhtm3aB1EHQMSzqQAZESFwuVM2QPoA/exec"
+var xhr = new XMLHttpRequest()
+xhr.open('GET',dataUrl, true)
+xhr.send()
+xhr.onload = function(){
+    var data = JSON.parse(this.responseText);
+    console.log(data);
+}
+        /*var data = [
+            { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange',date:1 },
+            { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange',date:1 },
             { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
             { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
 
@@ -1592,7 +1600,7 @@
             { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
             { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
         ];
-
+*/
 
 
         function addDate(ev) {
