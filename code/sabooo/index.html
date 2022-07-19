@@ -37,10 +37,16 @@
             font-size: 25px;
         }
 
-        h1 {
-            font-size: 26px;
-            margin: 20px 0;
+        h2{
+            font-size: 20px;
+            margin: 0;
             text-align: center;
+        }
+        h1{
+            font-size: 30px;
+            margin: 20px 0 0 0;
+            text-align: center;
+            size:30px;
         }
 
         .responsive-table li {
@@ -128,11 +134,12 @@
 <body>
     <div class="container">
         <h1>薩波2022委託與贈圖表</h1>
+<h2>這些不代表畫的順序 會跳著畫</h2>
         <img src="header.png" class="header" />
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col col-1">委託人姓名</div>
-                <div class="col col-2">委託項目</div>
+                <div class="col col-2"++>委託項目</div>
                 <div class="col col-3">付款狀態</div>
                 <div class="col col-4">進度狀態</div>
             </li>
@@ -146,23 +153,31 @@
                 <div class="col col-1" data-label="委託人姓名">奧古斯</div>
                 <div class="col col-2" data-label="委託項目">贈圖</div>
                 <div class="col col-3" data-label="付款狀態">贈禮</div>
-                <div class="col col-4 finished" data-label="進度狀態">完成</div>
+                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
             </li>
             <li class="table-row">
                 <div class="col col-1" data-label="委託人姓名">魚蝦</div>
                 <div class="col col-2" data-label="委託項目">單人Q圖</div>
                 <div class="col col-3" data-label="付款狀態">現金</div>
-                <div class="col col-4 finished" data-label="進度狀態">完成</div>
+                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
             </li>
             <li class="table-row">
                 <div class="col col-1" data-label="委託人姓名">三角形</div>
                 <div class="col col-2" data-label="委託項目">單人Q圖</div>
                 <div class="col col-3" data-label="付款狀態">物換圖</div>
-                <div class="col col-4 finished" data-label="進度狀態">完成</div>
+                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
             </li>
         </ul>
         <p><a href="">薩波FB</a> <a href="">薩波IG</a> <a href="">橘子牌太空船</a><br />Made by <a href="">EDM</a> with❤</p>
     </div>
     <script>
+        let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";
+            let request = new XMLHttpRequest();
+            request.open("GET", requestURL);
+            request.responseType = "text";
+            request.send();
+            request.onload = function () {
+                document.querySelector( '.responsive' ).append(request.response)
+            };
     </script>
 </body>
