@@ -1,7 +1,6 @@
 <!-- import aframe and then ar.js with image tracking / location based features -->
-<script
-  src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="aframe-master.min.js"></script>
+<script src="aframe-ar-nft.js"></script>
 
 <!-- style for the loader -->
 <style>
@@ -37,8 +36,8 @@
     <!-- 图片训练后文件路径，不带文件拓展名！ -->
     <a-nft type="nft" url="code/303/ar/book/1" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
       <!-- 展示模型的路径 -->
-      <a-entity gltf-model='https://edit-mr.github.io/code/303/ar/model/smoking_boy/scene.gltf' scale="50 50 50"
-        gesture-handler="minScale: 0.25; maxScale: 10" position="100 0 -200" rotation="-90 0 0">
+      <a-entity gltf-model="model/smoking_boy/scene.gltf" gesture-handler="minScale: 0.25; maxScale: 10"
+        position="0 0 0" scale="1 1 1">
       </a-entity>
     </a-nft>
     <!-- static camera that moves according to the device movemenents -->
