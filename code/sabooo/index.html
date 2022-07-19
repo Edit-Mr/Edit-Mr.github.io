@@ -144,42 +144,20 @@
                 <div class="col col-3">付款狀態</div>
                 <div class="col col-4">進度狀態</div>
             </li>
-            <li class="table-row">
-                <div class="col col-1" data-label="委託人姓名">尼亞</div>
-                <div class="col col-2" data-label="委託項目">塔羅牌</div>
-                <div class="col col-3" data-label="付款狀態">現金</div>
-                <div class="col col-4" data-label="進度狀態">急單(加錢)</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-1" data-label="委託人姓名">奧古斯</div>
-                <div class="col col-2" data-label="委託項目">贈圖</div>
-                <div class="col col-3" data-label="付款狀態">贈禮</div>
-                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-1" data-label="委託人姓名">魚蝦</div>
-                <div class="col col-2" data-label="委託項目">單人Q圖</div>
-                <div class="col col-3" data-label="付款狀態">現金</div>
-                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-1" data-label="委託人姓名">三角形</div>
-                <div class="col col-2" data-label="委託項目">單人Q圖</div>
-                <div class="col col-3" data-label="付款狀態">物換圖</div>
-                <div class="col col-4 finished" data-label="進度狀態">✅完成</div>
-            </li>
         </ul>
         <p><a href="">薩波FB</a> <a href="">薩波IG</a> <a href="">橘子牌太空船</a><br />Made by <a href="">EDM</a> with❤</p>
     </div>
     <script>
-   
+   console.log("hi");
         let requestURL = "https://script.google.com/macros/s/AKfycbxq942U9fZK5tR6Vi1OZkr5Hq0Bv_qPSm1rOOYFFZUS_vyrTu60QuW7xmU-d09UpI1XLQ/exec";
             let request = new XMLHttpRequest();
             request.open("GET", requestURL);
             request.responseType = "text";
+            console.log("hi111");
             request.send();
             request.onload = function () {
-                $(".responsive").html(request.response);
+                console.log(request.response);
+                $(".responsive-table").html(request.response);
             };
     </script>
 </body>
