@@ -172,13 +172,14 @@
         <p><a href="">薩波FB</a> <a href="">薩波IG</a> <a href="">橘子牌太空船</a><br />Made by <a href="">EDM</a> with❤</p>
     </div>
     <script>
-        let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";
+   
+        let requestURL = "https://script.google.com/macros/s/AKfycbxq942U9fZK5tR6Vi1OZkr5Hq0Bv_qPSm1rOOYFFZUS_vyrTu60QuW7xmU-d09UpI1XLQ/exec";
             let request = new XMLHttpRequest();
             request.open("GET", requestURL);
             request.responseType = "text";
             request.send();
             request.onload = function () {
-                document.querySelector( '.responsive' ).append(request.response)
+                $(".responsive").html(request.response);
             };
     </script>
 </body>
