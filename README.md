@@ -1,7 +1,6 @@
 # [毛哥EM的基地](https://Edit-Mr.github.io)
   歡迎來到我的基地 這裡存放了我的各種網頁專案 希望你們喜歡 以下列出幾個：
-<img alt="aaa" src="https://img.shields.io/github/workflow/status/Edit-Mr
-/Edit-Mr.github.io/build?style=flat-square&labelColor=343b41"/> <img alt="Stars" src="https://img.shields.io/github/stars/Edit-Mr/Edit-Mr.github.io?style=flat-square&labelColor=343b41"/> <img alt="Forks" src="https://img.shields.io/github/forks/Edit-Mr/Edit-Mr.github.io?style=flat-square&labelColor=343b41"/>
+
 ## 3D觸控秤
 > https://edit-mr.github.io/code/weight-with-iPhone/
 
