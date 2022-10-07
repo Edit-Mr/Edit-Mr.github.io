@@ -2,7 +2,7 @@
 <html>
 
 <head>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,12 +24,25 @@
             font-family: sans-serif;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: none;
+            -moz-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        a {
+            color: #C1EFF6
         }
 
         .settings-box {
             position: relative;
-            height: 310px;
-            width: 500px;
+            height: 450px;
+            width: 400px;
             background: #21C3E0;
             border-radius: 20px;
             position: absolute;
@@ -38,6 +51,7 @@
             left: 0;
             right: 0;
             margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
 
         .header {
@@ -53,7 +67,7 @@
             margin: 45px 0 0 50px;
         }
 
-        .history {
+        .choose {
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -63,13 +77,13 @@
             color: #C1EFF6;
             font-weight: 700;
             margin-left: 50px;
-            font-size: 14px;
-            display: flex;  
-            align-items: center;  
+            font-size: 18px;
+            display: flex;
+            align-items: center;
         }
 
         hr {
-	margin-top: 10px;
+            margin-top: 10px;
             border: 1px solid rgba(124, 226, 255, 0.3);
             margin-left: 50px;
         }
@@ -123,14 +137,14 @@
         }
 
         .toggle-inner:before {
-            content: "Yes";
+            content: "開啟";
             padding-left: 10px;
             background-color: #1AB0CA;
             color: #FFFFFF;
         }
 
         .toggle-inner:after {
-            content: "No";
+            content: "關閉";
             padding-right: 13px;
             background-color: #ddd;
             color: #999999;
@@ -157,40 +171,82 @@
         .toggle-checkbox:checked+.toggle-label .toggle-switch {
             right: 0px;
         }
+
+        .bar {
+            height: 4px;
+            width: 80px;
+            border-radius: 4px;
+            background: #1397b3;
+            margin: 20px 0px 20px 50px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
         /*https://codepen.io/joshbivens/pen/vNYXzV*/
     </style>
 </head>
 
-<body>
-      <!-- Google Tag Manager (noscript) -->
+<body id="content">
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="app"></div>
     <div class="settings-box">
         <div class="header">
-            <h3>鏡頭畫面檢視</h3>
+            <h3>EM-SFW</h3>
         </div>
-        <div class="history">
-	<p>毛哥EM製作 若有更改視窗大小請重新載入</p></div><div class="history">
-	<p>按空白建開啟/關閉此選單</p></div>
-
+        <div class="choose">
+            <p>鏡頭檢視工具 毛哥EM製作</p>
+        </div>
+        <div class="bar"></div>
+        <div class="choose">
+            <p>若有更改視窗大小請重新載入</p>
+        </div>
+        <div class="choose">
+            <p>按z開啟/關閉此選單&nbsp;|&nbsp;<a href="">使用教學</a></p>
+        </div>
         <hr>
-        <div class="history">
+        <div class="choose">
             <p>隱藏超出畫面</p>
             <div class="toggle">
-                <input id="toggle" class="toggle-checkbox" type="checkbox" />
-                <label for="toggle" class="toggle-label">
+                <input id="overflow" class="toggle-checkbox" type="checkbox" checked
+                    onclick="if(overflow==1){overflow=0;getElementById('content').style.overflow = 'scroll'} else {overflow=1;getElementById('content').style.overflow = 'hidden';}" />
+                <label for="overflow" class="toggle-label">
                     <span class="toggle-inner"></span>
                     <span class="toggle-switch"></span>
                 </label>
             </div>
         </div>
-        <div class="history">
+        <div class="choose">
             <p>強制拉成視窗大小</p>
             <div class="toggle">
-                <input id="toggle" class="toggle-checkbox" type="checkbox" />
-                <label for="toggle" class="toggle-label">
+                <input id="window" class="toggle-checkbox" type="checkbox"
+                    onclick="if(mode==1){mode=0;getElementById('vid').style.display = 'none';getElementById('canvas').style.display = 'block';} else {mode=1;getElementById('vid').style.display = 'block';getElementById('canvas').style.display = 'none';}" />
+                <label for="window" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+        </div>
+        <div class="choose">
+            <p>垂直翻轉</p>
+            <div class="toggle">
+                <input id="yFlip" class="toggle-checkbox" type="checkbox"
+                    onclick="if(yFlip==1){yFlip=0;getElementById('app').setAttribute('style', '-moz-transform:scaleY(-1);-webkit-transform:scaleY(-1);-o-transform:scaleY(-1);transform:scaleY(-1);')} else {yFlip=1;getElementById('app').setAttribute('style', '-moz-transform:scaleY(1);-webkit-transform:scaleY(1);-o-transform:scaleY(1);transform:scaleY(1);')}" />
+                <label for="yFlip" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+        </div>
+        <div class="choose">
+            <p>水平翻轉</p>
+            <div class="toggle">
+                <input id="xFlip" class="toggle-checkbox" type="checkbox"
+                    onclick="if(xFlip==1){xFlip=0;getElementById('app').setAttribute('style', '-moz-transform:scaleX(-1);-webkit-transform:scaleX(-1);-o-transform:scaleX(-1);transform:scaleX(-1);')} else {xFlip=1;getElementById('app').setAttribute('style', '-moz-transform:scaleX(1);-webkit-transform:scaleX(1);-o-transform:scaleX(1);transform:scaleX(1);')}" />
+                <label for="xFlip" class="toggle-label">
                     <span class="toggle-inner"></span>
                     <span class="toggle-switch"></span>
                 </label>
@@ -205,6 +261,7 @@
                 facingMode: "user"
             }
         };
+        var status = 1, mode = 1, overflow = 1, xFlip = 1, yFlip = 1;
 
         const getFrameFromVideo = (video, canvas) => {
             const ctx = canvas.getContext("2d");
@@ -262,26 +319,37 @@
     <script language="javascript">
         //偵測瀏覽器版本
         var browser = navigator.appName;
-        var box = document.querySelector('#vid');
+        var box = document.querySelector('.settings-box');
         if (browser == "Netscape") {    //如果瀏覽器為Netscape或者Firefox
             //開始監聽鍵盤事件
             document.captureEvents(Event.KEYDOWN)
             document.onkeydown = function (event) {
-                if (event.which == 32) {
-                    //key code 37為→
-                    alert("你按下了下一頁");
-                    box.style.display = "none";
+                if (event.which == 90) {
+                    if (status == 1) {
+                        box.style.display = "none";
+                        status = 0;
+                    } else {
+                        box.style.display = "block";
+                        status = 1;
+                    }
                 }
             }
         }
         else {    //假設瀏覽器不為Nescape則猜測為ie
             //開始監聽鍵盤事件
             document.onkeydown = function () {
-                if (event.whitch == 32) {
-                    //key code 37為→
+                if (event.whitch == 90) {
+                    if (status == 1) {
+                        box.style.display = "none";
+                        status = 0;
+                    } else {
+                        box.style.display = "block";
+                        status = 1;
+                    }
                 }
             }
         }
+
     </script>
 </body>
 
