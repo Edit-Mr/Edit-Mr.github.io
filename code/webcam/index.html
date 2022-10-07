@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>鏡頭畫面|毛哥EM的基地</title>
+    <meta charset="UTF-8" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body, html {
+            font-family: sans-serif;
+            width:100%;
+            height:100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const constraints = {
+            audio: false,
+            video: {
+                facingMode: "user"
+            }
+        };
+
+        const getFrameFromVideo = (video, canvas) => {
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(video.width, 0);
+            ctx.scale(-1, 1);
+            ctx.drawImage(video, 0, 0, video.width, video.height);
+            ctx.restore();
+            requestAnimationFrame(() => getFrameFromVideo(video, canvas));
+        };
+
+        const getCameraStream = video => {
+            navigator.mediaDevices
+                .getUserMedia(constraints)
+                .then(function success(stream) {
+                    video.srcObject = stream;
+                });
+        };
+
+        const createVideo = (id, width, height) => {
+            const video = document.createElement("video");
+            video.id = id;
+            video.width = width;
+            video.height = height;
+            video.autoplay = true;
+            video.controls = true;
+            return video;
+        };
+
+        const createCanvas = (id, width, height) => {
+            const canvas = document.createElement("canvas");
+            canvas.id = id;
+            canvas.width = width;
+            canvas.height = height;
+            return canvas;
+        };
+
+        const init = () => {
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            const video = createVideo("vid", windowWidth, windowHeight);
+            const canvas = createCanvas("canvas", windowWidth, windowHeight);
+            const app = document.getElementById("app");
+            getCameraStream(video);
+            getFrameFromVideo(video, canvas);
+            app.appendChild(video);
+            app.appendChild(canvas);
+            console.log("init");
+        };
+
+        document.getElementById("app").onload = init();
+        
+    </script>
+<script language="javascript">
+    //偵測瀏覽器版本
+    var browser=navigator.appName;
+    var box = document.querySelector('#vid');
+    if(browser=="Netscape"){    //如果瀏覽器為Netscape或者Firefox
+        //開始監聽鍵盤事件
+        document.captureEvents(Event.KEYDOWN)
+        document.onkeydown=function(event){
+            if(event.which==32){
+                //key code 37為→
+                alert("你按下了下一頁");
+                box.style.display = "none";
+            }
+        }
+    }
+    else{    //假設瀏覽器不為Nescape則猜測為ie
+        //開始監聽鍵盤事件
+        document.onkeydown = function(){
+            if(event.whitch==32){
+                //key code 37為→
+                alert("你按下了下一頁");
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
