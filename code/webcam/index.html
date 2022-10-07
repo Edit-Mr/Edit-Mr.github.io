@@ -9,16 +9,175 @@
             padding: 0;
             margin: 0;
         }
-        body, html {
+
+        body,
+        html {
             font-family: sans-serif;
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
         }
 
+        .settings-box {
+            position: relative;
+            height: 310px;
+            width: 500px;
+            background: #21C3E0;
+            border-radius: 20px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .header {
+            position: relative;
+            display: block;
+            float: left;
+            font-family: 'Arimo', sans-serif;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 2.5em;
+            margin: 45px 0 0 50px;
+        }
+
+        .history {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            color: #C1EFF6;
+            font-weight: 700;
+            margin-left: 50px;
+            font-size: 14px;
+        }
+
+        hr {
+            border: 1px solid rgba(124, 226, 255, 0.3);
+            margin-left: 50px;
+        }
+
+        .hover {
+            background: #61d5ee;
+        }
+
+        .selected {
+            background: #1AB0CA;
+        }
+
+        .toggle {
+            margin: 5px 40px;
+            position: relative;
+            width: 77px;
+            user-select: none;
+        }
+
+        .toggle-checkbox {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .toggle-label {
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 18px;
+        }
+
+        .toggle-inner {
+            display: block;
+            width: 200%;
+            margin-left: -100%;
+            transition: margin 0.3s ease-in 0s;
+        }
+
+        .toggle-inner:before,
+        .toggle-inner:after {
+            display: block;
+            float: left;
+            width: 50%;
+            height: 34px;
+            padding: 0;
+            line-height: 34px;
+            font-size: 14px;
+            color: white;
+            box-sizing: border-box;
+            font-weight: 600;
+        }
+
+        .toggle-inner:before {
+            content: "Yes";
+            padding-left: 10px;
+            background-color: #1AB0CA;
+            color: #FFFFFF;
+        }
+
+        .toggle-inner:after {
+            content: "No";
+            padding-right: 13px;
+            background-color: #ddd;
+            color: #999999;
+            text-align: right;
+        }
+
+        .toggle-switch {
+            display: block;
+            width: 27px;
+            height: 27px;
+            margin: 5px;
+            background: #FFFFFF;
+            position: absolute;
+            bottom: -2px;
+            right: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease-in 0s;
+        }
+
+        .toggle-checkbox:checked+.toggle-label .toggle-inner {
+            margin-left: 0;
+        }
+
+        .toggle-checkbox:checked+.toggle-label .toggle-switch {
+            right: 0px;
+        }
+        /*https://codepen.io/joshbivens/pen/vNYXzV*/
     </style>
 </head>
+
 <body>
     <div id="app"></div>
+    <div class="settings-box">
+        <div class="header">
+            <h3>video</h3>
+        </div>
+        <hr>
+        <div class="history">
+            <p>save video history</p>
+            <div class="toggle">
+                <input id="toggle" class="toggle-checkbox" type="checkbox" />
+                <label for="toggle" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div class="history">
+            <p>save video history</p>
+            <div class="toggle">
+                <input id="toggle" class="toggle-checkbox" type="checkbox" />
+                <label for="toggle" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+        </div>
+    </div>
 
     <script>
         const constraints = {
@@ -79,32 +238,31 @@
         };
 
         document.getElementById("app").onload = init();
-        
+
     </script>
-<script language="javascript">
-    //偵測瀏覽器版本
-    var browser=navigator.appName;
-    var box = document.querySelector('#vid');
-    if(browser=="Netscape"){    //如果瀏覽器為Netscape或者Firefox
-        //開始監聽鍵盤事件
-        document.captureEvents(Event.KEYDOWN)
-        document.onkeydown=function(event){
-            if(event.which==32){
-                //key code 37為→
-                alert("你按下了下一頁");
-                box.style.display = "none";
+    <script language="javascript">
+        //偵測瀏覽器版本
+        var browser = navigator.appName;
+        var box = document.querySelector('#vid');
+        if (browser == "Netscape") {    //如果瀏覽器為Netscape或者Firefox
+            //開始監聽鍵盤事件
+            document.captureEvents(Event.KEYDOWN)
+            document.onkeydown = function (event) {
+                if (event.which == 32) {
+                    //key code 37為→
+                    alert("你按下了下一頁");
+                    box.style.display = "none";
+                }
             }
         }
-    }
-    else{    //假設瀏覽器不為Nescape則猜測為ie
-        //開始監聽鍵盤事件
-        document.onkeydown = function(){
-            if(event.whitch==32){
-                //key code 37為→
-                alert("你按下了下一頁");
+        else {    //假設瀏覽器不為Nescape則猜測為ie
+            //開始監聽鍵盤事件
+            document.onkeydown = function () {
+                if (event.whitch == 32) {
+                    //key code 37為→
+                }
             }
         }
-    }
     </script>
 </body>
 
