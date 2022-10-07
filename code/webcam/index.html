@@ -69,6 +69,7 @@
         }
 
         hr {
+	margin-top: 10px;
             border: 1px solid rgba(124, 226, 255, 0.3);
             margin-left: 50px;
         }
@@ -168,11 +169,15 @@
     <div id="app"></div>
     <div class="settings-box">
         <div class="header">
-            <h3>鏡頭畫面 By毛哥EM</h3>
+            <h3>鏡頭畫面檢視</h3>
         </div>
+        <div class="history">
+	<p>毛哥EM製作 若有更改視窗大小請重新載入</p></div><div class="history">
+	<p>按空白建開啟/關閉此選單</p></div>
+
         <hr>
         <div class="history">
-            <p>save video history</p>
+            <p>隱藏超出畫面</p>
             <div class="toggle">
                 <input id="toggle" class="toggle-checkbox" type="checkbox" />
                 <label for="toggle" class="toggle-label">
@@ -181,9 +186,8 @@
                 </label>
             </div>
         </div>
-        <hr>
         <div class="history">
-            <p>save video history</p>
+            <p>強制拉成視窗大小</p>
             <div class="toggle">
                 <input id="toggle" class="toggle-checkbox" type="checkbox" />
                 <label for="toggle" class="toggle-label">
