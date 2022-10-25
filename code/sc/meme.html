@@ -1,0 +1,14 @@
+Loading...
+<script>  window.onload = () => {
+    let requestURL = "https://meme-api.herokuapp.com/gimme";
+    let request = new XMLHttpRequest();
+    request.open("GET", requestURL);        
+    request.responseType = "json";
+    request.send();
+    request.onload = function () {
+     var data = request.response;
+     document.location.href = data.url;
+
+    };
+   };
+</script>
