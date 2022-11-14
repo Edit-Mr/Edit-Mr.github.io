@@ -3,43 +3,18 @@
     <head>
       	
 	<meta charset="utf-8">
-	<title>毛哥EM Line進階服務</title>
-        <base target="_top" />
-        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-        <script>
-            var liffID = "1656564267-XlA7y2d2";
-
-            liff.init({
-                liffId: liffID,
-            })
-                .then(function () {
-                    console.log("LIFF init");
-                    // 這邊開始寫使用其他功能
-                    // 傳送訊息
-                    // type 的可用值說明：https://developers.line.biz/en/reference/liff/#send-messages
-                    liff.sendMessages([
-                        {
-                            type: 'text',
-                            text: "test",
-                        },
-                    ])
-                        .then(function (res) {
-                            console.log(res);
-                            liff.closeWindow();
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        </script>
     </head>
-    <body style="background: hsl(204 100% 5%); min-block-size: 100%; min-inline-size: 100%; box-sizing: border-box; display: grid; place-content: center; font-family: system-ui; font-size: min(200%, 5vmin);">
-        <article style="background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;">
-            <h1 style="font-size: 10vmin; line-height: 1.1;">毛哥EM Line進階服務</h1>
-            <p>正在發送</p>
-        </article>
+    <body>
+        <div style="width:500px;height:200px;background-image: url('https://edit-mr.github.io/code/sc/meme.html') !important;
+        box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+        0 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;
+        border-radius:25px;
+        background:transparent;
+        backdrop-filter: blur(20px) brightness(100%) saturate(50%);
+        -webkit-backdrop-filter: blur(20px) brightness(100%) saturate(50%);
+        border:none;
+        pointer-events: none;"></div>
     </body>
+
 </html>
