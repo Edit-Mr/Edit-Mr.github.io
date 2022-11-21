@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <title>CANVAS TO VIDEO FAILS ON SAFARI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    </style>
+</head>
+
+<body>
+    <main class="row">
+        <figure>
+            <canvas id="canvas" width="500" height="500"></canvas><br>
+            <caption>This is a <code>canvas</code> element</caption>
+        </figure>
+        <figure>
+            <video id="video" loop></video><br>
+            <caption>This is a <code>video</code> element</caption>
+        </figure>
+    </main>
+    <script>
+        window.onload = function () {
+            var video = document.getElementById('video'), canvas = document.getElementById('canvas'), width = canvas.width, height = canvas.height, capturing = false;
+            video.width = width;
+            video.height = height;
+            var ctx = canvas.getContext('2d');
+            ctx.font = "30px 標楷體" //設定文字字型 大小
+            ctx.textAlign = "end";
+            var i = 5;
+            update();
+            function finishCapturing(e) {
+                capturing = false;
+                var videoData = [e.data];
+                var blobby = new Blob(videoData, { 'type': 'video/mp4' });
+                console.log(blobby);
+                var videoURL = URL.createObjectURL(blobby);
+                video.src = videoURL;
+                i++;
+                update();
+            }
+            function update() {
+                ctx.fillStyle = '#ffecd1';
+                ctx.fillRect(0, 0, width, height);
+                ctx.beginPath();
+                ctx.arc(width - 10, 100, 30, 0, 2 * Math.PI);
+                cxt.fillStyle="red";//填充颜色,默认是黑色
+                cxt.fill();//画实心圆
+                ctx.stroke();
+                ctx.fillStyle = "#15616d"; //設定文字填滿顏色
+                ctx.fillText("54", width - 5, 100);  //填滿文字
+                ctx.fillStyle = "#ff7d00"; //設定文字填滿顏色
+                ctx.fillText(i, width - 5, 150);  //填滿文字
+                ctx.fillStyle = "#15616d"; //設定文字填滿顏色
+                ctx.fillText("分", width - 5, 200);  //填滿文字
+                var pixels = ctx.getImageData(0, 0, width, height);
+                var data = pixels.data;
+                var numPixels = data.length;
+                var stream = canvas.captureStream(15);
+                var recorder = new MediaRecorder(stream, { 'type': 'video/mp4' });
+                recorder.addEventListener('dataavailable', finishCapturing);
+                recorder.start();
+                setTimeout(function () {
+                    recorder.stop();
+                }, 500);
+                console.log(i);
+
+            }
+        };</script>
+</body>
