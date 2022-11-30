@@ -25,7 +25,7 @@
             video.width = width;
             video.height = height;
             var ctx = canvas.getContext('2d');
-            ctx.font = "30px 標楷體" //設定文字字型 大小
+            ctx.font = "30px 微軟正黑體" //設定文字字型 大小
             ctx.textAlign = "end";
             var i = 5;
             update();
@@ -39,19 +39,26 @@
                 i++;
                 update();
             }
+            //0D3B66
+            //FAF0CA
+            //F4D35E
+            //EE964B
+            //F95738
             function update() {
-                ctx.fillStyle = '#ffecd1';
+                ctx.fillStyle = '#FAF0CA';
                 ctx.fillRect(0, 0, width, height);
                 ctx.beginPath();
-                ctx.arc(width - 10, 100, 30, 0, 2 * Math.PI);
-                cxt.fillStyle="red";//填充颜色,默认是黑色
-                cxt.fill();//画实心圆
-                ctx.stroke();
+                ctx.fillStyle="#EE964B";//填充颜色,默认是黑色
+                ctx.arc(width - 23, 90, 18, 0, 2 * Math.PI);
+                ctx.fill();//画实心圆
+          
                 ctx.fillStyle = "#15616d"; //設定文字填滿顏色
-                ctx.fillText("54", width - 5, 100);  //填滿文字
+                ctx.font = "25px 微軟正黑體" //設定文字字型 大小
+                ctx.fillText("54", width - 8, 100);  //填滿文字
                 ctx.fillStyle = "#ff7d00"; //設定文字填滿顏色
+                ctx.font = "30px 微軟正黑體" //設定文字字型 大小
                 ctx.fillText(i, width - 5, 150);  //填滿文字
-                ctx.fillStyle = "#15616d"; //設定文字填滿顏色
+                ctx.fillStyle = "#0D3B66"; //設定文字填滿顏色
                 ctx.fillText("分", width - 5, 200);  //填滿文字
                 var pixels = ctx.getImageData(0, 0, width, height);
                 var data = pixels.data;
