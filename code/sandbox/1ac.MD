@@ -33,8 +33,9 @@ One reason is the low birth rate. According to the analysis of the Legislative Y
 
 #### The problems lying in current training
 
-1. For mandotary soldiers, the time of training is not enough and short. According to..., ... .
-2. Training plans is ineffective.
+1. For mandotary soldiers, the time of training is not enough and short. 
+According to [statista](https://www.statista.com/chart/20418/most-powerful-militaries/), the US has the most powerful military, next goes to Russia, then China. According the US government, their military services varies between services but most first enlistments are for 3 to 4 years. They use at least ten weeks to train basic combat skills. This proves that even strong and powerful countries need to train for a long term.
+2.  Training plans is ineffective.
 Even if we have enough soldiers, our army can only defend itself if we have enough appropriate training.
 Even if we have enough soldiers, and  the training cannot match the real senorio.
 
@@ -95,4 +96,3 @@ Taiwan's training system is terrible, we should change our training way and impr
 #### physical and mental
 
 Also, military service is not about making each person a soldier; it is excellent physical and mental training. Military service could help us increase our awareness of protecting our family and country. Also, military service makes soldiers braver, more confident, and more prepared. 
-
