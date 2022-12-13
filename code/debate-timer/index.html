@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate Timer</title>
+    <style>
+        html,
+        body,
+        main {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            background-color: #212121;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0px;
+            color: #FAFAFA;
+            overflow: hidden;
+        }
+
+        .title {
+            float: left;
+            color: #FAFAFA;
+            font-size: 3rem;
+            padding: 40px;
+            padding-bottom: 0px;
+        }
+
+        ol {
+            margin: 1em;
+            padding: 0.5em;
+            background-color: #424242;
+            border-radius: 0.5em;
+            width: 20vw;
+            color:#424242
+        }
+
+        nav {
+            position: relative;
+            width: 20vw;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        #stage1 {
+            background-color: green;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .show{
+            position: absolute;
+            color:#FAFAFA;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ul>(ol>div#stage$@+div.show)*11 -->
+    <main>
+        <nav>
+            <ul>
+                <ol>
+                    <div id="stage1"></div>
+                    <div class="show">1A constructive speech</div>1A constructive speech
+                </ol>
+                <ol>
+                    <div id="stage2"></div>
+                    <div class="show">2N cross examines 1A</div>
+                </ol>
+                <ol>
+                    <div id="stage3"></div>
+                    <div class="show">1N constructive speech</div>
+                </ol>
+                <ol>
+                    <div id="stage4"></div>
+                    <div class="show">1A cross examines 1N</div>
+                </ol>
+                <ol>
+                    <div id="stage5"></div>
+                    <div class="show">2A constructive speech</div>
+                </ol>
+                <ol>
+                    <div id="stage6"></div>
+                    <div class="show">1N cross examines 2A</div>
+                </ol>
+                <ol>
+                    <div id="stage7"></div>
+                    <div class="show">2N constructive speech</div>
+                </ol>
+                <ol>
+                    <div id="stage8"></div>
+                    <div class="show">2A cross examines 2N</div>
+                </ol>
+                <ol>
+                    <div id="stage9"></div>
+                    <div class="show">Preparation period for rebuttal speech</div>
+                </ol>
+                <ol>
+                    <div id="stage10"></div>
+                    <div class="show">3N Rebuttal</div>
+                </ol>
+                <ol>
+                    <div id="stage11"></div>
+                    <div class="show">3A Rebuttal</div>
+                </ol>
+            </ul>
+        </nav>
+    </main>
+
+</body>
+
+</html>
