@@ -10,7 +10,7 @@
         html,
         body,
         main {
-            width: 100%;
+            width: 100vw;
             height: 100%;
             padding: 0;
             background-color: #212121;
@@ -18,7 +18,8 @@
             margin: 0px;
             color: #FAFAFA;
             position: relative;
-            
+            display: flex;
+            justify-content: flex-start: space-between;
         }
 
         h1 {
@@ -32,18 +33,27 @@
             border-radius: 0.5em;
             padding: 0.5em;
             width: 20vw;
-            overflow:hidden;
+            
             color:#424242;
          position: relative;
           
           
         }
-
+ aside {
+            margin: 1em;
+            background-color: #424242;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            
+        width:30vw;
+          
+        }
         nav {
         	height:100vh;
-        width:calc(20vw+1em);
+        width:30vw;
             overflow-y:scroll;
-            overflow-x:hidden;
+overflow-x:hidden;
+            
         }
 
         ul{
@@ -51,7 +61,7 @@
         }
 
         #stage1 {
-            background-color: green;
+            background-color: #30FF30;
             width: 20%;
             position: absolute;
             border-radius: 0.5em;
@@ -72,14 +82,29 @@
         }
         section{
         	text-align:center;
-            position: absolute; 
-            
-        top: 50;             
-        bottom: 0;           
-        left: 0;        
-        right: 0;
-        margin: auto;}
+            height:100vh;
+        width:45vw;}
+        label{
+        	font-weight:700;}
+        .Data-Content {
+        width: 100%; /* 表單寬度 */
         
+    }
+
+    .Data-Title {
+        float: left;
+        width: 50%; /* Label寬度，視情況調整 */
+        margin-right: 20px;
+    }
+
+    .Data-Items {
+        float: left;
+        width: 25%;
+    }
+
+    .AlignRight {
+        text-align: right;
+    }
     </style>
 </head>
 
@@ -134,7 +159,25 @@
                 </ol>
             </ul>
         </nav><section>
-<h1>Debate Timer</h1><h2>By EM</h2></section>
+<h1>Debate Timer</h1><h2>By EM</h2></section><aside><h3>Settings</h3>
+<div class="Data-Content">
+    <div class="Data-Title">
+        <div class="AlignRight">
+            <label for="speech">Speech</label><br />
+            <label for="cross">Cross</label><br />
+            <label for="design">Design Mode</label>
+        </div>
+    </div>
+    <div class="Data-Items">
+        <input type="number" id="speech" name="speech"
+       min="0" max="60"><br />
+        <input type="number" id="speech" name="cross"
+       min="0" max="60"><br />
+        <input type="text" id="design" />
+    </div>
+</div>
+
+</aside>
     </main>
 
 </body>
