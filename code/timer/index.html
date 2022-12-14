@@ -1,0 +1,76 @@
+<!-- create a button to start the timer -->
+<button id="startTimer">Start Timer</button>
+
+<!-- create a button to stop the timer -->
+<button id="stopTimer">Stop Timer</button>
+
+<!-- create a button to restart the timer -->
+<button id="restartTimer">Restart Timer</button>
+
+<!-- create a div to display the timer -->
+<div id="timer"></div>
+
+<!-- create the JavaScript to implement the timer -->
+<script>
+  // get references to the timer buttons and the timer div
+  const startTimerButton = document.querySelector('#startTimer');
+  const stopTimerButton = document.querySelector('#stopTimer');
+  const restartTimerButton = document.querySelector('#restartTimer');
+  const timerDiv = document.querySelector('#timer');
+
+  // create variables to store the start time, interval ID, and elapsed time
+  let startTime;
+  let intervalId;
+  let elapsedTime = 0;
+
+  // create a function to start the timer
+  function startTimer() {
+    // set the start time
+    startTime = Date.now();
+
+    // create a function to update the timer every 1 second
+    function updateTimer() {
+      // calculate the elapsed time
+      elapsedTime = Date.now() - startTime + elapsedTime;
+
+      // convert the elapsed time to a formatted string
+      const formattedTime = new Date(elapsedTime).toISOString().substr(11, 8);
+
+      // update the text of the timer div
+      timerDiv.textContent = formattedTime;
+    }
+
+    // start the timer by running the updateTimer function every 1 second
+    intervalId = setInterval(updateTimer, 1000);
+  }
+
+  // stop the timer
+  function stopTimer() {
+    // stop the updateTimer function from running
+    clearInterval(intervalId);
+  }
+
+  // restart the timer
+  function restartTimer() {
+    // stop the timer
+    stopTimer();
+
+    // reset the elapsed time
+    elapsedTime = 0;
+
+    // update the text of the timer div
+    timerDiv.textContent = '00:00:00';
+
+    // start the timer
+    startTimer();
+  }
+
+  // start the timer when the startTimer button is clicked
+  startTimerButton.addEventListener('click', startTimer);
+
+  // stop the timer when the stopTimer button is clicked
+  stopTimerButton.addEventListener('click', stopTimer);
+
+  // restart the timer when the restartTimer button is clicked
+  restartTimerButton.addEventListener('click', restartTimer);
+</script>

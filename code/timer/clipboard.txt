@@ -1,0 +1,36 @@
+<!-- create a button to start the timer -->
+<button id="startTimer">Start Timer</button>
+
+<!-- create a div to display the timer -->
+<div id="timer"></div>
+
+<!-- create the JavaScript to implement the timer -->
+<script>
+  // get a reference to the startTimer button and the timer div
+  const startTimerButton = document.querySelector('#startTimer');
+  const timerDiv = document.querySelector('#timer');
+
+  // create a function to start the timer
+  function startTimer() {
+    // set the start time
+    const startTime = Date.now();
+
+    // create a function to update the timer every 1 second
+    function updateTimer() {
+      // calculate the elapsed time
+      const elapsedTime = Date.now() - startTime;
+
+      // convert the elapsed time to a formatted string
+      const formattedTime = new Date(elapsedTime).toISOString().substr(11, 8);
+
+      // update the text of the timer div
+      timerDiv.textContent = formattedTime;
+    }
+
+    // start the timer by running the updateTimer function every 1 second
+    setInterval(updateTimer, 1000);
+  }
+
+  // start the timer when the startTimer button is clicked
+  startTimerButton.addEventListener('click', startTimer);
+</script>
