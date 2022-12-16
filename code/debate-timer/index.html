@@ -305,11 +305,19 @@
                 console.log(event.keyCode)
                 status += 0.5;
                 if (status == 0.5) {
-                    var box = document.querySelector('.set').style.display = "none";
+                    fadeOutEffect("set",-1)
                 } else { }
 
             }
         }
+                  function fadeOutEffect(target,io) {
+    var fadeTarget = document.getElementsByClassName(target)[0];
+    var fadeEffect = setInterval(function () {
+        for(var i=50+io*50;i<=50-io*50;i+=io){
+            fadeTarget.style.opacity = i;
+        }
+
+}, 200);}
     </script>
 </body>
 
