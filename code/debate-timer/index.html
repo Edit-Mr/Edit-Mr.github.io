@@ -1,267 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Debate Timer</title>
-      <style>
-         html,
-         body,
-         main {
-         width: 100vw;
-         height: 100%;
-         padding: 0;
-         background-color: #212121;
-         font-family: sans-serif;
-         margin: 0px;
-         color: #FAFAFA;
-         position: relative;
-         display: flex;
-         justify-content: space-between;
-         }
-         h1 {
-         font-size: 3rem;
-         position: relative;
-         }
-         ol {
-         margin: 1em;
-         background-color: #424242;
-         border-radius: 0.5em;
-         padding: 0.5em;
-         width: 20vw;
-         color:#424242;
-         position: relative;
-         }
-         aside {
-         margin: 1em;
-         }
-         .set{
-         background-color: #424242;
-         border-radius: 0.5em;
-         padding: 1em;
-         }
-         nav {
-         height:100vh;
-         width:30vw;
-         overflow-y:scroll;
-         overflow-x:hidden;
-         }
-         ul{
-         padding: 0;
-         }
-         #stage1 {
-         background-color: #30FF30;
-         width: 20%;
-         position: absolute;
-         border-radius: 0.5em;
-         height: 100%;
-         top:0em;
-         left:0em;
-         }
-         .now{
-         box-shadow: white 0px 0px 8px;
-         }
-         .show{
-         position: absolute;
-         color:#FAFAFA;
-         top:0em;
-         left:0em;
-         border-radius: 0.5em;
-         padding: 0.5em;
-         }
-         section{
-         text-align:center;
-         width: 100%;
-         height: 200px;
-         /* 絕對定位 */
-         position: absolute;
-         /* 水平與垂直定位 */
-         left: 50%;
-         top: 50%;
-         transform: translate(-50%, -50%);}
-         label{
-         font-weight:700;}
-         .Data-Content {
-         line-height: 1.5em;
-         display:flex;
-         justify-content: start;
-         padding: 0 1em;
-         }
-         .Data-Title {
-         float: left;
-         text-align: right;
-         }
-         .Data-Items {
-         float: left;
-         }
-         h3{
-         margin:0 0 0.25em 0;}
-         ::-webkit-scrollbar {
-         width: 7px;
-         }
-         ::-webkit-scrollbar-button {
-         background: transparent;
-         border-radius: 4px;
-         }
-         ::-webkit-scrollbar-track-piece {
-         background: transparent;
-         }
-         ::-webkit-scrollbar-thumb {
-         border-radius: 4px;
-         background-color: rgba(0, 0, 0, 0.4);
-         border: 0;
-         }
-         ::-webkit-scrollbar-track {
-         box-shadow: transparent;
-         }
-         input[type="number"]{
-         margin: 0 0.5em;
-         width:2em;
-         background-color: #b0b0b0;
-         border: none;
-         border-radius: .5em;
-         }
-         button {
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate Timer</title>
+    <style>
+        html,
+        body,
+        main {
+            width: 100vw;
+            height: 100%;
+            padding: 0;
+            background-color: #212121;
+            font-family: sans-serif;
+            margin: 0px;
+            color: #FAFAFA;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 3rem;
+            position: relative;
+        }
+
+        ol {
+            margin: 1em;
+            background-color: #424242;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            width: 20vw;
+            color: #424242;
+            position: relative;
+        }
+
+        aside {
+            margin: 1em;
+        }
+
+        .set {
+            background-color: #424242;
+            border-radius: 0.5em;
+            padding: 1em;
+        }
+
+        nav {
+            height: 100vh;
+            width: 30vw;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        #stage1 {
+            background-color: #30FF30;
+            width: 20%;
+            position: absolute;
+            border-radius: 0.5em;
+            height: 100%;
+            top: 0em;
+            left: 0em;
+        }
+
+        .now {
+            box-shadow: white 0px 0px 8px;
+        }
+
+        .show {
+            position: absolute;
+            color: #FAFAFA;
+            top: 0em;
+            left: 0em;
+            border-radius: 0.5em;
+            padding: 0.5em;
+        }
+
+        section {
+            text-align: center;
+            width: 100%;
+            height: 200px;
+            /* 絕對定位 */
+            position: absolute;
+            /* 水平與垂直定位 */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        label {
+            font-weight: 700;
+        }
+
+        .Data-Content {
+            line-height: 1.5em;
+            display: flex;
+            justify-content: start;
+            padding: 0 1em;
+        }
+
+        .Data-Title {
+            float: left;
+            text-align: right;
+        }
+
+        .Data-Items {
+            float: left;
+        }
+
+        h3 {
+            margin: 0 0 0.25em 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-button {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 0;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: transparent;
+        }
+
+        input[type="number"] {
+            margin: 0 0.5em;
+            width: 2em;
+            color: #424242;
+            background-color: #b0b0b0;
+            border: none;
+            border-radius: .5em;
+        }
+
+        button {
             border-radius: 0.5em;
             margin-top: 0.5em;
-  border: none;
-  cursor: pointer;
-  color: white;
-  border-radius: 2px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
-  background: #2196F3;
-}
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 2px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+            background: #2196F3;
+            position: relative;
+            overflow: hidden;
+            padding: 0.3em 0.5em;
+        }
 
-/* Ripple magic */
-button{
-  position: relative;
-  overflow: hidden;
-}
+        /* Ripple magic */
 
-button:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, .5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
+        button:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, .5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
 
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 1;
-  }
-  20% {
-    transform: scale(25, 25);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(40, 40);
-  }
-}
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
 
-button:focus:not(:active)::after {
-  animation: ripple 1s ease-out;
-}
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
 
-      </style>
-   </head>
-   <body>
-      <!-- ul>(ol>div#stage$@+div.show)*11 -->
-      <main>
-         <nav>
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+
+        button:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ul>(ol>div#stage$@+div.show)*11 -->
+    <main>
+        <nav>
             <ul>
-               <ol class=now>
-                  <div id="stage1"></div>
-                  <div class="show">1A constructive speech</div>
-                  1A constructive speech
-               </ol>
-               <ol>
-                  <div id="stage2"></div>
-                  <div class="show">2N cross examines 1A</div>
-                  2N cross examines 1A
-               </ol>
-               <ol>
-                  <div id="stage3"></div>
-                  <div class="show">1N constructive speech</div>
-                  1N constructive speech
-               </ol>
-               <ol>
-                  <div id="stage4"></div>
-                  <div class="show">1A cross examines 1N</div>
-                  1A cross examines 1N
-               </ol>
-               <ol>
-                  <div id="stage5"></div>
-                  <div class="show">2A constructive speech</div>
-                  2A constructive speech
-               </ol>
-               <ol>
-                  <div id="stage6"></div>
-                  <div class="show">1N cross examines 2A</div>
-                  1N cross examines 2A
-               </ol>
-               <ol>
-                  <div id="stage7"></div>
-                  <div class="show">2N constructive speech</div>
-                  2N constructive speech
-               </ol>
-               <ol>
-                  <div id="stage8"></div>
-                  <div class="show">2A cross examines 2N</div>
-                  2A cross examines 2N
-               </ol>
-               <ol>
-                  <div id="stage9"></div>
-                  <div class="show">Preparation period</div>
-                  Preparation period
-               </ol>
-               <ol>
-                  <div id="stage10"></div>
-                  <div class="show">3N Rebuttal</div>
-                  3N Rebuttal
-               </ol>
-               <ol>
-                  <div id="stage11"></div>
-                  <div class="show">3A Rebuttal</div>
-                  3A Rebuttal
-               </ol>
+                <ol class=now>
+                    <div id="stage1"></div>
+                    <div class="show">1A constructive speech</div>
+                    1A constructive speech
+                </ol>
+                <ol>
+                    <div id="stage2"></div>
+                    <div class="show">2N cross examines 1A</div>
+                    2N cross examines 1A
+                </ol>
+                <ol>
+                    <div id="stage3"></div>
+                    <div class="show">1N constructive speech</div>
+                    1N constructive speech
+                </ol>
+                <ol>
+                    <div id="stage4"></div>
+                    <div class="show">1A cross examines 1N</div>
+                    1A cross examines 1N
+                </ol>
+                <ol>
+                    <div id="stage5"></div>
+                    <div class="show">2A constructive speech</div>
+                    2A constructive speech
+                </ol>
+                <ol>
+                    <div id="stage6"></div>
+                    <div class="show">1N cross examines 2A</div>
+                    1N cross examines 2A
+                </ol>
+                <ol>
+                    <div id="stage7"></div>
+                    <div class="show">2N constructive speech</div>
+                    2N constructive speech
+                </ol>
+                <ol>
+                    <div id="stage8"></div>
+                    <div class="show">2A cross examines 2N</div>
+                    2A cross examines 2N
+                </ol>
+                <ol>
+                    <div id="stage9"></div>
+                    <div class="show">Preparation period</div>
+                    Preparation period
+                </ol>
+                <ol>
+                    <div id="stage10"></div>
+                    <div class="show">3N Rebuttal</div>
+                    3N Rebuttal
+                </ol>
+                <ol>
+                    <div id="stage11"></div>
+                    <div class="show">3A Rebuttal</div>
+                    3A Rebuttal
+                </ol>
             </ul>
-         </nav>
-         <aside>
+        </nav>
+        <aside>
             <div class="set">
-            <h3>Settings</h3>
-            <div class="Data-Content">
-               <div class="Data-Title">
-                  <label for="speech">Speech</label><br />
-                  <label for="cross">Cross</label><br />
-               </div>
-               <div class="Data-Items">
-                  <input type="number" id="speech" name="speech"
-                     min="0" max="60" value="4"><br />
-                  <input type="number" id="cross" name="cross"
-                     min="0" max="60" value="2"><br />
-               </div>
-               <div class="Data-Items">
-                  <label for="speech">mins</label><br />
-                  <label for="cross">mins</label><br />
-               </div>
-            </div>
-            <button id="design">Design Mode Off</button>
-         </aside>
-      </main>
-      <section>
-         <h1>Debate Timer</h1>
-         <h2>By EM</h2>
-      </section>
-      <script>
-   </body>
+                <h3>Settings</h3>
+                <div class="Data-Content">
+                    <div class="Data-Title">
+                        <label for="speech">Speech</label><br />
+                        <label for="cross">Cross</label><br />
+                    </div>
+                    <div class="Data-Items">
+                        <input type="number" id="speech" name="speech" min="0" max="60" value="4"><br />
+                        <input type="number" id="cross" name="cross" min="0" max="60" value="2"><br />
+                    </div>
+                    <div class="Data-Items">
+                        <label for="speech">mins</label><br />
+                        <label for="cross">mins</label><br />
+                    </div>
+                </div>
+                <button id="design" onclick="dm()">Design Mode Off</button>
+        </aside>
+    </main>
+    <section>
+        <h1>Debate Timer</h1>
+        <h2>By EM<br />Press space to continue</h2>
+    </section>
+    <script>
+        var status = 0;
+        function dm() {
+            var t = document.getElementById("design");
+            if (document.designMode == "on") {
+                document.designMode = "off";
+                t.innerText = "Design Mode Off";
+            } else {
+                document.designMode = "on";
+                t.innerText = "Design Mode On";
+            }
+        }
+        document.onkeydown = function (event) {
+            if (event.keyCode == 32) {
+                console.log(event.keyCode)
+                status += 0.5;
+                if (status == 0.5) {
+                    var box = document.querySelector('.set').style.display = "none";
+                } else { }
+
+            }
+        }
+    </script>
+</body>
+
 </html>
