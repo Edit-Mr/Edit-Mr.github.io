@@ -16,14 +16,16 @@
             background-color: #212121;
             font-family: sans-serif;
             margin: 0px;
-            color: #FAFAFA;
+            color: #FAFAFA; 
             position: relative;
             display: flex;
             justify-content: space-between;
+            overflow-y:hidden;
+            
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 5em;
             position: relative;
         }
 
@@ -302,14 +304,7 @@
             }
         }
         document.onkeydown = function (event) {
-            if (event.keyCode == 32) {
-                console.log(event.keyCode)
-                status += 0.5;
-                if (status == 0.5) {
-                    fadeout("set")
-                } else { }
-
-            }
+go();
         }
               function fadeout(a) {
     var fade= document.getElementById(a);
@@ -331,6 +326,25 @@
           
     }, 30);
 }
+window.onclick = e => {
+console.log(e.target);  // to get the element
+    var tag = e.target.tagName;  // to get the element tag name alone
+    if(tag=="SECTION"||tag=="H1"||tag=="H2")
+    console.log("activated");
+    go();
+} 
+function go(){
+        if (document.designMode == "off") {
+            if (event.keyCode == 32) {
+                console.log(event.keyCode)
+                status += 0.5;
+                if (status == 0.5) {
+                    fadeout("set")
+                } else { }
+
+            }
+            }
+            }
     </script>
 </body>
 
