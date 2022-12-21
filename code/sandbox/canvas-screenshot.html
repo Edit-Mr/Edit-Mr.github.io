@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas to Image</title>
+  </head>
+  <body>
+    <!-- Canvas element -->
+    <h1>Canvas to Image</h1>
+    <p>Simple no CSS Example By <a href=https://github.com/Edit-Mr>Edit Mr.</a></p>
+    <canvas id="myCanvas" width="300" height="150"></canvas>
+    ➡️
+    <!-- Image element to preview the canvas -->
+    <img id="myImg" src="#" alt="Canvas preview">
+
+    <!-- Button to download the image -->
+    <button id="downloadButton">Download Image</button>
+
+    <!-- Script to change the canvas to an image and add the download functionality to the button -->
+    <script>
+      // Get the canvas and button elements, and the data URL of the canvas
+      var canvas = document.getElementById("myCanvas");
+      const context = canvas.getContext('2d');
+      context.fillStyle = 'red';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      var dataURL = canvas.toDataURL();
+      var downloadButton = document.getElementById("downloadButton");
+
+      // Set the src of the image element to the data URL
+      document.getElementById("myImg").src = dataURL;
+
+      // Add an event listener to the button that downloads the image when clicked
+      downloadButton.addEventListener("click", function() {
+        // Create a link element
+        var link = document.createElement("a");
+
+        // Set the href of the link to the data URL of the canvas
+        link.href = dataURL;
+
+        // Set the download attribute of the link
+        link.download = "my-image.png";
+
+        // Append the link to the document
+        document.body.appendChild(link);
+
+        // Click the link to trigger the download
+        link.click();
+
+        // Remove the link from the document
+        document.body.removeChild(link);
+      }, false);
+      
+    </script>
+  </body>
+</html>
