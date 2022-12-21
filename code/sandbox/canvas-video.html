@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas to Video Stream</title>
+  </head>
+  <body>
+    <h1>Canvas to Video Stream</h1>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <video id="video" width="640" height="480" autoplay muted></video>
+    <script>
+      const canvas = document.getElementById('canvas');
+      const video = document.getElementById('video');
+
+      // Draw something on the canvas
+      const context = canvas.getContext('2d');
+      context.fillStyle = 'red';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Stream the canvas to the video element
+      let stream;
+      if (canvas.captureStream) {
+        stream = canvas.captureStream();
+      } else {
+        stream = captureCanvas(canvas).start();
+      }
+      video.srcObject = stream;
+
+      // Play the video
+      video.play();
+    </script>
+  </body>
+</html>
