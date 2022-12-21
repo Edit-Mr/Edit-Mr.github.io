@@ -27,6 +27,21 @@
 
       // Play the video
       video.play();
+      function enablePictureInPicture(video) {
+  // Check if Picture-in-Picture is supported
+  if (document.pictureInPictureEnabled) {
+    // Check if the video is already in Picture-in-Picture mode
+    if (document.pictureInPictureElement !== video) {
+      // Enter Picture-in-Picture mode
+      video.requestPictureInPicture().catch(error => {
+        console.error(error);
+      });
+    }
+  } else {
+    console.error('Picture-in-Picture is not supported');
+  }
+}
+
     </script>
   </body>
 </html>
