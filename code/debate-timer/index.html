@@ -293,6 +293,8 @@
     <script>
         const delay = (n) => new Promise( r => setTimeout(r, n));
         var status = 0;
+        const section = document.querySelector('section');
+        section.ontouchstart = go;
         function dm() {
             var t = document.getElementById("design");
             if (document.designMode == "on") {
@@ -303,30 +305,20 @@
                 t.innerText = "Design Mode On";
             }
         }
-        document.onkeydown = function (event) {
-go();
-        }
+        
               function fadeout(a) {
     var fade= document.getElementById(a);
-      
     var intervalID = setInterval(function () {
-          
-        if (!fade.style.opacity) {
+        if (!fade.style.opacity) 
             fade.style.opacity = 1;
-        }
-          
-          
-        if (fade.style.opacity > 0) {
+        if (fade.style.opacity > 0) 
             fade.style.opacity -= 0.1;
-        } 
-          
-        else {
+        else 
             clearInterval(intervalID);
-        }
-          
     }, 30);
 }
 window.onclick = e => {
+console.log(event.keyCode)
 console.log(e.target);  // to get the element
     var tag = e.target.tagName;  // to get the element tag name alone
     if(tag=="SECTION"||tag=="H1"||tag=="H2")
@@ -334,17 +326,16 @@ console.log(e.target);  // to get the element
     go();
 } 
 function go(){
-        if (document.designMode == "off") {
-            if (event.keyCode == 32) {
-                console.log(event.keyCode)
-                status += 0.5;
-                if (status == 0.5) {
-                    fadeout("set")
-                } else { }
+    if (document.designMode == "on") return
+    status += 0.5;
+    console.log("cool");
+    if (status == 0.5) fadeout("set");
+    else if(Number.isInteger(status)){
+        console.log("ready");}
+    else{
+        console.log("go");
+        }}
 
-            }
-            }
-            }
     </script>
 </body>
 
