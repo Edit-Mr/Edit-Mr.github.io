@@ -11,7 +11,7 @@
         body,
         main {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             padding: 0;
             background-color: #212121;
             font-family: sans-serif;
@@ -27,6 +27,7 @@
         h1 {
             font-size: 5em;
             position: relative;
+            margin:0;
         }
 
         ol {
@@ -70,10 +71,6 @@
             left: 0em;
         }
 
-        .now {
-            box-shadow: white 0px 0px 8px;
-        }
-
         .show {
             position: absolute;
             color: #FAFAFA;
@@ -85,7 +82,7 @@
 
         section {
             text-align: center;
-            width: 100%;
+            width: 60vw;
             height: 200px;
             /* 絕對定位 */
             position: absolute;
@@ -116,7 +113,7 @@
         }
 
         h3 {
-            margin: 0 0 0.25em 0;
+            margin: 0;
         }
 
         ::-webkit-scrollbar {
@@ -209,59 +206,59 @@
     <main>
         <nav>
             <ul>
-                <ol class=now>
+                <ol>
                     <div id="stage1"></div>
-                    <div class="show">1A constructive speech</div>
+                    <div class="show 1">1A constructive speech</div>
                     1A constructive speech
                 </ol>
                 <ol>
                     <div id="stage2"></div>
-                    <div class="show">2N cross examines 1A</div>
+                    <div class="show 2">2N cross examines 1A</div>
                     2N cross examines 1A
                 </ol>
                 <ol>
                     <div id="stage3"></div>
-                    <div class="show">1N constructive speech</div>
+                    <div class="show 3">1N constructive speech</div>
                     1N constructive speech
                 </ol>
                 <ol>
                     <div id="stage4"></div>
-                    <div class="show">1A cross examines 1N</div>
+                    <div class="show 4">1A cross examines 1N</div>
                     1A cross examines 1N
                 </ol>
                 <ol>
                     <div id="stage5"></div>
-                    <div class="show">2A constructive speech</div>
+                    <div class="show 5">2A constructive speech</div>
                     2A constructive speech
                 </ol>
                 <ol>
                     <div id="stage6"></div>
-                    <div class="show">1N cross examines 2A</div>
+                    <div class="show 6">1N cross examines 2A</div>
                     1N cross examines 2A
                 </ol>
                 <ol>
                     <div id="stage7"></div>
-                    <div class="show">2N constructive speech</div>
+                    <div class="show 7">2N constructive speech</div>
                     2N constructive speech
                 </ol>
                 <ol>
                     <div id="stage8"></div>
-                    <div class="show">2A cross examines 2N</div>
+                    <div class="show 8">2A cross examines 2N</div>
                     2A cross examines 2N
                 </ol>
                 <ol>
                     <div id="stage9"></div>
-                    <div class="show">Preparation period</div>
+                    <div class="show 9">Preparation period</div>
                     Preparation period
                 </ol>
                 <ol>
                     <div id="stage10"></div>
-                    <div class="show">3N Rebuttal</div>
+                    <div class="show 10">3N Rebuttal</div>
                     3N Rebuttal
                 </ol>
                 <ol>
                     <div id="stage11"></div>
-                    <div class="show">3A Rebuttal</div>
+                    <div class="show 11">3A Rebuttal</div>
                     3A Rebuttal
                 </ol>
             </ul>
@@ -287,14 +284,16 @@
         </aside>
     </main>
     <section>
-        <h1>Debate Timer</h1>
-        <h2>By EM<br />Press space to continue</h2>
+        <h1 id="t">Debate Timer</h1>
+        <h2 id="s">By EM<br />Press space to continue</h2>
     </section>
     <script>
         const delay = (n) => new Promise( r => setTimeout(r, n));
         var status = 0;
         const section = document.querySelector('section');
         section.ontouchstart = go;
+        let title = document.querySelector('h1');
+        let sub = document.querySelector('h2');
         function dm() {
             var t = document.getElementById("design");
             if (document.designMode == "on") {
@@ -306,35 +305,82 @@
             }
         }
         
-              function fadeout(a) {
+ function fadeOut(a) {
     var fade= document.getElementById(a);
     var intervalID = setInterval(function () {
         if (!fade.style.opacity) 
             fade.style.opacity = 1;
         if (fade.style.opacity > 0) 
-            fade.style.opacity -= 0.1;
+            fade.style.opacity -= 0.01;
         else 
             clearInterval(intervalID);
-    }, 30);
+    }, 5);
 }
+async function asyncFunction() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('Hello, World!');
+        }, 500);
+      });
+    }
+ function fadeIn(a) {
+  // set the element's initial opacity to 0
+  var element= document.getElementById(a);
+  element.style.opacity = 0;
+  const start = performance.now();
+  const animate = function(time) {
+    const timePassed = time - start;
+    element.style.opacity = timePassed / 500;
+    if (timePassed < 500) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
 window.onclick = e => {
 console.log(event.keyCode)
-console.log(e.target);  // to get the element
-    var tag = e.target.tagName;  // to get the element tag name alone
+console.log(e.target);
+    var tag = e.target.tagName; 
     if(tag=="SECTION"||tag=="H1"||tag=="H2")
     console.log("activated");
     go();
 } 
-function go(){
+async function go(){
     if (document.designMode == "on") return
-    status += 0.5;
-    console.log("cool");
-    if (status == 0.5) fadeout("set");
-    else if(Number.isInteger(status)){
-        console.log("ready");}
+    if (status > 22){
+    fadeOut("t");
+    fadeOut("s");
+    await asyncFunction();
+    title.innerText="The End";
+        sub.innerText="Thank you for comming";
+        fadeIn("s");
+        fadeIn("t");
+        return
+        }
+    status ++;
+    if (status == 1) {fadeOut("set");return}
+     fadeOut("s");
+    if(status%2==0){
+        fadeOut("t");
+        console.log(status/2);
+        await asyncFunction();
+        title.innerText=document.getElementsByClassName(status/2)[0].innerText;
+        sub.innerText="Ready";
+        fadeIn("t");
+        var u = document.getElementsByClassName(ol)[status/2-1];
+        
+        u.style='box-shadow:white 0px 0px 8px;';
+        }
     else{
+    await asyncFunction();
+    sub.innerText="Timing";
         console.log("go");
-        }}
+        }
+     fadeIn("s");
+     await asyncFunction();
+    }
 
     </script>
 </body>
