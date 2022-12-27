@@ -297,7 +297,8 @@
       section.ontouchstart = go;
       let title = document.querySelector('h1');
       let sub = document.querySelector('h2');
-      const audio = new Audio("alert.mp3");
+      const up = new Audio("up.mp3");
+      const start = new Audio("start.mp3");
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -394,6 +395,7 @@
       let interval;
 
       function startTimer(t) {
+         start.play();
          const max= parseFloat(t)*60;
          let time = max;
          console.log("hi"+ time);
@@ -412,7 +414,7 @@
                case 0:
                   title.innerText = "Time Up";
                   changeBackground("#360000");
-                  audio.play();
+                  up.play();
                   break;
                case 90:
                   title.innerText = "1.5 min.";
