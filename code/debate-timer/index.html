@@ -297,6 +297,7 @@
       section.ontouchstart = go;
       let title = document.querySelector('h1');
       let sub = document.querySelector('h2');
+      const audio = new Audio("alert.mp3");
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -402,7 +403,7 @@
          interval = setInterval(() => {
             // Decrement timer by 1 second
             time--;
-            if (time < 0) sub.innerText = time - max; else {
+            if (time < 0) sub.innerText = time; else {
                // Calculate percentage of time remaining and display it
                a.style.width = ((1 - time / max) * 100 + '%');
                console.log((1 - time / max) * 100 + '%')
@@ -411,6 +412,7 @@
                case 0:
                   title.innerText = "Time Up";
                   changeBackground("#360000");
+                  audio.play();
                   break;
                case 90:
                   title.innerText = "1.5 min.";
