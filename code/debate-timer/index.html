@@ -269,6 +269,8 @@
                <div class="Data-Title">
                   <label for="speech">Speech</label><br />
                   <label for="cross">Cross</label><br />
+                  <label for="preparation">Preparation</label><br />
+                  <label for="rebuttal">Rebuttal</label><br />
                </div>
                <div class="Data-Items">
                   <input type="number" id="speech" name="speech" min="0" max="60" value="4"><br />
@@ -299,6 +301,8 @@
       let sub = document.querySelector('h2');
       const up = new Audio("up.mp3");
       const start = new Audio("start.mp3");
+      const length = document.getElementsByTagName("li").length*2;
+      var history=[];
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -354,9 +358,8 @@
             go();
       }
       async function go() {
-         console.log(status);
          if (document.designMode == "on") return
-         if (status > 22) {
+         if (status > length) {
             fadeOut("t");
             fadeOut("s");
             await asyncFunction();
@@ -373,6 +376,7 @@
             clearInterval(interval);
             changeBackground("#212121");
             fadeOut("t");
+            start.play();
             document.querySelectorAll('li')[status / 2 - 1].style = 'box-shadow:white 0px 0px 8px;';
             if (status != 2) { clearInterval(interval); document.querySelectorAll('li')[status / 2 - 2].style = 'box-shadow:none;'; }
             await asyncFunction();
@@ -395,11 +399,8 @@
       let interval;
 
       function startTimer(t) {
-         start.play();
          const max= parseFloat(t)*60;
          let time = max;
-         console.log("hi"+ time);
-         console.log("stage"+(status-1)/2)
          var a = document.getElementById("stage"+(status-1)/2);
          a.style.display = "block";
          interval = setInterval(() => {
@@ -408,7 +409,6 @@
             if (time < 0) sub.innerText = time; else {
                // Calculate percentage of time remaining and display it
                a.style.width = ((1 - time / max) * 100 + '%');
-               console.log((1 - time / max) * 100 + '%')
             }
             switch (parseInt(time)) {
                case 0:
@@ -430,7 +430,6 @@
          }, 1000);
       }
       function changeBackground(color) {
-         console.log("aaaaa");
          const main = document.querySelector("main");
          main.style.transition = "background-color 2s ease-in-out";
          main.style.backgroundColor = color;
