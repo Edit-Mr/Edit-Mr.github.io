@@ -313,6 +313,15 @@
             t.innerText = "Design Mode On";
          }
       }
+      
+      var listItems = document.querySelectorAll("li");
+
+listItems.forEach(function(item, index) {
+  item.addEventListener("click", function() {
+     var status=index*2-1;
+    go();
+  });
+});
 
       function fadeOut(a) {
          var fade = document.getElementById(a);
@@ -354,6 +363,7 @@
       });
       window.onclick = e => {
          var tag = e.target.tagName;
+         console.log(tag);
          if (tag == "SECTION" || tag == "H1" || tag == "H2")
             go();
       }
