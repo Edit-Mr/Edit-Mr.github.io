@@ -301,8 +301,8 @@
       let sub = document.querySelector('h2');
       const up = new Audio("up.mp3");
       const start = new Audio("start.mp3");
-      const length = document.getElementsByTagName("li").length*2;
-      var history=[];
+      const length = document.getElementsByTagName("li").length * 2;
+      var history = [];
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -313,15 +313,16 @@
             t.innerText = "Design Mode On";
          }
       }
-      
-      var listItems = document.querySelectorAll("li");
 
-listItems.forEach(function(item, index) {
-  item.addEventListener("click", function() {
-     var status=index*2-1;
-    go();
-  });
-});
+      var listItems = document.querySelectorAll(".show");
+
+      listItems.forEach(function (item, index) {
+         item.addEventListener("click", function () {
+            status = index * 2 - 2;
+            console.log(status);
+            go();
+         });
+      });
 
       function fadeOut(a) {
          var fade = document.getElementById(a);
@@ -363,11 +364,11 @@ listItems.forEach(function(item, index) {
       });
       window.onclick = e => {
          var tag = e.target.tagName;
-         console.log(tag);
          if (tag == "SECTION" || tag == "H1" || tag == "H2")
             go();
       }
       async function go() {
+         console.log(status);
          if (document.designMode == "on") return
          if (status > length) {
             fadeOut("t");
@@ -397,10 +398,10 @@ listItems.forEach(function(item, index) {
          else {
             await asyncFunction();
             sub.innerText = "Timing";
-            if(title.innerText.indexOf("speech")>-1) startTimer(document.getElementById("speech").value);
-            else if(title.innerText.indexOf("cross")>-1)  startTimer(document.getElementById("cross").value);
-            else if(title.innerText.indexOf("Preparation")>-1)  startTimer(document.getElementById("preparation").value);
-            else if(title.innerText.indexOf("Rebuttal")>-1)  startTimer(document.getElementById("rebuttal").value);
+            if (title.innerText.indexOf("speech") > -1) startTimer(document.getElementById("speech").value);
+            else if (title.innerText.indexOf("cross") > -1) startTimer(document.getElementById("cross").value);
+            else if (title.innerText.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
+            else if (title.innerText.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
             else alert("error:What up now?");
          }
          fadeIn("s");
@@ -409,9 +410,9 @@ listItems.forEach(function(item, index) {
       let interval;
 
       function startTimer(t) {
-         const max= parseFloat(t)*60;
+         const max = parseFloat(t) * 60;
          let time = max;
-         var a = document.getElementById("stage"+(status-1)/2);
+         var a = document.getElementById("stage" + (status - 1) / 2);
          a.style.display = "block";
          interval = setInterval(() => {
             // Decrement timer by 1 second
