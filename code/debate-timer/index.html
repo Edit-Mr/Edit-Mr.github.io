@@ -197,6 +197,16 @@
       button:focus:not(:active)::after {
          animation: ripple 1s ease-out;
       }
+      textarea{
+         display:block;
+         margin: 0;
+         width: 100%;
+         height:8em;
+         color: black;
+         background-color: #b0b0b0;
+         border: none;
+         border-radius: .5em;
+      }
    </style>
 </head>
 
@@ -285,7 +295,22 @@
                   <label for="rebuttal">mins</label><br />
                </div>
             </div>
+            <h3>Flow</h3>
+<textarea id="flow">
+1A constructive speech
+2N cross examines 1A2N cross examines 1A
+1N constructive speech1N constructive speech
+1A cross examines 1N1A cross examines 1N
+2A constructive speech2A constructive speech
+1N cross examines 2A1N cross examines 2A
+2N constructive speech2N constructive speech
+2A cross examines 2N2A cross examines 2N
+Preparation periodPreparation period
+3N Rebuttal3N Rebuttal
+3A Rebuttal3A Rebuttal
+</textarea>
             <button id="design" onclick="dm()">Design Mode Off</button>
+            <button onclick="flow()">Set flow</button>
       </aside>
    </main>
    <section>
@@ -323,7 +348,9 @@
             go();
          });
       });
-
+      function flow() {
+         var text = document.getElementById("flow");
+      }
       function fadeOut(a) {
          var fade = document.getElementById(a);
          var intervalID = setInterval(function () {
