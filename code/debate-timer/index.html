@@ -6,6 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Debate Timer</title>
+   <meta name="description" content="A beautiful and simple debate timer with sound">
    <style>
       html,
       body,
@@ -328,6 +329,7 @@ Preparation periodPreparation period
       const start = new Audio("start.mp3");
       const length = document.getElementsByTagName("li").length * 2;
       var history = [];
+	const lili= document.querySelectorAll('li');
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -343,8 +345,8 @@ Preparation periodPreparation period
 
       listItems.forEach(function (item, index) {
          item.addEventListener("click", function () {
-            status = index * 2 - 2;
-            console.log(status);
+            console.log("aaaa"+index);
+            status = index* 2+1;
             go();
          });
       });
@@ -391,10 +393,11 @@ Preparation periodPreparation period
       });
       window.onclick = e => {
          var tag = e.target.tagName;
-         if (tag == "SECTION" || tag == "H1" || tag == "H2")
+         if (tag == "H1" || tag == "H2")
             go();
       }
       async function go() {
+      clearInterval(interval);
          console.log(status);
          if (document.designMode == "on") return
          if (status > length) {
@@ -411,12 +414,14 @@ Preparation periodPreparation period
          if (status == 1) { fadeOut("set"); return }
          fadeOut("s");
          if (status % 2 == 0) {
-            clearInterval(interval);
             changeBackground("#212121");
             fadeOut("t");
             start.play();
+            lili.forEach(li => {
+               li.style.boxShadow = 'none';
+            });
             document.querySelectorAll('li')[status / 2 - 1].style = 'box-shadow:white 0px 0px 8px;';
-            if (status != 2) { clearInterval(interval); document.querySelectorAll('li')[status / 2 - 2].style = 'box-shadow:none;'; }
+            clearInterval(interval);
             await asyncFunction();
             title.innerText = document.getElementsByClassName(status / 2)[0].innerText;
             sub.innerText = "Ready";
@@ -429,7 +434,7 @@ Preparation periodPreparation period
             else if (title.innerText.indexOf("cross") > -1) startTimer(document.getElementById("cross").value);
             else if (title.innerText.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
             else if (title.innerText.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
-            else alert("error:What up now?");
+            else alert("can’t understand"+title.innerText);
          }
          fadeIn("s");
          await asyncFunction();
