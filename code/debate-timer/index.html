@@ -357,8 +357,7 @@ text = text.split('\n');
          var ul = document.querySelector("ul");
          ul.innerHTML="";
          for(var i=1;i< text.length;i++){
-         ul.insertAdjacentHTML('beforeend', '<li><div id="stage${i}"></div><div class="show ${i}">'+text[i-1]+'</div>'+text[i-1]+'</li>');
-         console.log(text[i-1]);
+         ul.insertAdjacentHTML('beforeend', '<li><div id="stage${i}"></div><div class="show  ${i}">'+text[i-1]+'</div>'+text[i-1]+'</li>');
          }
       }
       function fadeOut(a) {
@@ -422,6 +421,7 @@ text = text.split('\n');
          if (status == 1) { fadeOut("set"); return }
          fadeOut("s");
          if (status % 2 == 0) {
+         clearInterval(interval);
             changeBackground("#212121");
             fadeOut("t");
             start.play();
@@ -429,19 +429,20 @@ text = text.split('\n');
                li.style.boxShadow = 'none';
             });
             document.querySelectorAll('li')[status / 2 - 1].style = 'box-shadow:white 0px 0px 8px;';
-            clearInterval(interval);
             await asyncFunction();
             title.innerText = document.getElementsByClassName(status / 2)[0].innerText;
             sub.innerText = "Ready";
             fadeIn("t");
          }
          else {
+         console.log(title.innerText);
             await asyncFunction();
             sub.innerText = "Timing";
             if (title.innerText.indexOf("speech") > -1) startTimer(document.getElementById("speech").value);
-            else if (title.innerText.indexOf("cross") > -1) startTimer(document.getElementById("cross").value);
+            else if (title.innerText.indexOf("argument") > -1) startTimer(document.getElementById("speech").value);
             else if (title.innerText.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
             else if (title.innerText.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
+            else if (title.innerText.indexOf("Summary") > -1) startTimer(document.getElementById("rebuttal").value);
             else alert("can’t understand"+title.innerText);
          }
          fadeIn("s");
