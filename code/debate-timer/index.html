@@ -198,15 +198,25 @@
       button:focus:not(:active)::after {
          animation: ripple 1s ease-out;
       }
-      textarea{
-         display:block;
+
+      textarea {
+         display: block;
          margin: 0;
          width: 100%;
-         height:8em;
+         height: 8em;
          color: black;
          background-color: #b0b0b0;
          border: none;
          border-radius: .5em;
+      }
+
+      li {
+         transform: translateX(-100%);
+         transition: transform 0.5s;
+      }
+
+      .enter {
+         transform: translateX(0);
       }
    </style>
 </head>
@@ -297,7 +307,7 @@
                </div>
             </div>
             <h3>Flow</h3>
-<textarea id="flow">
+            <textarea id="flow">
 1A constructive speech
 2N cross examines 1A
 1N constructive speech
@@ -329,7 +339,7 @@ Preparation period
       const start = new Audio("start.mp3");
       const length = document.getElementsByTagName("li").length * 2;
       var history = [];
-	const lili= document.querySelectorAll('li');
+      const lili = document.querySelectorAll('li');
       function dm() {
          var t = document.getElementById("design");
          if (document.designMode == "on") {
@@ -345,30 +355,42 @@ Preparation period
 
       listItems.forEach(function (item, index) {
          item.addEventListener("click", function () {
-            console.log("aaaa"+index);
-            status = index* 2+1;
+            console.log("aaaa" + index);
+            status = index * 2 + 1;
             go();
          });
       });
       function flow() {
          var text = document.getElementById("flow").value;
-text = text.split('\n');
+         text = text.split('\n');
 
          var ul = document.querySelector("ul");
-         ul.innerHTML="";
-         for(var i=1;i< text.length;i++){
-         ul.insertAdjacentHTML('beforeend', '<li><div id="stage${i}"></div><div class="show  ${i}">'+text[i-1]+'</div>'+text[i-1]+'</li>');
+         ul.innerHTML = "";
+         for (var i = 1; i < text.length; i++) {
+            ul.insertAdjacentHTML('beforeend', `<li class="enter"><div id="stage${i}"></div><div class="show ${i}">` + text[i - 1] + '</div>' + text[i - 1] + '</li>');
          }
       }
-      function fadeOut(a) {
+      function fadeOut(a, b) {
          var fade = document.getElementById(a);
          var intervalID = setInterval(function () {
             if (!fade.style.opacity)
                fade.style.opacity = 1;
             if (fade.style.opacity > 0)
                fade.style.opacity -= 0.01;
-            else
+            else {
                clearInterval(intervalID);
+               fade.innerText = b;
+               fade.style.opacity = 0;
+               const start = performance.now();
+               const animate = function (time) {
+                  const timePassed = time - start;
+                  fade.style.opacity = timePassed / 500;
+                  if (timePassed < 500) {
+                     requestAnimationFrame(animate);
+                  }
+               }
+               requestAnimationFrame(animate);
+            }
          }, 5);
       }
       async function asyncFunction() {
@@ -377,21 +399,6 @@ text = text.split('\n');
                resolve('Hello, World!');
             }, 500);
          });
-      }
-      function fadeIn(a) {
-         // set the element's initial opacity to 0
-         var element = document.getElementById(a);
-         element.style.opacity = 0;
-         const start = performance.now();
-         const animate = function (time) {
-            const timePassed = time - start;
-            element.style.opacity = timePassed / 500;
-            if (timePassed < 500) {
-               requestAnimationFrame(animate);
-            }
-         }
-
-         requestAnimationFrame(animate);
       }
       document.addEventListener("keydown", (event) => {
          if (event.key === " " && document.designMode === "off") {
@@ -404,49 +411,49 @@ text = text.split('\n');
             go();
       }
       async function go() {
-      clearInterval(interval);
+         clearInterval(interval);
          console.log(status);
          if (document.designMode == "on") return
          if (status > length) {
-            fadeOut("t");
-            fadeOut("s");
-            await asyncFunction();
-            title.innerText = "The End";
-            sub.innerText = "Thank you for comming";
-            fadeIn("s");
-            fadeIn("t");
+            fadeOut("t", "The End");
+            fadeOut("s", "Thank you for comming");
             return
          }
          status++;
-         if (status == 1) { fadeOut("set"); return }
-         fadeOut("s");
+         if (status == 1) {
+            var fade = document.getElementById("set");
+            var intervalID = setInterval(function () {
+            if (!fade.style.opacity)
+               fade.style.opacity = 1;
+            if (fade.style.opacity > 0)
+               fade.style.opacity -= 0.01;
+            else {
+               clearInterval(intervalID);
+            }
+         }, 5);
+            return
+         }
          if (status % 2 == 0) {
-         clearInterval(interval);
+            clearInterval(interval);
             changeBackground("#212121");
-            fadeOut("t");
             start.play();
             lili.forEach(li => {
                li.style.boxShadow = 'none';
             });
             document.querySelectorAll('li')[status / 2 - 1].style = 'box-shadow:white 0px 0px 8px;';
-            await asyncFunction();
-            title.innerText = document.getElementsByClassName(status / 2)[0].innerText;
-            sub.innerText = "Ready";
-            fadeIn("t");
+            fadeOut("t", document.getElementsByClassName(status / 2)[0].innerText);
+            fadeOut("s", "Ready");
          }
          else {
-         console.log(title.innerText);
-            await asyncFunction();
-            sub.innerText = "Timing";
-            if (title.innerText.indexOf("speech") > -1) startTimer(document.getElementById("speech").value);
-            else if (title.innerText.indexOf("argument") > -1) startTimer(document.getElementById("speech").value);
-            else if (title.innerText.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
-            else if (title.innerText.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
-            else if (title.innerText.indexOf("Summary") > -1) startTimer(document.getElementById("rebuttal").value);
-            else alert("can’t understand"+title.innerText);
+            fadeOut("s", "Timing");
+            var s = title.innerText;
+            if (s.indexOf("speech") > -1||s.indexOf("argument") > -1) startTimer(document.getElementById("speech").value);
+            else if (s.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
+            else if (s.indexOf("cross") > -1||s.indexOf("exam") > -1) startTimer(document.getElementById("cross").value);
+            else if (s.indexOf("Summary") > -1||s.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
+            else alert("can’t understand" + s);
          }
-         fadeIn("s");
-         await asyncFunction();
+
       }
       let interval;
 
@@ -486,6 +493,12 @@ text = text.split('\n');
          main.style.transition = "background-color 2s ease-in-out";
          main.style.backgroundColor = color;
       }
+      document.addEventListener("DOMContentLoaded", () => {
+         let animatedItems = document.querySelectorAll("li");
+         animatedItems.forEach((item) => {
+            item.classList.add("enter");
+         });
+      });
    </script>
 </body>
 
