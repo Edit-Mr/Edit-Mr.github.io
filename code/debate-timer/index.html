@@ -218,6 +218,20 @@
       .enter {
          transform: translateX(0);
       }
+      .bell{
+         position: fixed;
+         bottom: 0;
+         right: 0;
+      }
+      .bell button{
+         border: none;
+         background: url('bell.png') no-repeat center;
+  background-size: cover;
+         margin:1em;
+         width:80px;
+         height:80px;
+         box-shadow: none;
+      }
    </style>
 </head>
 
@@ -328,9 +342,10 @@ Preparation period
       <h1 id="t">Debate Timer</h1>
       <h2 id="s">By EM<br />Press space to continue</h2>
    </section>
+   <div class="bell"><button onclick="start.play()"></button></div>
    <script>
-      const delay = (n) => new Promise(r => setTimeout(r, n));
       var status = 0;
+      let s;
       const section = document.querySelector('section');
       section.ontouchstart = go;
       let title = document.querySelector('h1');
@@ -423,14 +438,14 @@ Preparation period
          if (status == 1) {
             var fade = document.getElementById("set");
             var intervalID = setInterval(function () {
-            if (!fade.style.opacity)
-               fade.style.opacity = 1;
-            if (fade.style.opacity > 0)
-               fade.style.opacity -= 0.01;
-            else {
-               clearInterval(intervalID);
-            }
-         }, 5);
+               if (!fade.style.opacity)
+                  fade.style.opacity = 1;
+               if (fade.style.opacity > 0)
+                  fade.style.opacity -= 0.01;
+               else {
+                  clearInterval(intervalID);
+               }
+            }, 5);
             return
          }
          if (status % 2 == 0) {
@@ -441,16 +456,16 @@ Preparation period
                li.style.boxShadow = 'none';
             });
             document.querySelectorAll('li')[status / 2 - 1].style = 'box-shadow:white 0px 0px 8px;';
-            fadeOut("t", document.getElementsByClassName(status / 2)[0].innerText);
+            s = document.getElementsByClassName(status / 2)[0].innerText;
+            fadeOut("t", s);
             fadeOut("s", "Ready");
          }
          else {
             fadeOut("s", "Timing");
-            var s = title.innerText;
-            if (s.indexOf("speech") > -1||s.indexOf("argument") > -1) startTimer(document.getElementById("speech").value);
+            if (s.indexOf("speech") > -1 || s.indexOf("argument") > -1) startTimer(document.getElementById("speech").value);
             else if (s.indexOf("Preparation") > -1) startTimer(document.getElementById("preparation").value);
-            else if (s.indexOf("cross") > -1||s.indexOf("exam") > -1) startTimer(document.getElementById("cross").value);
-            else if (s.indexOf("Summary") > -1||s.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
+            else if (s.indexOf("cross") > -1 || s.indexOf("exam") > -1) startTimer(document.getElementById("cross").value);
+            else if (s.indexOf("Summary") > -1 || s.indexOf("Rebuttal") > -1) startTimer(document.getElementById("rebuttal").value);
             else alert("can’t understand" + s);
          }
 
