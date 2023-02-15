@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 1.5vw;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: sans-serif;
+      background-color: #099c84;
+      display: flex;
+    }
+
+    body>div {
+      position: relative;
+      border-radius: 20px;
+      height: 95vh;
+      padding: 1rem;
+    }
+
+    #setting {
+      width: calc(50vw - 47.5vh - 2em);
+      margin: 1rem 1rem 0px 1rem;
+      background-color: greenyellow;
+      text-align: center;
+    }
+
+    input,button {
+      padding: 0.5rem;
+      margin: 0.25rem;
+      width: 3rem;
+      border: none;
+      border-radius: 0.5rem;
+    }
+    #title{
+      width: 5rem;
+    }
+
+    h1 {
+      font-size: calc(5vw - 4.75vh - 0.2em);
+      margin: 1rem;
+    }
+
+    #room {
+      margin-top: 1rem;
+      width: 95vh;
+      background-color: aquamarine;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+      .room {
+        width: 95vw;
+        height: 95vw;
+      }
+    }
+
+    #room div {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      width: 20%;
+      height: 0;
+      padding-bottom: 20%;
+      float: left;
+      margin: 1%;
+      background-color: rgb(10, 197, 203);
+      cursor: move;
+      font-size: 3vw;
+      color: white;
+      position: absolute;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .add {
+      padding-bottom: 10% !important;
+      font-size: 2vw;
+    }
+  </style>
+  <script>
+    let activeSquare = null;
+    let activeOffsetX = 0;
+    let activeOffsetY = 0;
+    window.addEventListener("load", function () {
+      console.log("hi")
+      var room = document.getElementById("room");
+      const ScreenWidth = window.innerWidth;
+      const ScreenHeight = window.innerHeight;
+      for (var i = 0; i < 50; i++) {
+        var a = document.createElement("div");
+        a.style.left = "200px";
+        a.style.top = "200px";
+        a.innerText = i;
+        room.appendChild(a);
+      }
+      var squares = document.querySelectorAll("#room > div");
+      squares.forEach(function (square) {
+        square.addEventListener("mousedown", function (e) {
+          activeSquare = square;
+          activeOffsetX = e.clientX - square.offsetLeft;
+          activeOffsetY = e.clientY - square.offsetTop;
+        });
+      });
+      document.addEventListener("mousemove", function (e) {
+        if (activeSquare) {
+          e.preventDefault();
+          var x = e.clientX - activeOffsetX;
+          var y = e.clientY - activeOffsetY;
+          activeSquare.style.left = x + "px";
+          activeSquare.style.top = y + "px";
+        }
+      });
+      document.addEventListener("mouseup", function (e) {
+        activeSquare = null;
+      });
+    });
+    function add() {
+      var square = document.createElement("div");
+      var title = document.getElementById("title").value;
+      square.style.left = "400px";
+      square.style.top = "200px";
+      square.className = "add";
+      square.innerText = title;
+      square.style.backgroundColor = "green";
+      room.appendChild(square);
+      square.addEventListener("mousedown", function (e) {
+        activeSquare = square;
+        activeOffsetX = e.clientX - square.offsetLeft;
+        activeOffsetY = e.clientY - square.offsetTop;
+      });
+
+    }
+  </script>
+</head>
+
+<body>
+  <div id="setting">
+    <h1>座位表生成器</h1>
+    <p>方塊可拖曳</p>
+
+    人數 <input type="number" id="x" value="7">×<input type="number" id="y" value="7"><br>
+    標示用 <input type="text" id="title" value="講桌">
+    <button id="add" onclick="add()">添加</button>
+  </div>
+  <div id="room">
+
+  </div>
+</body>
+
+</html>
