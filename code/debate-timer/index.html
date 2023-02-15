@@ -323,17 +323,20 @@
             </div>
             <h3>Flow</h3>
             <textarea id="flow">
-1A constructive speech
-2N cross examines 1A
-1N constructive speech
-1A cross examines 1N
-2A constructive speech
-1N cross examines 2A
-2N constructive speech
-2A cross examines 2N
-Preparation period
-3N Rebuttal
-3A Rebuttal
+Pro argument 1
+Con argument 1
+Preparation time
+Crossfire 1
+Pro argument 2
+Con argument 2
+Preparation time
+Crossfire 2
+Pro argument 3
+Con argument 3
+Preparation time
+Crossfire 3
+Pro summary
+Con summary
 </textarea>
             <button id="design" onclick="dm()">Design Mode Off</button>
             <button onclick="flow()">Set flow</button>
@@ -353,7 +356,7 @@ Preparation period
       let sub = document.querySelector('h2');
       const up = new Audio("up.mp3");
       const start = new Audio("start.mp3");
-      const length = document.getElementsByTagName("li").length * 2;
+      let length = document.getElementsByTagName("li").length * 2;
       var history = [];
       const lili = document.querySelectorAll('li');
       function dm() {
@@ -379,7 +382,7 @@ Preparation period
       function flow() {
          var text = document.getElementById("flow").value;
          text = text.split('\n');
-
+         length = text.length * 2;
          var ul = document.querySelector("ul");
          ul.innerHTML = "";
          for (var i = 1; i < text.length; i++) {
@@ -416,9 +419,9 @@ Preparation period
             }, 500);
          });
       }
-      document.addEventListener("keydown", (event) => {
+      document.addEventListener("keyup", (event) => {
          if (event.key === " " && document.designMode === "off") {
-            go();
+            go(); 
          }
       });
       window.onclick = e => {
