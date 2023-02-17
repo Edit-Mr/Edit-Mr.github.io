@@ -8,9 +8,9 @@
   <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
   <style>
     :root {
-  --settWidth: calc(50vw - 47.5vh - 2em);
-  --titleWidth: calc(var(--settWidth) / 10);
-}
+      --settWidth: calc(50vw - 47.5vh - 2em);
+      --titleWidth: calc(var(--settWidth) / 10);
+    }
 
     * {
       margin: 0;
@@ -29,13 +29,8 @@
     }
 
     body>div {
-<<<<<<< HEAD
       position: relative;
       border-radius: var(--titleWidth);
-=======
-
-      border-radius: 20px;
->>>>>>> 0f493e5d6123ded3a35544f93fe4805536eacc8e
       height: 95vh;
       padding: 1rem;
     }
@@ -47,18 +42,22 @@
       text-align: center;
     }
 
-    input,button {
+    input,
+    button {
       padding: 0.5rem;
       margin: 0.25rem;
       width: 3rem;
       border: none;
       border-radius: 0.5rem;
     }
-    #random,#clear{
-      width:5rem;
+
+    #random,
+    #clear {
+      width: 5rem;
       margin-top: 1rem;
     }
-    #title{
+
+    #title {
       width: 5rem;
     }
 
@@ -89,9 +88,9 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-      width: 20%;
+      width: 10vw;
       height: 0;
-      padding-bottom: 20%;
+      padding-bottom: 10vw;
       float: left;
       margin: 1%;
       background-color: rgb(10, 197, 203);
@@ -117,13 +116,25 @@
       var room = document.getElementById("room");
       const ScreenWidth = window.innerWidth;
       const ScreenHeight = window.innerHeight;
-      for (var i = 0; i < 50; i++) {
-        var a = document.createElement("div");
-        a.style.left = "200px";
-        a.style.top = "200px";
-        a.innerText = i;
-        room.appendChild(a);
-      }
+
+      const populationInput = document.querySelector('.population');
+      populationInput.addEventListener('change', function () {
+        console.log("changed");
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        if (window.innerWidth > window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight;
+        let blockWidth = roomWidth / (x + 1);
+        console.log(parseInt(x) + 1);
+        for (var i = 0; i < x; i++) {
+          for (var j = 0; j < y; j++) {
+            var a = document.createElement("div");
+            a.style.left = blockWidth*j+"px";
+            a.style.top = "200px";
+            a.innerText = i * x + j;
+            room.appendChild(a);
+          }
+        }
+      });
       var squares = document.querySelectorAll("#room > div");
       squares.forEach(function (square) {
         square.addEventListener("mousedown", function (e) {
@@ -132,10 +143,11 @@
           activeOffsetY = e.clientY - square.offsetTop;
         });
         square.addEventListener("touchmove", function (e) {
-            e.preventDefault();
-            var touch = e.touches[0];
-            e.target.style.left = touch.clientX + "px";
-            e.target.style.top = touch.clientY + "px";
+          e.preventDefault();
+          var touch = e.touches[0];
+          console.log(e.target.style);
+          e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
+          e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
         });
       });
       document.addEventListener("mousemove", function (e) {
@@ -165,17 +177,22 @@
         activeOffsetX = e.clientX - square.offsetLeft;
         activeOffsetY = e.clientY - square.offsetTop;
       });
+      square.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+        var touch = e.touches[0];
+        console.log(e.target.style);
+        e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
+        e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
+      });
     }
-    function clearA() {
-      // 选择所有带有类名 "add" 的元素
-const elements = document.querySelectorAll('.add');
-// 遍历这些元素并删除它们
-elements.forEach((element) => {
-  
-  element.remove();
-});
 
+    function clearA() {
+      const elements = document.querySelectorAll('.add');
+      elements.forEach((element) => {
+        element.remove();
+      });
     }
+
   </script>
 </head>
 
@@ -184,7 +201,8 @@ elements.forEach((element) => {
     <h1>座位表生成器</h1>
     <p>方塊可拖曳</p>
 
-    人數 <input type="number" id="x" value="7">×<input type="number" id="y" value="7"><br>
+    人數 <input type="number" class="population" id="x" value="7">×<input type="number" class="population" id="y"
+      value="7"><br>
     標示用 <input type="text" id="title" value="講桌">
     <button id="add" onclick="add()">添加</button>
     <button id="clear" onclick="clearA()">清空標示</button>
