@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
   <style>
+    :root {
+  --settWidth: calc(50vw - 47.5vh - 2em);
+  --titleWidth: calc(var(--settWidth) / 10);
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -25,13 +30,13 @@
 
     body>div {
       position: relative;
-      border-radius: 20px;
+      border-radius: var(--titleWidth);
       height: 95vh;
       padding: 1rem;
     }
 
     #setting {
-      width: calc(50vw - 47.5vh - 2em);
+      width: var(--settWidth);
       margin: 1rem 1rem 0px 1rem;
       background-color: greenyellow;
       text-align: center;
@@ -44,13 +49,17 @@
       border: none;
       border-radius: 0.5rem;
     }
+    #random,#clear{
+      width:5rem;
+      margin-top: 1rem;
+    }
     #title{
       width: 5rem;
     }
 
     h1 {
-      font-size: calc(5vw - 4.75vh - 0.2em);
-      margin: 1rem;
+      font-size: var(--titleWidth);
+      margin: var(--titleWidth);
     }
 
     #room {
@@ -145,6 +154,15 @@
         activeOffsetX = e.clientX - square.offsetLeft;
         activeOffsetY = e.clientY - square.offsetTop;
       });
+    }
+    function clearA() {
+      // 选择所有带有类名 "add" 的元素
+const elements = document.querySelectorAll('.add');
+// 遍历这些元素并删除它们
+elements.forEach((element) => {
+  
+  element.remove();
+});
 
     }
   </script>
@@ -158,6 +176,8 @@
     人數 <input type="number" id="x" value="7">×<input type="number" id="y" value="7"><br>
     標示用 <input type="text" id="title" value="講桌">
     <button id="add" onclick="add()">添加</button>
+    <button id="clear" onclick="clearA()">清空標示</button>
+    <button id="random" onclick="random()">隨機排序</button>
   </div>
   <div id="room">
 
