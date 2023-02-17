@@ -29,8 +29,13 @@
     }
 
     body>div {
+<<<<<<< HEAD
       position: relative;
       border-radius: var(--titleWidth);
+=======
+
+      border-radius: 20px;
+>>>>>>> 0f493e5d6123ded3a35544f93fe4805536eacc8e
       height: 95vh;
       padding: 1rem;
     }
@@ -125,6 +130,12 @@
           activeSquare = square;
           activeOffsetX = e.clientX - square.offsetLeft;
           activeOffsetY = e.clientY - square.offsetTop;
+        });
+        square.addEventListener("touchmove", function (e) {
+            e.preventDefault();
+            var touch = e.touches[0];
+            e.target.style.left = touch.clientX + "px";
+            e.target.style.top = touch.clientY + "px";
         });
       });
       document.addEventListener("mousemove", function (e) {
