@@ -68,7 +68,7 @@
 
     #room {
       margin-top: 1rem;
-      width: 95vh;
+      width: calc(100vh - 2rem);
       background-color: aquamarine;
     }
 
@@ -88,9 +88,6 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-      height: 0;
-      float: left;
-      margin: 1%;
       background-color: rgb(10, 197, 203);
       cursor: move;
       font-size: 3vw;
@@ -98,61 +95,33 @@
       position: absolute;
       border-radius: 20px;
       text-align: center;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
     }
-
-    .add {
-      padding-bottom: 10% !important;
-      font-size: 2vw;
+    .add{
+      padding:0.5rem;
     }
   </style>
   <script>
     let activeSquare = null;
     let activeOffsetX = 0;
     let activeOffsetY = 0;
+    let blockWidth;
     window.addEventListener("load", function () {
       var room = document.getElementById("room");
-      const ScreenWidth = window.innerWidth;
-      const ScreenHeight = window.innerHeight;
-
       const populationInput = document.querySelectorAll('.population');
       populationInput.forEach(function (populate) {
-        populate.addEventListener('change', function () {
-          room.innerHTML = "";
-          console.log("changed");
-          var x = parseInt(document.getElementById("x").value);
-          var y = parseInt(document.getElementById("y").value);
-          if (window.innerWidth > window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight;
-          if (x > y) var a = x; else var a = y;
-          let blockWidth = roomWidth / 2 / (a + 1);
-          console.log(y);
-          for (var i = 0; i < y; i++) {
-            for (var j = 0; j < x; j++) {
-              var a = document.createElement("div");
-              a.style.left = blockWidth * j + blockWidth / 2 + "px";
-              a.style.top = blockWidth * i + blockWidth / 2 + "px";
-              a.style.width = blockWidth + "px";
-              a.style.paddingBottom = blockWidth + "px";
-              a.innerText = i * x + j;
-              room.appendChild(a);
-            }
-          }
-        });
+        populate.addEventListener('change', set());
       });
-      var squares = document.querySelectorAll("#room > div");
-      squares.forEach(function (square) {
-        square.addEventListener("mousedown", function (e) {
-          activeSquare = square;
-          activeOffsetX = e.clientX - square.offsetLeft;
-          activeOffsetY = e.clientY - square.offsetTop;
-        });
-        square.addEventListener("touchmove", function (e) {
-          e.preventDefault();
-          var touch = e.touches[0];
-          console.log(e.target.style);
-          e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
-          e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
-        });
-      });
+      populationInput.forEach(function (populate) {
+  populate.addEventListener('change', set);
+});
+
       document.addEventListener("mousemove", function (e) {
         if (activeSquare) {
           e.preventDefault();
@@ -169,8 +138,8 @@
     function add() {
       var square = document.createElement("div");
       var title = document.getElementById("title").value;
-      square.style.left = "400px";
-      square.style.top = "200px";
+      square.style.left = 0;
+      square.style.top = 0;
       square.className = "add";
       square.innerText = title;
       square.style.backgroundColor = "green";
@@ -195,7 +164,46 @@
         element.remove();
       });
     }
-
+    function set() {
+      console.log("changed");
+      room.innerHTML = "";
+      // Get the computed font size of the root element in pixels
+      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      // Calculate the pixel value of 1 rem
+      const oneRemPx = rootFontSize;
+      var x = parseInt(document.getElementById("x").value);
+      var y = parseInt(document.getElementById("y").value);
+      if (window.innerWidth < window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight - oneRemPx * 2;
+      if (x > y) var more = x; else var more = y;
+      blockWidth = (roomWidth-oneRemPx* (more-1)) / (more + 1);
+      for (var i = 0; i < y; i++) {
+        for (var j = 0; j < x; j++) {
+          var a = document.createElement("div");
+          a.style.left = blockWidth * j + blockWidth / 2 +oneRemPx* j+ "px";
+          a.style.top = blockWidth * i + blockWidth / 2 +oneRemPx* i + "px";
+          a.style.width = blockWidth + "px";
+          a.style.height = blockWidth + "px";
+          a.innerText = i * x + j + 1;
+          room.appendChild(a);
+        }
+      };
+      var squares = document.querySelectorAll("#room > div");
+      squares.forEach(function (square) {
+        square.addEventListener("mousedown", function (e) {
+          console.log("mousedown");
+          activeSquare = square;
+          activeOffsetX = e.clientX - square.offsetLeft;
+          activeOffsetY = e.clientY - square.offsetTop;
+        });
+        square.addEventListener("touchmove", function (e) {
+          e.preventDefault();
+          var touch = e.touches[0];
+          console.log(e.target.style);
+          e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
+          e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
+        });
+      });
+    }
   </script>
 </head>
 
@@ -204,15 +212,14 @@
     <h1>座位表生成器</h1>
     <p>方塊可拖曳</p>
 
-    人數 <input type="number" class="population" id="x" value="7">×<input type="number" class="population" id="y"
-      value="7"><br>
+    人數 <input type="number" class="population" id="x" value="5" min="1">×<input type="number" class="population" id="y"
+      value="5" min="1"><br>
     標示用 <input type="text" id="title" value="講桌">
     <button id="add" onclick="add()">添加</button>
     <button id="clear" onclick="clearA()">清空標示</button>
     <button id="random" onclick="random()">隨機排序</button>
   </div>
   <div id="room">
-
   </div>
 </body>
 
