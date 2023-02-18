@@ -9,6 +9,7 @@
   <style>
     :root {
       --settWidth: calc(50vw - 47.5vh - 2em);
+      --settWidth: calc(50dvw - 47.5dvh - 2em);
       --titleWidth: calc(var(--settWidth) / 10);
     }
 
@@ -21,24 +22,22 @@
 
     html,
     body {
-      width: 100vw;
-      height: 100vh;
       font-family: sans-serif;
-      background-color: #099c84;
+      background-color: #0081C9;
       display: flex;
     }
 
     body>div {
       position: relative;
       border-radius: var(--titleWidth);
-      height: 95vh;
+      height: calc( 100vh - 2rem);
       padding: 1rem;
+      background-color: #86E5FF;
     }
 
     #setting {
       width: var(--settWidth);
       margin: 1rem 1rem 0px 1rem;
-      background-color: greenyellow;
       text-align: center;
     }
 
@@ -49,6 +48,18 @@
       width: 3rem;
       border: none;
       border-radius: 0.5rem;
+    }
+
+    button {
+      background-color: #FFC93C;
+    }
+
+    input {
+      background-color: white;
+    }
+
+    #add {
+      background-color: white;
     }
 
     #random,
@@ -64,12 +75,17 @@
     h1 {
       font-size: var(--titleWidth);
       margin: var(--titleWidth);
+      margin-bottom: 0;
+    }
+    h2{
+      font-size: calc( var(--titleWidth) / 2);
+      margin:calc( var(--titleWidth) / 3) 0 var(--titleWidth) 0;
     }
 
     #room {
       margin-top: 1rem;
       width: calc(100vh - 2rem);
-      background-color: aquamarine;
+      width: calc(100dvh - 2rem);
     }
 
     p {
@@ -88,23 +104,35 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-      background-color: rgb(10, 197, 203);
+      background-color: #5BC0F8;
       cursor: move;
-      font-size: 3vw;
       color: white;
       position: absolute;
       border-radius: 20px;
       text-align: center;
       display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      vertical-align: middle;
+      max-width: 100%;
+      max-height: 100%;
     }
-    .add{
-      padding:0.5rem;
+
+    .add {
+      padding: 0.25rem;
+      background-color: #FFC93C !important;
+      font-size: var(--titleWidth);
+    }
+
+    img{
+      width: 2rem;
+      position: absolute;
+      bottom: 1rem;
+      left: calc(var(--settWidth) / 2 - 1rem);
+    }
+    p{
+      margin-top: 1rem;
     }
   </style>
   <script>
@@ -113,14 +141,14 @@
     let activeOffsetY = 0;
     let blockWidth;
     window.addEventListener("load", function () {
-      var room = document.getElementById("room");
       const populationInput = document.querySelectorAll('.population');
+      let room = document.getElementById("room");
       populationInput.forEach(function (populate) {
         populate.addEventListener('change', set());
       });
       populationInput.forEach(function (populate) {
-  populate.addEventListener('change', set);
-});
+        populate.addEventListener('change', set);
+      });
 
       document.addEventListener("mousemove", function (e) {
         if (activeSquare) {
@@ -142,7 +170,6 @@
       square.style.top = 0;
       square.className = "add";
       square.innerText = title;
-      square.style.backgroundColor = "green";
       room.appendChild(square);
       square.addEventListener("mousedown", function (e) {
         activeSquare = square;
@@ -166,7 +193,13 @@
     }
     function set() {
       console.log("changed");
-      room.innerHTML = "";
+      // Get a list of all the child elements of the container
+      var children = room.children;
+      for (let i = children.length - 1; i >= 0; i--) {
+        const child = children[i];
+        console.log(child.className);
+        if (!child.className) room.removeChild(child);
+      }
       // Get the computed font size of the root element in pixels
       const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
       // Calculate the pixel value of 1 rem
@@ -175,12 +208,12 @@
       var y = parseInt(document.getElementById("y").value);
       if (window.innerWidth < window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight - oneRemPx * 2;
       if (x > y) var more = x; else var more = y;
-      blockWidth = (roomWidth-oneRemPx* (more-1)) / (more + 1);
+      blockWidth = (roomWidth - oneRemPx * (more - 1)) / (more + 1);
       for (var i = 0; i < y; i++) {
         for (var j = 0; j < x; j++) {
           var a = document.createElement("div");
-          a.style.left = blockWidth * j + blockWidth / 2 +oneRemPx* j+ "px";
-          a.style.top = blockWidth * i + blockWidth / 2 +oneRemPx* i + "px";
+          a.style.left = blockWidth * j + blockWidth / 2 + oneRemPx * j + "px";
+          a.style.top = blockWidth * i + blockWidth / 2 + oneRemPx * i + "px";
           a.style.width = blockWidth + "px";
           a.style.height = blockWidth + "px";
           a.innerText = i * x + j + 1;
@@ -204,20 +237,36 @@
         });
       });
     }
+    function shuffle() {
+      var blockss = room.querySelectorAll('div:not(.add)');;
+      // Shuffle an array of unique numbers based on the number of blocks
+      const numbers = Array.from({ length: blockss.length }, (_, i) => i + 1);
+      for (let i = numbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+      }
+      // Assign each number to a block and update its innerHTML
+      blockss.forEach((blocksss, index) => {
+        const number = numbers[index];
+        blocksss.innerHTML = number;
+      });
+    }
+
   </script>
 </head>
 
 <body>
   <div id="setting">
     <h1>座位表生成器</h1>
-    <p>方塊可拖曳</p>
-
+    <h2>毛哥EM製作</h2>
     人數 <input type="number" class="population" id="x" value="5" min="1">×<input type="number" class="population" id="y"
       value="5" min="1"><br>
     標示用 <input type="text" id="title" value="講桌">
     <button id="add" onclick="add()">添加</button>
     <button id="clear" onclick="clearA()">清空標示</button>
-    <button id="random" onclick="random()">隨機排序</button>
+    <button id="random" onclick="shuffle()">隨機排序</button>
+    <p>輸入人數會自動生成排序<br>點擊隨機排序進行洗牌<br>所有方塊均可拖曳自訂位置<br>拖曳至垃圾桶刪除方塊</p>
+    <img src="trash-can.png" alt="trash-can">
   </div>
   <div id="room">
   </div>
