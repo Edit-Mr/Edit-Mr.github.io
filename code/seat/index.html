@@ -110,30 +110,33 @@
     let activeOffsetX = 0;
     let activeOffsetY = 0;
     window.addEventListener("load", function () {
-      console.log("hi")
       var room = document.getElementById("room");
       const ScreenWidth = window.innerWidth;
       const ScreenHeight = window.innerHeight;
 
-      const populationInput = document.querySelector('.population');
-      populationInput.addEventListener('change', function () {
-        console.log("changed");
-        var x = parseInt(document.getElementById("x").value);
-        var y = parseInt(document.getElementById("y").value);
-        if (window.innerWidth > window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight;
-        let blockWidth = roomWidth / (x + 1);
-        console.log(parseInt(x) + 1);
-        for (var i = 0; i < x; i++) {
-          for (var j = 0; j < y; j++) {
-            var a = document.createElement("div");
-            a.style.left = blockWidth*j+"px";
-            a.style.top = "200px";
-            a.style.width = blockWidth;
-            a.style.paddingBottom=blockWidth;
-            a.innerText = i * x + j;
-            room.appendChild(a);
+      const populationInput = document.querySelectorAll('.population');
+      populationInput.forEach(function (populate) {
+        populate.addEventListener('change', function () {
+          room.innerHTML = "";
+          console.log("changed");
+          var x = parseInt(document.getElementById("x").value);
+          var y = parseInt(document.getElementById("y").value);
+          if (window.innerWidth > window.innerHeight) roomWidth = window.innerWidth; else roomWidth = window.innerHeight;
+          if (x > y) var a = x; else var a = y;
+          let blockWidth = roomWidth / 2 / (a + 1);
+          console.log(y);
+          for (var i = 0; i < y; i++) {
+            for (var j = 0; j < x; j++) {
+              var a = document.createElement("div");
+              a.style.left = blockWidth * j + blockWidth / 2 + "px";
+              a.style.top = blockWidth * i + blockWidth / 2 + "px";
+              a.style.width = blockWidth + "px";
+              a.style.paddingBottom = blockWidth + "px";
+              a.innerText = i * x + j;
+              room.appendChild(a);
+            }
           }
-        }
+        });
       });
       var squares = document.querySelectorAll("#room > div");
       squares.forEach(function (square) {
