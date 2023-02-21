@@ -130,12 +130,11 @@
       max-height: 100%;
     }
 
-    #delete div {
+    #delete>div {
       width: 100%;
       height: 100%;
       border: #ff8686 5px dashed;
       border-radius: var(--titleWidth);
-      display: block;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -157,15 +156,17 @@
       font-size: var(--titleWidth);
     }
 
-    img {
+    #delete img {
       width: 2rem;
-      position: absolute;
-      bottom: 1rem;
-      left: calc(var(--settWidth) / 2 - 1rem);
+      margin-top: 1rem;
     }
 
     p {
       margin-top: 1rem;
+    }
+
+    .notice {
+      display: none;
     }
 
     @keyframes fadeIn {
@@ -175,6 +176,30 @@
 
       100% {
         opacity: 1;
+      }
+    }
+
+    @media screen and (orientation: portrait) {
+
+      /* 隱藏網頁內容 */
+      body>div {
+        display: none;
+      }
+
+      /* 顯示提示消息 */
+      .notice {
+        position: absolute;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        font-size: calc(100vw / 11);
+        color: #FFC93C;
       }
     }
   </style>
@@ -192,7 +217,6 @@
       populationInput.forEach(function (populate) {
         populate.addEventListener('change', set);
       });
-
       document.addEventListener("mousemove", function (e) {
         if (activeSquare) {
           e.preventDefault();
@@ -203,19 +227,26 @@
         }
       });
       document.addEventListener("mouseup", function (e) {
-        console.log("ya");
-        document.getElementById("setting").addEventListener('mouseover', function(event) {
-          console.log("you're hovering over the delete button");
-  if (event.type === 'mouseover') {
-    activeSquare.remove();
-  }else{
-    console.log("you're not hovering over the delete button");
-  }
-});
-        activeSquare = null;
-        document.getElementById("delete").style.display = "none";
-        
+        if (activeSquare) {
+          if (e.clientX < window.innerWidth / 4) {
+            activeSquare.remove();
+          }
+          activeSquare = null;
+          document.getElementById("delete").style.display = "none";
+        }
       });
+      document.addEventListener("touchend", function (e) {
+        
+        if (activeSquare) {
+          console.log(e.clientX);
+          if (e.changedTouches[0].clientX < window.innerWidth / 4) {
+            activeSquare.remove();
+          }
+          
+          document.getElementById("delete").style.display = "none";
+        }
+      });
+
     });
     function add() {
       var square = document.createElement("div");
@@ -226,17 +257,18 @@
       square.innerText = title;
       room.appendChild(square);
       square.addEventListener("mousedown", function (e) {
+        document.getElementById("delete").style.display = "block";
         activeSquare = square;
         activeOffsetX = e.clientX - square.offsetLeft;
         activeOffsetY = e.clientY - square.offsetTop;
-
       });
       square.addEventListener("touchmove", function (e) {
+        document.getElementById("delete").style.display = "block";
         e.preventDefault();
         var touch = e.touches[0];
-        console.log(e.target.style);
-        e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
-        e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
+        activeSquare = touch.target;
+        touch.target.style.left = "calc(" + touch.clientX + "px - 100vw / 4 + 2rem)";
+        touch.target.style.top = "calc(" + touch.clientY + "px - 1rem)";
       });
     }
 
@@ -247,17 +279,12 @@
       });
     }
     function set() {
-      console.log("changed");
-      // Get a list of all the child elements of the container
       var children = room.children;
       for (let i = children.length - 1; i >= 0; i--) {
         const child = children[i];
-        console.log(child.className);
         if (!child.className) room.removeChild(child);
       }
-      // Get the computed font size of the root element in pixels
       const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-      // Calculate the pixel value of 1 rem
       const oneRemPx = rootFontSize;
       var x = parseInt(document.getElementById("x").value);
       var y = parseInt(document.getElementById("y").value);
@@ -272,24 +299,25 @@
           a.style.width = blockWidth + "px";
           a.style.height = blockWidth + "px";
           a.innerText = i * x + j + 1;
+          a.style.fontSize = blockWidth / 2 + "px";
           room.appendChild(a);
         }
       };
       var squares = document.querySelectorAll("#room > div");
       squares.forEach(function (square) {
         square.addEventListener("mousedown", function (e) {
-          console.log("mousedown");
           document.getElementById("delete").style.display = "block";
           activeSquare = square;
           activeOffsetX = e.clientX - square.offsetLeft;
           activeOffsetY = e.clientY - square.offsetTop;
         });
         square.addEventListener("touchmove", function (e) {
+          document.getElementById("delete").style.display = "block";
           e.preventDefault();
           var touch = e.touches[0];
-          console.log(e.target.style);
-          e.target.style.left = "calc(" + touch.clientX + "px - var(--settWidth) - 4rem - " + blockWidth / 2 + "vw)";
-          e.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "vw)";
+          activeSquare = touch.target;
+          touch.target.style.left = "calc(" + touch.clientX + "px - 100vw / 4 - " + blockWidth / 2 + "px + 2rem)";
+          touch.target.style.top = "calc(" + touch.clientY + "px - 1rem - " + blockWidth / 2 + "px)";
         });
       });
     }
@@ -322,13 +350,15 @@
     <button id="clear" onclick="clearA()">清空標示</button>
     <button id="random" onclick="shuffle()">隨機排序</button>
     <p>輸入人數會自動生成排序<br>點擊隨機排序進行洗牌<br>所有方塊均可拖曳自訂位置<br>拖曳至垃圾桶刪除方塊</p>
-    <img src="trash-can.png" alt="trash-can">
   </div>
   <div id="delete">
-    <div>拖曳至此刪除</div>
+    <div>
+      <div>拖曳至此刪除<br><img src="trash-can.png" alt="trash-can"></div>
+    </div>
   </div>
   <div id="room">
   </div>
+  <div class="notice">請將螢幕橫過來使用</div>
 </body>
 
 </html>
