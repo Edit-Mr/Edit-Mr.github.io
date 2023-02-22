@@ -5,7 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="座位表生成器-隨機、自訂座位">
+  <meta property="og:description" content=">輸入人數會自動生成排序，點擊隨機排序進行洗牌，所有方塊均可拖曳自訂位置，拖曳至垃圾桶刪除方塊">
   <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-9R5PZG2VQG');
+    </script>
   <style>
     :root {
       --settWidth: calc(50vw - 47.5vh - 2em);
@@ -236,13 +247,13 @@
         }
       });
       document.addEventListener("touchend", function (e) {
-        
+
         if (activeSquare) {
           console.log(e.clientX);
           if (e.changedTouches[0].clientX < window.innerWidth / 4) {
             activeSquare.remove();
           }
-          
+
           document.getElementById("delete").style.display = "none";
         }
       });
@@ -338,8 +349,11 @@
 
   </script>
 </head>
-
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   <div id="setting">
     <h1>座位表生成器</h1>
     <h2>毛哥EM製作</h2>
