@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="線上螢幕錄影-毛哥EM的基地">
+  <meta property="og:description" content=">線上螢幕錄影-毛哥EM的基地。免費、極簡、快速">
+  <title>線上螢幕錄影-毛哥EM的基地</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9R5PZG2VQG');
+  </script>
+  <style>
+    /* color from https://colorhunt.co/palette/413c694a47a3709fb0a7c5eb */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+    }
+    body {
+      background-color: #413C69;
+      color: #A7C5EB;
+      text-align: center;
+      height: 100svh;
+      overflow-x: hidden;
+      font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體", sans-serif;
+    }
+
+    a {
+      color: #A7C5EB;
+
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    button,
+    #downloadLink {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #709FB0;
+      color: #FFF;
+      cursor: pointer;
+      margin: 1rem 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    #downloadLink {
+      margin-bottom: 1rem;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 5px #A7C5EB;
+      }
+
+      50% {
+        box-shadow: 0 0 15px #A7C5EB;
+      }
+
+      100% {
+        box-shadow: 0 0 5px #A7C5EB;
+      }
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    video {
+      width: 40rem;
+      max-width: 90vw;
+      border-radius: 0.5rem;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <main>
+    <h1>線上螢幕錄影</h1>
+    <p>免費 極簡 快速</p>
+    <button id="recordBtn">開始錄製</button>
+    <div id="videoContainer" style="display:none;">
+      <video id="recordedVideo" controls></video>
+      <br>
+      <a id="downloadLink" href="#" download>下載影片</a>
+    </div>
+    <footer><a href="/">毛哥EM</a>製作</footer>
+  </main>
+
+
+
+  <script>
+    let recorder, stream, videoBlob;
+
+    const recordBtn = document.getElementById('recordBtn');
+    const videoContainer = document.getElementById('videoContainer');
+    const recordedVideo = document.getElementById('recordedVideo');
+    const downloadLink = document.getElementById('downloadLink');
+
+    recordBtn.addEventListener('click', async () => {
+      if (recordBtn.textContent === 'Start Recording') {
+        stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+        recorder = new MediaRecorder(stream);
+
+        recorder.addEventListener('dataavailable', (event) => {
+          videoBlob = new Blob([event.data], { type: 'video/webm' });
+          recordedVideo.src = URL.createObjectURL(videoBlob);
+          videoContainer.style.display = 'block';
+          downloadLink.href = URL.createObjectURL(videoBlob);
+        });
+
+        recorder.start();
+        recordBtn.textContent = 'Stop Recording';
+        recordBtn.style.animation = 'pulse 1s infinite';
+      } else {
+        recorder.stop();
+        stream.getTracks().forEach(track => track.stop());
+        recordBtn.disabled = true;
+        recordBtn.textContent = 'Processing...';
+
+        recorder.addEventListener('stop', () => {
+          recordBtn.disabled = false;
+          recordBtn.textContent = 'Start Recording';
+          recordBtn.style.animation = '';
+        });
+      }
+    });
+
+    document.querySelectorAll('.button').forEach(function (button) {
+      button.addEventListener('mousedown', function (e) {
+        var target = e.target;
+        var rect = target.getBoundingClientRect();
+        var ripple = target.querySelector('.ripple');
+        if (ripple) {
+          ripple.remove();
+        }
+        ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
+        target.appendChild(ripple);
+        var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+        var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+        ripple.style.top = top + 'px';
+        ripple.style.left = left + 'px';
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
