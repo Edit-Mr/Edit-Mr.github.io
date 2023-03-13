@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>| 毛哥EM的基地</title>
+    <title>圖示上色 CSS濾鏡生成器 | 毛哥EM的基地</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <style>
         * {
@@ -26,7 +26,7 @@
             position: absolute;
             width: 100%;
             max-width: 500px;
-            
+
             min-height: 500px;
             background-color: rgba(255, 255, 255, 0.5);
             border-radius: 1rem;
@@ -36,13 +36,13 @@
             top: 50%;
             z-index: 2;
         }
-        
-        footer{
+
+        footer {
             margin-top: 1rem;
             font-size: 0.8rem;
             position: absolute;
-            left:50%;
-            bottom:0;
+            left: 50%;
+            bottom: 0;
             transform: translate(-50%, -50%);
         }
 
@@ -79,39 +79,43 @@
             border: none;
             border-radius: 0.5rem;
         }
-        .change{
-            width:2rem;
+
+        .change {
+            width: 2rem;
         }
 
-        button{
-        cursor: pointer;
-        margin-left: 0.5rem;
+        button {
+            cursor: pointer;
+            margin-left: 0.5rem;
         }
 
-        button:hover{
+        button:hover {
             background-color: #FFD700;
         }
 
-        button:active{
+        button:active {
             background-color: #FFC107;
         }
 
-        #choose{
+        #choose {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .lossDetail{
+        .lossDetail {
             font-size: 1.3rem;
+        }
+        a{
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
     <main>
-        <h1>圖示上色CSS濾鏡生成器</h1>
-        <p>圖示需是黑色。如果不是可以將<code>brightness(0) saturate(100%)</code>添加到filter屬性中來先把它塗黑</p>
+        <h1>圖示上色 CSS濾鏡生成器</h1>
+        <p>icon需是黑色。如果不是可以將<code>brightness(0) saturate(100%)</code>添加到filter屬性中來先把它塗黑</p>
         <div id="choose"><input class="target" type="color" placeholder="target hex" value="#9DF1DF" />
             <button class="change">#</button>
             <button class="execute">生成濾鏡</button>
@@ -120,7 +124,7 @@
         <p class="filterDetail"></p>
         <p class="lossDetail"></p>
         <p>上半部背景是CSS background-color真實顏色，下半部是CSS filter。如果對結果不滿意可以再次生成</p>
-        <footer>毛哥EM製作</footer>
+        <footer>毛哥EM製作 改編自<a href="https://codepen.io/sosuke">sosuke</a></footer>
     </main>
     <div class="pixel realPixel">CSS background-color</div>
     <div class="pixel filterPixel">CSS filter</div>
@@ -445,14 +449,22 @@
                 }
 
                 $('.realPixel').css('background-color', color.toString());
-                $('.filterPixel').attr('style', result.filter+"background-color:#000");
+                $('.filterPixel').attr('style', result.filter + "background-color:#000");
                 $('.filterDetail').text(result.filter);
                 $('.lossDetail').html(`誤差值: ${result.loss.toFixed(1)} <b>${lossMsg}</b>`);
             });
             $('button.change').click(() => {
+                var buttonText = $('button.change');
+                var picker = $('input.target');
+                if (buttonText.text() == "#") { buttonText.text("🎨"); picker.attr('type', 'text'); }
+                else {
+                    buttonText.text("#")
+                    picker.attr('type', 'color');
+                };
+            }
 
-                $('.realPixel')
-            });
+
+            );
         });
     </script>
 </body>
