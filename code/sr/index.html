@@ -130,7 +130,7 @@
     const downloadLink = document.getElementById('downloadLink');
 
     recordBtn.addEventListener('click', async () => {
-      if (recordBtn.textContent === 'Start Recording') {
+      if (recordBtn.textContent === '開始錄製') {
         stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
         recorder = new MediaRecorder(stream);
 
@@ -142,17 +142,17 @@
         });
 
         recorder.start();
-        recordBtn.textContent = 'Stop Recording';
+        recordBtn.textContent = '停止錄製';
         recordBtn.style.animation = 'pulse 1s infinite';
       } else {
         recorder.stop();
         stream.getTracks().forEach(track => track.stop());
         recordBtn.disabled = true;
-        recordBtn.textContent = 'Processing...';
+        recordBtn.textContent = '處理中...';
 
         recorder.addEventListener('stop', () => {
           recordBtn.disabled = false;
-          recordBtn.textContent = 'Start Recording';
+          recordBtn.textContent = '開始錄製';
           recordBtn.style.animation = '';
         });
       }
