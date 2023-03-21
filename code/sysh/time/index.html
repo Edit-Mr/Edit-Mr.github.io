@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下課倒數</title>
+    <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Aldrich", sans-serif;
+        }
+
+        body {
+            color: rgba(0, 0, 0, 0.25);
+            background-color: #f1614b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 5vw;
+        }
+
+
+        #time {
+            font-size: 20vw;
+            font-weight: bold;
+        }
+
+        .progress {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #f1614b;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="progress"></div>
+        <div id="time">我想一下</div>
+        <p id="next">毛哥EM製作<br>點擊進入全螢幕</p>
+
+    </main>
+    <script>
+        let elem = document.documentElement; // get the root element of the document
+        document.addEventListener('mousedown', requestFullScreen);
+        document.addEventListener('touchstart', requestFullScreen);
+
+        function requestFullScreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+
+        setInterval(function () {
+            var now = new Date();
+            var time = document.getElementById("time");
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            let target, length;
+            let progress = document.querySelector(".progress");
+            if (hour >= 17) {
+                time.innerHTML = "再見";
+                next.innerHTML = "明天見";
+            } else {
+                if (hour == 12) {
+                    console.log("12");
+                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
+                    length = 65;
+                    yeah();
+                } else if (hour >= 15) {
+                    console.log("15");
+                    if (minute < 15) {
+                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 15, 0);
+                        length = 50;
+                        yeah();
+                    } else {
+                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
+                        if ((hour == 15 && now.getDay != 3) || (hour == 16 && now.getDay == 3)) length = 15; else length = 10;
+                        oh();
+                    }
+                } else {
+                    console.log("else");
+                    if (minute < 10) {
+                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 10, 0);
+                        length = 10;
+                        yeah();
+                    } else {
+                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 0, 0);
+                        length = 50;
+                        oh();
+                    }
+                }
+                var diff = target.getTime() - now.getTime();
+                progress.style.width = (100 - (diff / 1000 / 60 / length) * 100) + "%";
+                // 將毫秒轉換為分鐘和秒數
+                var minutes = Math.floor(diff / 1000 / 60);
+                var seconds = Math.floor(diff / 1000) % 60;
+                time.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+            }
+        }, 1000);
+        function oh() {
+            document.getElementById("next").innerHTML = "後下課";
+            document.querySelector("body").style.backgroundColor = "#f1614b";
+            document.querySelector(".progress").style.backgroundColor = "lime";
+        }
+        function yeah() {
+            document.getElementById("next").innerHTML = "後上課";
+            document.querySelector("body").style.backgroundColor = "lime";
+            document.querySelector(".progress").style.backgroundColor = "#f1614b";
+        }
+    </script>
+</body>
+
+</html>
