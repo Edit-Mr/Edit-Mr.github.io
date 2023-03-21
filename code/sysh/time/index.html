@@ -99,11 +99,12 @@
                     console.log("15");
                     if (minute < 15) {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 15, 0);
-                        length = 50;
+                        length = 15;
                         yeah();
                     } else {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
                         if ((hour == 15 && now.getDay != 3) || (hour == 16 && now.getDay == 3)) length = 15; else length = 10;
+                        length = 50;
                         oh();
                     }
                 } else {
