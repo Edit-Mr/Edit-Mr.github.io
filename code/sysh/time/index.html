@@ -16,6 +16,7 @@
 
         gtag('config', 'G-9R5PZG2VQG');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.3/dist/confetti.browser.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -50,6 +51,17 @@
             background-color: #f1614b;
             z-index: -1;
         }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 
@@ -63,7 +75,7 @@
         <div id="time">我想一下</div>
         <p id="next">毛哥EM製作<br>點擊進入全螢幕</p>
 
-    </main>
+    </main><canvas id="my-canvas"></canvas>
     <script>
         let elem = document.documentElement; // get the root element of the document
         document.addEventListener('mousedown', requestFullScreen);
@@ -124,6 +136,7 @@
                 // 將毫秒轉換為分鐘和秒數
                 var minutes = Math.floor(diff / 1000 / 60);
                 var seconds = Math.floor(diff / 1000) % 60;
+                if(minutes == 0 && seconds == 0) runConfetti();
                 time.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
             }
         }, 1000);
@@ -137,7 +150,53 @@
             document.querySelector("body").style.backgroundColor = "lime";
             document.querySelector(".progress").style.backgroundColor = "#f1614b";
         }
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.3/dist/confetti.browser.min.js"></script>
+    <script>
+        function runConfetti() {
+            const end = Date.now() + (4 * 1000);
+            const colors = [
+                '#26ccff',
+                '#a25afd',
+                '#ff5e7e',
+                '#88ff5a',
+                '#fcff42',
+                '#ffa62d',
+                '#ff36ff'
+            ];
+            const random = (max, min) => {
+                min = min || 0
+                return min + Math.round(Math.random() * (max - min))
+            }
+            const canvas = document.getElementById('my-canvas');
+            const confettiInstance = confetti.create(canvas, {
+                resize: true
+            });
+            const confettiFunc = () => {
+                confettiInstance({
+                    particleCount: 1,
+                    startVelocity: 0,
+                    ticks: 250,
+                    scale: 2,
+                    origin: {
+                        x: Math.random(),
+                        y: 0,
+                    },
+                    colors: [
+                        colors[
+                            random(colors.length)
+                        ]
+                    ]
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(confettiFunc);
+                }
+            };
+            confettiFunc();
+        }
+    </script>
+    
 </body>
 
 </html>
