@@ -71,6 +71,12 @@
             font-size: 1.7rem;
             color: #FFF;
         }
+        #a{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
     </style>
 </head>
 
@@ -114,24 +120,21 @@
                 next.innerHTML = "明天見";
             } else {
                 if (hour == 12) {
-                    console.log("12");
                     target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 10, 0);
                     length = 65;
                     yeah();
                 } else if (hour >= 15) {
-                    console.log("15");
-                    if (minute < 15 || minute >= 5) {
+                    
+                    if (minute < 15 && minute >= 5) {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 15, 0);
-                        length = 15;
+                        if ((hour == 15 && now.getDay != 3) || (hour == 16 && now.getDay == 3)) length = 15; else length = 10;
                         yeah();
                     } else {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
-                        if ((hour == 15 && now.getDay != 3) || (hour == 16 && now.getDay == 3)) length = 15; else length = 10;
                         length = 50;
                         oh();
                     }
                 } else {
-                    console.log("else");
                     if (minute < 10) {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 10, 0);
                         length = 10;
