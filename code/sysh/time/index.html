@@ -22,7 +22,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Aldrich', monospace;
+            font-family: 'Aldrich', 微軟正黑體, monospace, sans-serif;
         }
 
         body {
@@ -40,6 +40,7 @@
         #time {
             font-size: 20vw;
             font-weight: bold;
+            text-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
         }
 
         .progress {
@@ -63,6 +64,13 @@
             margin: 0;
             padding: 0;
         }
+        #current{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 1.7rem;
+            color: #FFF;
+        }
     </style>
 </head>
 
@@ -76,7 +84,8 @@
         <div id="time">我想一下</div>
         <p id="next">毛哥EM製作<br>點擊進入全螢幕</p>
 
-    </main><canvas id="my-canvas"></canvas>
+    </main>
+    <div id="current"></div><canvas id="my-canvas"></canvas>
     <script>
         let elem = document.documentElement; // get the root element of the document
         document.addEventListener('mousedown', requestFullScreen);
@@ -94,6 +103,7 @@
 
         setInterval(function () {
             var now = new Date();
+            document.getElementById("current").innerHTML = now;
             var time = document.getElementById("time");
             var hour = now.getHours();
             var minute = now.getMinutes();
