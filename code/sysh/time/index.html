@@ -46,10 +46,11 @@
             width: 50%;
             height: 100%;
             position: absolute;
-            left: 0;
+            right: 0;
             top: 0;
             background-color: #f1614b;
             z-index: -1;
+            box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.2);
         }
 
         canvas {
@@ -132,11 +133,11 @@
                     }
                 }
                 var diff = target.getTime() - now.getTime();
-                progress.style.width = (100 - (diff / 1000 / 60 / length) * 100) + "%";
+                progress.style.width = diff / 1000 / 60 / length * 100 + "%";
                 // 將毫秒轉換為分鐘和秒數
                 var minutes = Math.floor(diff / 1000 / 60);
                 var seconds = Math.floor(diff / 1000) % 60;
-                if(minutes == 0 && seconds == 0) runConfetti();
+                if (minutes == 0 && seconds == 0) runConfetti();
                 time.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
             }
         }, 1000);
@@ -144,15 +145,15 @@
             document.getElementById("next").innerHTML = "後下課";
             document.getElementById("next").style.color = "#FFC3A1";
             document.getElementById("time").style.color = "#F0997D";
-            document.querySelector("body").style.backgroundColor = "#D3756B";
-            document.querySelector(".progress").style.backgroundColor = "#A75D5D";
+            document.querySelector("body").style.backgroundColor = "#A75D5D";
+            document.querySelector(".progress").style.backgroundColor = "#D3756B";
         }
         function yeah() {
             document.getElementById("next").innerHTML = "後上課";
             document.getElementById("next").style.color = "#46C2CB";
             document.getElementById("time").style.color = "#F2F7A1";
-            document.querySelector("body").style.backgroundColor = "#6D67E4";
-            document.querySelector(".progress").style.backgroundColor = "#453C67";
+            document.querySelector("body").style.backgroundColor = "#453C67";
+            document.querySelector(".progress").style.backgroundColor = "#6D67E4";
         }
 
     </script>
@@ -189,7 +190,7 @@
                     },
                     colors: [
                         colors[
-                            random(colors.length)
+                        random(colors.length)
                         ]
                     ]
                 });
@@ -200,7 +201,7 @@
             confettiFunc();
         }
     </script>
-    
+
 </body>
 
 </html>
