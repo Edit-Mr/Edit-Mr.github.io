@@ -104,12 +104,12 @@
             } else {
                 if (hour == 12) {
                     console.log("12");
-                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
+                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 10, 0);
                     length = 65;
                     yeah();
                 } else if (hour >= 15) {
                     console.log("15");
-                    if (minute < 15) {
+                    if (minute < 15 || minute >= 5) {
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 15, 0);
                         length = 15;
                         yeah();
@@ -142,13 +142,17 @@
         }, 1000);
         function oh() {
             document.getElementById("next").innerHTML = "後下課";
-            document.querySelector("body").style.backgroundColor = "#f1614b";
-            document.querySelector(".progress").style.backgroundColor = "lime";
+            document.getElementById("next").style.color = "#FFC3A1";
+            document.getElementById("time").style.color = "#F0997D";
+            document.querySelector("body").style.backgroundColor = "#D3756B";
+            document.querySelector(".progress").style.backgroundColor = "#A75D5D";
         }
         function yeah() {
             document.getElementById("next").innerHTML = "後上課";
-            document.querySelector("body").style.backgroundColor = "lime";
-            document.querySelector(".progress").style.backgroundColor = "#f1614b";
+            document.getElementById("next").style.color = "#46C2CB";
+            document.getElementById("time").style.color = "#F2F7A1";
+            document.querySelector("body").style.backgroundColor = "#6D67E4";
+            document.querySelector(".progress").style.backgroundColor = "#453C67";
         }
 
     </script>
