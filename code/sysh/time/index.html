@@ -223,7 +223,8 @@
                 var seconds = Math.floor(diff / 1000) % 60;
                 var millisecond = milliseconds = Math.floor(diff % 1000 / 10);
                 if (minutes == 0 && seconds == 0) runConfetti();
-                var chars = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + ":" + millisecond.toString().padEnd(2, '0');
+                var chars = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                if (minutes == 0) char += ":" + millisecond.toString().padEnd(2, '0');
                 chars = chars.split("");
                 time.innerHTML = chars.map(char => `<div>${char}</div>`).join("");
             }
