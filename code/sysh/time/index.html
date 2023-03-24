@@ -38,17 +38,19 @@
 
 
         #time {
-            font-size: 20vw;
+            font-size: 15vw;
             font-weight: bold;
             text-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
-            color:#fe7777;
-            display:flex;
+            color: #fe7777;
+            display: flex;
         }
-        #time div{
-            width:14vw;
+
+        #time div {
+            width: 10vw;
         }
-        #time div:nth-child(3){
-            width:10vw;
+
+        #time div:nth-child(3n) {
+            width: 7vw;
         }
 
         .progress {
@@ -59,7 +61,7 @@
             top: 0;
             background-color: #E8D2A6;
             z-index: -1;
-            box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.2);
+            box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.1);
         }
 
         canvas {
@@ -88,8 +90,9 @@
             align-items: center;
 
         }
-        p{
-            color:#F48484;
+
+        p {
+            color: #F48484;
         }
     </style>
 </head>
@@ -214,17 +217,18 @@
                 // 將毫秒轉換為分鐘和秒數
                 var minutes = Math.floor(diff / 1000 / 60);
                 var seconds = Math.floor(diff / 1000) % 60;
+                var millisecond = milliseconds = Math.floor(diff % 1000 / 10);
                 if (minutes == 0 && seconds == 0) runConfetti();
-                var chars = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                var chars = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + ":" + millisecond.toString().padEnd(2, '0');
                 chars = chars.split("");
-                time.innerHTML=chars.map(char => `<div>${char}</div>`).join("");
+                time.innerHTML = chars.map(char => `<div>${char}</div>`).join("");
             }
-        }, 1000);
+        }, 10);
         function display(a, b) {
-            
+
             if (a == 1) {
                 console.log(a, b);
-                document.getElementById("next").innerHTML = b   ;
+                document.getElementById("next").innerHTML = b;
                 document.getElementById("next").style.color = "#46C2CB";
                 document.getElementById("time").style.color = "#F2F7A1";
                 document.querySelector("body").style.backgroundColor = "#453C67";
@@ -236,7 +240,7 @@
                 document.querySelector("body").style.background = "linear-gradient(90deg, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(90, 100%, 50%), hsl(120, 100%, 50%), hsl(150, 100%, 50%), hsl(180, 100%, 50%), hsl(210, 100%, 50%), hsl(240, 100%, 50%), hsl(270, 100%, 50%), hsl(300, 100%, 50%), hsl(330, 100%, 50%), hsl(360, 100%, 50%) )";
                 document.querySelector(".progress").style.display = "none";
             } else {
-                document.getElementById("next").innerHTML = b   ;
+                document.getElementById("next").innerHTML = b;
                 document.getElementById("next").style.color = "#D864A9";
                 document.getElementById("time").style.color = "#7AA874";
                 document.querySelector("body").style.backgroundColor = "#EBB02D";
