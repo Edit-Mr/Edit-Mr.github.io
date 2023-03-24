@@ -42,6 +42,13 @@
             font-weight: bold;
             text-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
             color:#fe7777;
+            display:flex;
+        }
+        #time div{
+            width:14vw;
+        }
+        #time div:nth-child(3){
+            width:10vw;
         }
 
         .progress {
@@ -208,7 +215,9 @@
                 var minutes = Math.floor(diff / 1000 / 60);
                 var seconds = Math.floor(diff / 1000) % 60;
                 if (minutes == 0 && seconds == 0) runConfetti();
-                time.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                var chars = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                chars = chars.split("");
+                time.innerHTML=chars.map(char => `<div>${char}</div>`).join("");
             }
         }, 1000);
         function display(a, b) {
