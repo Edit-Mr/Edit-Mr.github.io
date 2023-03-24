@@ -64,18 +64,21 @@
             margin: 0;
             padding: 0;
         }
-        #current{
+
+        #current {
             position: absolute;
             bottom: 0;
             left: 0;
             font-size: 1.7rem;
             color: #FFF;
+            text-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.959);
         }
-        #a{
-            display:flex;
+
+        #a {
+            display: flex;
             justify-content: center;
             align-items: center;
-            
+
         }
     </style>
 </head>
@@ -115,34 +118,84 @@
             var minute = now.getMinutes();
             let target, length;
             let progress = document.querySelector(".progress");
-            if (hour >= 17 && hour > 5) {
+            if (hour >= 17 && minute > 5) {
                 time.innerHTML = "再見";
-                next.innerHTML = "明天見";
+                display(2, "明天見");
             } else {
                 if (hour == 12) {
-                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 10, 0);
+                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 10, 0);
                     length = 65;
-                    yeah();
+                    display(1, "後起床");
+                } else if (hour == 16 && minute > 15) {
+                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 5, 0);
+                    length = 50;
+                    display(0, "第八節禁止考試及上進度");
+                } else if (hour == 17 && minute < 5) {
+                    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 17, 5, 0);
+                    length = 50;
+                    display(0, "馬上放學再撐一下");
                 } else if (hour >= 15) {
-                    
-                    if (minute < 15 && minute >= 5) {
-                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 15, 0);
-                        if ((hour == 15 && now.getDay != 3) || (hour == 16 && now.getDay == 3)) length = 15; else length = 10;
-                        yeah();
+                    if (now.getDay() == 4) {
+                        if (hour == 15) {
+                            if (minute < 10) {
+                                target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 10, 0);
+                                length = 10;
+                                display(0, "後上課");
+                            } else {
+                                target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0);
+                                length = 50;
+                                display(0, "後下課");
+                            }
+                        } else {
+                            target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 15, 0);
+                            length = 15;
+                            display(1, "打掃囉");
+                        }
+
                     } else {
-                        target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 5, 0);
-                        length = 50;
-                        oh();
+                        if (hours == 3) {
+                            if (minute == 15) {
+                                target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 15, 0);
+                                length = 15;
+                                display(1, "打掃囉");
+                            } else {
+                                target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 5, 0);
+                                length = 50;
+                                display(0, "後下課");
+                            }
+                        } else if (minute < 5) {
+                            target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 5, 0);
+                            length = 50;
+                            display(0, "後下課");
+                        } else {
+                            target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 4, 15, 0);
+                            length = 10;
+                            display(1, "後上課");
+                        }
                     }
+                    //                     thursday
+                    // 3:00~3:10 10 R hours == 3 && minutes < 10
+                    // 3:10~4:00 50 R
+                    // 4:00~4:15 15 
+                    // 4:15~5:05 50 V
+
+                    // other
+                    // 3:00~3:15 15
+                    // 3:15~4:05 50
+                    // 4:05~4:15 10
+                    // 4:15~5:05 50 V
+
                 } else {
                     if (minute < 10) {
+                        console.log("1");
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 10, 0);
                         length = 10;
-                        yeah();
+                        display(1, "後上課");
                     } else {
+                        console.log("2");
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 0, 0);
                         length = 50;
-                        oh();
+                        display(0, "後下課");
                     }
                 }
                 var diff = target.getTime() - now.getTime();
@@ -154,19 +207,26 @@
                 time.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
             }
         }, 1000);
-        function oh() {
-            document.getElementById("next").innerHTML = "後下課";
-            document.getElementById("next").style.color = "#FFC3A1";
-            document.getElementById("time").style.color = "#F0997D";
-            document.querySelector("body").style.backgroundColor = "#A75D5D";
-            document.querySelector(".progress").style.backgroundColor = "#D3756B";
-        }
-        function yeah() {
-            document.getElementById("next").innerHTML = "後上課";
-            document.getElementById("next").style.color = "#46C2CB";
-            document.getElementById("time").style.color = "#F2F7A1";
-            document.querySelector("body").style.backgroundColor = "#453C67";
-            document.querySelector(".progress").style.backgroundColor = "#6D67E4";
+        function display(a, b) {
+            if (a == 1) {
+                document.getElementById("next").innerHTML = b   ;
+                document.getElementById("next").style.color = "#46C2CB";
+                document.getElementById("time").style.color = "#F2F7A1";
+                document.querySelector("body").style.backgroundColor = "#453C67";
+                document.querySelector(".progress").style.backgroundColor = "#6D67E4";
+            } if (a == 2) {
+                document.getElementById("next").innerHTML = "明天見";
+                document.getElementById("next").style.color = "#FFF";
+                document.getElementById("time").style.color = "#FFF";
+                document.querySelector("body").style.background = "linear-gradient(90deg, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(90, 100%, 50%), hsl(120, 100%, 50%), hsl(150, 100%, 50%), hsl(180, 100%, 50%), hsl(210, 100%, 50%), hsl(240, 100%, 50%), hsl(270, 100%, 50%), hsl(300, 100%, 50%), hsl(330, 100%, 50%), hsl(360, 100%, 50%) )";
+                document.querySelector(".progress").style.display = "none";
+            } else {
+                document.getElementById("next").innerHTML = b;
+                document.getElementById("next").style.color = "#FFC3A1";
+                document.getElementById("time").style.color = "#F0997D";
+                document.querySelector("body").style.backgroundColor = "#A75D5D";
+                document.querySelector(".progress").style.backgroundColor = "#D3756B";
+            }
         }
 
     </script>
