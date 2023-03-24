@@ -27,7 +27,7 @@
 
         body {
             color: rgba(0, 0, 0, 0.25);
-            background-color: #f1614b;
+            background-color: #86A3B8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,6 +41,7 @@
             font-size: 20vw;
             font-weight: bold;
             text-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+            color:#fe7777;
         }
 
         .progress {
@@ -49,7 +50,7 @@
             position: absolute;
             right: 0;
             top: 0;
-            background-color: #f1614b;
+            background-color: #E8D2A6;
             z-index: -1;
             box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.2);
         }
@@ -79,6 +80,9 @@
             justify-content: center;
             align-items: center;
 
+        }
+        p{
+            color:#F48484;
         }
     </style>
 </head>
@@ -208,24 +212,26 @@
             }
         }, 1000);
         function display(a, b) {
+            
             if (a == 1) {
+                console.log(a, b);
                 document.getElementById("next").innerHTML = b   ;
                 document.getElementById("next").style.color = "#46C2CB";
                 document.getElementById("time").style.color = "#F2F7A1";
                 document.querySelector("body").style.backgroundColor = "#453C67";
                 document.querySelector(".progress").style.backgroundColor = "#6D67E4";
-            } if (a == 2) {
+            } else if (a == 2) {
                 document.getElementById("next").innerHTML = "明天見";
                 document.getElementById("next").style.color = "#FFF";
                 document.getElementById("time").style.color = "#FFF";
                 document.querySelector("body").style.background = "linear-gradient(90deg, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(90, 100%, 50%), hsl(120, 100%, 50%), hsl(150, 100%, 50%), hsl(180, 100%, 50%), hsl(210, 100%, 50%), hsl(240, 100%, 50%), hsl(270, 100%, 50%), hsl(300, 100%, 50%), hsl(330, 100%, 50%), hsl(360, 100%, 50%) )";
                 document.querySelector(".progress").style.display = "none";
             } else {
-                document.getElementById("next").innerHTML = b;
-                document.getElementById("next").style.color = "#FFC3A1";
-                document.getElementById("time").style.color = "#F0997D";
-                document.querySelector("body").style.backgroundColor = "#A75D5D";
-                document.querySelector(".progress").style.backgroundColor = "#D3756B";
+                document.getElementById("next").innerHTML = b   ;
+                document.getElementById("next").style.color = "#D864A9";
+                document.getElementById("time").style.color = "#7AA874";
+                document.querySelector("body").style.backgroundColor = "#EBB02D";
+                document.querySelector(".progress").style.backgroundColor = "#F7DB6A";
             }
         }
 
