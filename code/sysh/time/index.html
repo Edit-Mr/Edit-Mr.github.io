@@ -172,15 +172,16 @@
                             display(1, "打掃囉");
                         }
                     } else {
-                        if (hours == 3) {
-                            if (minute == 15) {
+                        console.log(hour);   
+                        if (hour == 15) {
+                            if (minute < 15) {
                                 target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 15, 0);
                                 length = 15;
                                 display(1, "打掃囉");
                             } else {
                                 target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 5, 0);
                                 length = 50;
-                                display(0, "後下課");
+                                display(0, "最後兩節，再撐一下");
                             }
                         } else if (minute < 5) {
                             target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 5, 0);
@@ -206,12 +207,10 @@
 
                 } else {
                     if (minute < 10) {
-                        console.log("1");
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, 10, 0);
                         length = 10;
                         display(1, "後上課");
                     } else {
-                        console.log("2");
                         target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour + 1, 0, 0);
                         length = 50;
                         display(0, "後下課");
@@ -233,7 +232,6 @@
         function display(a, b) {
 
             if (a == 1) {
-                console.log(a, b);
                 document.getElementById("next").innerHTML = b;
                 document.getElementById("next").style.color = "#46C2CB";
                 document.getElementById("time").style.color = "#F2F7A1";
