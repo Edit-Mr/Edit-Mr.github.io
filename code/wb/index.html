@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Whiteboard</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="pen">Pen</button>
+        <button id="eraser">Eraser</button>
+        <button id="undo">Undo</button>
+        <button id="redo">Redo</button>
+    </div>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        const penButton = document.querySelector('#pen');
+        const eraserButton = document.querySelector('#eraser');
+        const undoButton = document.querySelector('#undo');
+        const redoButton = document.querySelector('#redo');
+        const undoStack = [];
+        const redoStack = [];
+
+        // set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // set default settings
+        let isDrawing = false;
+        let currentX = 0;
+        let currentY = 0;
+        let penColor = 'black';
+        let penSize = 5;
+        let eraserSize = 10;
+
+        // add event listeners for touch and mouse events
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+
+        // add event listeners for button clicks
+        penButton.addEventListener('click', setPen);
+        eraserButton.addEventListener('click', setEraser);
+        undoButton.addEventListener('click', undo);
+        redoButton.addEventListener('click', redo);
+
+        // add event listener for canvas resizing
+        window.addEventListener('resize', resizeCanvas);
+
+        // set canvas styles
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        function startDrawing(e) {
+            isDrawing = true;
+            currentX = e.clientX || e.touches[0].clientX;
+            currentY = e.clientY || e.touches[0].clientY;
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const x = e.clientX || e.touches[0].clientX;
+            const y = e.clientY || e.touches[0].clientY;
+            ctx.beginPath();
+            ctx.moveTo(currentX, currentY);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = penColor;
+            ctx.lineWidth = penSize;
+            ctx.stroke();
+            currentX = x;
+            currentY = y;
+
+            // add current state to undo stack
+            undoStack.push(canvas.toDataURL());
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function setPen() {
+            penColor = 'black';
+            penSize = 5;
+        }
+
+        function setEraser() {
+            penColor = 'white';
+            penSize = eraserSize;
+        }
+
+        function undo() {
+            if (undoStack.length > 0) {
+                redoStack.push(canvas.toDataURL());
+                const undoDataURL = undoStack.pop();
+                const img = new Image();
+                img.src = undoDataURL;
+                img.onload = function () {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0);
+                };
+            }
+        }
+        function redo() {
+            if (redoStack.length > 0) {
+                undoStack.push(canvas.toDataURL());
+                const redoDataURL = redoStack.pop();
+                const img = new Image();
+                img.src = redoDataURL;
+                img.onload = function () {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0);
+                };
+            }
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            redraw();
+        }
+
+        function redraw() {
+            const img = new Image();
+            img.src = undoStack[undoStack.length - 1];
+            img.onload = function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+            };
+        }
+    </script>
+</body>
+
+</html>
