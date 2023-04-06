@@ -6,17 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Whiteboard</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "微軟正黑體", "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
         #canvas {
-            border: 1px solid black;
+            border: none;
             touch-action: none;
+        }
+        div{
+            position: absolute;
+
         }
     </style>
 </head>
 
 <body>
     <div>
-        <button id="pen">Pen</button>
-        <button id="eraser">Eraser</button>
+        毛哥EM極簡白板
+        <button id="pen">筆</button>
+        <button id="eraser">橡皮擦</button>
         <button id="undo">Undo</button>
         <button id="redo">Redo</button>
     </div>
