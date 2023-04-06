@@ -36,87 +36,124 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <title>毛哥EM的基地</title>
+    <style>
+    body {
+  background-color: rgb(20, 20, 20);
+  margin: 0px;
+}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+#menu {  
+  align-items: center;
+  display: flex;
+  height: 200vh;
+  width: 100vw;
+}
 
-    <!-- 主题依赖的图标库，不要自行修改 -->
+#menu-items {
+  margin-left: clamp(4rem, 20vw, 48rem);
+  position: relative;
+  z-index: 2;
+}
 
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1749284_ba1fz6golrf.css" />
+#menu[data-active-index="0"] > #menu-background-pattern {
+  background-position: 0% -25%;
+}
 
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1736178_kmeydafke9r.css" />
+#menu[data-active-index="1"] > #menu-background-pattern {
+  background-position: 0% -50%;
+}
 
-    <link rel="stylesheet" href="css/main.css" />
+#menu[data-active-index="2"] > #menu-background-pattern {
+  background-position: 0% -75%;
+}
 
-    <!-- 自定义样式保持在最底部 -->
+#menu[data-active-index="3"] > #menu-background-pattern {
+  background-position: 0% -100%;
+}
 
-    <script id="fluid-configs">
-        var Fluid = window.Fluid || {};
-        var CONFIG = {
-            hostname: "Edit-Mr.github.io",
-            root: "/",
-            version: "1.8.12",
-            typing: {
-                enable: true,
-                typeSpeed: 70,
-                cursorChar: "_",
-                loop: false,
-            },
-            anchorjs: {
-                enable: true,
-                element: "h1,h2,h3,h4,h5,h6",
-                placement: "right",
-                visible: "hover",
-                icon: "",
-            },
-            progressbar: {
-                enable: true,
-                height_px: 3,
-                color: "#29d",
-                options: {
-                    showSpinner: false,
-                    trickleSpeed: 100,
-                },
-            },
-            copy_btn: true,
-            image_zoom: {
-                enable: true,
-                img_url_replace: ["", ""],
-            },
-            toc: {
-                enable: true,
-                headingSelector: "h1,h2,h3,h4,h5,h6",
-                collapseDepth: 0,
-            },
-            lazyload: {
-                enable: true,
-                loading_img: "/img/loading.gif",
-                onlypost: false,
-                offset_factor: 2,
-            },
-            web_analytics: {
-                enable: true,
-                baidu: null,
-                google: "G-9R5PZG2VQG",
-                gtag: null,
-                tencent: {
-                    sid: null,
-                    cid: null,
-                },
-                woyaola: null,
-                cnzz: null,
-                leancloud: {
-                    app_id: null,
-                    app_key: null,
-                    server_url: null,
-                    path: "window.location.pathname",
-                },
-            },
-            search_path: "local-search.xml",
-        };
-    </script>
-    <script src="js/utils.js"></script>
-    <script src="js/color-schema.js"></script>
-    <meta name="generator" content="Hexo 5.4.0" />
+#menu[data-active-index="0"] > #menu-background-image {
+  background-position: center 45%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+  background-position: center 50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+  background-position: center 55%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+  background-position: center 60%;
+}
+
+#menu-background-pattern {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%, 
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease, 
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100vw;
+  z-index: 1;
+}
+
+#menu-background-image {
+  background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+  background-position: center 80%;
+  background-size: 210vmax;
+  height: 100%;
+  left: 0px;  
+  opacity: 0.15;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100%;
+  z-index: 0;
+}
+
+#menu-items:hover ~ #menu-background-pattern {
+  background-size: 22vmin 22vmin;
+  opacity: 0.5;
+}
+
+#menu-items:hover ~ #menu-background-image {
+  background-size: 200vmax;
+  opacity: 0.1;
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+  opacity: 1; 
+}
+
+.menu-item {
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  text-decoration: none;
+  transition: opacity 400ms ease;
+}
+a{
+color:#FFF;
+
+}
+</style>
 </head>
 
 <body>
@@ -124,679 +161,35 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
             style="display: none; visibility: hidden;"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header style="height: 100vh;">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <strong>毛哥EM的基地</strong>
-                </a>
+<div id="menu">
+  <div id="menu-items">
+    <!-- I made these divs instead of links so you can click on mobile to view the effect -->
+    
+    <div class="menu-item">嗨，我是毛哥EM</div>
+    <div class="menu-item">歡迎來到我的基地</div>
+    <div class="menu-item">這個頁面施工中，很亂我知道</div>
+    <div class="menu-item">我喜歡透過</div>
+    <div class="menu-item">質感的設計</div>
+    <div class="menu-item">直覺的體驗</div>
+    <div class="menu-item">絢麗的特效</div>
+    <div class="menu-item">觸及你的靈魂</div>
+    <div class="menu-item">突破你的想像</div>
+    <div class="menu-item">我正在人生的旅程中</div>
+    <div class="menu-item"><a href="./code/">有朋自遠方來，不亦說乎？</a></div>
+  </div>
+  <div id="menu-background-pattern"></div>
+  <div id="menu-background-image"></div>
+</div>
+<script>
+const menu = document.getElementById("menu");
 
-                <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <div class="animated-icon"><span></span><span></span><span></span></div>
-                </button>
-
-                <!-- Collapsible content -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto text-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">
-                                <i class="iconfont icon-home-fill"></i>
-                                首頁
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://EM-Tec.github.io">
-                                <i class="iconfont icon-articles"></i>
-                                部落格
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/Edit-Mr/">
-                                <i class="iconfont icon-github-fill"></i>
-                                Github
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.instagram.com/elvisdragonmao/">
-                                <i class="iconfont icon-instagram-fill"></i>
-                                Instagram
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about/">
-                                <i class="iconfont icon-user-fill"></i>
-                                關於我
-                            </a>
-                        </li>
-
-                        <li class="nav-item" id="search-btn">
-                            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal"
-                                data-target="#modalSearch" aria-label="Search"> &nbsp;<i
-                                    class="iconfont icon-search"></i>&nbsp; </a>
-                        </li>
-
-                        <li class="nav-item" id="color-toggle-btn">
-                            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                                    class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="banner" id="banner" parallax="true"
-            style="background: url('img/default.jpg') no-repeat center center; background-size: cover;">
-            <div class="full-bg-img">
-                <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3);">
-                    <div class="page-header text-center fade-in-up">
-                        <span class="h2" id="subtitle" title="歡迎來到我的基地 這裡存放了我的各種網頁專案 希望你們喜歡"> </span>
-                    </div>
-
-                    <div class="scroll-down-bar">
-                        <i class="iconfont icon-arrowdown"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="container nopadding-x-md">
-            <div class="py-5" id="board" style="margin-top: 0;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-10 m-auto">
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://s.gd/EMLinkbot" target="_blank">
-                                            EM Linkbot
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        快速搜尋維基百科等地方的Line機器人
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2022-10-06" pubdate>
-                                                2022-11-23
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                           JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a href="https://github.com/Edit-Mr/EM-Linkbot">Github</a>, <a
-                                                href="https://s.gd/EMLinkbot">加好友</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://edit-mr.github.io/code/EM-SFW/" target="_blank">
-                                            EM-SFW
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        班上因為又有人確診又有人隔離又開始使用視訊會議，常常被反應黑板看不清楚。明明鏡頭很好、網路不錯、且畫質設定已經調到最高還是一樣。因此我做了一個簡單網站來顯示鏡頭畫面，用螢幕分享畫面的方式讓畫質明顯提升！且黑白不會左右顛倒，不用再去裝擴充外掛！
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2022-10-06" pubdate>
-                                                2022-10-06
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            HTML, CSS, JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a href="https://github.com/Clipteam/clipcc-gui">Github</a>, <a
-                                                href="https://em-tec.github.io/post/em-sfw/">教學-毛哥EM資訊密技</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://codingclip.com/editor/stable/" target="_blank">
-                                            ClipCC
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        ClipCC 是一個強大的 Scratch 分支，它增加了一些有用的功能，例如自訂幀率、新的擴展系統、高質量的筆、舞台佈局等等。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2022-09-15" pubdate>
-                                                2022-09-15
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a href="https://github.com/Clipteam/clipcc-gui">Github</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://liff.line.me/1656564267-XlA7y2d2" target="_blank">
-                                            毛哥EM進階服務
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個簡單的Line Liff工具。讓Line使用者只需點擊連結即可傳送訊息/圖片/Fiex Message...
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2022-06-18" pubdate>
-                                                2022-06-18
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript HTML CSS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/liff">Github</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/303" target="_self">
-                                            第65屆國三3電子畢冊
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        充滿回憶的酷東西
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-11-11" pubdate>
-                                                2021-11-11
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript GAS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/303">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://script.google.com/macros/s/AKfycbxe4W4KwhaK7dl_IpoAxhGmHDkzGUyKCn1sB34wamvnBVo73zyblIuEhHKyUhpOOqEe/exec"
-                                            target="_self">
-                                            國三3畢冊檔案上傳(輕量版)
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個設計來上傳檔案的網站。解決了Line的保存期限、Gmail的檔案大小、雲端硬碟的安全性等限制。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-12-11" pubdate>
-                                                2021-12-11
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript GAS HTML CSS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://script.google.com/d/1h0w99yoZ9ECX8zWO6a7DLQF7YZS5YGTiC4FrsRAOWfzcV77oqS8FcneO/edit?usp=sharing">Google
-                                                App Script</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/weight-with-iPhone" target="_self">
-                                            3D觸控秤
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        iPhone 6s到iPhone XS Max之間的機型支援3D 觸控。這個網站可以讓你測量可以導電的東西的重量。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-12-21" pubdate>
-                                                2021-12-21
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/weight-with-iPhone">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://script.google.com/macros/s/AKfycbwxcwsSJq06IGJjBOc3X6XKAhFrCrsbVXnDJg8AeObwGlMjAQaA-GfZCoBHFIV1x4gFQw/exec"
-                                            target="_self">
-                                            國三3畢冊檔案上傳
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個設計來上傳檔案的網站。解決了Line的保存期限、Gmail的檔案大小、雲端硬碟的安全性等限制。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-12-11" pubdate>
-                                                2021-12-11
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript GAS HTML CSS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://script.google.com/d/1vTjNTUKJH34kAThnGb7qnmeS9NiaJuorT-Aq3ES6S4XC6FUCbzBg8ioi/edit?usp=sharing">Google
-                                                App Script</a>,
-                                            <a
-                                                href="https://drive.google.com/drive/folders/1w7oA3Qwdf8DljAkNQYAMTERmD0uFHmbu?usp=sharing">Google
-                                                Drive</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/303/chat" target="_self">
-                                            303電腦課留言系統
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        電腦課的自由時間我和同學常常會玩一些線上的io遊戲，不過很多的房間代碼很常，且溝通很不方便。因此我做了這個線上留言板，不用登入、下載軟體即可輕鬆溝通。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-11-11" pubdate>
-                                                2021-11-11
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript GAS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/303">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/frog" target="_self">
-                                            大眼蛙教練點名系統
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        大眼蛙教練的課程是以堂數做計算，也就是來一次算一次，而不是一段時間。因此每次學生上課都需要簽到，最後還需要人工來統計。因此我做了一個簡單的點名系統，讓電腦來做統計和計算的工作。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-11-16" pubdate>
-                                                2021-10-10
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript GAS
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/frog">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="https://EM-Tec.github.io" target="_blank">
-                                            毛哥EM資訊密技
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        我的個人部落格，分享各種有關科技的軟體及技巧
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-9-23" pubdate>
-                                                2021-9-23
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            Hexo Markdown
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a href="https://github.com/EM-Tec/EM-Tec.github.io">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/fullstack" target="_self">
-                                            Fullstack
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個簡單的js疊疊樂，但是是由確認方塊組成。點擊空白鍵或螢幕來疊
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-9-18" pubdate>
-                                                2021-9-18
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/fullstack">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/meet" target="_self">
-                                            玄順小組視訊會議
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個使用Jitsi為後端的視訊會議系統，在教會線上小組時使用。有許多其他線上會議系統沒有的功能，如絕不卡頓的分享YouTube影片
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-8-14" pubdate>
-                                                2021-8-14
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript Json
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/meet">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/weekly" target="_self">
-                                            旌旗教會週報下載器
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        之前青年官網及直播只有提供圖片檔，較不方便利用，不過透過這個網站即可快速下載之前或本週報彩色完整的pdf檔。
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-9-23" pubdate>
-                                                2021-9-23
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            JavaScript
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/weekly">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/fullstack" target="_self">
-                                            衛道官網連結
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        一個ios捷徑腳本。只須點一下即可快速連結到衛道的網頁或檔案
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-8-2" pubdate>
-                                                2021-8-2
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            ios捷徑腳本 Json
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a href="">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="row mx-auto index-card">
-                                <article class="col-12 col-md-12 mx-auto index-info">
-                                    <h1 class="index-header">
-                                        <a href="/code/fullstack" target="_self">
-                                            203Meet連結
-                                        </a>
-                                    </h1>
-
-                                    <p class="index-excerpt">
-                                        在國二在家上課的時候常常忘記記課表及找不到Meet代碼，或著是來不及再去Classroom找。不過透過這個捷徑只要點擊一下即可快速進入當堂課的Google
-                                        Meet或Classroom
-                                    </p>
-
-                                    <div class="index-btm post-metas">
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-date"></i>
-                                            <time datetime="2021-6-31" pubdate>
-                                                2021-6-31
-                                            </time>
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-category"></i>
-                                            ios捷徑腳本 Json
-                                        </div>
-                                        <div class="post-meta mr-3">
-                                            <i class="iconfont icon-link-fill"></i>
-                                            <a
-                                                href="https://github.com/Edit-Mr/Edit-Mr.github.io/tree/main/code/sc/vtsh_meet_link">GitHub</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-            <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-        </a>
-
-        <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
-                        <button type="button" id="local-search-close" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
-                            <input type="text" id="local-search-input" class="form-control validate" />
-                            <label data-error="x" data-success="v" for="local-search-input">查詢專案</label>
-                        </div>
-                        <div class="list-group" id="local-search-result"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="text-center mt-5 py-3">
-        <div class="footer-content">
-            <p>
-                <a href="https://github.com/Edit-Mr.github.io">毛哥EM的基地</a>是由<a
-                    href="https://github.com/Edit-Mr">毛哥EM(Edit Mr.)</a><br />
-                製作及管理。如果你喜歡我的創作，請考慮幫我買杯咖啡
-            </p>
-            <a href="mailto:elvismao@ctemplar.com"><img
-                    src="https://img.shields.io/badge/-elvismao@ctemplar.com-D14836?style=flat-square&logo=Gmail&logoColor=white" /></a>
-            <a href="https://www.paypal.me/elvismao"><img
-                    src="https://img.shields.io/badge/-elvismao.070512@gmail.com-169BD7?style=flat-square&logo=PayPal&logoColor=white" /></a>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
-
-    <script>
-        NProgress.configure({
-            showSpinner: false,
-            trickleSpeed: 100,
-        });
-        NProgress.start();
-        window.addEventListener("load", function () {
-            NProgress.done();
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js"></script>
-    <script src="js/events.js"></script>
-    <script src="js/plugins.js"></script>
-
-    <!-- Plugins -->
-
-    <script src="js/local-search.js"></script>
-
-    <script src="js/img-lazyload.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js"></script>
-    <script>
-        (function (window, document) {
-            var typing = Fluid.plugins.typing;
-            var title = document.getElementById("subtitle").title;
-
-            typing(title);
-        })(window, document);
-    </script>
-
-    <!-- 主题的启动项 保持在最底部 -->
-    <script src="js/boot.js"></script>
+Array.from(document.getElementsByClassName("menu-item"))
+  .forEach((item, index) => {
+    item.onmouseover = () => {
+      menu.dataset.activeIndex = index;
+    }
+  });
+  </script>
 </body>
 
 </html>
