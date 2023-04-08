@@ -2,193 +2,192 @@
 <html lang="zh-tw" data-default-color-scheme="auto">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-        gtag("config", "G-9R5PZG2VQG");
-    </script>
-    <meta charset="UTF-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    gtag("config", "G-9R5PZG2VQG");
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <meta name="theme-color" content="#2f4154" />
-    <meta name="description" content="毛哥EM的各種網頁專案" />
-    <meta name="author" content="毛哥EM" />
-    <meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
+  <meta name="theme-color" content="#2f4154" />
+  <meta name="description" content="毛哥EM的各種網頁專案" />
+  <meta name="author" content="毛哥EM" />
+  <meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="毛哥EM的基地" />
-    <meta property="og:url" content="http://Edit-Mr.github.io/index.html" />
-    <meta property="og:site_name" content="毛哥EM的基地" />
-    <meta property="og:description" content="毛哥EM的各種網頁專案" />
-    <meta property="og:locale" content="zh-TW" />
-    <meta property="article:author" content="毛哥EM" />
-    <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
-    <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="毛哥EM的基地" />
+  <meta property="og:url" content="http://Edit-Mr.github.io/index.html" />
+  <meta property="og:site_name" content="毛哥EM的基地" />
+  <meta property="og:description" content="毛哥EM的各種網頁專案" />
+  <meta property="og:locale" content="zh-TW" />
+  <meta property="article:author" content="毛哥EM" />
+  <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <title>毛哥EM的基地</title>
-    <style>
+  <title>毛哥EM的基地</title>
+  <style>
     body {
-  background-color: rgb(20, 20, 20);
-  margin: 0px;
-}
+      background-color: rgb(20, 20, 20);
+      margin: 0px;
+    }
 
-#menu {  
-  align-items: center;
-  display: flex;
-  height: 200vh;
-  width: 100vw;
-}
+    #menu {
+      align-items: center;
+      display: flex;
+      height: 200vh;
+      width: 100vw;
+    }
 
-#menu-items {
-  margin-left: clamp(4rem, 20vw, 48rem);
-  position: relative;
-  z-index: 2;
-}
+    #menu-items {
+      margin-left: clamp(4rem, 20vw, 48rem);
+      position: relative;
+      z-index: 2;
+    }
 
-#menu[data-active-index="0"] > #menu-background-pattern {
-  background-position: 0% -25%;
-}
+    #menu[data-active-index="0"]>#menu-background-pattern {
+      background-position: 0% -25%;
+    }
 
-#menu[data-active-index="1"] > #menu-background-pattern {
-  background-position: 0% -50%;
-}
+    #menu[data-active-index="1"]>#menu-background-pattern {
+      background-position: 0% -50%;
+    }
 
-#menu[data-active-index="2"] > #menu-background-pattern {
-  background-position: 0% -75%;
-}
+    #menu[data-active-index="2"]>#menu-background-pattern {
+      background-position: 0% -75%;
+    }
 
-#menu[data-active-index="3"] > #menu-background-pattern {
-  background-position: 0% -100%;
-}
+    #menu[data-active-index="3"]>#menu-background-pattern {
+      background-position: 0% -100%;
+    }
 
-#menu[data-active-index="0"] > #menu-background-image {
-  background-position: center 45%;
-}
+    #menu[data-active-index="0"]>#menu-background-image {
+      background-position: center 45%;
+    }
 
-#menu[data-active-index="1"] > #menu-background-image {
-  background-position: center 50%;
-}
+    #menu[data-active-index="1"]>#menu-background-image {
+      background-position: center 50%;
+    }
 
-#menu[data-active-index="2"] > #menu-background-image {
-  background-position: center 55%;
-}
+    #menu[data-active-index="2"]>#menu-background-image {
+      background-position: center 55%;
+    }
 
-#menu[data-active-index="3"] > #menu-background-image {
-  background-position: center 60%;
-}
+    #menu[data-active-index="3"]>#menu-background-image {
+      background-position: center 60%;
+    }
 
-#menu-background-pattern {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 9%, 
-    transparent 9%
-  );
-  background-position: 0% 0%;
-  background-size: 12vmin 12vmin;
-  height: 100vh;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  transition: opacity 800ms ease, 
-    background-size 800ms ease,
-    background-position 800ms ease;
-  width: 100vw;
-  z-index: 1;
-}
+    #menu-background-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%,
+          transparent 9%);
+      background-position: 0% 0%;
+      background-size: 12vmin 12vmin;
+      height: 100vh;
+      left: 0px;
+      position: absolute;
+      top: 0px;
+      transition: opacity 800ms ease,
+        background-size 800ms ease,
+        background-position 800ms ease;
+      width: 100vw;
+      z-index: 1;
+    }
 
-#menu-background-image {
-  background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
-  background-position: center 80%;
-  background-size: 210vmax;
-  height: 100%;
-  left: 0px;  
-  opacity: 0.15;
-  position: absolute;
-  top: 0px;
-  transition: opacity 800ms ease,
-    background-size 800ms ease,
-    background-position 800ms ease;
-  width: 100%;
-  z-index: 0;
-}
+    #menu-background-image {
+      background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+      background-position: center 80%;
+      background-size: 210vmax;
+      height: 100%;
+      left: 0px;
+      opacity: 0.15;
+      position: absolute;
+      top: 0px;
+      transition: opacity 800ms ease,
+        background-size 800ms ease,
+        background-position 800ms ease;
+      width: 100%;
+      z-index: 0;
+    }
 
-#menu-items:hover ~ #menu-background-pattern {
-  background-size: 22vmin 22vmin;
-  opacity: 0.5;
-}
+    #menu-items:hover~#menu-background-pattern {
+      background-size: 22vmin 22vmin;
+      opacity: 0.5;
+    }
 
-#menu-items:hover ~ #menu-background-image {
-  background-size: 200vmax;
-  opacity: 0.1;
-}
+    #menu-items:hover~#menu-background-image {
+      background-size: 200vmax;
+      opacity: 0.1;
+    }
 
-#menu-items:hover > .menu-item {
-  opacity: 0.3;
-}
+    #menu-items:hover>.menu-item {
+      opacity: 0.3;
+    }
 
-#menu-items:hover > .menu-item:hover {
-  opacity: 1; 
-}
+    #menu-items:hover>.menu-item:hover {
+      opacity: 1;
+    }
 
-.menu-item {
-  color: white;
-  cursor: pointer;
-  display: block;
-  font-family: 'Ibarra Real Nova', serif;
-  font-size: clamp(3rem, 8vw, 8rem);
-  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
-  text-decoration: none;
-  transition: opacity 400ms ease;
-}
-a{
-color:#FFF;
+    .menu-item {
+      color: white;
+      cursor: pointer;
+      display: block;
+      font-family: 'Ibarra Real Nova', serif;
+      font-size: clamp(3rem, 8vw, 8rem);
+      padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+      text-decoration: none;
+      transition: opacity 400ms ease;
+    }
 
-}
-</style>
+    a {
+      color: #FFF;
+
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
-            style="display: none; visibility: hidden;"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-<div id="menu">
-  <div id="menu-items">
-    <!-- I made these divs instead of links so you can click on mobile to view the effect -->
-    
-    <div class="menu-item">嗨，我是毛哥EM</div>
-    <div class="menu-item">歡迎來到我的基地</div>
-    <div class="menu-item">這個頁面施工中，很亂我知道</div>
-    <div class="menu-item">我喜歡透過</div>
-    <div class="menu-item">質感的設計</div>
-    <div class="menu-item">直覺的體驗</div>
-    <div class="menu-item">絢麗的特效</div>
-    <div class="menu-item">觸及你的靈魂</div>
-    <div class="menu-item">突破你的想像</div>
-    <div class="menu-item">我正在人生的旅程中</div>
-    <div class="menu-item"><a href="./code/">有朋自遠方來，不亦說乎？</a></div>
-  </div>
-  <div id="menu-background-pattern"></div>
-  <div id="menu-background-image"></div>
-</div>
-<script>
-const menu = document.getElementById("menu");
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+      style="display: none; visibility: hidden;"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="menu">
+    <div id="menu-items">
+      <!-- I made these divs instead of links so you can click on mobile to view the effect -->
 
-Array.from(document.getElementsByClassName("menu-item"))
-  .forEach((item, index) => {
-    item.onmouseover = () => {
-      menu.dataset.activeIndex = index;
-    }
-  });
+      <div class="menu-item">嗨，我是毛哥EM</div>
+      <div class="menu-item">歡迎來到我的基地</div>
+      <div class="menu-item">這個頁面施工中，很亂我知道</div>
+      <div class="menu-item">我喜歡透過</div>
+      <div class="menu-item">質感的設計</div>
+      <div class="menu-item">直覺的體驗</div>
+      <div class="menu-item">絢麗的特效</div>
+      <div class="menu-item">觸及你的靈魂</div>
+      <div class="menu-item">突破你的想像</div>
+      <div class="menu-item">我正在人生的旅程中</div>
+      <div class="menu-item"><a href="./code/">有朋自遠方來，不亦說乎？</a></div>
+    </div>
+    <div id="menu-background-pattern"></div>
+    <div id="menu-background-image"></div>
+  </div>
+  <script>
+    const menu = document.getElementById("menu");
+
+    Array.from(document.getElementsByClassName("menu-item"))
+      .forEach((item, index) => {
+        item.onmouseover = () => {
+          menu.dataset.activeIndex = index;
+        }
+      });
   </script>
 </body>
 
