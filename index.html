@@ -2,194 +2,322 @@
 <html lang="zh-tw" data-default-color-scheme="auto">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-9R5PZG2VQG");
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="theme-color" content="#2f4154" />
+  <meta name="description" content="毛哥EM的各種網頁專案" />
+  <meta name="author" content="毛哥EM" />
+  <meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="毛哥EM的基地" />
+  <meta property="og:url" content="http://Edit-Mr.github.io/index.html" />
+  <meta property="og:site_name" content="毛哥EM的基地" />
+  <meta property="og:description" content="毛哥EM的各種網頁專案" />
+  <meta property="og:locale" content="zh-TW" />
+  <meta property="article:author" content="毛哥EM" />
+  <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>毛哥EM的基地</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-
-        gtag("config", "G-9R5PZG2VQG");
-    </script>
-    <meta charset="UTF-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-    <meta name="theme-color" content="#2f4154" />
-    <meta name="description" content="毛哥EM的各種網頁專案" />
-    <meta name="author" content="毛哥EM" />
-    <meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="毛哥EM的基地" />
-    <meta property="og:url" content="http://Edit-Mr.github.io/index.html" />
-    <meta property="og:site_name" content="毛哥EM的基地" />
-    <meta property="og:description" content="毛哥EM的各種網頁專案" />
-    <meta property="og:locale" content="zh-TW" />
-    <meta property="article:author" content="毛哥EM" />
-    <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <title>毛哥EM的基地</title>
-    <style>
     body {
-  background-color: rgb(20, 20, 20);
-  margin: 0px;
-}
+      background-color: #2f4154;
+      color: #fff;
+      font-family: "Microsoft JhengHei", "微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.5;
+    }
 
-#menu {  
-  align-items: center;
-  display: flex;
-  height: 200vh;
-  width: 100vw;
-}
+    .slide {
+      height: 100vh;
+      position: relative;
+    }
 
-#menu-items {
-  margin-left: clamp(4rem, 20vw, 48rem);
-  position: relative;
-  z-index: 2;
-}
+    h2 {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-#menu[data-active-index="0"] > #menu-background-pattern {
-  background-position: 0% -25%;
-}
+    a {
+      text-decoration: none;
+    }
 
-#menu[data-active-index="1"] > #menu-background-pattern {
-  background-position: 0% -50%;
-}
+    .contact {
+      background-color: #f9f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 128px 20px 0 20px;
+      height: auto;
+    }
 
-#menu[data-active-index="2"] > #menu-background-pattern {
-  background-position: 0% -75%;
-}
+    .contact h2 {
+      color: #000;
+      transform: none;
+      position: static;
+      text-align: center;
+      font-size: 3vw;
+      margin-bottom: 40px;
+    }
 
-#menu[data-active-index="3"] > #menu-background-pattern {
-  background-position: 0% -100%;
-}
+    footer {
+      width: 90%;
+      color: black;
+      display: flex;
+      margin: 0 auto;
+      padding: 1em;
+      border-top: #c4c4c4 1px solid;
+    }
 
-#menu[data-active-index="0"] > #menu-background-image {
-  background-position: center 45%;
-}
+    footer div {
+      display: flex;
+      align-items: center;
+    }
 
-#menu[data-active-index="1"] > #menu-background-image {
-  background-position: center 50%;
-}
+    footer img {
+      display: block;
+    }
 
-#menu[data-active-index="2"] > #menu-background-image {
-  background-position: center 55%;
-}
+    .social {
+      justify-content: flex-end;
+      flex-grow: 1;
+    }
 
-#menu[data-active-index="3"] > #menu-background-image {
-  background-position: center 60%;
-}
+    .social img {
+      height: 1.5em;
+    }
 
-#menu-background-pattern {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 9%, 
-    transparent 9%
-  );
-  background-position: 0% 0%;
-  background-size: 12vmin 12vmin;
-  height: 100vh;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  transition: opacity 800ms ease, 
-    background-size 800ms ease,
-    background-position 800ms ease;
-  width: 100vw;
-  z-index: 1;
-}
+    .social a {
+      color: #000;
+      margin: 0 0.5em;
+    }
 
-#menu-background-image {
-  background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
-  background-position: center 80%;
-  background-size: 210vmax;
-  height: 100%;
-  left: 0px;  
-  opacity: 0.15;
-  position: absolute;
-  top: 0px;
-  transition: opacity 800ms ease,
-    background-size 800ms ease,
-    background-position 800ms ease;
-  width: 100%;
-  z-index: 0;
-}
+    .history {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 764px;
+      width: 100%;
+    }
 
-#menu-items:hover ~ #menu-background-pattern {
-  background-size: 22vmin 22vmin;
-  opacity: 0.5;
-}
+    .work {
+      background-color: #fff;
+      border-radius: 32px;
+      color: #242424;
+      margin-bottom: 32px;
+      padding: 32px 32px 24px;
+      width: calc(50% - 16px);
+    }
 
-#menu-items:hover ~ #menu-background-image {
-  background-size: 200vmax;
-  opacity: 0.1;
-}
+    h3 {
+      font-size: 1.5em;
+    }
 
-#menu-items:hover > .menu-item {
-  opacity: 0.3;
-}
+    .time {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: #6bd490 1px solid;
+    }
 
-#menu-items:hover > .menu-item:hover {
-  opacity: 1; 
-}
+    .current,.work:nth-child(4) {
+      width: 100%;
+    }
 
-.menu-item {
-  color: white;
-  cursor: pointer;
-  display: block;
-  font-family: 'Ibarra Real Nova', serif;
-  font-size: clamp(3rem, 8vw, 8rem);
-  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
-  text-decoration: none;
-  transition: opacity 400ms ease;
-}
-a{
-color:#FFF;
+    .work a {
+      display: block;
+      margin-top: 24px;
+      border-radius: 12px;
+      color: #eaf4fe;
+      display: inline-block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      padding: 14px 28px;
+      text-decoration: none;
+      transition: background-color .2s ease-in-out, color .2s ease-in-out;
+      background-color: #000;
+    }
 
-}
-</style>
+    .work a:hover {
+      background-color: #336484;
+      color: #eaf4fe;
+    }
+
+    .work> :last-child {
+      margin-bottom: 8px;
+    }
+
+    .work:nth-child(2) {
+      background-color: #a2f6cf;
+      color: #0f270c;
+    }
+
+    .work:nth-child(3) {
+      background-color: #aee8fa;
+      color: #0a1e31;
+    }
+
+    .work:nth-child(4) {
+      background-color: #1b1b1b;
+      color: #FFF;
+    }
+
+    .work:nth-child(1) .time {
+      border-color: #c4c4c4;
+    }
+
+    .work:nth-child(3) .time {
+      border-color: #68bde7;
+    }
+
+    .work:nth-child(4) .time {
+      border-color: #484848;
+    }
+
+    .work:nth-child(4) a {
+      background-color: #c4c4c4;
+      color: #0a0a0a;
+    }
+
+    .work:nth-child(4) a:hover {
+      background-color: #fff;
+      color: #1b1b1b;
+    }
+
+    .work:nth-child(2) a:hover {
+      background-color: #417944;
+      color: #ecfeef;
+    }
+
+    .more {
+      max-width: 700px;
+      width: 100%;
+      font-size: 2em;
+      color: #000;
+      text-align: right;
+      margin: 0 auto 16px auto;
+    }
+    .more a{
+      color: #000;
+    }
+    .arrow-right {
+        display: inline-block;
+        margin-left: 5px;
+        transition: transform 0.2s ease-out;
+    }
+
+    a:hover .arrow-right {
+        transform: translateX(5px);
+    }
+    .more a:hover{
+      color: #3f3f3f;
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+      .work {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
-            style="display: none; visibility: hidden;"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-<div id="menu">
-  <div id="menu-items">
-    <!-- I made these divs instead of links so you can click on mobile to view the effect -->
-    
-    <div class="menu-item">嗨，我是毛哥EM</div>
-    <div class="menu-item">歡迎來到我的基地</div>
-    <div class="menu-item">這個頁面施工中，很亂我知道</div>
-    <div class="menu-item">我喜歡透過</div>
-    <div class="menu-item">質感的設計</div>
-    <div class="menu-item">直覺的體驗</div>
-    <div class="menu-item">絢麗的特效</div>
-    <div class="menu-item">觸及你的靈魂</div>
-    <div class="menu-item">突破你的想像</div>
-    <div class="menu-item">我正在人生的旅程中</div>
-    <div class="menu-item"><a href="./code/">有朋自遠方來，不亦說乎？</a></div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+      style="display: none; visibility: hidden;"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="slide">
+    <h2>嗨，我是毛哥EM</h2>
   </div>
-  <div id="menu-background-pattern"></div>
-  <div id="menu-background-image"></div>
-</div>
-<script>
-const menu = document.getElementById("menu");
-
-Array.from(document.getElementsByClassName("menu-item"))
-  .forEach((item, index) => {
-    item.onmouseover = () => {
-      menu.dataset.activeIndex = index;
-    }
-  });
-  </script>
+  <div class="slide">
+    <h2>我是一位數位創作者</h2>
+  </div>
+  <div class="slide">
+    <h2>我喜歡透過</h2>
+  </div>
+  <div class="slide">
+    <h2>質感的設計</h2>
+  </div>
+  <div class="slide">
+    <h2>直覺的體驗</h2>
+  </div>
+  <div class="slide">
+    <h2>絢麗的特效</h2>
+  </div>
+  <div class="slide">
+    <h2>觸及你的靈魂</h2>
+  </div>
+  <div class="slide">
+    <h2>突破你的想像</h2>
+  </div>
+  <div class="slide">
+    <h2>我正在人生的旅程中</h2>
+  </div>
+  <div class="slide">
+    <h2>有朋自遠方來，不亦說乎？</h2>
+  </div>
+  <div class="slide contact">
+    <h2>近期專案</h2>
+    <div class="history">
+      <div class="work current">
+        <h3>Furry Art In Taiwan</h3>
+        <div class="time">2022~2023</div>
+        <p>讓各個繪師能有被大眾看到的機會，以及推廣台灣獸圈的各個出色繪師，此作品集所有收益扣除印刷費、繪師稿費以及其他必要費用將全數捐出給予<i>台灣石虎保護協會Leopard cat Association of
+            Taiwan</i>
+        </p>
+      </div>
+      <div class="work">
+        <h3>毛哥EM資訊密技</h3>
+        <div class="time">2021至今</div>
+        <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+      </div>
+      <div class="work">
+        <h3>毛哥EM資訊密技</h3>
+        <div class="time">2021至今</div>
+        <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+      </div>
+      <div class="work">
+        <h3>毛哥EM資訊密技</h3>
+        <div class="time">2021</div>
+        <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+      </div>
+    </div>
+    <div class="more"><a href="code">更多網頁專案<div class="arrow-right">❯❯❯</div></a>
+    </div>
+    <footer>
+      <div>毛哥EM的基地 © 2023 by Edit Mr. (毛哥EM)</div>
+      <div class="social">
+        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a> ·
+        <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="img/icon/Instagram.svg"
+            alt="Instagram"></a>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>
