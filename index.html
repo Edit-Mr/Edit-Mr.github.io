@@ -31,216 +31,7 @@
   <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
   <meta name="twitter:card" content="summary_large_image" />
   <title>毛哥EM的基地</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #2f4154;
-      color: #fff;
-      font-family: "Microsoft JhengHei", "微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .slide {
-      height: 100vh;
-      position: relative;
-    }
-
-    h2 {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .contact {
-      background-color: #f9f9f9;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 128px 20px 0 20px;
-      height: auto;
-    }
-
-    .contact h2 {
-      color: #000;
-      transform: none;
-      position: static;
-      text-align: center;
-      font-size: 3vw;
-      margin-bottom: 40px;
-    }
-
-    footer {
-      width: 90%;
-      color: black;
-      display: flex;
-      margin: 0 auto;
-      padding: 1em;
-      border-top: #c4c4c4 1px solid;
-    }
-
-    footer div {
-      display: flex;
-      align-items: center;
-    }
-
-    footer img {
-      display: block;
-    }
-
-    .social {
-      justify-content: flex-end;
-      flex-grow: 1;
-    }
-
-    .social img {
-      height: 1.5em;
-    }
-
-    .social a {
-      color: #000;
-      margin: 0 0.5em;
-    }
-
-    .history {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 0 auto;
-      max-width: 764px;
-      width: 100%;
-    }
-
-    .work {
-      background-color: #fff;
-      border-radius: 32px;
-      color: #242424;
-      margin-bottom: 32px;
-      padding: 32px 32px 24px;
-      width: calc(50% - 16px);
-    }
-
-    h3 {
-      font-size: 1.5em;
-    }
-
-    .time {
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: #6bd490 1px solid;
-    }
-
-    .current,.work:nth-child(4) {
-      width: 100%;
-    }
-
-    .work a {
-      display: block;
-      margin-top: 24px;
-      border-radius: 12px;
-      color: #eaf4fe;
-      display: inline-block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      padding: 14px 28px;
-      text-decoration: none;
-      transition: background-color .2s ease-in-out, color .2s ease-in-out;
-      background-color: #000;
-    }
-
-    .work a:hover {
-      background-color: #336484;
-      color: #eaf4fe;
-    }
-
-    .work> :last-child {
-      margin-bottom: 8px;
-    }
-
-    .work:nth-child(2) {
-      background-color: #a2f6cf;
-      color: #0f270c;
-    }
-
-    .work:nth-child(3) {
-      background-color: #aee8fa;
-      color: #0a1e31;
-    }
-
-    .work:nth-child(4) {
-      background-color: #1b1b1b;
-      color: #FFF;
-    }
-
-    .work:nth-child(1) .time {
-      border-color: #c4c4c4;
-    }
-
-    .work:nth-child(3) .time {
-      border-color: #68bde7;
-    }
-
-    .work:nth-child(4) .time {
-      border-color: #484848;
-    }
-
-    .work:nth-child(4) a {
-      background-color: #c4c4c4;
-      color: #0a0a0a;
-    }
-
-    .work:nth-child(4) a:hover {
-      background-color: #fff;
-      color: #1b1b1b;
-    }
-
-    .work:nth-child(2) a:hover {
-      background-color: #417944;
-      color: #ecfeef;
-    }
-
-    .more {
-      max-width: 700px;
-      width: 100%;
-      font-size: 2em;
-      color: #000;
-      text-align: right;
-      margin: 0 auto 16px auto;
-    }
-    .more a{
-      color: #000;
-    }
-    .arrow-right {
-        display: inline-block;
-        margin-left: 5px;
-        transition: transform 0.2s ease-out;
-    }
-
-    a:hover .arrow-right {
-        transform: translateX(5px);
-    }
-    .more a:hover{
-      color: #3f3f3f;
-    }
-
-    @media (max-aspect-ratio: 1/1) {
-      .work {
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
@@ -248,6 +39,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
       style="display: none; visibility: hidden;"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <div class="cursor-circle"></div>
   <div class="slide">
     <h2>嗨，我是毛哥EM</h2>
   </div>
@@ -275,49 +67,82 @@
   <div class="slide">
     <h2>我正在人生的旅程中</h2>
   </div>
-  <div class="slide">
-    <h2>有朋自遠方來，不亦說乎？</h2>
-  </div>
   <div class="slide contact">
-    <h2>近期專案</h2>
+    <h2 id="contact">有朋自遠方來，不亦說乎？</h2>
+  </div>
+  <div class="slide project">
+    <h2 id="project">近期專案</h2>
     <div class="history">
-      <div class="work current">
+      <div class="work animate fadeIn-bottom current">
         <h3>Furry Art In Taiwan</h3>
         <div class="time">2022~2023</div>
         <p>讓各個繪師能有被大眾看到的機會，以及推廣台灣獸圈的各個出色繪師，此作品集所有收益扣除印刷費、繪師稿費以及其他必要費用將全數捐出給予<i>台灣石虎保護協會Leopard cat Association of
             Taiwan</i>
         </p>
       </div>
-      <div class="work">
+      <div class="work animate fadeIn-bottom">
         <h3>毛哥EM資訊密技</h3>
         <div class="time">2021至今</div>
         <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
         <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
       </div>
-      <div class="work">
-        <h3>毛哥EM資訊密技</h3>
-        <div class="time">2021至今</div>
-        <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
-        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+      <div class="work animate fadeIn-bottom">
+        <h3>網頁設計營隊</h3>
+        <div class="time">2023</div>
+        <p>從HTML、CSS、JS到Git深入探索網頁建置的各種技巧和工具。</p>
+        <a href="https://sysh-tech-volunteer.github.io/Web-Design-Camp/" target="_blank">教學資源</a>
       </div>
-      <div class="work">
-        <h3>毛哥EM資訊密技</h3>
-        <div class="time">2021</div>
-        <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+      <div class="work animate fadeIn-bottom">
+        <h3>ClipCC</h3>
+        <div class="time">2022至今</div>
+        <p>ClipCC 是一個強大的 Scratch 分支，它增加了一些有用的功能，例如自訂幀率、新的擴展系統、高質量的筆、舞台佈局等等。 </p>
         <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
       </div>
     </div>
-    <div class="more"><a href="code">更多網頁專案<div class="arrow-right">❯❯❯</div></a>
+    <div class="more animate fadeIn-left"><a href="code">更多網頁專案<div class="arrow-right">❯❯❯</div></a>
     </div>
     <footer>
-      <div>毛哥EM的基地 © 2023 by Edit Mr. (毛哥EM)</div>
+      <div>© 2023 by Edit Mr. (毛哥EM)</div>
       <div class="social">
-        <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a> ·
+        <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="img/icon/envelope-regular.svg"
+            alt="Mail"></a>
+        <a href="https://github.com/Edit-Mr" target="_blank"><img src="img/icon/github.svg" alt="Mail"></a>
+        <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="img/icon/line.svg" alt="Line"></a>
         <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="img/icon/Instagram.svg"
             alt="Instagram"></a>
       </div>
     </footer>
   </div>
+
+
+  <script>
+
+    const cursorCircle = document.querySelector('.cursor-circle');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.pageX;
+      const y = e.pageY;
+      cursorCircle.style.width = "20px";
+      cursorCircle.style.height = "20px";
+      cursorCircle.style.left = x + 'px';
+      cursorCircle.style.top = y + 'px';
+    });
+
+    const elements = document.querySelectorAll('.animate');
+    function fadeInElements() {
+      cursorCircle.style.width = 0;
+      cursorCircle.style.height = 0;
+      for (let i = 0; i < elements.length; i++) {
+        const position = elements[i].getBoundingClientRect().top;
+        if (position < window.innerHeight) {
+          elements[i].classList.add('animated');
+        } else {
+          elements[i].classList.remove('animated');
+        }
+      }
+    }
+    window.addEventListener('scroll', fadeInElements);
+  </script>
 </body>
 
 </html>

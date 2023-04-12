@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+a {}
+
+body {
+    background-color: #2f4154;
+    color: #fff;
+    font-family: "Microsoft JhengHei", "微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.cursor-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00000071;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+a:hover+.cursor-circle {
+    background-color: #fff;
+}
+
+.slide {
+    height: 100vh;
+    position: relative;
+}
+
+h2 {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+}
+
+.contact {
+    background-color: #FFF;
+}
+
+#contact {
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    font-size: 3em;
+    color: #000;
+}
+
+.slide--visible {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+/* project */
+
+.project {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 128px 20px 0 20px;
+    height: auto;
+}
+
+#project {
+    color: #000;
+    transform: none;
+    position: static;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+footer {
+    width: 90%;
+    color: gray;
+    display: flex;
+    margin: 0 auto;
+    padding: 1em;
+    border-top: #c4c4c4 1px solid;
+    font-size: 0.8em;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+}
+
+footer img {
+    display: block;
+    filter: brightness(0) saturate(100%) invert(54%) sepia(1%) saturate(1401%) hue-rotate(104deg) brightness(93%) contrast(97%);
+}
+
+.social {
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.social img {
+    height: 1.5em;
+}
+
+.social a {
+    color: #808080;
+    margin: 0 0.5em;
+}
+
+.history {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 764px;
+    width: 100%;
+}
+
+.work {
+    background-color: #fff;
+    border-radius: 32px;
+    color: #242424;
+    margin-bottom: 32px;
+    padding: 32px 32px 24px;
+    width: calc(50% - 16px);
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+.time {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: #6bd490 1px solid;
+}
+
+.current,
+.work:nth-child(4) {
+    width: 100%;
+}
+
+.work a {
+    display: block;
+    margin-top: 24px;
+    border-radius: 12px;
+    color: #eaf4fe;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    background-color: #000;
+}
+
+.work a:hover {
+    background-color: #336484;
+    color: #eaf4fe;
+}
+
+.work> :last-child {
+    margin-bottom: 8px;
+}
+
+.work:nth-child(2) {
+    background-color: #a2f6cf;
+    color: #0f270c;
+}
+
+.work:nth-child(3) {
+    background-color: #aee8fa;
+    color: #0a1e31;
+}
+
+.work:nth-child(4) {
+    background-color: #1b1b1b;
+    color: #FFF;
+}
+
+.work:nth-child(1) .time {
+    border-color: #c4c4c4;
+}
+
+.work:nth-child(3) .time {
+    border-color: #68bde7;
+}
+
+.work:nth-child(4) .time {
+    border-color: #484848;
+}
+
+.work:nth-child(4) a {
+    background-color: #c4c4c4;
+    color: #0a0a0a;
+}
+
+.work:nth-child(4) a:hover {
+    background-color: #fff;
+    color: #1b1b1b;
+}
+
+.work:nth-child(2) a:hover {
+    background-color: #417944;
+    color: #ecfeef;
+}
+
+.more {
+    max-width: 700px;
+    width: 100%;
+    font-size: 2em;
+    color: #000;
+    text-align: right;
+    margin: 0 auto 16px auto;
+}
+
+.more a {
+    color: #000;
+}
+
+.arrow-right {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.2s ease-out;
+}
+
+a:hover .arrow-right {
+    transform: translateX(5px);
+}
+
+.more a:hover {
+    color: #3f3f3f;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .work {
+        width: 100%;
+    }
+}
+
+/* animation */
+.fadeIn-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fadeIn-bottom.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fadeIn-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.animated.fadeIn-left {
+    opacity: 1;
+    transform: translateX(0);
+}
