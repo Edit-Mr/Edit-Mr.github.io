@@ -56,11 +56,86 @@ a {
 }
 
 #contact {
-    opacity: 0;
-    transform: translateY(0);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     font-size: 3em;
     color: #000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#contact div {
+    opacity: 0;
+}
+
+#contact {
+    transition: none;
+}
+
+#contact div:nth-child(1) {
+    transition-delay: 100ms;
+}
+
+#contact div:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+#contact div:nth-child(3) {
+    transition-delay: 300ms;
+}
+
+#contact div:nth-child(4) {
+    transition-delay: 400ms;
+}
+
+#contact div:nth-child(5) {
+    transition-delay: 500ms;
+}
+
+#contact div:nth-child(6) {
+    transition-delay: 600ms;
+}
+
+#contact div:nth-child(8) {
+    transition-delay: 700ms;
+}
+
+#contact div:nth-child(9) {
+    transition-delay: 800ms;
+}
+
+#contact div:nth-child(10) {
+    transition-delay: 900ms;
+}
+
+#contact div:nth-child(11) {
+    transition-delay: 1000ms;
+}
+
+#contact div:nth-child(11) {
+    transition-delay: 1100ms;
+}
+
+#contact div:nth-child(12) {
+    transition-delay: 1200ms;
+}
+
+.long {
+    width: 100%;
+}
+
+#contact a {
+    color: #000;
+    font-size: .4em;
+    border-radius: 4px;
+    border: #000 2px solid;
+    display: inline-block;
+    font-weight: 600;
+    margin: 16px;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition-duration: 2s;
+    opacity: 0;
 }
 
 .slide--visible {
@@ -273,4 +348,12 @@ a:hover .arrow-right {
 .animated.fadeIn-left {
     opacity: 1;
     transform: translateX(0);
+}
+
+.animated#contact>div {
+    opacity: 1;
+    transform: translateY(-50);
+}
+.animated#contact a{
+    opacity: 1;
 }
