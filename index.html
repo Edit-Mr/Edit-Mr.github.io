@@ -68,7 +68,22 @@
     <h2>我正在人生的旅程中</h2>
   </div>
   <div class="slide contact">
-    <h2 id="contact">有朋自遠方來，不亦說乎？</h2>
+    <h2 id="contact" class="animate">
+      <div>有</div>
+      <div>朋</div>
+      <div>自</div>
+      <div>遠</div>
+      <div>方</div>
+      <div>來</div>
+      <div class="long"></div>
+      <div>不</div>
+      <div>亦</div>
+      <div>樂</div>
+      <div>乎</div>
+      <div>?</div>
+      <div class="long"></div>
+      <a href="">聯絡我</a>
+    </h2>
   </div>
   <div class="slide project">
     <h2 id="project">近期專案</h2>
@@ -142,6 +157,17 @@
       }
     }
     window.addEventListener('scroll', fadeInElements);
+  </script>
+  <script>
+    function myAwesomeCallback() {
+      alert('Parallax is ready to go now!');
+    }
+
+    // the onReady function is called as soon as Parallax knows what input method to use. This might take up to 1000ms (supportDelay * 2) after initialisation
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene, {
+      onReady: myAwesomeCallback
+    });
   </script>
 </body>
 
