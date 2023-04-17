@@ -59,10 +59,16 @@
           </h2>
         </div>
       </div>
-      <div class="slide">
-        <h2>我是一位數位創作者</h2>
+      <div class="slide bg" id="digital">
+        <h2 class="animate fadeIn-bottom">我是一位數位創作者</h2>
+        <div id="doList">
+          <div class="do">音樂</div>
+          <div class="do">編程</div>
+          <div class="do">剪輯</div>
+          <div class="do">電繪</div>
+        </div>
       </div>
-      <div class="slide">
+      <div class="slide" id="with">
         <h2>我喜歡透過</h2>
       </div>
       <div class="slide">
@@ -172,43 +178,41 @@
     });
 
     const getPixelColor = (element) => {
-      if (!element) {
-        return '#fff'; // default color if element is null or undefined
-      }
-
-      if (element.nodeName.toLowerCase() === 'a' || element.classList.contains('slide')) {
-        return window.getComputedStyle(element).backgroundColor;
-      } else if (element.parentElement) {
-        return window.getComputedStyle(element.parentElement).backgroundColor;
-      }
+      if (!element) return '#fff';
+      if (element.nodeName.toLowerCase() === 'a' || element.classList.contains('slide')) return window.getComputedStyle(element).backgroundColor;
+      else if (element.parentElement) return window.getComputedStyle(element.parentElement).backgroundColor;
     };
 
     const calculateBrightness = (color = '#fff') => {
       const match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-      if (!match) {
-        return 0;
-      }
+      if (!match) return 0;
       const [r, g, b] = match.slice(1).map((val) => parseInt(val));
       return (r + g + b) / 3;
     };
 
     //scroll animation
     const elements = document.querySelectorAll('.animate');
+    const header = document.getElementById('header');
+    const windowsHeight = window.innerHeight;
     const scrollAnimation = () => {
-      if (document.getElementById("header").getBoundingClientRect().top + window.innerHeight > 0)
-        document.getElementById("header-title").style.top = window.innerHeight / 2 - document.getElementById("header").getBoundingClientRect().top + "px";
-        document.getElementsByClassName("stars")[0].style.top = -document.getElementById("header").getBoundingClientRect().top + "px";
+      var headerTop = document.getElementById("digital").getBoundingClientRect().top;
+      if (headerTop > 0) header.style.top = `${windowsHeight - document.getElementById("digital").getBoundingClientRect().top}px`;
+      else if (document.getElementById("digital").getBoundingClientRect().bottom < windowsHeight) {
+        var b = document.getElementById("digital").getBoundingClientRect().bottom / windowsHeight;
+        var a = 180 - b * 180;
+        document.getElementById("digital").classList.remove("bg");
+        document.getElementById("doList").style.transform = a < 90 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(90deg)";
+        document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1-b})`;
+      }
       if (main.classList.length > 0) toggleMenu();
       cursorCircle.style.width = 0;
       cursorCircle.style.height = 0;
       elements.forEach((element) => {
-        if (element.getBoundingClientRect().top < window.innerHeight) element.classList.add('animated');
+        if (element.getBoundingClientRect().top < windowsHeight) element.classList.add('animated');
         else element.classList.remove('animated');
-
       });
     };
     window.addEventListener('scroll', scrollAnimation);
-
 
     window.addEventListener("load", () => {
       var text = "嗨，  我是毛哥EM", i = 0, intervalId = setInterval(() => {
@@ -222,7 +226,7 @@
     parallax.scalar(20, 20)
     parallax = new Parallax(document.getElementsByClassName('title')[0], {
       onReady: function () {
-        document.getElementById("header-title").style.top = window.innerHeight / 2 - document.getElementById("header").getBoundingClientRect().top + "px";
+        document.getElementById("header-title").style.top = windowsHeight / 2 - header.getBoundingClientRect().top + "px";
       }
     });
     parallax.scalar(20, 40)

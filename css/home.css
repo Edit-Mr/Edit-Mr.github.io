@@ -4,6 +4,7 @@
     box-sizing: border-box;
     cursor: none;
     transition: opacity 1s ease-out, transform 1s ease-out;
+    /* outline: greenyellow 1px solid; */
 }
 
 body {
@@ -26,7 +27,7 @@ main {
 
 main section:first-child {
     width: 100vw;
-    background-color: #336484;
+    background-color: #000;
     position: relative;
     top: 0;
     left: 0;
@@ -58,7 +59,7 @@ main section:nth-child(2) {
     top: 0;
     margin-top: 30px;
     transition: all 0.2s ease-in-out;
-    
+
 }
 
 #menu-button>div {
@@ -137,7 +138,7 @@ nav img {
 
 h2 {
     display: block;
-    margin: auto 0;
+    text-align: center;
 }
 
 .title h2 div {
@@ -165,16 +166,99 @@ a {
 }
 
 #header {
-    background-color: #000;
     overflow: hidden;
 }
 
 .title {
-
     position: absolute;
+    top: 50%;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
 }
+
+#digital {
+    height: 120vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 120vh;
+}
+
+#digital.bg {
+    background: linear-gradient(transparent, #000000 20%);
+}
+
+#digital>h2 {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+#doList {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+    height: 70%;
+    transform: perspective(800px) rotateX(0deg);
+}
+
+#digital.bg::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 70%;
+    background-image: linear-gradient(#000000, #00000000 15%, #00000000 85%, #000000);
+    pointer-events: none;
+}
+
+
+.do {
+    width: 25%;
+    height: 100%;
+    background-color: #336484;
+    transition: all 0.5s ease;
+    flex: 1;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 1.5em;
+    letter-spacing: .2em;
+    position: relative;
+    padding-bottom: 5%;
+}
+
+.do:hover {
+    flex: 1.5;
+    filter: brightness(1);
+}
+
+#doList .do:nth-child(1) {
+    background-image: url(/img/sing.webp);
+}
+
+#doList .do:nth-child(4) {
+    background-image: url(/img/sparrow.webp);
+}
+
+#doList .do:nth-child(3) {
+    background-image: url(https://helpx.adobe.com/content/dam/help/en/premiere-pro/using/whats-new/2022-5/Pr_Essentials-workspace.jpg.img.jpg);
+}
+
+#doList .do:nth-child(2) {
+    background-image: url(/img/coding.webp);
+}
+
+
 
 #contact {
     background-color: #FFF;
