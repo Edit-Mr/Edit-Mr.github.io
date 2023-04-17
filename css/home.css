@@ -159,6 +159,7 @@ a {
     height: 150vh;
     background-repeat: repeat;
     z-index: 1;
+    background-attachment: fixed;
     -webkit-animation: stars-move-in 1000ms 300ms forwards;
     animation: stars-move-in 1000ms 300ms forwards;
 }
@@ -166,13 +167,11 @@ a {
 #header {
     background-color: #000;
     overflow: hidden;
-
 }
 
 .title {
 
     position: absolute;
-    top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
 }
