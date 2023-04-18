@@ -71,17 +71,41 @@
       <div class="slide" id="with">
         <h2>我喜歡透過</h2>
       </div>
-      <div class="slide">
+      <div class="slide" id="material">
         <h2>質感的設計</h2>
+        <div class="line">
+          <div class="pentagon">
+            <div data-depth="1.00">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.80">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.60">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.40">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.20">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.00">
+              <div><img src="img/五邊形.svg"></div>
+            </div>
+            <div data-depth="0.1" class="greenTitle">
+              <div>直覺的體驗</div>
+            </div>
+          </div>
+
+
+        </div>
       </div>
-      <div class="slide">
+      <div class="slide" id="straight">
         <h2>直覺的體驗</h2>
       </div>
-      <div class="slide">
+      <div class="slide" id="effect">
         <h2>絢麗的特效</h2>
-      </div>
-      <div class="slide">
-        <h2>觸及你的靈魂</h2>
       </div>
       <div class="slide">
         <h2>突破你的想像</h2>
@@ -195,14 +219,44 @@
     const header = document.getElementById('header');
     const windowsHeight = window.innerHeight;
     const scrollAnimation = () => {
-      var headerTop = document.getElementById("digital").getBoundingClientRect().top;
-      if (headerTop > 0) header.style.top = `${windowsHeight - document.getElementById("digital").getBoundingClientRect().top}px`;
-      else if (document.getElementById("digital").getBoundingClientRect().bottom < windowsHeight) {
-        var b = document.getElementById("digital").getBoundingClientRect().bottom / windowsHeight;
-        var a = 180 - b * 180;
-        document.getElementById("digital").classList.remove("bg");
-        document.getElementById("doList").style.transform = a < 90 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(90deg)";
-        document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1-b})`;
+      var digital = document.getElementById("digital");
+      var headerTop = digital.getBoundingClientRect().top;
+      if (headerTop > 0) header.style.top = `${windowsHeight - digital.getBoundingClientRect().top}px`;
+      else if (digital.getBoundingClientRect().bottom < windowsHeight) {
+        var line = document.querySelector(".line");
+        if (digital.getBoundingClientRect().bottom >= 0) {
+          var b = digital.getBoundingClientRect().bottom / windowsHeight;
+          var a = 180 - b * 180;
+          digital.classList.remove("bg");
+          document.getElementById("doList").style.transform = a < 90 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(90deg)";
+          document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1 - b})`;
+        } else if (document.querySelector("#material").getBoundingClientRect().top < 0) {
+          if (document.querySelector("#straight").getBoundingClientRect().top > 0) {
+            var a = -document.querySelector("#material").getBoundingClientRect().top / windowsHeight * 300;
+
+            line.style.position = "fixed";
+            line.style.height = (a < 105) ? a + `%` : `105%`;
+            if (a > 30) {
+              line.style.width = (a < 105) ? a + `%` : `105%`;
+              document.querySelector(".pentagon").style.opacity = 1;
+            } else {
+              document.querySelector(".pentagon").style.opacity = 0;
+              line.style.width = `30%`;
+            }
+            if (document.getElementById("effect").getBoundingClientRect().top/windowsHeight/0.6 <1) {
+              console.log("yes");
+              document.querySelector(".pentagon").style.scale = document.getElementById("effect").getBoundingClientRect().top/windowsHeight/0.6*11;
+
+            }
+          }
+        } else {
+          line.style.height = "2px"
+          line.style.position = "absolute";
+        }
+      } else {
+        digital.classList.add("bg");
+        document.getElementById("doList").style.transform = "perspective(800px) rotateX(0deg)";
+        document.querySelector("section").style.backgroundColor = "#000";
       }
       if (main.classList.length > 0) toggleMenu();
       cursorCircle.style.width = 0;
@@ -229,20 +283,26 @@
         document.getElementById("header-title").style.top = windowsHeight / 2 - header.getBoundingClientRect().top + "px";
       }
     });
-    parallax.scalar(20, 40)
+    parallax = new Parallax(document.querySelector('.pentagon'));
+    parallax.scalar(20, 20)
 
     //menu translate effect
     const main = document.querySelector('main');
     const nav = document.querySelector('nav');
     const toggleMenu = () => {
+      var menu = document.getElementById("menu");
       if (main.classList.toggle('menu')) {
+        main.style.width = "130vw";
+        menu.style.display = "block";
         var whole = main.getBoundingClientRect().height;
         var foot = document.querySelector('footer').getBoundingClientRect().top;
         nav.style.marginTop = whole - foot - 45 + "px";
-        document.getElementById("menu").style.marginTop = whole - foot - 65 + "px";
+        menu.style.marginTop = whole - foot - 65 + "px";
         main.style.transform =
           `rotate3d(1, 4, 0, 35deg) translateX(${(1 - foot / whole) * -393}px)`;
       } else {
+        main.style.width = "100vw";
+        menu.style.display = "none";
         main.style.transform = 'none';
         nav.style.marginTop = 0;
       }
