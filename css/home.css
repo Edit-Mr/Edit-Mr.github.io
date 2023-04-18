@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     cursor: none;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+   
     /* outline: greenyellow 1px solid; */
 }
 
@@ -19,7 +19,7 @@ body {
 main {
     transition: all .5s ease-out;
     display: flex;
-    width: 130vw;
+    width: 100vw;
     position: relative;
     top: 0;
     left: 0;
@@ -80,7 +80,9 @@ main section:nth-child(2) {
 .menu #menu-button {
     margin-top: 0;
 }
-
+#menu{
+    display: none;
+}
 #menu>a {
     color: #FFF;
     padding: 0 0.5em;
@@ -206,6 +208,7 @@ a {
     width: 100%;
     height: 70%;
     transform: perspective(800px) rotateX(0deg);
+    transition: none;
 }
 
 #digital.bg::after {
@@ -258,8 +261,90 @@ a {
     background-image: url(/img/coding.webp);
 }
 
+#with {
+    height: 20vh;
+}
 
+#material {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f9f9f9;
+    font-size: 3em;
+    font-weight: 900;
+    text-shadow: -0.0075em 0.0075em 0 #fef2f6, 0.005em 0.005em 0 #f6a5c1, 0.01em 0.01em 0 #f7aac4, 0.015em 0.015em #f7aec7, 0.02em 0.02em 0 #f8b3ca, 0.025em 0.025em 0 #f8b7cd, 0.03em 0.03em 0 #f8bcd0, 0.035em 0.035em 0 #f9c0d3;
+}
 
+#material h2 {
+    margin-bottom: 1.5em;
+}
+
+.line {
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    background-color: #000;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    position: relative;
+}
+
+.line img {
+    width: calc(157.5px * 1.5);
+    height: calc(150px * 1.5);
+}
+
+.pentagon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: opacity 0.5s ease;
+
+}
+.pentagon >div{
+    width: 100%;
+    height: 100%;
+}
+.pentagon >div>div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pentagon >div:nth-child(5) img {
+    width: calc(157.5px * 2);
+    height: calc(150px * 2);
+}
+
+.pentagon >div:nth-child(4) img {
+    width: calc(157.5px * 2.5);
+    height: calc(150px * 2.5);
+}
+
+.pentagon >div:nth-child(3) img {
+    width: calc(157.5px * 3);
+    height: calc(150px * 3);
+}
+
+.pentagon >div:nth-child(2) img {
+    width: calc(157.5px * 3.5);
+    height: calc(150px * 3.5);
+}
+
+.pentagon >div:nth-child(1) img {
+    width: calc(157.5px * 4);
+    height: calc(150px * 4);
+}
+.greenTitle{
+    color:#00FF00;
+}
 #contact {
     background-color: #FFF;
 }
@@ -275,6 +360,7 @@ a {
 
 .contact div {
     opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .contact {
@@ -334,6 +420,7 @@ a {
 }
 
 .contact a {
+    transition: opacity 1s ease-out, transform 1s ease-out;
     color: #000;
     font-size: .4em;
     border-radius: 4px;
@@ -543,6 +630,7 @@ a:hover .arrow-right {
 .fadeIn-bottom {
     opacity: 0;
     transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .fadeIn-bottom.animated {
@@ -553,6 +641,7 @@ a:hover .arrow-right {
 .fadeIn-left {
     opacity: 0;
     transform: translateX(-50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .animated.fadeIn-left {
