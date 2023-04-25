@@ -273,7 +273,7 @@
         var b = digital.getBoundingClientRect().bottom / windowsHeight;
         var a = 180 - b * 180;
         digital.classList.remove("bg");
-        document.getElementById("doList").style.transform = a < 90 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(90deg)";
+        document.getElementById("doList").style.transform = a > 0 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(0deg)";
         document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1 - b})`;
         removeSee();
       } else {
@@ -299,8 +299,9 @@
         else {
           var advanture = document.querySelector("#advanture");
           x = advanture.getBoundingClientRect().top / windowsHeight;
-          if(x<1){
-
+          if (x < 1) {
+            advanture.style.fontSize = x > 0 ? `${-50 * x + 50}vw` : "50vw";
+       
           }
         }
 
