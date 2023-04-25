@@ -432,9 +432,30 @@ a {
     animation-delay: .6s;
 }
 
+#advanture h2 {
+    background-image: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    color: #FFFFFF;
+    font-size: 5vw;
+    animation: filling 3s ease forwards;
+    background-position: center 50%;
+    text-align: right;
+    width: 5vw;
+    
+}
+#advanture.animated h2{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
 
 #contact {
     background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact {
@@ -764,7 +785,9 @@ a:hover .arrow-right {
         opacity: 1;
     }
 }
-
+#explode{
+    height:50vh;
+}
 #explode>.animated>span {
     animation: smoky 5s .3s both infinite;
 }
