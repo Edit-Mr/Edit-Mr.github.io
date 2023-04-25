@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     cursor: none;
-   
+
     /* outline: greenyellow 1px solid; */
 }
 
@@ -35,6 +35,9 @@ main section:first-child {
 
 main section:nth-child(2) {
     margin-top: 30px;
+}
+
+#menu {
     width: 30vw;
 }
 
@@ -59,6 +62,7 @@ main section:nth-child(2) {
     top: 0;
     margin-top: 30px;
     transition: all 0.2s ease-in-out;
+    z-index: 9999;
 
 }
 
@@ -80,9 +84,11 @@ main section:nth-child(2) {
 .menu #menu-button {
     margin-top: 0;
 }
-#menu{
+
+#menu {
     display: none;
 }
+
 #menu>a {
     color: #FFF;
     padding: 0 0.5em;
@@ -208,6 +214,7 @@ a {
     width: 100%;
     height: 70%;
     transform: perspective(800px) rotateX(0deg);
+    z-index: 2;
     transition: none;
 }
 
@@ -277,21 +284,24 @@ a {
     text-shadow: -0.0075em 0.0075em 0 #fef2f6, 0.005em 0.005em 0 #f6a5c1, 0.01em 0.01em 0 #f7aac4, 0.015em 0.015em #f7aec7, 0.02em 0.02em 0 #f8b3ca, 0.025em 0.025em 0 #f8b7cd, 0.03em 0.03em 0 #f8bcd0, 0.035em 0.035em 0 #f9c0d3;
 }
 
-#material h2 {
-    margin-bottom: 1.5em;
-}
+
 
 .line {
-    position: absolute;
     width: 30%;
     height: 2px;
     background-color: #000;
     z-index: 10;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     overflow: hidden;
     position: relative;
+    height: 2px;
+}
+
+.line.see {
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+
 }
 
 .line img {
@@ -304,13 +314,19 @@ a {
     height: 100%;
     position: relative;
     transition: opacity 0.5s ease;
-
+    opacity: 0;
 }
-.pentagon >div{
+
+.line.see .pentagon {
+    opacity: 1;
+}
+
+.pentagon>div {
     width: 100%;
     height: 100%;
 }
-.pentagon >div>div{
+
+.pentagon>div>div {
     width: 100%;
     height: 100%;
     display: flex;
@@ -318,33 +334,56 @@ a {
     align-items: center;
 }
 
-.pentagon >div:nth-child(5) img {
+.pentagon>div:nth-child(5) img {
     width: calc(157.5px * 2);
     height: calc(150px * 2);
 }
 
-.pentagon >div:nth-child(4) img {
+.pentagon>div:nth-child(4) img {
     width: calc(157.5px * 2.5);
     height: calc(150px * 2.5);
 }
 
-.pentagon >div:nth-child(3) img {
+.pentagon>div:nth-child(3) img {
     width: calc(157.5px * 3);
     height: calc(150px * 3);
 }
 
-.pentagon >div:nth-child(2) img {
+.pentagon>div:nth-child(2) img {
     width: calc(157.5px * 3.5);
     height: calc(150px * 3.5);
 }
 
-.pentagon >div:nth-child(1) img {
+.pentagon>div:nth-child(1) img {
     width: calc(157.5px * 4);
     height: calc(150px * 4);
 }
-.greenTitle{
-    color:#00FF00;
+
+.greenTitle {
+    color: #00FF00;
 }
+
+#material+div {
+    /* height: 120vh; */
+}
+
+#effect p {
+    font-size: 15px;
+    text-align: justify;
+    font-weight: bold;
+    font-family: sans-serif;
+    min-height: 100vh;
+    max-width: 800px;
+    word-spacing: 0px;
+    letter-spacing: -1px;
+    margin: 0 auto;
+    color: transparent;
+    background: url(https://s1.ax1x.com/2022/03/30/q20PFH.gif) center/cover;
+    background-clip: text;
+    filter: grayscale(1) invert(1);
+    mix-blend-mode: hard-light;
+}
+
 #contact {
     background-color: #FFF;
 }

@@ -1,104 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw" data-default-color-scheme="auto">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-body {
-	 background-color: #30a539;
-}
- .special-button {
-	 width: 50px;
-	 height: 50px;
-	 display: block;
-	 position: absolute;
-	 margin: auto;
-	 left: 0;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-}
- .st0 {
-	 fill: none;
-	 stroke: #fff;
-	 stroke-width: 12;
-	 stroke-miterlimit: 10;
-	 stroke-dasharray: 500;
-	 stroke-dashoffset: 2430;
-	 transition: stroke-dasharray 0.6s ease, stroke-dashoffset 0.6s ease;
-}
- .st0.active {
-	 stroke-dasharray: 500;
-	 stroke-dashoffset: 1880;
-}
- .top, .bottom {
-	 pointer-events: none;
-	 width: 27px;
-	 background-color: white;
-	 height: 4px;
-	 border-radius: 2px;
-	 position: absolute;
-	 left: 12px;
-	 transition: transform 0.6s ease, top 0.6s ease, left 0.6s ease;
-}
- .top.active, .bottom.active {
-	 left: 11px;
-}
- .top {
-	 top: 15px;
-}
- .top.active {
-	 transform: rotate(45deg);
-	 top: 23px;
-}
- .bottom {
-	 top: 33px;
-}
- .bottom.active {
-	 transform: rotate(-45deg);
-	 top: 23px;
-}
- 
-  </style>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+		gtag("config", "G-9R5PZG2VQG");
+	</script>
+	<meta charset="UTF-8" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="theme-color" content="#2f4154" />
+	<meta name="description" content="毛哥EM的各種網頁專案" />
+	<meta name="author" content="毛哥EM" />
+	<meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="毛哥EM的基地" />
+	<meta property="og:url" content="http://Edit-Mr.github.io/index.html" />
+	<meta property="og:site_name" content="毛哥EM的基地" />
+	<meta property="og:description" content="毛哥EM的各種網頁專案" />
+	<meta property="og:locale" content="zh-TW" />
+	<meta property="article:author" content="毛哥EM" />
+	<meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
+	<meta name="twitter:card" content="summary_large_image" />
+	<title>毛哥EM的基地</title>
+	<link rel="stylesheet" href="css/home.css">
+	<script src="js/parallax.min.js"></script>
 </head>
 
 <body>
-  <div class="special-button">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    viewBox="0 0 150 150" width="50" xml:space="preserve">
-      <path class="st0" d="M41,78h71c0,0,29.7-8,16-36c-1.6-3.3-19.3-30-52-30c-36,0-64,29-64,65c0,29,26,59,61.6,59
-      c41.4,0,62.6-29,62.6-59c0-37.7-19.2-49.1-26.3-54"
-         stroke-linejoin="round" 
-         stroke-linecap="round"/>
-    </svg>
-  
-    <div class="top"></div>
-    <div class="bottom"></div>
-  </div>
-  
-  
-  <script>
-    document.querySelectorAll('.special-button').forEach(function(button) {
-button.addEventListener('click', function() {
-if (document.querySelector('.bottom').classList.contains('active')) {
-document.querySelectorAll(".st0").forEach(function(st0) {
-st0.className = "st0";
-});
-} else {
-document.querySelectorAll(".st0").forEach(function(st0) {
-st0.className = "st0 active";
-});
-}
-document.querySelector('.top').classList.toggle('active');
-document.querySelector('.bottom').classList.toggle('active');
-});
-});
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+			style="display: none; visibility: hidden;"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="cursor-circle"></div>
+	<main>
+		<section>
+			<nav><img src="Logo.png" alt="">
+				<button id="menu-button" onclick="toggleMenu()">
+					<div></div>
+					<div></div>
+					<div></div>
+				</button>
+			</nav>
+			<div class="slide" id="header">
+				<div class="stars" data-depth="0.5"></div>
+				<div class="title" id="header-title">
+					<h2 data-depth="2">
+						<div id="welcome"></div>
+						<div class="text-cursor">_</div>
+					</h2>
+				</div>
+			</div>
+			<div class="slide bg" id="digital">
+				<h2 class="animate fadeIn-bottom">我是一位數位創作者</h2>
+				<div id="doList">
+					<div class="do">音樂</div>
+					<div class="do">編程</div>
+					<div class="do">剪輯</div>
+					<div class="do">電繪</div>
+				</div>
+			</div>
+			<div class="slide" id="with">
+				<h2>我喜歡透過</h2>
+			</div>
+			<div class="slide" id="material">
+				<h2>質感的設計</h2>
+				<div class="line">
+					<div class="pentagon">
+						<div data-depth="1.00">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.80">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.60">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.40">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.20">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.00">
+							<div><img src="img/五邊形.svg"></div>
+						</div>
+						<div data-depth="0.1" class="greenTitle">
+							<div>直覺的體驗</div>
+						</div>
+					</div>
 
 
-  </script>
+				</div>
+			</div>
+			<div class="slide" id="straight">
+				<h2>直覺的體驗</h2>
+			</div>
+			<div class="slide" id="effect">
+				<h2>絢麗的特效</h2>
+			</div>
+			<div class="slide">
+				<h2>突破你的想像</h2>
+			</div>
+			<div class="slide">
+				<h2>我正在人生的旅程中</h2>
+			</div>
+			<div class="slide " id="contact">
+				<h2 class="contact animate">
+					<div>有</div>
+					<div>朋</div>
+					<div>自</div>
+					<div>遠</div>
+					<div>方</div>
+					<div>來</div>
+					<div class="long"></div>
+					<div>不</div>
+					<div>亦</div>
+					<div>樂</div>
+					<div>乎</div>
+					<div>?</div>
+					<div class="long"></div>
+					<a href="">聯絡我</a>
+				</h2>
+			</div>
+			<div class="slide project">
+				<h2 id="project">近期專案</h2>
+				<div class="history">
+					<div class="work animate fadeIn-bottom current">
+						<h3>Furry Art In Taiwan</h3>
+						<div class="time">2022~2023</div>
+						<p>讓各個繪師能有被大眾看到的機會，以及推廣台灣獸圈的各個出色繪師，此作品集所有收益扣除印刷費、繪師稿費以及其他必要費用將全數捐出給予<i>台灣石虎保護協會Leopard cat
+								Association of
+								Taiwan</i>
+						</p>
+					</div>
+					<div class="work animate fadeIn-bottom">
+						<h3>毛哥EM資訊密技</h3>
+						<div class="time">2021至今</div>
+						<p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+						<a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+					</div>
+					<div class="work animate fadeIn-bottom">
+						<h3>網頁設計營隊</h3>
+						<div class="time">2023</div>
+						<p>從HTML、CSS、JS到Git深入探索網頁建置的各種技巧和工具。</p>
+						<a href="https://sysh-tech-volunteer.github.io/Web-Design-Camp/" target="_blank">教學資源</a>
+					</div>
+					<div class="work animate fadeIn-bottom">
+						<h3>ClipCC</h3>
+						<div class="time">2022至今</div>
+						<p>ClipCC 是一個強大的 Scratch 分支，它增加了一些有用的功能，例如自訂幀率、新的擴展系統、高質量的筆、舞台佈局等等。 </p>
+						<a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
+					</div>
+				</div>
+				<div class="more animate fadeIn-left"><a href="code">更多網頁專案<div class="arrow-right">❯❯❯</div></a>
+				</div>
+				<footer class="" subject>
+					<div>© 2023 by Edit Mr. (毛哥EM)</div>
+					<div class="social">
+						<a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img
+								src="img/icon/envelope-regular.svg" alt="Mail"></a>
+						<a href="https://github.com/Edit-Mr" target="_blank"><img src="img/icon/github.svg"
+								alt="Mail"></a>
+						<a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="img/icon/line.svg"
+								alt="Line"></a>
+						<a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img
+								src="img/icon/Instagram.svg" alt="Instagram"></a>
+					</div>
+				</footer>
+			</div>
+		</section>
+		<section>
+			<div id="menu"><a href="code">毛哥EM的基地</a><br>
+				<a href="about">關於</a><br>
+				<a href="#contact"><button id="contact-link" onclick="toggleMenu()">聯絡</button></a>
+			</div>
+		</section>
+	</main>
+	<script>
+		const cursorCircle = document.querySelector('.cursor-circle');
+		let isDark = false;
+
+		document.addEventListener('mousemove', (e) => {
+			var x = e.clientX;
+			var y = e.clientY;
+			var elementBehindCursor = document.elementFromPoint(x, y);
+			var pixelColor = getPixelColor(elementBehindCursor);
+			var brightness = calculateBrightness(pixelColor);
+			isDark = brightness < 128;
+			cursorCircle.style.width = "20px";
+			cursorCircle.style.height = "20px";
+			cursorCircle.style.left = x + 'px';
+			cursorCircle.style.top = y + 'px';
+			cursorCircle.style.backgroundColor = isDark ? '#fff' : '#000';
+		});
+
+		const getPixelColor = (element) => {
+			if (!element) return '#fff';
+			if (element.nodeName.toLowerCase() === 'a' || element.classList.contains('slide')) return window.getComputedStyle(element).backgroundColor;
+			else if (element.parentElement) return window.getComputedStyle(element.parentElement).backgroundColor;
+		};
+
+		const calculateBrightness = (color = '#fff') => {
+			const match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			if (!match) return 0;
+			const [r, g, b] = match.slice(1).map((val) => parseInt(val));
+			return (r + g + b) / 3;
+		};
+
+		//scroll animation
+		const elements = document.querySelectorAll('.animate');
+		const header = document.getElementById('header');
+		const windowsHeight = window.innerHeight;
+		const scrollAnimation = () => {
+			//menu
+			if (main.classList.length > 0) toggleMenu();
+			cursorCircle.style.width = 0;
+			cursorCircle.style.height = 0;
+			elements.forEach((element) => {
+				if (element.getBoundingClientRect().top < windowsHeight) element.classList.add('animated');
+				else element.classList.remove('animated');
+			});
+		};
+		window.addEventListener('scroll', scrollAnimation);
+
+		window.addEventListener("load", () => {
+			var text = "嗨，  我是毛哥EM", i = 0, intervalId = setInterval(() => {
+				document.getElementById("welcome").textContent += text[i++];
+				if (i === text.length) clearInterval(intervalId);
+			}, 100);
+		});
+
+		//parallax effect
+		var parallax = new Parallax(document.getElementById('header'));
+		parallax.scalar(20, 20);
+		parallax = new Parallax(document.getElementsByClassName('title')[0], {
+			onReady: function () {
+				document.getElementById("header-title").style.top = windowsHeight / 2 - header.getBoundingClientRect().top + "px";
+			}
+		});
+		parallax = new Parallax(document.querySelector('.pentagon'));
+		parallax.scalar(20, 20)
+
+		//menu translate effect
+		const main = document.querySelector('main');
+		const nav = document.querySelector('nav');
+		const toggleMenu = () => {
+			var menu = document.getElementById("menu");
+			if (main.classList.toggle('menu')) {
+				main.style.width = "130vw";
+				menu.style.display = "block";
+				var whole = main.getBoundingClientRect().height;
+				var foot = document.querySelector('footer').getBoundingClientRect().top;
+				nav.style.marginTop = whole - foot - 45 + "px";
+				menu.style.marginTop = whole - foot - 65 + "px";
+				main.style.transform =
+					`rotate3d(1, 4, 0, 35deg) translateX(${(1 - foot / whole) * -393}px)`;
+			} else {
+				main.style.width = "100vw";
+				menu.style.display = "none";
+				main.style.transform = 'none';
+				nav.style.marginTop = 0;
+			}
+		}
+
+	</script>
 </body>
 
 </html>
