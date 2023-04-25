@@ -367,6 +367,10 @@ a {
     /* height: 120vh; */
 }
 
+#effect {
+    height: auto;
+}
+
 #effect p {
     font-size: 15px;
     text-align: justify;
@@ -383,6 +387,51 @@ a {
     filter: grayscale(1) invert(1);
     mix-blend-mode: hard-light;
 }
+
+#effect h2 {
+
+    color: #cacaca;
+    font-size: 5vw;
+}
+
+#explode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    backface-visibility: hidden;
+    font-size: 3em;
+}
+
+#explode span {
+    display: inline-block;
+    text-shadow: 0 0 0 whitesmoke;
+}
+
+#explode span:nth-of-type(1) {
+    animation-delay: .1s;
+}
+
+#explode span:nth-of-type(2) {
+    animation-delay: .2s;
+}
+
+#explode span:nth-of-type(3) {
+    animation-delay: .3s;
+}
+
+#explode span:nth-of-type(4) {
+    animation-delay: .4s;
+}
+
+#explode span:nth-of-type(5) {
+    animation-delay: .5s;
+}
+
+#explode span:nth-of-type(6) {
+    animation-delay: .6s;
+}
+
 
 #contact {
     background-color: #FFF;
@@ -713,5 +762,37 @@ a:hover .arrow-right {
 
     50% {
         opacity: 1;
+    }
+}
+
+#explode>.animated>span {
+    animation: smoky 5s .3s both infinite;
+}
+
+#explode>.animated>span:nth-child(even) {
+    animation-name: smoky-mirror;
+}
+
+@keyframes smoky {
+    60% {
+        text-shadow: 0 0 40px whitesmoke;
+    }
+
+    to {
+        transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
+    }
+}
+
+@keyframes smoky-mirror {
+    60% {
+        text-shadow: 0 0 40px whitesmoke;
+    }
+
+    to {
+        transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
     }
 }
