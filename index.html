@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-tw" data-default-color-scheme="auto">
+<html lang="zh-TW" data-default-color-scheme="auto">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -171,7 +171,7 @@
           <div>乎</div>
           <div>?</div>
           <div class="long"></div>
-          <a href="">聯絡我</a>
+          <a href="about">一起呼</a>
         </h2>
       </div>
       <div class="slide project">
@@ -179,7 +179,7 @@
         <div class="history">
           <div class="work animate fadeIn-bottom current">
             <h3>Furry Art In Taiwan</h3>
-            <div class="time">2022~2023</div>
+            <div class="time">2022~</div>
             <p>讓各個繪師能有被大眾看到的機會，以及推廣台灣獸圈的各個出色繪師，此作品集所有收益扣除印刷費、繪師稿費以及其他必要費用將全數捐出給予<i>台灣石虎保護協會Leopard cat Association of
                 Taiwan</i>
             </p>
@@ -187,7 +187,7 @@
           <div class="work animate fadeIn-bottom">
             <h3>毛哥EM資訊密技</h3>
             <div class="time">2021至今</div>
-            <p>透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
+            <p>個人科技部落格。透過簡單的教學，讓不會程式和外語的人也能夠使用各種程式。</p>
             <a href="https://em-tec.github.io/" target="_blank">毛哥EM資訊密技</a>
           </div>
           <div class="work animate fadeIn-bottom">
@@ -265,62 +265,48 @@
     const scrollAnimation = () => {
       var digital = document.getElementById("digital");
       if (digital.getBoundingClientRect().top >= 0) {
-        header.style.top = `${windowsHeight - digital.getBoundingClientRect().top}px`;
+        document.getElementById("header-title").style.display = "block";
         document.getElementById("doList").style.transform = "perspective(800px) rotateX(0deg)";
         document.querySelector("section").style.backgroundColor = "#000";
       }
-      else if (digital.getBoundingClientRect().bottom >= 0) {
-        var b = digital.getBoundingClientRect().bottom / windowsHeight;
-        var a = 180 - b * 180;
-        digital.classList.remove("bg");
-        document.getElementById("doList").style.transform = a > 0 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(0deg)";
-        document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1 - b})`;
-        removeSee();
-      } else {
-        var x = document.querySelector("#material").querySelector("h2").getBoundingClientRect().bottom / windowsHeight;
-        if (x < 0.5) {
-          if (x > 0) {
-            line.classList.add("see");
-            line.style.height = -200 * x + 100 + `%`;
-            line.style.width = -140 * x + 100 + `%`;
-            document.querySelector("section").style.backgroundColor = `#FFF`;
-          } else {
-            line.style.width = "100%";
-            line.style.height = "100%";
-            if (x > -1) {
-              line.style.opacity = 1 + x;
-              line.style.display = "block";
+      else
+        if (digital.getBoundingClientRect().bottom >= 0) {
+          var b = digital.getBoundingClientRect().bottom / windowsHeight;
+          var a = 180 - b * 180;
+          digital.classList.remove("bg");
+          document.getElementById("doList").style.transform = a > 0 ? `perspective(800px) rotateX(${a}deg)` : "perspective(800px) rotateX(0deg)";
+          document.querySelector("section").style.backgroundColor = `rgba(255,255,255,${1 - b})`;
+          document.getElementById("header-title").style.display = "none";
+          removeSee();
+        } else {
+          var x = document.querySelector("#material").querySelector("h2").getBoundingClientRect().bottom / windowsHeight;
+          if (x < 0.5) {
+            if (x > 0) {
+              line.classList.add("see");
+              line.style.height = -200 * x + 100 + `%`;
+              line.style.width = -140 * x + 100 + `%`;
+              document.querySelector("section").style.backgroundColor = `#FFF`;
+            } else {
+              line.style.width = "100%";
+              line.style.height = "100%";
+              if (x > -1) {
+                line.style.opacity = 1 + x;
+                line.style.display = "block";
+              }
+              else line.style.display = "none";
+              document.querySelector("section").style.backgroundColor = `#000`;
             }
-            else line.style.display = "none";
-            document.querySelector("section").style.backgroundColor = `#000`;
+          }
+          if (x >= -1) { if (x <= 0.25) document.querySelector(".pentagon").style.scale = -3.2 * x + 1.8; }
+          else {
+            var advanture = document.querySelector("#advanture");
+            x = advanture.getBoundingClientRect().top / windowsHeight;
+            if (x < 1) {
+              advanture.style.fontSize = x > -1 ? `${40 * (1 - x)}vw` : "40vw";
+
+            }
           }
         }
-        if (x >= -1) { if (x <= 0.25) document.querySelector(".pentagon").style.scale = -3.2 * x + 1.8; }
-        else {
-          var advanture = document.querySelector("#advanture");
-          x = advanture.getBoundingClientRect().top / windowsHeight;
-          if (x < 1) {
-            advanture.style.fontSize = x > 0 ? `${-50 * x + 50}vw` : "50vw";
-       
-          }
-        }
-
-        // if (h2At < windowsHeight / 2 && h2At > 0) {
-        //   if (h2At > 0) {
-        //     line.classList.add("see");
-        //     line.style.height = ((windowsHeight - h2At) / windowsHeight - 0.5) * 200 + `%`;
-        //     line.style.width = ((windowsHeight - h2At) / windowsHeight * 7 / 5 - 0.4) * 100 + `%`;
-        //   } else {
-        //     removeSee();
-        //   }
-        //   if (h2At < windowsHeight / 4 && h2At > -windowsHeight / 2) {
-        //     line.style.width = "100%";
-        //     line.style.height = "100%";
-        //     document.querySelector(".pentagon").style.scale = h2At / -25 + 1;
-        //   }
-
-        // }
-      }
 
 
       //menu
