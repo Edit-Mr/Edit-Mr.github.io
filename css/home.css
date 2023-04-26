@@ -31,6 +31,7 @@ main section:first-child {
     position: relative;
     top: 0;
     left: 0;
+    overflow: hidden;
 }
 
 main section:nth-child(2) {
@@ -178,7 +179,7 @@ a {
 }
 
 .title {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
@@ -203,6 +204,7 @@ a {
     display: flex;
     align-items: end;
     justify-content: center;
+    padding-bottom: 1em;
 }
 
 #doList {
@@ -427,9 +429,12 @@ a {
 #explode span:nth-of-type(6) {
     animation-delay: .6s;
 }
-#advanture{
+
+#advanture {
     background-color: #000;
+    height: 60vh;
 }
+
 #advanture h2 {
     background-image: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg);
     background-size: 300%;
@@ -439,7 +444,7 @@ a {
     animation: filling 3s ease forwards;
     background-position: center 50%;
     text-align: right;
-    width: 300vw;
+    width: 350vw;
 
 }
 
