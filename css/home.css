@@ -55,6 +55,7 @@ main section:nth-child(2) {
     font-size: 2rem;
     font-weight: 550;
     line-height: 1.5em;
+    font-family: "Microsoft JhengHei", "微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #menu-button {
@@ -102,6 +103,8 @@ main section:nth-child(2) {
     border-right: #336484 0 solid;
     height: 3rem;
     line-height: 1.5em;
+    white-space: nowrap;
+
 }
 
 #menu>a:hover {
@@ -440,11 +443,12 @@ a {
     background-size: 300%;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #FFFFFF;
+    -webkit-background-clip: text;
+    color: transparent;
     animation: filling 3s ease forwards;
     background-position: center 50%;
     text-align: right;
-    width: 350vw;
+    width: 400vw;
 
 }
 
@@ -736,7 +740,6 @@ a:hover .arrow-right {
     .work {
         width: 100%;
     }
-
 }
 
 /* animation */
