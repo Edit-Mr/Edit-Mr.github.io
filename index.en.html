@@ -33,14 +33,167 @@
   <title>EM's Base</title>
   <link rel="stylesheet" href="css/home.css">
   <script src="js/parallax.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=VT323&display=swap" rel="stylesheet">
   <style>
-    #welcome {
-      font-family: monospace;
+    #project,
+    #contact-button,
+    .work>h3,
+    .more {
+      font-family: 'Fira Sans', sans-serif;
+
+    }
+
+    #welcome,
+    #effect>h2,
+    .text-cursor {
+      font-family: 'VT323', monospace;
+    }
+
+    #welcome,
+    .text-cursor {
+      font-size: 2rem;
     }
 
     .do {
       font-size: 1em;
     }
+
+    /* to 33 */
+    .contact div:nth-child(1) {
+      transition-delay: 50ms;
+    }
+
+    .contact div:nth-child(2) {
+      transition-delay: 100ms;
+    }
+
+    .contact div:nth-child(3) {
+      transition-delay: 150ms;
+    }
+
+    .contact div:nth-child(4) {
+      transition-delay: 200ms;
+    }
+
+    .contact div:nth-child(5) {
+      transition-delay: 250ms;
+    }
+
+    .contact div:nth-child(6) {
+      transition-delay: 300ms;
+    }
+
+    .contact div:nth-child(7) {
+      transition-delay: 350ms;
+    }
+
+    .contact div:nth-child(8) {
+      transition-delay: 400ms;
+    }
+
+    .contact div:nth-child(9) {
+      transition-delay: 450ms;
+    }
+
+    .contact div:nth-child(10) {
+      transition-delay: 500ms;
+    }
+
+    .contact div:nth-child(11) {
+      transition-delay: 550ms;
+    }
+
+    .contact div:nth-child(12) {
+      transition-delay: 600ms;
+    }
+
+    .contact div:nth-child(13) {
+      transition-delay: 650ms;
+    }
+
+    .contact div:nth-child(14) {
+      transition-delay: 700ms;
+    }
+
+    .contact div:nth-child(15) {
+      transition-delay: 750ms;
+    }
+
+    .contact div:nth-child(16) {
+      transition-delay: 800ms;
+    }
+
+    .contact div:nth-child(17) {
+      transition-delay: 850ms;
+    }
+
+    .contact div:nth-child(18) {
+      transition-delay: 900ms;
+    }
+
+    .contact div:nth-child(19) {
+      transition-delay: 950ms;
+    }
+
+    .contact div:nth-child(20) {
+      transition-delay: 1000ms;
+    }
+
+    .contact div:nth-child(21) {
+      transition-delay: 1050ms;
+    }
+
+    .contact div:nth-child(22) {
+      transition-delay: 1100ms;
+    }
+
+    .contact div:nth-child(23) {
+      transition-delay: 1150ms;
+    }
+
+    .contact div:nth-child(24) {
+      transition-delay: 1200ms;
+    }
+
+    .contact div:nth-child(25) {
+      transition-delay: 1250ms;
+    }
+
+    .contact div:nth-child(26) {
+      transition-delay: 1300ms;
+    }
+
+    .contact div:nth-child(27) {
+      transition-delay: 1350ms;
+    }
+
+    .contact div:nth-child(28) {
+      transition-delay: 1400ms;
+    }
+
+    .contact div:nth-child(29) {
+      transition-delay: 1450ms;
+    }
+
+    .contact div:nth-child(30) {
+      transition-delay: 1500ms;
+    }
+
+    .contact div:nth-child(31) {
+      transition-delay: 1550ms;
+    }
+
+    .contact div:nth-child(32) {
+      transition-delay: 1600ms;
+    }
+
+    .contact div:nth-child(33) {
+      transition-delay: 1650ms;
+    }
+    
+
   </style>
 </head>
 
@@ -52,7 +205,7 @@
   <div class="cursor-circle"></div>
   <main>
     <section>
-      <nav><img src="Logo.png" alt="">
+      <nav><img src="Logo.png" alt="EMLogo" id="logo">
         <button id="menu-button" onclick="toggleMenu()">
           <div></div>
           <div></div>
@@ -197,7 +350,10 @@
           <div>o</div>
           <div>u</div>
           <div class="long"></div>
-          <a href="about/index.en.html">Get in touch</a>
+          <div id="contact-button">
+            <a data-depth="2" href="about/index.en.html">Get in touch</a>
+          </div>
+
         </h2>
       </div>
       <div class="slide project">
@@ -229,7 +385,8 @@
           <div class="work animate fadeIn-bottom">
             <h3>ClipCC</h3>
             <div class="time">2022~</div>
-            <p>ClipCC is a powerful fork of Scratch that adds useful features such as custom framerates, a new expansion system, high-quality pens, stage layouts, and more.</p>
+            <p>ClipCC is a powerful fork of Scratch that adds useful features such as custom framerates, a new expansion
+              system, high-quality pens, stage layouts, and more.</p>
             <a href="https://codingclip.com/editor/stable/" target="_blank">ClipCC</a>
           </div>
         </div>
@@ -251,7 +408,7 @@
     </section>
     <section>
       <div id="menu"><a href="code">Base</a><br>
-        <a href="about.en.html">About</a><br>
+        <a href="about/index.en.html">About</a><br>
         <a href="#contact"><button id="contact-link" onclick="toggleMenu()">Contact</button></a><br>
         <a href="index.html">中文</a>
       </div>
@@ -334,11 +491,15 @@
             x = advanture.getBoundingClientRect().top / windowsHeight;
             if (x < 1) {
               advanture.style.fontSize = x > -1 ? `${40 * (1 - x)}vw` : "40vw";
-
             }
           }
         }
-
+if(document.querySelector("#contact").getBoundingClientRect().top < 0){
+document.querySelector("nav").style.filter="invert(1)";
+console.log("a");
+}else{
+document.querySelector("nav").style.filter="invert(0)";
+}
 
       //menu
       if (main.classList.length > 0) toggleMenu();
@@ -374,8 +535,10 @@
       }
     });
     parallax = new Parallax(document.querySelector('.pentagon'));
-    parallax.scalar(20, 20)
-
+    parallax.scalar(20, 20);
+    parallax = new Parallax(document.querySelector('#contact-button'));
+    parallax.scalar(20, 20);
+    parallax.pointerEvents = true;
     //menu translate effect
     const main = document.querySelector('main');
     const nav = document.querySelector('nav');
