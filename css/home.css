@@ -23,12 +23,12 @@ main {
     position: relative;
     top: 0;
     left: 0;
+    position: relative;
 }
 
 main section:first-child {
     width: 100vw;
     background-color: #000;
-    position: relative;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -36,6 +36,7 @@ main section:first-child {
 
 main section:nth-child(2) {
     margin-top: 30px;
+    z-index: 1000;
 }
 
 #menu {
@@ -135,9 +136,10 @@ nav {
     position: fixed;
     width: 100vw;
     z-index: 10;
+    transition: filter 0.2s ease-in-out;
 }
 
-nav img {
+#logo {
     height: 4em;
     filter: invert(100%);
     margin: 30px;
@@ -396,6 +398,10 @@ a {
     font-size: 5vw;
 }
 
+.greenTitle div {
+    text-align: center;
+}
+
 #explode {
     display: flex;
     justify-content: center;
@@ -509,19 +515,19 @@ a {
     transition-delay: 600ms;
 }
 
-.contact div:nth-child(8) {
+.contact div:nth-child(7) {
     transition-delay: 700ms;
 }
 
-.contact div:nth-child(9) {
+.contact div:nth-child(8) {
     transition-delay: 800ms;
 }
 
-.contact div:nth-child(10) {
+.contact div:nth-child(9) {
     transition-delay: 900ms;
 }
 
-.contact div:nth-child(11) {
+.contact div:nth-child(10) {
     transition-delay: 1000ms;
 }
 
@@ -533,59 +539,12 @@ a {
     transition-delay: 1200ms;
 }
 
-.contact div:nth-child(13) {
-    transition-delay: 1300ms;
-}
-.contact div:nth-child(14) {
-    transition-delay: 1400ms;
-}
-.contact div:nth-child(15) {
-    transition-delay: 1500ms;
-}
-.contact div:nth-child(16) {
-    transition-delay: 1600ms;
-}
-.contact div:nth-child(17) {
-    transition-delay: 1700ms;
-}
-.contact div:nth-child(18) {
-    transition-delay: 1800ms;
-}
-.contact div:nth-child(19) {
-    transition-delay: 1900ms;
-}
-.contact div:nth-child(20) {
-    transition-delay: 2000ms;
-}
-.contact div:nth-child(21) {
-    transition-delay: 2100ms;
-}
-.contact div:nth-child(22) {
-    transition-delay: 2200ms;
-}
-.contact div:nth-child(23) {
-    transition-delay: 2300ms;
-}
-.contact div:nth-child(24) {
-    transition-delay: 2400ms;
-}
-.contact div:nth-child(25) {
-    transition-delay: 2500ms;
-}
-.contact div:nth-child(26) {
-    transition-delay: 2600ms;
-}
-.contact div:nth-child(27) {
-    transition-delay: 2700ms;
-}
-
-
 .long {
     width: 100%;
 }
 
 .contact a {
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 1s ease-out;
     color: #000;
     font-size: .4em;
     border-radius: 4px;
@@ -597,9 +556,11 @@ a {
     text-decoration: none;
     transition-duration: 2s;
     opacity: 0;
+    pointer-events: all;
 }
-.contact span{
-width:.3em;
+
+.contact span {
+    width: .3em;
 }
 
 .slide--visible {
@@ -678,6 +639,12 @@ footer img {
     margin-bottom: 32px;
     padding: 32px 32px 24px;
     width: calc(50% - 16px);
+    display: flex;
+    flex-direction: column;
+}
+
+.work p {
+    flex-grow: 1;
 }
 
 h3 {
@@ -700,13 +667,13 @@ h3 {
     margin-top: 24px;
     border-radius: 12px;
     color: #eaf4fe;
-    display: inline-block;
     font-weight: 600;
     margin-bottom: 8px;
     padding: 14px 28px;
     text-decoration: none;
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
     background-color: #000;
+    width: fit-content;
 }
 
 .work a:hover {
@@ -786,6 +753,8 @@ a:hover .arrow-right {
 .more a:hover {
     color: #3f3f3f;
 }
+
+#contact-button {}
 
 @media (max-aspect-ratio: 1/1) {
     .work {

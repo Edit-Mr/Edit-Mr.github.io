@@ -43,7 +43,7 @@
   <div class="cursor-circle"></div>
   <main>
     <section>
-      <nav><img src="Logo.png" alt="">
+      <nav><img src="Logo.png" alt="EMLogo" id="logo">
         <button id="menu-button" onclick="toggleMenu()">
           <div></div>
           <div></div>
@@ -171,7 +171,9 @@
           <div>乎</div>
           <div>?</div>
           <div class="long"></div>
-          <a href="about">一起呼</a>
+          <div id="contact-button">
+            <a data-depth="2" href="about">一起呼</a>
+          </div>
         </h2>
       </div>
       <div class="slide project">
@@ -308,7 +310,12 @@
             }
           }
         }
-
+        if(document.querySelector("#contact").getBoundingClientRect().top < 0){
+document.querySelector("nav").style.filter="invert(1)";
+console.log("a");
+}else{
+document.querySelector("nav").style.filter="invert(0)";
+}
 
       //menu
       if (main.classList.length > 0) toggleMenu();
@@ -345,7 +352,9 @@
     });
     parallax = new Parallax(document.querySelector('.pentagon'));
     parallax.scalar(20, 20)
-
+    parallax = new Parallax(document.querySelector('#contact-button'));
+    parallax.scalar(20, 20)
+    parallax.pointerEvents = true;
     //menu translate effect
     const main = document.querySelector('main');
     const nav = document.querySelector('nav');
