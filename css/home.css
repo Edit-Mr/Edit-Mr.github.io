@@ -112,6 +112,14 @@ main section:nth-child(2) {
     border-right: #336484 1em solid;
 }
 
+#menu>a:nth-child(7){
+    background-color: #843333;
+    border-right: #843333 0 solid;
+}
+
+#menu>a:nth-child(7):hover {
+    border-right: #843333 1em solid;
+}
 
 .cursor-circle {
     position: fixed;
