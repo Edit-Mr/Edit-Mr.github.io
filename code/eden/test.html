@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Capture Main Element to Streaming Video</title>
+    <style>
+        main {
+            background-color: #f0f0f0;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="mainElement">
+        <h1>Welcome to the Main Element</h1>
+        <p>This is the content inside the main element.</p>
+    </main>
+
+    <canvas id="canvasElement" width="400" height="300"></canvas>
+
+    <script>
+        // Get references to the main and canvas elements
+        const mainElement = document.getElementById('mainElement');
+        const canvasElement = document.getElementById('canvasElement');
+
+        // Get the 2D rendering context of the canvas
+        const ctx = canvasElement.getContext('2d');
+
+        // Function to capture the main element and draw it on the canvas
+        function captureMainElement() {
+            ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+            const mainImage = new Image();
+            mainImage.src = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='${canvasElement.width}' height='${canvasElement.height}'><foreignObject width='100%' height='100%'>${new XMLSerializer().serializeToString(mainElement)}</foreignObject></svg>`;
+            mainImage.onload = () => {
+                ctx.drawImage(mainImage, 0, 0);
+            };
+        }
+
+        // Capture the main element initially
+        captureMainElement();
+
+        // Capture the main element periodically (e.g., every 100 milliseconds)
+        setInterval(captureMainElement, 100);
+    </script>
+</body>
+
+</html>
