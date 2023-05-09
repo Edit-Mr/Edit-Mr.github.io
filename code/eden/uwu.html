@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9R5PZG2VQG');
+    </script>
+    <meta charset="UTF-8">
+    <title>伊甸</title>
+    <meta name="theme-color" content="##3f97fb" />
+    <meta name="description" content="一隻伊甸">
+    <meta name="keywords" content="伊甸, furry">
+    <meta name="author" content="Edit Mr.">
+    <title>伊甸</title>
+    <style>
+        body {
+            background-color: #3f97fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            height: 100svh;
+            overflow: hidden;
+        }
+
+        main,
+        canvas {
+            width: 30vw;
+            height: 30vw;
+            position: relative;
+        }
+
+        main>* {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .tail {
+            width: 39.9%;
+            transform-origin: top left;
+            transform: rotate(0deg);
+            right: 5%;
+            left: auto;
+            bottom: 1.2%;
+            z-index: 1;
+            animation: tail ease-in-out 2s infinite alternate;
+        }
+
+        @keyframes tail {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-25deg);
+            }
+        }
+
+        .eye {
+            width: 7.7%;
+            height: 9.95%;
+            background: #3a1d1d;
+            border-radius: 100% / 100%;
+            z-index: 3;
+            top: 57.0%;
+            left: 63.5%;
+            transform: translate(-50%, -50%);
+            animation: blink ease-in-out 3s infinite alternate;
+        }
+
+        .eye:first-of-type {
+            left: 36.75%;
+        }
+
+        #origin {
+            display: none;
+            z-index: 3;
+        }
+
+        @keyframes blink {
+            0% {
+                height: 9.95%;
+                top: 57.0%;
+            }
+
+            90% {
+                height: 9.95%;
+                top: 57.0%;
+            }
+
+            100% {
+                height: 1%;
+                top: 60.0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main id="mainElement"><img src="EdenDragonMao.webp" alt="" id="origin"><img src="body.webp" alt=""><img
+            src="tail.webp" alt="" class="tail">
+        <div class="eye"></div>
+        <div class="eye"></div>
+    </main>
+</body>
+
+</html>
