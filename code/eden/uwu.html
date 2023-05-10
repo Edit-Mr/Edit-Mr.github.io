@@ -27,6 +27,7 @@
             height: 100vh;
             height: 100svh;
             overflow: hidden;
+            cursor:url(tennis.webp), auto;
         }
 
         main,
@@ -115,6 +116,16 @@
         <div class="eye"></div>
         <div class="eye"></div>
     </main>
+    <script>
+        const eyes = document.querySelectorAll('.eye');
+        document.addEventListener('mousemove', parallax);
+        function parallax(e) {
+            eyes.forEach(eye => {
+                eye.style.transform = `translate(${(e.pageX-window.innerWidth/2)/20 - 50}%, ${(e.pageY-window.innerHeight/2)/14 - 50}%)`;
+            });
+        }
+
+    </script>
 </body>
 
 </html>
