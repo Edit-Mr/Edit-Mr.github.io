@@ -27,7 +27,7 @@
             height: 100vh;
             height: 100svh;
             overflow: hidden;
-            cursor:url(tennis.webp), auto;
+            cursor: url(tennis.webp), auto;
         }
 
         main,
@@ -121,7 +121,7 @@
         document.addEventListener('mousemove', parallax);
         function parallax(e) {
             eyes.forEach(eye => {
-                eye.style.transform = `translate(${(e.pageX-window.innerWidth/2)/20 - 50}%, ${(e.pageY-window.innerHeight/2)/14 - 50}%)`;
+                eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`;
             });
         }
 
