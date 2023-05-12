@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --nord0: #2E3440;
+            --nord1: #3B4252;
+            --nord2: #434C5E;
+            --nord3: #4C566A;
+            --nord4: #D8DEE9;
+            --nord5: #E5E9F0;
+            --nord6: #ECEFF4;
+            --nord7: #8FBCBB;
+            --nord8: #88C0D0;
+            --nord9: #81A1C1;
+            --nord10: #5E81AC;
+            --nord11: #BF616A;
+            --nord12: #D08770;
+            --nord13: #EBCB8B;
+            --nord14: #A3BE8C;
+            --nord15: #B48EAD;
+            --black: #000;
+            --line: #4C566A;
+        }
+
+        * {
+            box-sizing: content-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--nord0);
+            color: var(--nord4);
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 1rem;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: var(--nord4);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--nord4);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            background-color: var(--nord1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .upload {
+            display: flex;
+            gap:1rem;
+        }
+
+        .upload * {
+            display: block;
+        }
+        button{
+            background-color: var(--nord10);
+            border: none;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            color: var(--nord6);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+        }
+        button:hover{
+            background-color: var(--nord9);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>人臉辨識</h1>
+        <section class="setting">
+            <h2>上傳檔案</h2>
+            <div class="upload">
+                <div><label for="upload-model">model</label>
+                    <label for="upload-weights">weights</label>
+                    <label for="upload-metadata">metadata</label>
+                </div>
+                <div>
+                    <input type="file" id="upload-model" name="upload-model" accept=".json">
+                    <input type="file" id="upload-weights" name="upload-weights" accept=".bin">
+                    <input type="file" id="upload-metadata" name="upload-metadata" accept=".json">
+                </div>
+            </div>
+            <button onclick="init()">Start</button>
+        </section>
+        <section id="webcam-container"></section>
+        <section id="label-container"></section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+        let model, webcam, labelContainer, maxPredictions;
+
+        // Load the image model and setup the webcam
+        async function init() {
+
+            // load the model and metadata
+            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+            // or files from your local hard drive
+            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+            // you need to create File objects, like with file input elements (<input type="file" ...>)
+            const uploadModel = document.getElementById('upload-model');
+            const uploadWeights = document.getElementById('upload-weights');
+            const uploadMetadata = document.getElementById('upload-metadata');
+            model = await tmImage.loadFromFiles(uploadModel.files[0], uploadWeights.files[0], uploadMetadata.files[0])
+            maxPredictions = model.getTotalClasses();
+
+            // Convenience function to setup a webcam
+            const flip = true; // whether to flip the webcam
+            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            // append elements to the DOM
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
+                labelContainer.appendChild(document.createElement("div"));
+            }
+        }
+
+        async function loop() {
+            webcam.update(); // update the webcam frame
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+
+        // run the webcam image through the image model
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
