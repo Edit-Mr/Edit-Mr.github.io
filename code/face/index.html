@@ -24,8 +24,6 @@
             --nord13: #EBCB8B;
             --nord14: #A3BE8C;
             --nord15: #B48EAD;
-            --black: #000;
-            --line: #4C566A;
         }
 
         * {
@@ -40,15 +38,22 @@
             font-family: 'Noto Sans TC', sans-serif;
             font-size: 16px;
             line-height: 1.5;
-            min-height: 100vh;
+            flex-direction: column;
+            height: calc(100vh - 2rem);
+            height: calc(100dvh - 2rem);
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 1rem;
-            max-width: 800px;
         }
 
         h1 {
+            margin: 1rem;
             color: var(--nord4);
             font-size: 2rem;
-            margin-bottom: 1rem;
+            text-align: center;
         }
 
         h2 {
@@ -57,21 +62,27 @@
             margin-bottom: 1rem;
         }
 
-        section {
+        main {
             background-color: var(--nord1);
             border-radius: 0.5rem;
             padding: 1rem;
+            width: 100%;
+            max-width: 500px;
+            flex-grow: 1;
+            position: relative;
         }
+
 
         .upload {
             display: flex;
-            gap:1rem;
+            gap: 1rem;
         }
 
         .upload * {
             display: block;
         }
-        button{
+
+        button {
             background-color: var(--nord10);
             border: none;
             border-radius: 0.5rem;
@@ -83,17 +94,39 @@
             padding: 0.5rem 1rem;
             transition: all 0.2s;
         }
-        button:hover{
+        section{
+            position: absolute;
+            width: calc(100% - 2rem);
+            height: 100%;
+            transition: opacity 0.2s;
+            top:0;
+            left:0;
+            padding: 1rem;
+        }
+
+        button:hover {
             background-color: var(--nord9);
+        }
+
+        .view {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            z-index: -1;
+        }
+        canvas{
+            border-radius: 1rem;
         }
     </style>
 </head>
 
 <body>
+    <h1>人臉辨識</h1>
     <main>
-        <h1>人臉辨識</h1>
         <section class="setting">
-            <h2>上傳檔案</h2>
+            <h2>選擇模型</h2>
             <div class="upload">
                 <div><label for="upload-model">model</label>
                     <label for="upload-weights">weights</label>
@@ -105,10 +138,12 @@
                     <input type="file" id="upload-metadata" name="upload-metadata" accept=".json">
                 </div>
             </div>
-            <button onclick="init()">Start</button>
+            <button onclick="init()">開始</button>
         </section>
-        <section id="webcam-container"></section>
-        <section id="label-container"></section>
+        <section class="view">
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+        </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script
@@ -132,7 +167,10 @@
             const uploadMetadata = document.getElementById('upload-metadata');
             model = await tmImage.loadFromFiles(uploadModel.files[0], uploadWeights.files[0], uploadMetadata.files[0])
             maxPredictions = model.getTotalClasses();
-
+            document.querySelector(".setting").style.opacity = 0;
+            document.querySelector(".setting").style.zIndex = -1;
+            document.querySelector(".view").style.opacity = 1;
+            document.querySelector(".view").style.zIndex = 1;
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
             webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
