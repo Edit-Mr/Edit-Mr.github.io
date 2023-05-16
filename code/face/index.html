@@ -55,12 +55,13 @@
         h2 {
             color: var(--nord4);
             font-size: 1.5rem;
-            margin-top:1rem;
+            margin-top: 1rem;
         }
+
         h3 {
             color: var(--nord4);
             font-size: 1.2rem;
-            margin-bottom:1rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
@@ -100,7 +101,6 @@
             justify-content: center;
         }
 
-
         .upload {
             display: flex;
             gap: 1rem;
@@ -110,7 +110,8 @@
             display: block;
         }
 
-        button {
+        button,
+        input[type="text"] {
             background-color: var(--nord10);
             border: none;
             border-radius: 0.5rem;
@@ -122,12 +123,23 @@
             padding: 0.5rem 1rem;
             transition: all 0.2s;
         }
-        button:last-of-type{
+
+        input[type="text"] {
+            background-color: var(--nord3);
+            display: block;
+        }
+
+        button:last-of-type {
             background-color: var(--nord7);
         }
 
         button:hover {
             filter: brightness(110%);
+        }
+
+        #call {
+            display: none;
+            margin:1rem;
         }
 
         input[type="file"],
@@ -142,6 +154,7 @@
         canvas {
             border-radius: 1rem;
         }
+
         #label-container>div {
             background-color: var(--nord9);
             padding: 1rem;
@@ -152,7 +165,8 @@
             white-space: nowrap;
             min-width: fit-content;
         }
-        #label-container>div:first-child{
+
+        #label-container>div:first-child {
             background-color: var(--nord10);
         }
     </style>
@@ -173,13 +187,16 @@
                 <input type="file" id="upload-metadata" name="upload-metadata" accept=".json">
             </div>
         </div>
+        班級<input type="text" id="course">
         <button onclick="init()">開始</button>
         <button onclick="window.open('https://teachablemachine.withgoogle.com/train/image', '_blank')">訓練模型</button>
     </section>
     <section class="view">
         <div id="webcam-container">
-            <button>報到</button>
-            <h2>載入中</h2></div>
+            <div class="status"> </div>
+            <button onclick="call()" id="call">報到</button>
+            <h2>載入中</h2>
+        </div>
         <div id="label-container"></div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -202,6 +219,7 @@
             document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) labelContainer.appendChild(document.createElement("div"));
+            document.getElementById("call").style.display = "block";
         }
 
         async function loop() {
@@ -209,19 +227,33 @@
             await predict();
             window.requestAnimationFrame(loop);
         }
-
+        let prediction;
         async function predict() {
-            const prediction = await model.predict(webcam.canvas);
+            prediction = await model.predict(webcam.canvas);
             prediction.sort((a, b) => b.probability - a.probability);
-            document.querySelector("h2").innerText = prediction[0].className +"你好";
+            document.querySelector("h2").innerText = prediction[0].className + "你好";
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2)*100 + "%";
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2) * 100 + "%";
                 labelContainer.childNodes[i].style.width = `calc(${prediction[i].probability * 100}% - 4rem)`;
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
         }
+        const call = () => {
+            document.querySelector(".status").innerText = "報到中";
+            console.log(`https://script.google.com/macros/s/AKfycbwFsYJMfQZQ-K4jP0oYBBJhAEF8pZG0ffR7UsGfj9-cR1f8TpFg91LXDdANAI_QlsI6/exec?course=${document.getElementById("course").value}&student=${prediction[0].className + ""}`);
 
+            fetch(`https://script.google.com/macros/s/AKfycbwFsYJMfQZQ-K4jP0oYBBJhAEF8pZG0ffR7UsGfj9-cR1f8TpFg91LXDdANAI_QlsI6/exec?course=${document.getElementById("course").value}&student=${prediction[0].className + ""}`)
+                .then(data => {
+                    if(data.status==200) document.querySelector(".status").innerText = "報到成功";
+                    else document.querySelector(".status").innerText = "報到失敗";
+                })
+                .catch(error => {
+                    // Handle any errors that occurred during the fetch request
+                    console.error('Error:', error);
+                });
+
+        }
     </script>
 
 </body>
