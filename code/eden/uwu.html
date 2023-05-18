@@ -27,14 +27,21 @@
             height: 100vh;
             height: 100svh;
             overflow: hidden;
-            cursor: url(tennis.webp), auto;
         }
 
-        main,
         canvas {
-            width: 30vw;
-            height: 30vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        main {
+            width: 20vw;
+            height: 20vw;
             position: relative;
+            pointer-events: none;
         }
 
         main>* {
@@ -103,6 +110,13 @@
                 top: 60.0%;
             }
         }
+
+        #tennis {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     </style>
 </head>
 
@@ -111,20 +125,66 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <img id="tennis" src="tennis.webp" alt="Tennis">
+
     <main id="mainElement"><img src="EdenDragonMao.webp" alt="" id="origin"><img src="body.webp" alt=""><img
             src="tail.webp" alt="" class="tail">
         <div class="eye"></div>
         <div class="eye"></div>
     </main>
+    <canvas></canvas>
     <script>
-        const eyes = document.querySelectorAll('.eye');
-        document.addEventListener('mousemove', parallax);
-        function parallax(e) {
-            eyes.forEach(eye => {
-                eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`;
-            });
-        }
+        var mouseX, mouseY, status = 0, currentX, currentY;
+        var canvas = document.querySelector("canvas");
+        var ctx = canvas.getContext("2d");
+        var tennis = document.getElementById('tennis');
+        document.addEventListener('mousedown', function (e) {
+            status = 1;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        })
 
+        document.addEventListener('mouseup', function (e) {
+            status = 0;
+            var distance = Math.sqrt(Math.pow((currentX - mouseX), 2) + Math.pow((currentY - mouseY), 2));
+            tennis.style.transitionDuration = distance / 1000 + "s";
+            tennis.style.left = mouseX + "px";
+            tennis.style.top = mouseY + "px";
+            mouseX = null;
+            mouseY = null;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Reset transition duration after animation ends
+            tennis.addEventListener('transitionend', function () {
+                tennis.style.transitionDuration = '0s';
+            }, { once: true });
+        });
+
+
+        const eyes = document.querySelectorAll('.eye');
+
+        document.addEventListener('mousemove', function (e) {
+            if (status == 1) {
+                tennis.style.left = e.clientX + "px";
+                tennis.style.top = e.clientY + "px";
+                if (mouseX) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    currentX = e.clientX;
+                    currentY = e.clientY;
+                    var side = 1, y = 10;
+                    if (currentX > mouseX) i = -1;
+                    ctx.beginPath();
+                    ctx.setLineDash([10, 10]);
+                    ctx.strokeStyle = "white";
+                    ctx.lineWidth = 3;
+                    ctx.moveTo(currentX, currentY);
+                    ctx.lineTo(mouseX, mouseY);
+                    ctx.stroke();
+                }
+            };
+            eyes.forEach(eye => eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`);
+        });
     </script>
 </body>
 
