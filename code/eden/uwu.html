@@ -142,6 +142,7 @@
             status = 1;
             mouseX = e.clientX;
             mouseY = e.clientY;
+            tennis.style.transitionDuration = '0s';
         })
 
         document.addEventListener('mouseup', function (e) {
@@ -181,6 +182,20 @@
                     ctx.moveTo(currentX, currentY);
                     ctx.lineTo(mouseX, mouseY);
                     ctx.stroke();
+//Jesus I love you
+var a = Math.atan2(mouseY - currentY, mouseX - currentX);
+var q = 9.8 / (2 * ((mouseX - currentX) ** 2 + (mouseY - currentY) ** 2) * Math.cos(a) ** 2);
+
+console.log(q);
+
+
+
+
+
+
+
+
+
                 }
             };
             eyes.forEach(eye => eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`);
