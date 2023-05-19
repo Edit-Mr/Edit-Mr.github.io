@@ -38,8 +38,8 @@
         }
 
         main {
-            width: 20vw;
-            height: 20vw;
+            width: 20vmin;
+            height: 20vmin;
             position: relative;
             pointer-events: none;
         }
@@ -134,7 +134,7 @@
     </main>
     <canvas></canvas>
     <script>
-        var mouseX, mouseY, status = 0, currentX, currentY, A, B, C;
+        var mouseX, mouseY, status = 0, currentX, currentY, A, B, C, side;
         var canvas = document.querySelector("canvas");
         var ctx = canvas.getContext("2d");
         var tennis = document.getElementById('tennis');
@@ -151,18 +151,29 @@
             tennis.style.transitionDuration = distance / 1000 + "s";
             tennis.style.left = mouseX + "px";
             tennis.style.top = mouseY + "px";
+            i = mouseX;
             mouseX = null;
             mouseY = null;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Reset transition duration after animation ends
             tennis.addEventListener('transitionend', function () {
                 tennis.style.transitionDuration = '0s';
+                y = 10;
+                var draw = window.setInterval((() => {
+                    console.log(y);
+                    y =  window.innerHeight - (A * i ** 2 + B * i + C);
+                    tennis.style.left = i + "px";
+                    tennis.style.top = y + "px";
+                    i += side*10;
+                    if (y < window.innerHeight) return;
+                    window.clearInterval(draw);
+                    tennis.style.top = window.innerHeight + "px";
+                }), 1);
             }, { once: true });
         });
 
 
         const eyes = document.querySelectorAll('.eye');
+
 
         document.addEventListener('mousemove', function (e) {
             if (status == 1) {
@@ -173,23 +184,29 @@
                     canvas.height = window.innerHeight;
                     currentX = e.clientX;
                     currentY = e.clientY;
-                    var side = 1, y = 10;
-                    if (currentX > mouseX) side = -1;
+                    var y = 10;
+                    side = (currentX > mouseX) ? -1 : 1;
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    ctx.setLineDash([]);
-                    ctx.strokeStyle = "white";
-                    ctx.fillStyle = "white";
                     var m = (mouseY - currentY) / (mouseX - currentX);
                     var b = currentY - m * currentX;
                     var i = currentX;
                     var to = mouseX;
-                    if (currentX > mouseX) { i = mouseX; to = currentX; }
-
-                    for (i = i; i <= to; i += 10) {
-                        ctx.beginPath();
-                        ctx.arc(i, m * i + b, 2, 0, 2 * Math.PI);
-                        ctx.fill();
-                        ctx.closePath();
+                    ctx.strokeStyle = "white";
+                    ctx.fillStyle = "white";
+                    if (currentX > mouseX) {
+                        for (i = mouseX; i <= currentX; i += 10) {
+                            ctx.beginPath();
+                            ctx.arc(i, m * i + b, 2, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.closePath();
+                        }
+                    } else {
+                        for (i = mouseX; i >= currentX; i -= 10) {
+                            ctx.beginPath();
+                            ctx.arc(i, m * i + b, 2, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.closePath();
+                        }
                     }
 
                     currentY = window.innerHeight - e.clientY;
@@ -201,7 +218,7 @@
                     B = Math.tan(a) + 2 * mouseX * q;
                     C = -mouseX * Math.tan(a) - q * mouseX ** 2 + mouseYR;
                     i = mouseX;
-                    while (y > 0 && y < window.innerHeight) {
+                    while (y < window.innerHeight) {
                         var y = window.innerHeight - (A * i ** 2 + B * i + C)
                         ctx.beginPath();
                         ctx.arc(i, y, 2, 0, 2 * Math.PI);
