@@ -19,11 +19,13 @@
     <meta name="author" content="Edit Mr.">
     <title>伊甸</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #3f97fb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             height: 100svh;
             overflow: hidden;
@@ -37,14 +39,40 @@
             height: 100vh;
         }
 
-        main {
-            width: 20vmin;
-            height: 20vmin;
-            position: relative;
-            pointer-events: none;
+        #tennis {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 1.5rem;
+            height: 1.5rem;
+            z-index: 3;
         }
 
-        main>* {
+        .floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 20vh;
+            background-color: #623d1e;
+            border-top: #219055 3vh solid;
+        }
+
+        .eden>div,
+        .eden {
+            width: 20vmin;
+            height: 20vmin;
+            position: absolute;
+        }
+
+        .eden {
+            position: absolute;
+            pointer-events: none;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .eden>div>* {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -52,7 +80,7 @@
             z-index: 2;
         }
 
-        .tail {
+        div>.tail {
             width: 39.9%;
             transform-origin: top left;
             transform: rotate(0deg);
@@ -73,7 +101,7 @@
             }
         }
 
-        .eye {
+        div>.eye {
             width: 7.7%;
             height: 9.95%;
             background: #3a1d1d;
@@ -110,13 +138,6 @@
                 top: 60.0%;
             }
         }
-
-        #tennis {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            width: 1.5rem;
-            height: 1.5rem;
-        }
     </style>
 </head>
 
@@ -127,11 +148,14 @@
     <!-- End Google Tag Manager (noscript) -->
     <img id="tennis" src="tennis.webp" alt="Tennis">
 
-    <main id="mainElement"><img src="EdenDragonMao.webp" alt="" id="origin"><img src="body.webp" alt=""><img
-            src="tail.webp" alt="" class="tail">
-        <div class="eye"></div>
-        <div class="eye"></div>
-    </main>
+    <section class="eden">
+        <div><img src="EdenDragonMao.webp" alt="" id="origin"><img src="body.webp" alt=""><img src="tail.webp" alt=""
+                class="tail">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </section>
+    <section class="floor"></section>
     <canvas></canvas>
     <script>
         var mouseX, mouseY, status = 0, currentX, currentY, A, B, C, side;
@@ -160,13 +184,13 @@
                 y = 10;
                 var draw = window.setInterval((() => {
                     console.log(y);
-                    y =  window.innerHeight - (A * i ** 2 + B * i + C);
+                    y = window.innerHeight - (A * i ** 2 + B * i + C);
                     tennis.style.left = i + "px";
                     tennis.style.top = y + "px";
-                    i += side*10;
-                    if (y < window.innerHeight) return;
+                    i += side * 10;
+                    if (y < window.innerHeight*.8) return;
                     window.clearInterval(draw);
-                    tennis.style.top = window.innerHeight + "px";
+                    tennis.style.top = window.innerHeight*.8 + "px";
                 }), 1);
             }, { once: true });
         });
@@ -218,7 +242,7 @@
                     B = Math.tan(a) + 2 * mouseX * q;
                     C = -mouseX * Math.tan(a) - q * mouseX ** 2 + mouseYR;
                     i = mouseX;
-                    while (y < window.innerHeight) {
+                    while (y < window.innerHeight*.8) {
                         var y = window.innerHeight - (A * i ** 2 + B * i + C)
                         ctx.beginPath();
                         ctx.arc(i, y, 2, 0, 2 * Math.PI);
