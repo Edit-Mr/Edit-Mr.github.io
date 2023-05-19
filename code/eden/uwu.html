@@ -134,7 +134,7 @@
     </main>
     <canvas></canvas>
     <script>
-        var mouseX, mouseY, status = 0, currentX, currentY;
+        var mouseX, mouseY, status = 0, currentX, currentY, A, B, C;
         var canvas = document.querySelector("canvas");
         var ctx = canvas.getContext("2d");
         var tennis = document.getElementById('tennis');
@@ -174,30 +174,43 @@
                     currentX = e.clientX;
                     currentY = e.clientY;
                     var side = 1, y = 10;
-                    if (currentX > mouseX) i = -1;
-                    ctx.beginPath();
-                    ctx.setLineDash([10, 10]);
+                    if (currentX > mouseX) side = -1;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.setLineDash([]);
                     ctx.strokeStyle = "white";
-                    ctx.lineWidth = 3;
-                    ctx.moveTo(currentX, currentY);
-                    ctx.lineTo(mouseX, mouseY);
-                    ctx.stroke();
-//Jesus I love you
-var a = Math.atan2(mouseY - currentY, mouseX - currentX);
-var q = 9.8 / (2 * ((mouseX - currentX) ** 2 + (mouseY - currentY) ** 2) * Math.cos(a) ** 2);
+                    ctx.fillStyle = "white";
+                    var m = (mouseY - currentY) / (mouseX - currentX);
+                    var b = currentY - m * currentX;
+                    var i = currentX;
+                    var to = mouseX;
+                    if (currentX > mouseX) { i = mouseX; to = currentX; }
 
-console.log(q);
+                    for (i = i; i <= to; i += 10) {
+                        ctx.beginPath();
+                        ctx.arc(i, m * i + b, 2, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.closePath();
+                    }
 
-
-
-
-
-
-
-
-
+                    currentY = window.innerHeight - e.clientY;
+                    var mouseYR = window.innerHeight - mouseY;
+                    //Jesus I love you
+                    var a = Math.atan2(mouseYR - currentY, mouseX - currentX);
+                    var q = 9.8 / (2 * ((mouseX - currentX) ** 2 + (mouseYR - currentY) ** 2) * Math.cos(a) ** 2);
+                    A = -q;
+                    B = Math.tan(a) + 2 * mouseX * q;
+                    C = -mouseX * Math.tan(a) - q * mouseX ** 2 + mouseYR;
+                    i = mouseX;
+                    while (y > 0 && y < window.innerHeight) {
+                        var y = window.innerHeight - (A * i ** 2 + B * i + C)
+                        ctx.beginPath();
+                        ctx.arc(i, y, 2, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.closePath();
+                        i += side * 10;
+                    };
                 }
-            };
+            }
             eyes.forEach(eye => eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`);
         });
     </script>
