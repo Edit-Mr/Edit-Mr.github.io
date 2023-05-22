@@ -19,11 +19,12 @@
     <meta name="author" content="Edit Mr.">
     <title>伊甸</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background-color: #3f97fb;
             height: 100vh;
@@ -37,6 +38,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
+            z-index: 1;
         }
 
         #tennis {
@@ -55,6 +57,7 @@
             height: 20vh;
             background-color: #623d1e;
             border-top: #219055 3vh solid;
+            z-index: 2;
         }
 
         .eden>div,
@@ -70,6 +73,7 @@
             bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
+            transition: all 1s linear;
         }
 
         .eden>div>* {
@@ -162,6 +166,10 @@
         var canvas = document.querySelector("canvas");
         var ctx = canvas.getContext("2d");
         var tennis = document.getElementById('tennis');
+        var eden = document.querySelector('.eden');
+        const eyes = document.querySelectorAll('.eye');
+        const eyeToTennis = () => eyes.forEach(eye => eye.style.transform = `translate(${(parseFloat(tennis.style.left) - window.innerWidth / 2) / 20 - 50}%, ${(parseFloat(tennis.style.top) - window.innerHeight / 2) / 14 - 50}%)`);
+
         document.addEventListener('mousedown', function (e) {
             status = 1;
             mouseX = e.clientX;
@@ -170,35 +178,39 @@
         })
 
         document.addEventListener('mouseup', function (e) {
-            status = 0;
+            status = 2;
             var distance = Math.sqrt(Math.pow((currentX - mouseX), 2) + Math.pow((currentY - mouseY), 2));
             tennis.style.transitionDuration = distance / 1000 + "s";
             tennis.style.left = mouseX + "px";
             tennis.style.top = mouseY + "px";
+            var straightMoving = window.setInterval((() => eyeToTennis()), 1);
             i = mouseX;
             mouseX = null;
             mouseY = null;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             tennis.addEventListener('transitionend', function () {
+                window.clearInterval(straightMoving);
                 tennis.style.transitionDuration = '0s';
+                fall = (-B - Math.sqrt(B ** 2 - 4 * A * (C - window.innerHeight * .2)) * side) / (2 * A);
+                if (fall > window.innerWidth) fall = window.innerWidth;
+                else if (fall < 0) fall = 0;
+                eden.style.transitionDuration = Math.abs(fall - parseFloat(eden.style.left)) / 500 + "s";
+                eden.style.left = fall + "px";
                 y = 10;
                 var draw = window.setInterval((() => {
-                    console.log(y);
+                    eyeToTennis();
                     y = window.innerHeight - (A * i ** 2 + B * i + C);
-                    tennis.style.left = i + "px";
+                    tennis.style.left = (i > window.innerWidth) ? window.innerWidth + "px" : i + "px";
+                    if (i < 0) tennis.style.left = "0px";
                     tennis.style.top = y + "px";
                     i += side * 10;
-                    if (y < window.innerHeight*.8) return;
+                    if (y < window.innerHeight * .8) return;
                     window.clearInterval(draw);
-                    tennis.style.top = window.innerHeight*.8 + "px";
+                    tennis.style.top = window.innerHeight * .8 + "px";
+                    status = 0;
                 }), 1);
             }, { once: true });
         });
-
-
-        const eyes = document.querySelectorAll('.eye');
-
-
         document.addEventListener('mousemove', function (e) {
             if (status == 1) {
                 tennis.style.left = e.clientX + "px";
@@ -217,6 +229,7 @@
                     var to = mouseX;
                     ctx.strokeStyle = "white";
                     ctx.fillStyle = "white";
+                    // draw parabola
                     if (currentX > mouseX) {
                         for (i = mouseX; i <= currentX; i += 10) {
                             ctx.beginPath();
@@ -232,7 +245,6 @@
                             ctx.closePath();
                         }
                     }
-
                     currentY = window.innerHeight - e.clientY;
                     var mouseYR = window.innerHeight - mouseY;
                     //Jesus I love you
@@ -242,7 +254,7 @@
                     B = Math.tan(a) + 2 * mouseX * q;
                     C = -mouseX * Math.tan(a) - q * mouseX ** 2 + mouseYR;
                     i = mouseX;
-                    while (y < window.innerHeight*.8) {
+                    while (y < window.innerHeight * .8) {
                         var y = window.innerHeight - (A * i ** 2 + B * i + C)
                         ctx.beginPath();
                         ctx.arc(i, y, 2, 0, 2 * Math.PI);
@@ -251,8 +263,8 @@
                         i += side * 10;
                     };
                 }
-            }
-            eyes.forEach(eye => eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`);
+            } else if (status == 0) eyes.forEach(eye => eye.style.transform = `translate(${(e.pageX - window.innerWidth / 2) / 20 - 50}%, ${(e.pageY - window.innerHeight / 2) / 14 - 50}%)`);
+
         });
     </script>
 </body>
