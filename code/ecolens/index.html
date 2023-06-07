@@ -102,7 +102,7 @@
             color: var(--text)
         }
 
-       .info {
+        .info {
             width: 8em;
             height: 6em;
             flex-shrink: 0;
@@ -114,15 +114,15 @@
             cursor: pointer;
         }
 
-       .info:hover {
-            font-size: 1.125em;
+        .info:hover {
+            scale: 1.125;
         }
 
         #related>div:hover {
             transform: translateY(-0.5rem);
         }
 
-       .info:nth-child(n+2):after {
+        .info:nth-child(n+2):after {
             content: '';
             position: absolute;
             bottom: 30%;
@@ -359,15 +359,15 @@
     </main>
     <script>
         // Get all elements with class "info"
-var infoElements = document.querySelectorAll('.info');
+        var infoElements = document.querySelectorAll('.info');
 
-// Add click event listener to each element
-infoElements.forEach(function(element) {
-  element.addEventListener('click', function() {
-    // Display the class name of the clicked element in an alert
-    alert(element.className);
-  });
-});
+        // Add click event listener to each element
+        infoElements.forEach(function (element) {
+            element.addEventListener('click', function () {
+                // Display the class name of the clicked element in an alert
+                alert(element.className);
+            });
+        });
 
     </script>
 </body>
