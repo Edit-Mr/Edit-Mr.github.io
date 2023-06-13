@@ -1,104 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Display User and Browser Information</title>
+  </head>
+  <body>
+    <p id="info"></p>
+    <script>
+      // Get the user agent string
+      const userAgent = navigator.userAgent;
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-body {
-	 background-color: #30a539;
-}
- .special-button {
-	 width: 50px;
-	 height: 50px;
-	 display: block;
-	 position: absolute;
-	 margin: auto;
-	 left: 0;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-}
- .st0 {
-	 fill: none;
-	 stroke: #fff;
-	 stroke-width: 12;
-	 stroke-miterlimit: 10;
-	 stroke-dasharray: 500;
-	 stroke-dashoffset: 2430;
-	 transition: stroke-dasharray 0.6s ease, stroke-dashoffset 0.6s ease;
-}
- .st0.active {
-	 stroke-dasharray: 500;
-	 stroke-dashoffset: 1880;
-}
- .top, .bottom {
-	 pointer-events: none;
-	 width: 27px;
-	 background-color: white;
-	 height: 4px;
-	 border-radius: 2px;
-	 position: absolute;
-	 left: 12px;
-	 transition: transform 0.6s ease, top 0.6s ease, left 0.6s ease;
-}
- .top.active, .bottom.active {
-	 left: 11px;
-}
- .top {
-	 top: 15px;
-}
- .top.active {
-	 transform: rotate(45deg);
-	 top: 23px;
-}
- .bottom {
-	 top: 33px;
-}
- .bottom.active {
-	 transform: rotate(-45deg);
-	 top: 23px;
-}
- 
-  </style>
-</head>
+      // Get the user's operating system
+      const userOS = navigator.platform;
 
-<body>
-  <div class="special-button">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    viewBox="0 0 150 150" width="50" xml:space="preserve">
-      <path class="st0" d="M41,78h71c0,0,29.7-8,16-36c-1.6-3.3-19.3-30-52-30c-36,0-64,29-64,65c0,29,26,59,61.6,59
-      c41.4,0,62.6-29,62.6-59c0-37.7-19.2-49.1-26.3-54"
-         stroke-linejoin="round" 
-         stroke-linecap="round"/>
-    </svg>
-  
-    <div class="top"></div>
-    <div class="bottom"></div>
-  </div>
-  
-  
-  <script>
-    document.querySelectorAll('.special-button').forEach(function(button) {
-button.addEventListener('click', function() {
-if (document.querySelector('.bottom').classList.contains('active')) {
-document.querySelectorAll(".st0").forEach(function(st0) {
-st0.className = "st0";
-});
-} else {
-document.querySelectorAll(".st0").forEach(function(st0) {
-st0.className = "st0 active";
-});
-}
-document.querySelector('.top').classList.toggle('active');
-document.querySelector('.bottom').classList.toggle('active');
-});
-});
+      // Get the user's browser name and version
+      const browserName = navigator.appName;
+      const browserVersion = navigator.appVersion;
 
+      // Get the screen width and height
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
 
-  </script>
-</body>
+      // Get the browser window width and height
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
 
+      // Get the device pixel ratio
+      const devicePixelRatio = window.devicePixelRatio;
+
+      // Check if cookies are enabled
+      const cookiesEnabled = navigator.cookieEnabled;
+
+      // Get the current URL
+      const currentURL = window.location.href;
+
+      // Get the referrer URL
+      const referrerURL = document.referrer;
+
+      
+
+      // Display the information in the paragraph element
+      const info = document.getElementById("info");
+      info.innerHTML = `
+        User agent: ${userAgent} <br>
+        User OS: ${userOS} <br>
+        Browser name: ${browserName} <br>
+        Browser version: ${browserVersion} <br>
+        Screen width: ${screenWidth} <br>
+        Screen height: ${screenHeight} <br>
+        Window width: ${windowWidth} <br>
+        Window height: ${windowHeight} <br>
+        Device pixel ratio: ${devicePixelRatio} <br>
+        Cookies enabled: ${cookiesEnabled} <br>
+        Current URL: ${currentURL} <br>
+        Referrer URL: ${referrerURL} <br>
+        
+      `;
+    </script>
+  </body>
 </html>
