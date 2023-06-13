@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人臉辨識簽到</title>
+    <style>
+        :root {
+            --nord0: #2E3440;
+            --nord1: #3B4252;
+            --nord2: #434C5E;
+            --nord3: #4C566A;
+            --nord4: #D8DEE9;
+            --nord5: #E5E9F0;
+            --nord6: #ECEFF4;
+            --nord7: #8FBCBB;
+            --nord8: #88C0D0;
+            --nord9: #81A1C1;
+            --nord10: #5E81AC;
+            --nord11: #BF616A;
+            --nord12: #D08770;
+            --nord13: #EBCB8B;
+            --nord14: #A3BE8C;
+            --nord15: #B48EAD;
+        }
+
+        * {
+            box-sizing: content-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--nord0);
+            color: var(--nord4);
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* overflow: hidden; */
+        }
+
+        h1 {
+            color: var(--nord5);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: .3rem;
+        }
+
+        h2 {
+            color: var(--nord4);
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        h3 {
+            color: var(--nord4);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .setting,
+        #webcam-container,
+        #label-container {
+            background-color: var(--nord1);
+            border-radius: 0.5rem;
+            height: 100%;
+        }
+
+        .setting {
+            width: 100%;
+            max-width: 500px;
+            height: calc(100% - 8rem);
+            padding: 1rem;
+        }
+
+        .view {
+            display: flex;
+            width: 100%;
+            height: calc(100% - 4rem);
+            margin: 2rem;
+            gap: 2rem;
+            display: none;
+        }
+
+        #webcam-container,
+        #label-container {
+            width: 50%;
+        }
+
+        #webcam-container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .upload * {
+            display: block;
+        }
+
+        button,
+        input[type="text"] {
+            background-color: var(--nord10);
+            border: none;
+            border-radius: 0.5rem;
+            margin: 1rem 0 0 1rem;
+            color: var(--nord6);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+        }
+
+        input[type="text"] {
+            background-color: var(--nord3);
+            display: block;
+        }
+
+        button:last-of-type {
+            background-color: var(--nord7);
+        }
+
+        button:hover {
+            filter: brightness(110%);
+        }
+
+        #call {
+            display: none;
+            margin:1rem;
+        }
+
+        input[type="file"],
+        label {
+            color: var(--nord4);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        canvas {
+            border-radius: 1rem;
+        }
+
+        #label-container>div {
+            background-color: var(--nord9);
+            padding: 1rem;
+            border-radius: 1rem;
+            width: 90%;
+            margin: 1rem;
+            transition: width 200ms;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        #label-container>div:first-child {
+            background-color: var(--nord10);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="setting">
+        <h1>人臉辨識簽到</h1>
+        <h3>毛哥EM製作</h3>
+        <div class="upload">
+            <div><label for="upload-model">model</label>
+                <label for="upload-weights">weights</label>
+                <label for="upload-metadata">metadata</label>
+            </div>
+            <div>
+                <input type="file" id="upload-model" name="upload-model" accept=".json">
+                <input type="file" id="upload-weights" name="upload-weights" accept=".bin">
+                <input type="file" id="upload-metadata" name="upload-metadata" accept=".json">
+            </div>
+        </div>
+        班級<input type="text" id="course">
+        <button onclick="init()">開始</button>
+        <button onclick="window.open('https://teachablemachine.withgoogle.com/train/image', '_blank')">訓練模型</button>
+        <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Pk04id2xaB5ic4InsIC4djoSu5E2ODTk80FBAV7CBWk/edit?usp=sharing', '_blank')">訓練模型</button>
+    </section>
+    <section class="view">
+        <div id="webcam-container">
+            <div class="status"> </div>
+            <button onclick="call()" id="call">報到</button>
+            <h2>載入中</h2>
+        </div>
+        <div id="label-container"></div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        let model, webcam, labelContainer, maxPredictions;
+        async function init() {
+            const uploadModel = document.getElementById('upload-model');
+            const uploadWeights = document.getElementById('upload-weights');
+            const uploadMetadata = document.getElementById('upload-metadata');
+            model = await tmImage.loadFromFiles(uploadModel.files[0], uploadWeights.files[0], uploadMetadata.files[0])
+            maxPredictions = model.getTotalClasses();
+            document.querySelector(".setting").style.display = "none";
+            document.querySelector(".view").style.display = "flex";
+            webcam = new tmImage.Webcam(400, 400, true); // width, height, flip
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) labelContainer.appendChild(document.createElement("div"));
+            document.getElementById("call").style.display = "block";
+        }
+
+        async function loop() {
+            webcam.update();
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+        let prediction;
+        async function predict() {
+            prediction = await model.predict(webcam.canvas);
+            prediction.sort((a, b) => b.probability - a.probability);
+            document.querySelector("h2").innerText = prediction[0].className + "你好";
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2) * 100 + "%";
+                labelContainer.childNodes[i].style.width = `calc(${prediction[i].probability * 100}% - 4rem)`;
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+        const call = () => {
+            document.querySelector(".status").innerText = "報到中";
+            console.log(`https://script.google.com/macros/s/AKfycbwFsYJMfQZQ-K4jP0oYBBJhAEF8pZG0ffR7UsGfj9-cR1f8TpFg91LXDdANAI_QlsI6/exec?course=${document.getElementById("course").value}&student=${prediction[0].className + ""}`);
+
+            fetch(`https://script.google.com/macros/s/AKfycbwFsYJMfQZQ-K4jP0oYBBJhAEF8pZG0ffR7UsGfj9-cR1f8TpFg91LXDdANAI_QlsI6/exec?course=${document.getElementById("course").value}&student=${prediction[0].className + ""}`)
+                .then(data => {
+                    if(data.status==200) document.querySelector(".status").innerText = "報到成功";
+                    else document.querySelector(".status").innerText = "報到失敗";
+                })
+                .catch(error => {
+                    // Handle any errors that occurred during the fetch request
+                    console.error('Error:', error);
+                });
+
+        }
+    </script>
+
+</body>
+
+</html>

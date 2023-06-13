@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>濾鏡 EcoLens</title>
+    <script src="https://kit.fontawesome.com/5b12cc2fae.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --main: #94B49F;
+            --line: #B4CFB0;
+            --background: #E5E3C9;
+            --emphasis: #789395;
+            --text: #3d5746;
+        }
+
+        body {
+            background-color: #e7e5c6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+
+        main {
+            width: 100%;
+            background-color: var(--background);
+            margin: 0 auto;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            box-shadow: 0 0 2rem rgba(0, 0, 0, 0.253);
+        }
+
+        nav {
+            background-color: var(--emphasis);
+            display: flex;
+            align-items: center;
+            padding: .8rem 1rem;
+            height: 4em;
+            color: #FFF;
+            justify-content: space-between;
+            gap: 2em;
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+        }
+
+        nav>* {
+            flex-grow: 1;
+        }
+
+        .point>img {
+            height: 1.5rem;
+            margin-right: .2rem;
+
+        }
+
+        .point {
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .search {
+            width: 70vw;
+            height: 100%;
+            flex-grow: 3;
+            background-color: rgba(255, 255, 255, 0.233);
+            border-radius: .5em;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+
+        .right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        header {
+            background-image: url(image.jpg);
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column-reverse;
+            position: relative;
+        }
+
+        section {
+            display: flex;
+            margin-top: 1rem;
+            padding: 1rem;
+            width: 100%;
+            overflow: scroll;
+            gap: 1rem;
+            color: var(--text)
+        }
+
+        .info {
+            width: 8em;
+            height: 6em;
+            flex-shrink: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .info:hover {
+            scale: 1.125;
+        }
+
+        #related>div:hover {
+            transform: translateY(-0.5rem);
+        }
+
+        .info:nth-child(n+2):after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            left: -0.5rem;
+            width: 2px;
+            height: 40%;
+            background-color: var(--line);
+        }
+
+        h3 {
+            font-size: 1.2em;
+        }
+
+        h4 {
+            font-size: 2em;
+        }
+
+        h4~div {
+            font-size: 1.125em;
+        }
+
+        main>p {
+            padding: 1rem;
+        }
+
+        main>h2 {
+            margin: 1rem 0 0 1rem;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        #related {
+            text-align: center;
+        }
+
+        #related>div {
+            background-color: var(--line);
+            padding: 1em;
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+
+        #related img {
+            height: 8em;
+        }
+
+        #related h4 {
+            font-size: 1.5rem;
+        }
+
+        #product {
+            display: flex;
+        }
+
+        #product img {
+            height: 5rem;
+        }
+
+        .burger {
+            margin-left: 1rem;
+            width: 2em;
+            height: 1.2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .burger>div {
+            width: 100%;
+            height: 2px;
+            background-color: #FFF;
+            border-radius: 1px;
+        }
+
+        .action {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .action>div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .5rem;
+            margin-right: 1rem;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .title h2 {
+            font-size: 2rem;
+        }
+
+        button {
+            display: block;
+            width: 5rem;
+            background-color: var(--emphasis);
+            border: transparent;
+            padding: .5rem;
+            color: #FFF;
+            border-radius: .2rem;
+        }
+
+        button:nth-of-type(2) {
+            background-color: #eaabab;
+        }
+
+        .rank::before {
+            content: "#";
+            font-size: 1.125rem;
+            position: relative;
+            top: -.5rem;
+        }
+
+        .co2::after {
+            content: "g";
+            font-size: 1.125rem;
+            position: relative;
+            font-weight: 800;
+        }
+
+        button:hover {
+            transform: translateY(2px);
+        }
+
+        button:active {
+            transform: translateY(5px);
+        }
+
+        header i {
+            position: absolute;
+            right: .5rem;
+            bottom: .5rem;
+            filter: invert(1);
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <h1>EcoLens</h1>
+            <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="right">
+                <div class="point"><img src="star.png" alt="">300</div>
+                <div class="burger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </nav>
+        <header>
+            <i class="fa-solid fa-circle-info"></i>
+        </header>
+        <section id="product">
+            <img src="tea.webp" alt="">
+            <div class="title">
+                <p>泰山 冰鎮</p>
+                <h2>水果茶</h2>
+            </div>
+            <div class="action">
+                <div> <button>紀錄 <i class="fa-solid fa-plus"></i></button><button>收藏 <i
+                            class="fa-solid fa-heart"></i></button>
+                </div>
+            </div>
+        </section>
+        <section id="info">
+            <div class="info footPrint">
+                <h3>碳足跡</h3>
+                <h4 class="co2">300</h4>
+                <div>公克</div>
+            </div>
+            <div class="info rankInfo">
+                <h3>排行榜</h3>
+                <h4 class="rank">5</h4>
+                <div>飲料類</div>
+            </div>
+            <div class="info friendly">
+                <h3>環境友善程度</h3>
+                <h4><i class="fa-regular fa-face-smile"></i></h4>
+                <div>中等</div>
+            </div>
+            <div class="info">
+                <h3>資訊</h3>
+                <h4>好喝</h4>
+                <div>真的</div>
+            </div>
+            <div class="info">
+                <h3>資訊</h3>
+                <h4>便宜</h4>
+                <div>25塊</div>
+            </div>
+        </section>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt accusantium natus eveniet dolor quas, fugiat
+            quam itaque omnis alias eos animi sequi nisi, unde asperiores. Eum iusto minus obcaecati voluptatibus.
+        </p>
+        <h2>類似商品</h2>
+        <section id="related">
+            <div>
+                <img src="coke.png" alt="">
+                <h3>飲料</h3>
+                <h4>500g</h4>
+            </div>
+            <div>
+                <img src="coke.png" alt="">
+                <h3>飲料</h3>
+                <h4>500g</h4>
+            </div>
+            <div>
+                <img src="coke.png" alt="">
+                <h3>飲料</h3>
+                <h4>500g</h4>
+            </div>
+            <div>
+                <img src="coke.png" alt="">
+                <h3>飲料</h3>
+                <h4>500g</h4>
+            </div>
+            <div>
+                <img src="coke.png" alt="">
+                <h3>飲料</h3>
+                <h4>500g</h4>
+            </div>
+
+        </section>
+    </main>
+    <script>
+        // Get all elements with class "info"
+        var infoElements = document.querySelectorAll('.info');
+
+        // Add click event listener to each element
+        infoElements.forEach(function (element) {
+            element.addEventListener('click', function () {
+                // Display the class name of the clicked element in an alert
+                alert(element.className);
+            });
+        });
+
+    </script>
+</body>
+
+</html>

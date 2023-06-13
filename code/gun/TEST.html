@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript & CSS 陀螺儀使圖片三維翻轉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="pistol.webp" alt="">
+    <script>
+        document.addEventListener('mousedown', requestFullScreen);
+        document.addEventListener('touchstart', requestFullScreen);
+        let elem = document.documentElement; // get the root element of the document
+        function requestFullScreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+        var xyz_img = document.getElementById('xyz-img');
+        var status = 1;
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function (event) {
+                if (status == 1) { if (event.beta < 180) { status = 0; alert("boom!") } } else {
+                    if (event.beta > 180) status = 1;
+                }
+                document.querySelector('body').innerHTML = event.beta;
+            },
+                false);
+        } else {
+            document.querySelector('body').innerHTML = '瀏覽器不支援';
+        }
+    </script>
+</body>
+
+</html>
