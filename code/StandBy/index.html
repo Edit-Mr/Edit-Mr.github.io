@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +18,376 @@
     gtag('config', 'G-9R5PZG2VQG');
   </script>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #212121;
+      color: #FFF;
+      font-size: 5vw;
+      font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+    }
+    .uiFont{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+
+    main {
+      width: 100vw;
+      height: 100vh;
+      flex-flow: column nowrap;
+      scroll-snap-type: y mandatory;
+      display: flex;
+      overflow: auto;
+    }
+
+    main>section {
+      flex: none;
+      width: 100%;
+      height: 100vh;
+      scroll-snap-align: center;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #212121;
+    }
+
+    .column {
+      flex-flow: column nowrap;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    #time {
+      font-size: 7em;
+    }
+    tr{
+      display: flex;
+    }
+
+    td,th {
+      text-align: center;
+      font-size: .7em;
+      padding: .06em;
+      border-radius: 50%;
+      width:5vw;
+      height:5vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #callenderMonth{
+      color: red;
+      /* to upper case */
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .clock {
+  position: relative;
+  width: 90vmin;
+  height: 90vmin;
+  border-radius: 50%;
+  border: 2px solid #FFF;
+}
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #FFF;
+  transform-origin: bottom center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.hour-hand {
+  width: 6px;
+  height: 60px;
+  margin-left: -3px;
+}
+
+.minute-hand {
+  width: 4px;
+  height: 80px;
+  margin-left: -2px;
+}
+
+.second-hand {
+  width: 2px;
+  height: 90px;
+  margin-left: -1px;
+}
+
+.number {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  text-align: center;
+}
+
+.number-1 {
+  top: 10px;
+  left: 87px;
+}
+
+.number-2 {
+  top: 27px;
+  left: 145px;
+}
+
+.number-3 {
+  top: 85px;
+  left: 165px;
+}
+
+.number-4 {
+  top: 145px;
+  left: 145px;
+}
+
+.number-5 {
+  top: 165px;
+  left: 85px;
+}
+
+.number-6 {
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.number-7 {
+  top: 165px;
+  left: 15px;
+}
+
+.number-8 {
+  top: 145px;
+  left: 5px;
+}
+
+.number-9 {
+  top: 85px;
+  left: 15px;
+}
+
+.number-10 {
+  top: 27px;
+  left: 50px;
+}
+
+.number-11 {
+  top: 10px;
+  left: 113px;
+}
+
+.number-12 {
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.minute-line {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background-color: #FFF;
+  top: 5px;
+  left: calc(50% - 1px);
+  transform-origin: bottom center;
+}
+
+.five-minute-line {
+  position: absolute;
+  width: 3px;
+  height: 25px;
+  background-color: #FFF;
+  top: 5px;
+  left: calc(50% - 1.5px);
+  transform-origin: bottom center;
+}
+
+.five-minute-line::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 25px;
+  background-color: #FFF;
+  top: 5px;
+  left: 0;
+  transform-origin: bottom center;
+}
+
   </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <main>
+    <section id="header" class="column">
+      <h1>StandBy</h1>
+      <h2>毛哥EM製作</h2>
+    </section>
+    <section id="time"></section>
+    <section id="callender">
+      <div class="clock">
+  <div class="hour-hand"></div>
+  <div class="minute-hand"></div>
+  <div class="second-hand"></div>
+  <!-- <div class="number number-1">1</div>
+  <div class="number number-2">2</div>
+  <div class="number number-3">3</div>
+  <div class="number number-4">4</div>
+  <div class="number number-5">5</div>
+  <div class="number number-6">6</div>
+  <div class="number number-7">7</div>
+  <div class="number number-8">8</div>
+  <div class="number number-9">9</div>
+  <div class="number number-10">10</div>
+  <div class="number number-11">11</div>
+  <div class="number number-12">12</div> -->
+</div>
+
+      <div id="callenderBox">
+        <div id="callenderMonth" class="uiFont"></div>
+      </div>
+    </section>
+    <section>4</section>
+    <section>5</section>
+  </main>
+  <script>
+    const currentDate = new Date();
+    //time
+    function updateTime() {
+      var formattedHours = ('0' + currentDate.getHours()).slice(-2);
+      var formattedMinutes = ('0' + currentDate.getMinutes()).slice(-2);
+
+      document.getElementById('time').innerHTML = formattedHours + ":" + formattedMinutes;
+    }
+
+    // Update the time every second (1000 milliseconds)
+    setInterval(updateTime, 1000);
+
+    //fill screen
+    document.addEventListener('mousedown', requestFullScreen);
+    document.addEventListener('touchstart', requestFullScreen);
+    let elem = document.documentElement; // get the root element of the document
+    function requestFullScreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+
+    // Get current month and year
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    // Get number of days in the current month
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    // Create an array of weekday abbreviations
+    const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    // Create the table
+    const table = document.createElement('table');
+    // Create the table header row
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    // Create the weekday header cells
+    for (let i = 0; i < 7; i++) {
+      const th = document.createElement('th');
+      th.textContent = weekdays[i];
+      headerRow.appendChild(th);
+    }
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    // Create the table body
+    const tbody = document.createElement('tbody');
+    // Calculate the starting day of the month
+    const startingDay = new Date(currentYear, currentMonth, 1).getDay();
+
+    // Calculate the number of rows needed
+    const numRows = Math.ceil((daysInMonth + startingDay) / 7);
+
+    // Create the calendar cells
+    let dayCount = 1;
+
+    for (let i = 0; i < numRows; i++) {
+      const row = document.createElement('tr');
+
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement('td');
+
+        if (i === 0 && j < startingDay) {
+          // Empty cells before the starting day
+          cell.textContent = '';
+        } else if (dayCount > daysInMonth) {
+          // Empty cells after the last day of the month
+          cell.textContent = '';
+        } else {
+          // Display the day number
+          cell.textContent = dayCount;
+          if (dayCount == currentDate.getDate())
+            cell.style.backgroundColor = "#FF0000";
+
+          dayCount++;
+        }
+
+        row.appendChild(cell);
+      }
+
+      tbody.appendChild(row);
+    }
+
+    table.appendChild(tbody);
+
+    // Add the table to the document body
+    document.getElementById("callenderBox").appendChild(table);
+    //month
+    // Array of month names
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    // Get the element with the ID "callenderMonth"
+    const callenderMonthElement = document.getElementById('callenderMonth');
+
+    // Set the current month text in the element
+    callenderMonthElement.textContent = monthNames[currentMonth];
+
+
+    //clock
+    function moveClockHands() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  const hourHand = document.querySelector('.hour-hand');
+  const minuteHand = document.querySelector('.minute-hand');
+  const secondHand = document.querySelector('.second-hand');
+
+  const hourRotation = (hours * 30) + (minutes * 0.5) - 90;
+  const minuteRotation = (minutes * 6) - 90;
+  const secondRotation = (seconds * 6) - 90;
+
+  hourHand.style.transform = `rotate(${hourRotation}deg)`;
+  minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+  secondHand.style.transform = `rotate(${secondRotation}deg)`;
+
+  setTimeout(moveClockHands, 1000);
+}
+
+moveClockHands();
+
+  </script>
 </body>
