@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Horizontal Slide Lightbox</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+main{
+display: flex;
+  overflow: auto;
+  outline: 1px dashed lightgray;
+  flex: none;
+  width: 256px;
+  height: 256px;
+  flex-flow: column nowrap;
+  scroll-snap-type: y proximity;
+  }
+  main > div{
+  line-height: 256px;
+  font-size: 128px;
+  width: 256px;
+  height: 100%;
+  }
+  main > div:nth-child(even) {
+  background-color: #87ea87;
+}
+
+main > div:nth-child(odd) {
+  background-color: #87ccea;
+}
+  </style>
+</head>
+<body>
+<main>
+    <div>Y Mand. RTL</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </main>
+</body>
+</html>
