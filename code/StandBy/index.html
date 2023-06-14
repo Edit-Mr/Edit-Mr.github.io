@@ -29,7 +29,7 @@
     }
 
     :root {
-      --main-color: #FFF;
+      --main-color: #FFFFFF;
     }
 
     * {
@@ -40,7 +40,7 @@
     }
 
     body {
-      background-color: #000000;
+      background-color: #212121;
       color: #fff;
       font-size: 5vw;
       font-family: "San Francisco Rounded", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
@@ -58,7 +58,7 @@
       scroll-snap-type: y mandatory;
       display: flex;
       overflow: auto;
-      background-color: #212121;
+      background-color: #000;
       transition: .3s;
     }
 
@@ -100,7 +100,26 @@
 
     #time {
       font-size: 7em;
-      color: var(--main-color);
+      color: hsla(0, 0%, 100%, 0.7);
+      font-weight: 600;
+      background: #000;
+      position: relative;
+    }
+
+    .time {
+      z-index: 2;
+    }
+
+    .timeBg {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      filter: hue-rotate(-50deg) brightness(1.5);
+      z-index: 1;
     }
 
     tr {
@@ -110,7 +129,7 @@
     td,
     th {
       text-align: center;
-      font-size: .7em;
+      font-size: .55em;
       padding: .06em;
       border-radius: 50%;
       width: 5vw;
@@ -129,7 +148,9 @@
       color: red;
       /* to upper case */
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 500;
+      font-size: .8em;
+      margin-left: .4em;
     }
 
     .clock {
@@ -137,7 +158,7 @@
       width: 7em;
       height: 7em;
       border-radius: 50%;
-      --s: 15px;
+      --s: .35em;
       /* length */
       --o: 0px;
       /* offset */
@@ -152,6 +173,29 @@
       --n5: 12;
       /* numbers*/
       --c5: rgb(255, 255, 255);
+    }
+
+    .clockCenter,
+    .clockCenterCenter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: .45em;
+      height: .45em;
+      background: #ffaf3f;
+      border: solid .1em #FFF;
+      border-radius: 50%;
+      display: block;
+
+    }
+
+    .clockCenterCenter {
+      background: #000000;
+      border: none;
+      width: .15em;
+      height: .15em;
+      z-index: 10;
     }
 
     .clock::before,
@@ -184,26 +228,38 @@
       transform-origin: top center;
     }
 
-    .hour-hand {
-      width: 6px;
-      height: 30%;
-      margin-left: -3px;
-      border-radius: 6px 6px 0 0;
+    .hour-hand,
+    .minute-hand {
+      width: 10px;
+      height: 27%;
+      margin-left: -5px;
+      border-radius: 5px;
+
     }
 
     .minute-hand {
-      width: 4px;
-      height: 40%;
-      margin-left: -2px;
-      border-radius: 4px 4px 0 0;
+      height: 46%;
     }
+
+    .minute-hand::after,
+    .hour-hand::after {
+      transform: translateY(-.7em);
+      display: block;
+      content: "";
+      width: 2px;
+      margin-left: 33.333333%;
+      height: 40%;
+      background-color: #FFF;
+    }
+
 
     .second-hand {
       width: 2px;
-      height: 48%;
+      height: 65%;
       margin-left: -1px;
-      background-color: #ffcc3f;
+      background-color: #ffaf3f;
       border-radius: 2px 2px 0 0;
+      z-index: 2;
     }
 
     .digit {
@@ -223,7 +279,7 @@
     .digit::before {
       content: attr(data-digit);
       display: block;
-      transform: rotate(calc(var(--deg) * -1deg))
+      transform: rotate(calc(var(--deg) * -1deg));
     }
 
     .digit {
@@ -244,8 +300,7 @@
       display: none;
     }
 
-    .color-picker .color-option
-    {
+    .color-picker .color-option {
       width: 2.5vmax;
       height: 2.5vmax;
       margin: 1vmax;
@@ -258,9 +313,14 @@
     .color-picker input[type="color"] {
       display: block;
       border: none;
-      width:2.5vw;
-      height:2.5vw;
+      width: 3vw;
+      height: 3vw;
       outline: none;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
     }
 
     .text {
@@ -270,17 +330,20 @@
     .color-picker {
       margin-bottom: .15em;
     }
-    #color{
+
+    #color {
       position: relative;
     }
-    #color::after{
+
+    #color::after {
       content: "+";
       font-size: .5em;
       line-height: .5;
-position: absolute;
-top: 50%;
-left: 50%;
-transform:translate(-50%, -55%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      pointer-events: none;
     }
   </style>
 </head>
@@ -299,9 +362,11 @@ transform:translate(-50%, -55%);
     <div class="color-option" style="background-color: #f8d175" onclick="changeFontColor('#f8d175')"></div>
     <div class="color-option" style="background-color: #9ac78f" onclick="changeFontColor('#9ac78f')"></div>
     <div class="color-option" style="background-color: #7dc4ca" onclick="changeFontColor('#7dc4ca')"></div>
+    <div class="color-option" style="background-color: #FFFFFF" onclick="changeFontColor('#FFFFFF')"></div>
     <div class="color-option" style="background-color: #565c6a" onclick="changeFontColor('#565c6a')"></div>
     <div class="color-option" style="background-color: #6b5762" onclick="changeFontColor('#6b5762')"></div>
-    <div class="color-option"  id="color"> <input type="color" onchange="document.getElementById('color').style.backgroundColor=this.value;changeFontColor(this.value)"></div>
+    <div class="color-option" id="color"> <input type="color"
+        onchange="document.getElementById('color').style.backgroundColor=this.value;changeFontColor(this.value)"></div>
   </div>
   <main>
     <section id="header" class="column">
@@ -312,12 +377,17 @@ transform:translate(-50%, -55%);
         <h3>Long press to change color</h3>
       </div>
     </section>
-    <section id="time"></section>
+    <section id="time" class="uiFont">
+      <div class="time"></div>
+      <div class="timeBg"></div>
+    </section>
     <section id="callender">
       <div class="clock">
         <div class="hour-hand"></div>
         <div class="minute-hand"></div>
         <div class="second-hand"></div>
+        <div class="clockCenter"></div>
+        <div class="clockCenterCenter"></div>
         <div class="digit" style="--deg: 0;" data-digit="12"></div>
         <div class="digit" style="--deg: 30;" data-digit="1"></div>
         <div class="digit" style="--deg: 60;" data-digit="2"></div>
@@ -336,7 +406,7 @@ transform:translate(-50%, -55%);
         <div id="callenderMonth"></div>
       </div>
     </section>
-    <section>4  <input type="color" onchange="updateColor(this.value) "></section>
+    <section>4 <input type="color" onchange="updateColor(this.value) "></section>
     <section>5</section>
   </main>
   <script>
@@ -346,7 +416,7 @@ transform:translate(-50%, -55%);
       var formattedHours = ('0' + currentDate.getHours()).slice(-2);
       var formattedMinutes = ('0' + currentDate.getMinutes()).slice(-2);
 
-      document.getElementById('time').innerHTML = formattedHours + ":" + formattedMinutes;
+      document.querySelector('.time').innerHTML = formattedHours + ":" + formattedMinutes;
     }
 
     // Update the time every second (1000 milliseconds)
@@ -357,18 +427,18 @@ transform:translate(-50%, -55%);
     document.addEventListener('touchstart', requestFullScreen);
     let elem = document.documentElement; // get the root element of the document
     function requestFullScreen() {
-  var elem = document.documentElement; // Assuming you want to make the entire document full screen
+      var elem = document.documentElement; // Assuming you want to make the entire document full screen
 
-  if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
+      if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
     }
-  }
-}
 
 
     const currentMonth = currentDate.getMonth();
@@ -427,9 +497,9 @@ transform:translate(-50%, -55%);
       const minuteRotation = ((minutes + seconds / 60) * 6) + 180;
       const secondRotation = (seconds * 6) + 180 + (hours * 60 + minutes) * 360;
 
-      hourHand.style.transform = `rotate(${hourRotation}deg)`;
-      minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
-      secondHand.style.transform = `rotate(${secondRotation}deg)`;
+      hourHand.style.transform = `rotate(${hourRotation}deg) translateY(.5em)`;
+      minuteHand.style.transform = `rotate(${minuteRotation}deg) translateY(.5em)`;
+      secondHand.style.transform = `rotate(${secondRotation}deg) translateY(-.5em)`;
 
       setTimeout(moveClockHands, 1000);
     }
@@ -483,6 +553,12 @@ transform:translate(-50%, -55%);
     //color{
     function changeFontColor(color) {
       document.documentElement.style.setProperty("--main-color", color);
+if (color === '#FFFFFF'){
+  document.getElementById('time').style.background = 'black'; document.querySelector('.timeBg').style.background = "black";}else {document.getElementById('time').style.background = ' var(--main-color)';
+  document.querySelector('.timeBg').style.background = "linear-gradient(-45deg, transparent 20%, var(--main-color))";
+  }
     }
+
+
   </script>
 </body>
