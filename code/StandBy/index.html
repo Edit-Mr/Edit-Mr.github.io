@@ -28,10 +28,15 @@
       src: local("San Francisco Rounded"), url("SF-Pro-Rounded.ttf");
     }
 
+    :root {
+        --main-color:#FFF;
+      }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      transition: color 0.3s ease-in-out;
     }
 
     body {
@@ -72,16 +77,29 @@
 
     h1 {
       font-size: 2.5em;
+      line-height: 1.4;
       text-align: center;
+      background: -webkit-linear-gradient(0deg, #be22ff 20%, #ff279c 50%, #ff981f 80%);
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     h2 {
       text-align: center;
-      font-size: 1em;
+      font-size: .7em;
+    }
+
+    h3 {
+      margin-top: 0.3em;
+      font-size: .4em;
+      text-align: center;
     }
 
     #time {
       font-size: 7em;
+      color: var(--main-color);
     }
 
     tr {
@@ -99,6 +117,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      color: var(--main-color);
     }
 
     .weekend {
@@ -182,7 +201,7 @@
       width: 2px;
       height: 48%;
       margin-left: -1px;
-      transition: transform 1s linear;
+      background-color: #ffcc3f;
       border-radius: 2px 2px 0 0;
     }
 
@@ -196,7 +215,7 @@
       line-height: 1em;
       text-align: center;
       font-size: 0.8em;
-      color: #FFF;
+      color: var(--main-color);
     }
 
     .digit::before {
@@ -209,6 +228,34 @@
       transform: rotate(calc(var(--deg) * 1deg)) translateY(-3.5em);
       transform-origin: center center;
     }
+
+    .color-picker {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      display: none;
+    }
+
+    .color-picker .color-option {
+      width: .5em;
+      height: .5em;
+      margin: .1em;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+    .text{
+      transition: color 0.3s ease-in-out;
+    }
+    .color-picker {
+      margin-bottom: .15em;
+    }
   </style>
 </head>
 
@@ -217,11 +264,25 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <div class="color-picker">
+    <div class="color-option" style="background-color: #7aaaf1" onclick="changeFontColor('#7aaaf1')"></div>
+    <div class="color-option" style="background-color: #8683ff" onclick="changeFontColor('#8683ff')"></div>
+    <div class="color-option" style="background-color: #e683bc" onclick="changeFontColor('#e683bc')"></div>
+    <div class="color-option" style="background-color: #ff788c" onclick="changeFontColor('#ff788c')"></div>
+    <div class="color-option" style="background-color: #ff8d7b" onclick="changeFontColor('#ff8d7b')"></div>
+    <div class="color-option" style="background-color: #f8d175" onclick="changeFontColor('#f8d175')"></div>
+    <div class="color-option" style="background-color: #9ac78f" onclick="changeFontColor('#9ac78f')"></div>
+    <div class="color-option" style="background-color: #7dc4ca" onclick="changeFontColor('#7dc4ca')"></div>
+    <div class="color-option" style="background-color: #565c6a" onclick="changeFontColor('#565c6a')"></div>
+    <div class="color-option" style="background-color: #6b5762" onclick="changeFontColor('#6b5762')"></div>
+  </div>
   <main>
     <section id="header" class="column">
       <div class="uiFont">
         <h1>StandBy</h1>
         <h2>Web Version by EM</h2>
+        <h3 id="status">Everything should be okay</h3>
+        <h3>Long press to change color</h3>
       </div>
     </section>
     <section id="time"></section>
@@ -344,6 +405,48 @@
     }
 
     moveClockHands();
+    //ios device
+    // Function to check if the user agent string indicates an iOS device
+    // Example usage
+    if (!/iphone|ipad|ipod|macintosh|apple watch/.test(window.navigator.userAgent.toLowerCase()))
+      document.getElementById("status").innerHTML = "This is not an iOS Device, some function may not work properly";
+    document.getElementById("status").style.color = "red";
 
+    //settings
+    let pressTimer;
+
+    function startPressTimer() {
+      pressTimer = setTimeout(showAlert, 300); // Adjust the duration as needed
+    }
+
+    function cancelPressTimer() {
+      clearTimeout(pressTimer);
+    }
+
+    function showAlert() {
+      var element = document.querySelector('.color-picker');
+      if (element.style.opacity==1) {
+        element.style.opacity = "0";
+        setTimeout(() => {
+          element.style.display = 'none';
+        }, 1000);
+      } else {
+        element.style.display = 'flex';
+        setTimeout(() => {
+          element.style.opacity = "1";
+        }, 1);
+       
+      }
+    }
+
+    document.addEventListener('touchstart', startPressTimer);
+    document.addEventListener('touchend', cancelPressTimer);
+    document.addEventListener('mousedown', startPressTimer);
+    document.addEventListener('mouseup', cancelPressTimer);
+
+    //color{
+    function changeFontColor(color) {
+      document.documentElement.style.setProperty("--main-color", color);
+    }
   </script>
 </body>
