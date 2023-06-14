@@ -244,7 +244,7 @@
       display: none;
     }
 
-    .color-picker .color-option, .color-picker input[type="color"]
+    .color-picker .color-option
     {
       width: 2.5vmax;
       height: 2.5vmax;
@@ -252,6 +252,7 @@
       cursor: pointer;
       border-radius: 50%;
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
     }
 
     .color-picker input[type="color"] {
@@ -260,21 +261,6 @@
       width:2.5vw;
       height:2.5vw;
       outline: none;
-      position: relative;
-    }
-    input::after{
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      top: 0;
-      left: 0;
-      width: 2.5vmax;
-      height: 2.5vmax;
-      background-color: #000000;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
 
     .text {
@@ -283,6 +269,18 @@
 
     .color-picker {
       margin-bottom: .15em;
+    }
+    #color{
+      position: relative;
+    }
+    #color::after{
+      content: "+";
+      font-size: .5em;
+      line-height: .5;
+position: absolute;
+top: 50%;
+left: 50%;
+transform:translate(-50%, -55%);
     }
   </style>
 </head>
@@ -303,7 +301,7 @@
     <div class="color-option" style="background-color: #7dc4ca" onclick="changeFontColor('#7dc4ca')"></div>
     <div class="color-option" style="background-color: #565c6a" onclick="changeFontColor('#565c6a')"></div>
     <div class="color-option" style="background-color: #6b5762" onclick="changeFontColor('#6b5762')"></div>
-    <input type="color" onchange="updateColor(this.value) ">
+    <div class="color-option"  id="color"> <input type="color" onchange="document.getElementById('color').style.backgroundColor=this.value;changeFontColor(this.value)"></div>
   </div>
   <main>
     <section id="header" class="column">
