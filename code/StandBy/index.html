@@ -18,6 +18,16 @@
     gtag('config', 'G-9R5PZG2VQG');
   </script>
   <style>
+    @font-face {
+      font-family: "San Francisco";
+      src: local("San Francisco"), url("SF-Pro-Display-Regular.otf");
+    }
+
+    @font-face {
+      font-family: "San Francisco Rounded";
+      src: local("San Francisco Rounded"), url("SF-Pro-Rounded.ttf");
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -26,13 +36,15 @@
 
     body {
       background-color: #212121;
-      color: #FFF;
+      color: #fff;
       font-size: 5vw;
-      font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+      font-family: "San Francisco Rounded", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
     }
-    .uiFont{
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+    .uiFont {
+      font-family: -apple-system, "San Francisco", system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+
 
     main {
       width: 100vw;
@@ -60,27 +72,40 @@
 
     h1 {
       font-size: 2.5em;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1em;
     }
 
     #time {
       font-size: 7em;
     }
-    tr{
+
+    tr {
       display: flex;
     }
 
-    td,th {
+    td,
+    th {
       text-align: center;
       font-size: .7em;
       padding: .06em;
       border-radius: 50%;
-      width:5vw;
-      height:5vw;
+      width: 5vw;
+      height: 5vw;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    #callenderMonth{
+
+    .weekend {
+      color: gray;
+    }
+
+    #callenderMonth {
       color: red;
       /* to upper case */
       text-transform: uppercase;
@@ -88,143 +113,102 @@
     }
 
     .clock {
-  position: relative;
-  width: 90vmin;
-  height: 90vmin;
-  border-radius: 50%;
-  border: 2px solid #FFF;
-}
+      position: relative;
+      width: 7em;
+      height: 7em;
+      border-radius: 50%;
+      --s: 15px;
+      /* length */
+      --o: 0px;
+      /* offset */
+      --w: .1deg;
+      /* thickness */
+      --n: 60;
+      /* numbers*/
+      --c: rgb(136, 136, 136);
+      /* color */
+      --w5: .1deg;
+      /* thickness */
+      --n5: 12;
+      /* numbers*/
+      --c5: rgb(255, 255, 255);
+    }
 
-.hour-hand,
-.minute-hand,
-.second-hand {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-color: #FFF;
-  transform-origin: bottom center;
-  transition: transform 0.2s ease-in-out;
-}
+    .clock::before,
+    .clock::after {
+      content: "";
+      position: absolute;
+      top: calc(-1*var(--s) - var(--o));
+      bottom: calc(-1*var(--s) - var(--o));
+      left: calc(-1*var(--s) - var(--o));
+      right: calc(-1*var(--s) - var(--o));
+      border-radius: inherit;
+      background: repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n)));
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
+      mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
+    }
 
-.hour-hand {
-  width: 6px;
-  height: 60px;
-  margin-left: -3px;
-}
+    .clock::after {
+      background: repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5)));
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
+      mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
+    }
 
-.minute-hand {
-  width: 4px;
-  height: 80px;
-  margin-left: -2px;
-}
+    .hour-hand,
+    .minute-hand,
+    .second-hand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: #FFF;
+      transform-origin: top center;
+    }
 
-.second-hand {
-  width: 2px;
-  height: 90px;
-  margin-left: -1px;
-}
+    .hour-hand {
+      width: 6px;
+      height: 30%;
+      margin-left: -3px;
+      border-radius: 6px 6px 0 0;
+    }
 
-.number {
-  position: absolute;
-  font-size: 12px;
-  font-weight: bold;
-  color: #FFF;
-  text-align: center;
-}
+    .minute-hand {
+      width: 4px;
+      height: 40%;
+      margin-left: -2px;
+      border-radius: 4px 4px 0 0;
+    }
 
-.number-1 {
-  top: 10px;
-  left: 87px;
-}
+    .second-hand {
+      width: 2px;
+      height: 48%;
+      margin-left: -1px;
+      transition: transform 1s linear;
+      border-radius: 2px 2px 0 0;
+    }
 
-.number-2 {
-  top: 27px;
-  left: 145px;
-}
+    .digit {
+      position: absolute;
+      top: calc(50% - .5em);
+      left: calc(50% - .5em);
+      transform: translate(-50%, -50%);
+      width: 1em;
+      height: 1em;
+      line-height: 1em;
+      text-align: center;
+      font-size: 0.8em;
+      color: #FFF;
+    }
 
-.number-3 {
-  top: 85px;
-  left: 165px;
-}
+    .digit::before {
+      content: attr(data-digit);
+      display: block;
+      transform: rotate(calc(var(--deg) * -1deg))
+    }
 
-.number-4 {
-  top: 145px;
-  left: 145px;
-}
-
-.number-5 {
-  top: 165px;
-  left: 85px;
-}
-
-.number-6 {
-  top: 180px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.number-7 {
-  top: 165px;
-  left: 15px;
-}
-
-.number-8 {
-  top: 145px;
-  left: 5px;
-}
-
-.number-9 {
-  top: 85px;
-  left: 15px;
-}
-
-.number-10 {
-  top: 27px;
-  left: 50px;
-}
-
-.number-11 {
-  top: 10px;
-  left: 113px;
-}
-
-.number-12 {
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.minute-line {
-  position: absolute;
-  width: 2px;
-  height: 15px;
-  background-color: #FFF;
-  top: 5px;
-  left: calc(50% - 1px);
-  transform-origin: bottom center;
-}
-
-.five-minute-line {
-  position: absolute;
-  width: 3px;
-  height: 25px;
-  background-color: #FFF;
-  top: 5px;
-  left: calc(50% - 1.5px);
-  transform-origin: bottom center;
-}
-
-.five-minute-line::before {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 25px;
-  background-color: #FFF;
-  top: 5px;
-  left: 0;
-  transform-origin: bottom center;
-}
-
+    .digit {
+      transform: rotate(calc(var(--deg) * 1deg)) translateY(-3.5em);
+      transform-origin: center center;
+    }
   </style>
 </head>
 
@@ -235,31 +219,34 @@
   <!-- End Google Tag Manager (noscript) -->
   <main>
     <section id="header" class="column">
-      <h1>StandBy</h1>
-      <h2>毛哥EM製作</h2>
+      <div class="uiFont">
+        <h1>StandBy</h1>
+        <h2>Web Version by EM</h2>
+      </div>
     </section>
     <section id="time"></section>
     <section id="callender">
       <div class="clock">
-  <div class="hour-hand"></div>
-  <div class="minute-hand"></div>
-  <div class="second-hand"></div>
-  <!-- <div class="number number-1">1</div>
-  <div class="number number-2">2</div>
-  <div class="number number-3">3</div>
-  <div class="number number-4">4</div>
-  <div class="number number-5">5</div>
-  <div class="number number-6">6</div>
-  <div class="number number-7">7</div>
-  <div class="number number-8">8</div>
-  <div class="number number-9">9</div>
-  <div class="number number-10">10</div>
-  <div class="number number-11">11</div>
-  <div class="number number-12">12</div> -->
-</div>
+        <div class="hour-hand"></div>
+        <div class="minute-hand"></div>
+        <div class="second-hand"></div>
+        <div class="digit" style="--deg: 0;" data-digit="12"></div>
+        <div class="digit" style="--deg: 30;" data-digit="1"></div>
+        <div class="digit" style="--deg: 60;" data-digit="2"></div>
+        <div class="digit" style="--deg: 90;" data-digit="3"></div>
+        <div class="digit" style="--deg: 120;" data-digit="4"></div>
+        <div class="digit" style="--deg: 150;" data-digit="5"></div>
+        <div class="digit" style="--deg: 180;" data-digit="6"></div>
+        <div class="digit" style="--deg: 210;" data-digit="7"></div>
+        <div class="digit" style="--deg: 240;" data-digit="8"></div>
+        <div class="digit" style="--deg: 270;" data-digit="9"></div>
+        <div class="digit" style="--deg: 300;" data-digit="10"></div>
+        <div class="digit" style="--deg: 330;" data-digit="11"></div>
+
+      </div>
 
       <div id="callenderBox">
-        <div id="callenderMonth" class="uiFont"></div>
+        <div id="callenderMonth"></div>
       </div>
     </section>
     <section>4</section>
@@ -292,102 +279,71 @@
       }
     }
 
-    // Get current month and year
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
-    // Get number of days in the current month
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    // Create an array of weekday abbreviations
     const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-    // Create the table
     const table = document.createElement('table');
-    // Create the table header row
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    // Create the weekday header cells
     for (let i = 0; i < 7; i++) {
       const th = document.createElement('th');
       th.textContent = weekdays[i];
+      if (weekdays[i] == "S") th.classList.add('weekend');
       headerRow.appendChild(th);
     }
     thead.appendChild(headerRow);
     table.appendChild(thead);
-    // Create the table body
     const tbody = document.createElement('tbody');
-    // Calculate the starting day of the month
     const startingDay = new Date(currentYear, currentMonth, 1).getDay();
-
-    // Calculate the number of rows needed
     const numRows = Math.ceil((daysInMonth + startingDay) / 7);
-
-    // Create the calendar cells
     let dayCount = 1;
-
     for (let i = 0; i < numRows; i++) {
       const row = document.createElement('tr');
-
       for (let j = 0; j < 7; j++) {
         const cell = document.createElement('td');
-
         if (i === 0 && j < startingDay) {
-          // Empty cells before the starting day
           cell.textContent = '';
         } else if (dayCount > daysInMonth) {
-          // Empty cells after the last day of the month
           cell.textContent = '';
         } else {
-          // Display the day number
           cell.textContent = dayCount;
           if (dayCount == currentDate.getDate())
             cell.style.backgroundColor = "#FF0000";
-
           dayCount++;
         }
-
         row.appendChild(cell);
       }
-
       tbody.appendChild(row);
     }
-
     table.appendChild(tbody);
-
-    // Add the table to the document body
     document.getElementById("callenderBox").appendChild(table);
-    //month
-    // Array of month names
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-    // Get the element with the ID "callenderMonth"
     const callenderMonthElement = document.getElementById('callenderMonth');
-
-    // Set the current month text in the element
     callenderMonthElement.textContent = monthNames[currentMonth];
 
 
     //clock
     function moveClockHands() {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const seconds = now.getSeconds();
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const hourHand = document.querySelector('.hour-hand');
+      const minuteHand = document.querySelector('.minute-hand');
+      const secondHand = document.querySelector('.second-hand');
+      const hourRotation = (hours * 30) + (minutes * 0.5) + 180;
+      const minuteRotation = ((minutes + seconds / 60) * 6) + 180;
+      const secondRotation = (seconds * 6) + 180 + (hours * 60 + minutes) * 360;
 
-  const hourHand = document.querySelector('.hour-hand');
-  const minuteHand = document.querySelector('.minute-hand');
-  const secondHand = document.querySelector('.second-hand');
+      hourHand.style.transform = `rotate(${hourRotation}deg)`;
+      minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+      secondHand.style.transform = `rotate(${secondRotation}deg)`;
 
-  const hourRotation = (hours * 30) + (minutes * 0.5) - 90;
-  const minuteRotation = (minutes * 6) - 90;
-  const secondRotation = (seconds * 6) - 90;
+      setTimeout(moveClockHands, 1000);
+    }
 
-  hourHand.style.transform = `rotate(${hourRotation}deg)`;
-  minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
-  secondHand.style.transform = `rotate(${secondRotation}deg)`;
-
-  setTimeout(moveClockHands, 1000);
-}
-
-moveClockHands();
+    moveClockHands();
 
   </script>
 </body>
