@@ -29,8 +29,8 @@
     }
 
     :root {
-        --main-color:#FFF;
-      }
+      --main-color: #FFF;
+    }
 
     * {
       margin: 0;
@@ -40,7 +40,7 @@
     }
 
     body {
-      background-color: #212121;
+      background-color: #000000;
       color: #fff;
       font-size: 5vw;
       font-family: "San Francisco Rounded", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
@@ -58,6 +58,8 @@
       scroll-snap-type: y mandatory;
       display: flex;
       overflow: auto;
+      background-color: #212121;
+      transition: .3s;
     }
 
     main>section {
@@ -68,7 +70,6 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background-color: #212121;
     }
 
     .column {
@@ -218,6 +219,7 @@
       color: var(--main-color);
     }
 
+
     .digit::before {
       content: attr(data-digit);
       display: block;
@@ -242,17 +244,43 @@
       display: none;
     }
 
-    .color-picker .color-option {
-      width: .5em;
-      height: .5em;
-      margin: .1em;
+    .color-picker .color-option, .color-picker input[type="color"]
+    {
+      width: 2.5vmax;
+      height: 2.5vmax;
+      margin: 1vmax;
       cursor: pointer;
       border-radius: 50%;
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
-    .text{
+
+    .color-picker input[type="color"] {
+      display: block;
+      border: none;
+      width:2.5vw;
+      height:2.5vw;
+      outline: none;
+      position: relative;
+    }
+    input::after{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      width: 2.5vmax;
+      height: 2.5vmax;
+      background-color: #000000;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .text {
       transition: color 0.3s ease-in-out;
     }
+
     .color-picker {
       margin-bottom: .15em;
     }
@@ -275,6 +303,7 @@
     <div class="color-option" style="background-color: #7dc4ca" onclick="changeFontColor('#7dc4ca')"></div>
     <div class="color-option" style="background-color: #565c6a" onclick="changeFontColor('#565c6a')"></div>
     <div class="color-option" style="background-color: #6b5762" onclick="changeFontColor('#6b5762')"></div>
+    <input type="color" onchange="updateColor(this.value) ">
   </div>
   <main>
     <section id="header" class="column">
@@ -303,14 +332,13 @@
         <div class="digit" style="--deg: 270;" data-digit="9"></div>
         <div class="digit" style="--deg: 300;" data-digit="10"></div>
         <div class="digit" style="--deg: 330;" data-digit="11"></div>
-
       </div>
 
       <div id="callenderBox">
         <div id="callenderMonth"></div>
       </div>
     </section>
-    <section>4</section>
+    <section>4  <input type="color" onchange="updateColor(this.value) "></section>
     <section>5</section>
   </main>
   <script>
@@ -331,14 +359,19 @@
     document.addEventListener('touchstart', requestFullScreen);
     let elem = document.documentElement; // get the root element of the document
     function requestFullScreen() {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
-      }
+  var elem = document.documentElement; // Assuming you want to make the entire document full screen
+
+  if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
     }
+  }
+}
+
 
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
@@ -383,7 +416,6 @@
     const callenderMonthElement = document.getElementById('callenderMonth');
     callenderMonthElement.textContent = monthNames[currentMonth];
 
-
     //clock
     function moveClockHands() {
       const now = new Date();
@@ -425,17 +457,23 @@
 
     function showAlert() {
       var element = document.querySelector('.color-picker');
-      if (element.style.opacity==1) {
+      var main = document.querySelector('main');
+      if (element.style.opacity == 1) {
         element.style.opacity = "0";
+        main.style.scale = "1";
+        main.style.borderRadius = "0em";
         setTimeout(() => {
-          element.style.display = 'none';
+          if (element.style.opacity == "0")
+            element.style.display = 'none';
         }, 1000);
       } else {
         element.style.display = 'flex';
+        main.style.scale = "0.8";
+        main.style.borderRadius = "1em";
         setTimeout(() => {
           element.style.opacity = "1";
         }, 1);
-       
+
       }
     }
 
