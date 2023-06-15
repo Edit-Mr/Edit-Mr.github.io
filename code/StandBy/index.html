@@ -93,7 +93,7 @@
       <div class="caption"></div>
     </div>
     </section>
-    <section>5</section>
+    <section id="music"><div><img src="https://i1.sndcdn.com/artworks-joPz3SL4l6GWVX00-dl2csw-t500x500.jpg" alt=""><div></div></div></section>
   </main>
   <script>
     const currentDate = new Date();
@@ -242,7 +242,7 @@
       .then(data => {
         imageElement.style.backgroundImage = `url(${data.download_url})`;
         authorElement.textContent = data.author;
-        captionElement.innerHTML = `<a href="${data.url}">ID: ${data.id} ⟩</a>`;
+        captionElement.innerHTML = `<a href="${data.url}" target="_blank">ID: ${data.id} <span>❯</span></a>`;
       })
       .catch(error => {
         console.log('Error:', error);
