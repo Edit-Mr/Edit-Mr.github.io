@@ -17,335 +17,7 @@
 
     gtag('config', 'G-9R5PZG2VQG');
   </script>
-  <style>
-    @font-face {
-      font-family: "San Francisco";
-      src: local("San Francisco"), url("SF-Pro-Display-Regular.otf");
-    }
-
-    @font-face {
-      font-family: "San Francisco Rounded";
-      src: local("San Francisco Rounded"), url("SF-Pro-Rounded.ttf");
-    }
-
-    :root {
-      --main-color: #FFFFFF;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: color 0.3s ease-in-out;
-    }
-
-    body {
-      background-color: #212121;
-      color: #fff;
-      font-size: 5vw;
-      font-family: "San Francisco Rounded", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
-    }
-
-    .uiFont {
-      font-family: -apple-system, "San Francisco", system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
-
-    main {
-      width: 100vw;
-      height: 100vh;
-      flex-flow: column nowrap;
-      scroll-snap-type: y mandatory;
-      display: flex;
-      overflow: auto;
-      background-color: #000;
-      transition: .3s;
-    }
-
-    main>section {
-      flex: none;
-      width: 100%;
-      height: 100vh;
-      scroll-snap-align: center;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .column {
-      flex-flow: column nowrap;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      line-height: 1.4;
-      text-align: center;
-      background: -webkit-linear-gradient(0deg, #be22ff 20%, #ff279c 50%, #ff981f 80%);
-      background-clip: border-box;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: .7em;
-    }
-
-    h3 {
-      margin-top: 0.3em;
-      font-size: .4em;
-      text-align: center;
-    }
-
-    #time {
-      font-size: 7em;
-      color: hsla(0, 0%, 100%, 0.7);
-      font-weight: 600;
-      background: #000;
-      position: relative;
-    }
-
-    .time {
-      z-index: 2;
-    }
-
-    .timeBg {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      filter: hue-rotate(-50deg) brightness(1.5);
-      z-index: 1;
-    }
-
-    tr {
-      display: flex;
-    }
-
-    td,
-    th {
-      text-align: center;
-      font-size: .55em;
-      padding: .06em;
-      border-radius: 50%;
-      width: 5vw;
-      height: 5vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--main-color);
-    }
-
-    .weekend {
-      color: gray;
-    }
-
-    #callenderMonth {
-      color: red;
-      /* to upper case */
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: .8em;
-      margin-left: .4em;
-    }
-
-    .clock {
-      position: relative;
-      width: 7em;
-      height: 7em;
-      border-radius: 50%;
-      --s: .35em;
-      /* length */
-      --o: 0px;
-      /* offset */
-      --w: .1deg;
-      /* thickness */
-      --n: 60;
-      /* numbers*/
-      --c: rgb(136, 136, 136);
-      /* color */
-      --w5: .1deg;
-      /* thickness */
-      --n5: 12;
-      /* numbers*/
-      --c5: rgb(255, 255, 255);
-    }
-
-    .clockCenter,
-    .clockCenterCenter {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: .45em;
-      height: .45em;
-      background: #ffaf3f;
-      border: solid .1em #FFF;
-      border-radius: 50%;
-      display: block;
-
-    }
-
-    .clockCenterCenter {
-      background: #000000;
-      border: none;
-      width: .15em;
-      height: .15em;
-      z-index: 10;
-    }
-
-    .clock::before,
-    .clock::after {
-      content: "";
-      position: absolute;
-      top: calc(-1*var(--s) - var(--o));
-      bottom: calc(-1*var(--s) - var(--o));
-      left: calc(-1*var(--s) - var(--o));
-      right: calc(-1*var(--s) - var(--o));
-      border-radius: inherit;
-      background: repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n))), repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n)));
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
-      mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
-    }
-
-    .clock::after {
-      background: repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5))), repeating-conic-gradient(from calc(-1*var(--w5)/2), var(--c5) 0 calc(var(--w5) - 2deg), transparent calc(var(--w5)) calc(360deg/var(--n5) - 2deg), var(--c5) calc(360deg/var(--n5)));
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
-      mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
-    }
-
-    .hour-hand,
-    .minute-hand,
-    .second-hand {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background-color: #FFF;
-      transform-origin: top center;
-    }
-
-    .hour-hand,
-    .minute-hand {
-      width: 10px;
-      height: 27%;
-      margin-left: -5px;
-      border-radius: 5px;
-
-    }
-
-    .minute-hand {
-      height: 46%;
-    }
-
-    .minute-hand::after,
-    .hour-hand::after {
-      transform: translateY(-.7em);
-      display: block;
-      content: "";
-      width: 2px;
-      margin-left: 33.333333%;
-      height: 40%;
-      background-color: #FFF;
-    }
-
-
-    .second-hand {
-      width: 2px;
-      height: 65%;
-      margin-left: -1px;
-      background-color: #ffaf3f;
-      border-radius: 2px 2px 0 0;
-      z-index: 2;
-    }
-
-    .digit {
-      position: absolute;
-      top: calc(50% - .5em);
-      left: calc(50% - .5em);
-      transform: translate(-50%, -50%);
-      width: 1em;
-      height: 1em;
-      line-height: 1em;
-      text-align: center;
-      font-size: 0.8em;
-      color: var(--main-color);
-    }
-
-
-    .digit::before {
-      content: attr(data-digit);
-      display: block;
-      transform: rotate(calc(var(--deg) * -1deg));
-    }
-
-    .digit {
-      transform: rotate(calc(var(--deg) * 1deg)) translateY(-3.5em);
-      transform-origin: center center;
-    }
-
-    .color-picker {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      display: none;
-    }
-
-    .color-picker .color-option {
-      width: 2.5vmax;
-      height: 2.5vmax;
-      margin: 1vmax;
-      cursor: pointer;
-      border-radius: 50%;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-    }
-
-    .color-picker input[type="color"] {
-      display: block;
-      border: none;
-      width: 3vw;
-      height: 3vw;
-      outline: none;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -55%);
-    }
-
-    .text {
-      transition: color 0.3s ease-in-out;
-    }
-
-    .color-picker {
-      margin-bottom: .15em;
-    }
-
-    #color {
-      position: relative;
-    }
-
-    #color::after {
-      content: "+";
-      font-size: .5em;
-      line-height: .5;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -55%);
-      pointer-events: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -367,6 +39,13 @@
     <div class="color-option" style="background-color: #6b5762" onclick="changeFontColor('#6b5762')"></div>
     <div class="color-option" id="color"> <input type="color"
         onchange="document.getElementById('color').style.backgroundColor=this.value;changeFontColor(this.value)"></div>
+  </div>
+  <div class="progress-bar">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <main>
     <section id="header" class="column">
@@ -421,24 +100,6 @@
 
     // Update the time every second (1000 milliseconds)
     setInterval(updateTime, 1000);
-
-    //fill screen
-    document.addEventListener('mousedown', requestFullScreen);
-    document.addEventListener('touchstart', requestFullScreen);
-    let elem = document.documentElement; // get the root element of the document
-    function requestFullScreen() {
-      var elem = document.documentElement; // Assuming you want to make the entire document full screen
-
-      if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-          elem.msRequestFullscreen();
-        }
-      }
-    }
 
 
     const currentMonth = currentDate.getMonth();
@@ -516,33 +177,26 @@
     let pressTimer;
 
     function startPressTimer() {
-      pressTimer = setTimeout(showAlert, 300); // Adjust the duration as needed
+      var elem = document.documentElement; // Assuming you want to make the entire document full screen
+      if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
+      pressTimer = setTimeout(setShow, 300); // Adjust the duration as needed
+      console.log("a");
+    }
+    const setShow = () => {
+      
+      document.body.classList.toggle('setting')
     }
 
     function cancelPressTimer() {
       clearTimeout(pressTimer);
-    }
-
-    function showAlert() {
-      var element = document.querySelector('.color-picker');
-      var main = document.querySelector('main');
-      if (element.style.opacity == 1) {
-        element.style.opacity = "0";
-        main.style.scale = "1";
-        main.style.borderRadius = "0em";
-        setTimeout(() => {
-          if (element.style.opacity == "0")
-            element.style.display = 'none';
-        }, 1000);
-      } else {
-        element.style.display = 'flex';
-        main.style.scale = "0.8";
-        main.style.borderRadius = "1em";
-        setTimeout(() => {
-          element.style.opacity = "1";
-        }, 1);
-
-      }
     }
 
     document.addEventListener('touchstart', startPressTimer);
@@ -553,12 +207,20 @@
     //color{
     function changeFontColor(color) {
       document.documentElement.style.setProperty("--main-color", color);
-if (color === '#FFFFFF'){
-  document.getElementById('time').style.background = 'black'; document.querySelector('.timeBg').style.background = "black";}else {document.getElementById('time').style.background = ' var(--main-color)';
-  document.querySelector('.timeBg').style.background = "linear-gradient(-45deg, transparent 20%, var(--main-color))";
-  }
+      if (color === '#FFFFFF') {
+        document.getElementById('time').style.background = 'black';
+        document.querySelector('.timeBg').style.background = "black";
+      } else {
+        document.getElementById('time').style.background = ' var(--main-color)';
+        document.querySelector('.timeBg').style.background = "linear-gradient(-45deg, transparent 20%, var(--main-color))";
+      }
     }
 
-
+//scroll y
+//scroll event
+var man = document.querySelector("main");
+man.addEventListener('scroll', () => {
+  console.log(Math.round(man.scrollTop/window.innerHeight));
+})
   </script>
 </body>
