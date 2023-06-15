@@ -41,11 +41,11 @@
         onchange="document.getElementById('color').style.backgroundColor=this.value;changeFontColor(this.value)"></div>
   </div>
   <div class="progress-bar">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="progress now"></div>
+    <div class="progress"></div>
+    <div class="progress"></div>
+    <div class="progress"></div>
+    <div class="progress"></div>
   </div>
   <main>
     <section id="header" class="column">
@@ -55,6 +55,7 @@
         <h3 id="status">Everything should be okay</h3>
         <h3>Long press to change color</h3>
       </div>
+      <nav><button>中</button><button>?</button></nav>
     </section>
     <section id="time" class="uiFont">
       <div class="time"></div>
@@ -85,23 +86,17 @@
         <div id="callenderMonth"></div>
       </div>
     </section>
-    <section>4 <input type="color" onchange="updateColor(this.value) "></section>
+    <section id="image">
+    <div class="image-time uiFont"></div>
+    <div class="box uiFont">
+      <div class="author"></div>
+      <div class="caption"></div>
+    </div>
+    </section>
     <section>5</section>
   </main>
   <script>
     const currentDate = new Date();
-    //time
-    function updateTime() {
-      var formattedHours = ('0' + currentDate.getHours()).slice(-2);
-      var formattedMinutes = ('0' + currentDate.getMinutes()).slice(-2);
-
-      document.querySelector('.time').innerHTML = formattedHours + ":" + formattedMinutes;
-    }
-
-    // Update the time every second (1000 milliseconds)
-    setInterval(updateTime, 1000);
-
-
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -162,6 +157,11 @@
       minuteHand.style.transform = `rotate(${minuteRotation}deg) translateY(.5em)`;
       secondHand.style.transform = `rotate(${secondRotation}deg) translateY(-.5em)`;
 
+      //digital clock
+      var digitalTime = ('0' + now.getHours()).slice(-2) + ":" +('0' + now.getMinutes()).slice(-2);
+
+      document.querySelector('.time').innerHTML = digitalTime;
+      document.querySelector('.image-time').innerHTML = digitalTime;
       setTimeout(moveClockHands, 1000);
     }
 
@@ -191,7 +191,7 @@
       console.log("a");
     }
     const setShow = () => {
-      
+
       document.body.classList.toggle('setting')
     }
 
@@ -210,17 +210,42 @@
       if (color === '#FFFFFF') {
         document.getElementById('time').style.background = 'black';
         document.querySelector('.timeBg').style.background = "black";
+        document.querySelector('.time').style.color = "white";
       } else {
         document.getElementById('time').style.background = ' var(--main-color)';
         document.querySelector('.timeBg').style.background = "linear-gradient(-45deg, transparent 20%, var(--main-color))";
+        document.querySelector('.time').style.color = "#ffffff33";
       }
     }
 
-//scroll y
-//scroll event
-var man = document.querySelector("main");
-man.addEventListener('scroll', () => {
-  console.log(Math.round(man.scrollTop/window.innerHeight));
-})
+    //scroll y
+    //scroll event
+    var man = document.querySelector("main"), last;
+    man.addEventListener('scroll', () => {
+      var a = Math.round(man.scrollTop / window.innerHeight);
+      if (a == last) return;
+      var elements = document.querySelectorAll(".progress");
+      elements.forEach(function (element) {
+        element.classList.remove("now");
+      });
+      elements[a].classList.add("now");
+      last = a;
+    })
+
+    //image
+    const imageElement = document.getElementById('image');
+    const authorElement = document.querySelector('.author');
+    const captionElement = document.querySelector('.caption');
+
+    fetch(`https://picsum.photos/id/${Math.floor(Math.random() * 1084) + 1}/info`)
+      .then(response => response.json())
+      .then(data => {
+        imageElement.style.backgroundImage = `url(${data.download_url})`;
+        authorElement.textContent = data.author;
+        captionElement.innerHTML = `<a href="${data.url}">ID: ${data.id} ⟩</a>`;
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
   </script>
 </body>
