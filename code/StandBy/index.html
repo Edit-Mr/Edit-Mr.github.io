@@ -87,13 +87,17 @@
       </div>
     </section>
     <section id="image">
-    <div class="image-time uiFont"></div>
-    <div class="box uiFont">
-      <div class="author"></div>
-      <div class="caption"></div>
-    </div>
+      <div class="image-time uiFont"></div>
+      <div class="box uiFont">
+        <div class="author"></div>
+        <div class="caption"></div>
+      </div>
     </section>
-    <section id="music"><div><img src="https://i1.sndcdn.com/artworks-joPz3SL4l6GWVX00-dl2csw-t500x500.jpg" alt=""><div></div></div></section>
+    <section id="music">
+      <div><img src="https://i1.sndcdn.com/artworks-joPz3SL4l6GWVX00-dl2csw-t500x500.jpg" alt="">
+        <div></div>
+      </div>
+    </section>
   </main>
   <script>
     const currentDate = new Date();
@@ -158,7 +162,7 @@
       secondHand.style.transform = `rotate(${secondRotation}deg) translateY(-.5em)`;
 
       //digital clock
-      var digitalTime = ('0' + now.getHours()).slice(-2) + ":" +('0' + now.getMinutes()).slice(-2);
+      var digitalTime = ('0' + now.getHours()).slice(-2) + ":" + ('0' + now.getMinutes()).slice(-2);
 
       document.querySelector('.time').innerHTML = digitalTime;
       document.querySelector('.image-time').innerHTML = digitalTime;
@@ -236,16 +240,38 @@
     const imageElement = document.getElementById('image');
     const authorElement = document.querySelector('.author');
     const captionElement = document.querySelector('.caption');
-
     fetch(`https://picsum.photos/id/${Math.floor(Math.random() * 1084) + 1}/info`)
       .then(response => response.json())
       .then(data => {
-        imageElement.style.backgroundImage = `url(${data.download_url})`;
+        var imageUrl = `${data.download_url}`;
+        var author = data.author;
+        var url = data.url;
+        imageElement.style.backgroundImage = `url(${imageUrl})`;
         authorElement.textContent = data.author;
         captionElement.innerHTML = `<a href="${data.url}" target="_blank">ID: ${data.id} <span>❯</span></a>`;
+      
+    fetch(`https://api.imagga.com/v2/tags?image_url=`+imageUrl, {
+      method: 'GET',
+      headers: {
+      'Authorization': 'Basic YWNjXzY2M2FkNzExOGNlMDBjODo5YWRhZWM0OTFjZWNlYjE3YmM5OTRiNDU0ZWVjMTM0Nw=='
+    }
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        console.log(data);
+        authorElement.textContent = data.result.tags[0].tag.en;
+        captionElement.innerHTML = `<a href="${url}" target="_blank"> ${author} <span>❯</span></a>`;
+      
+      })
+      .catch(error => {
+        // Handle any errors
+        console.error('Error:', error);
+      });
       })
       .catch(error => {
         console.log('Error:', error);
       });
+
   </script>
 </body>
