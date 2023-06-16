@@ -95,11 +95,17 @@
     </section>
     <section id="music">
       <div><img src="https://i1.sndcdn.com/artworks-joPz3SL4l6GWVX00-dl2csw-t500x500.jpg" alt="">
-        <div></div>
+        <div><h3>Home</h3>
+        <h4>Pleeg</h4>
+      <div class="controlPlay uiFont">⏪︎&nbsp;&nbsp;▶&nbsp;&nbsp;⏩︎</div>
+    <div class="prograss"></div>
+    <div class="timePrograss"><div>0:00</div>
+    <div>-2:49</div></div>
+    </div>
       </div>
     </section>
   </main>
-  <script>
+  <script>  
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
@@ -240,34 +246,17 @@
     const imageElement = document.getElementById('image');
     const authorElement = document.querySelector('.author');
     const captionElement = document.querySelector('.caption');
-    fetch(`https://picsum.photos/id/${Math.floor(Math.random() * 1084) + 1}/info`)
+    fetch(`https://api.unsplash.com/photos/random?client_id=fJ9Q7JkDZO6JvR6XU4kq7vATcQ9mdO0BGwcJwgYS7M0`)
       .then(response => response.json())
       .then(data => {
-        var imageUrl = `${data.download_url}`;
-        var author = data.author;
-        var url = data.url;
-        imageElement.style.backgroundImage = `url(${imageUrl})`;
-        authorElement.textContent = data.author;
-        captionElement.innerHTML = `<a href="${data.url}" target="_blank">ID: ${data.id} <span>❯</span></a>`;
-      
-    fetch(`https://api.imagga.com/v2/tags?image_url=`+imageUrl, {
-      method: 'GET',
-      headers: {
-      'Authorization': 'Basic YWNjXzY2M2FkNzExOGNlMDBjODo5YWRhZWM0OTFjZWNlYjE3YmM5OTRiNDU0ZWVjMTM0Nw=='
-    }
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response data
-        console.log(data);
-        authorElement.textContent = data.result.tags[0].tag.en;
-        captionElement.innerHTML = `<a href="${url}" target="_blank"> ${author} <span>❯</span></a>`;
-      
-      })
-      .catch(error => {
-        // Handle any errors
-        console.error('Error:', error);
-      });
+        imageElement.style.backgroundImage = `url(${data.urls.full})`;
+        // Assuming data is an object containing the description and alt_description properties
+        if (data.description !== null) {
+          authorElement.textContent = data.description.split("More")[0].split("more")[0].split("IG")[0].split("Follow on")[0].split("Photo by")[0].split("by")[0].split("Instagram")[0];
+        } else {
+          authorElement.textContent = data.alt_description;
+        }
+        captionElement.innerHTML = `<a href="${data.links.html}" target="_blank">${data.user.name}, ${data.user.location}<span>❯</span></a>`;
       })
       .catch(error => {
         console.log('Error:', error);

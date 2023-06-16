@@ -167,7 +167,8 @@ button:hover {
     mix-blend-mode: plus-lighter;
     font-size: 6em;
     color: #ffffffff;
-    font-weight: 600
+    font-weight: 600;
+    transform: scaleY(0.85);
 }
 
 .timeBg {
@@ -345,11 +346,13 @@ th {
 
 .box {
     text-align: right;
+    width: 55vw;
 }
 
 .author {
     font-size: 1.2em;
     transform: scaleY(0.8);
+    text-overflow: ellipsis;
 }
 
 .caption {
@@ -358,31 +361,85 @@ th {
 }
 
 .caption a {
-    color: #e2e2e2c4;
+    color: #9a9a9a61;
     text-decoration: none;
+    mix-blend-mode: plus-lighter;
 }
 
 .caption span {
     transition: all 0.3s;
-   display: inline-block;
+    display: inline-block;
 }
+
 a:hover span {
     transform: translateX(.1em);
 }
+
 /* !music */
-#music{
+#music {
     background-image: url(https://i1.sndcdn.com/artworks-joPz3SL4l6GWVX00-dl2csw-t500x500.jpg);
     background-size: cover;
     background-position: center;
 }
-#music > div{
+
+#music img {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 2rem;
+    box-shadow: 0 0 2.5rem #000000d2;
+}
+
+
+#music>div {
     backdrop-filter: blur(1em);
     width: 100%;
-    height:100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1em;
+    text-align: center;
+    gap: 1em;
 }
+
+#music>div>div {
+    flex-grow: 1;
+}
+
+#music h3 {
+    font-size: .8em;
+}
+
+#music h4 {
+    font-size: .5em;
+    mix-blend-mode: plus-lighter;
+    color: #ffffffa3
+}
+
+.prograss {
+    margin-top: .5em;
+    width: 100%;
+    height: .25em;
+    background-color: #e7e7e76f;
+    mix-blend-mode: plus-lighter;
+    border-radius: .125em;
+}
+
+.timePrograss {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #e7e7e76f;
+    mix-blend-mode: plus-lighter;
+    font-size: .4em;
+    margin-top: .2em    ;
+}
+
+.controlPlay {
+    font-size: 1em;
+    margin-top: .15em;
+}
+
 /* !color picker */
 .color-picker,
 .progress-bar {
