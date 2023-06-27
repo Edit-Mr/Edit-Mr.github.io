@@ -9,6 +9,19 @@
     <script src="abcjs-basic-min.js"></script>
 
     <style>
+        body{
+            display: flex ;
+            justify-content: center;
+        }
+        main {
+            border-radius: 50px;
+            background: #e0e0e0;
+            box-shadow: 20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+                padding: 1em;
+                max-width: 500px;
+        }
+
         input[type="text"] {
             font-size: 20px;
             /* increases font size */
@@ -26,32 +39,37 @@
 </head>
 
 <body>
-    <h3>不囉唆的和弦代號查詢器 by <a href="https://nicechord.com">NiceChord 好和弦</a></h3>
-    <div>
-        <input type="text" id="inputField" oninput="updateChord(this.value)" placeholder="輸入和弦代號">
-    </div>
-    <div id="chordOutput"></div>
-    <div id="paper"></div>
+    <main>
+        <h3>不囉唆的和弦代號查詢器 by <a href="https://nicechord.com">NiceChord 好和弦</a></h3>
+        <div>
+            <input type="text" id="inputField" oninput="updateChord(this.value)" placeholder="輸入和弦代號">
+        </div>
+        <div id="chordOutput"></div>
+        <div id="paper"></div>
+    </main>
+
 
     <script>
-   function updateChord(value) {
-    const valueCleaned = value.replace(/[(),\s]/g, "");
-    const chordParts = valueCleaned.split("/"); // Split the input value by "/"
-    const rootNote = chordParts[0]; // Get the root note
-    const bassNote = chordParts[1] || rootNote; // Use the bass note if present, otherwise use the root note
+        function updateChord(value) {
+            const valueCleaned = value.replace(/[(),\s]/g, "");
+            const chordParts = valueCleaned.split("/"); // Split the input value by "/"
+            const rootNote = chordParts[0]; // Get the root note
+            const bassNote = chordParts[1] || rootNote; // Use the bass note if present, otherwise use the root note
 
-    const result = Tonal.Chord.get(rootNote);
-    let resultWithOctave;
-    if (result.quality === "m") {
-        resultWithOctave = Tonal.Chord.getChord(result.aliases[0], bassNote + "4m");
-    } else {
-        resultWithOctave = Tonal.Chord.getChord(result.aliases[0], bassNote + "4");
-    }
+            const result = Tonal.Chord.get(rootNote);
+            let resultWithOctave;
+            const chordQuality = result.quality.toLowerCase();
+            if (chordQuality === "m") {
+                resultWithOctave = Tonal.Chord.getChord(result.aliases[0], bassNote + "4" + chordQuality.toUpperCase());
+            } else {
+                resultWithOctave = Tonal.Chord.getChord(result.aliases[0], bassNote + "4");
+            }
 
-    if (result.notes.join(' ') !== "") {
-        const notes = resultWithOctave.notes.join(' '); // Use resultWithOctave to include the bass note
-        document.getElementById('chordOutput').textContent = result.symbol + " 和弦的組成音是 " + notes;
+            if (result.notes.join(' ') !== "") {
+                const notes = resultWithOctave.notes.join(' '); // Use resultWithOctave to include the bass note
+                document.getElementById('chordOutput').textContent = result.symbol + " 和弦的組成音是 " + notes;
 
+                //
                 let abcNoteArray = resultWithOctave.notes.map(item => {
 
                     // Replace '#' with '^' and 'b' with '_'
