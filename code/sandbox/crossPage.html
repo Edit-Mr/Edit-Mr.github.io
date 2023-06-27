@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>跨分頁處理</title>
-</head>
-
-<body>
-    <h1>跨分頁處理</h1>
-    簡單的範例 | <a href="https://www.w3schools.com/jsref/met_win_open.asp">屬性設定參考</a> | <a href="https://github.com/Edit-Mr/Edit-Mr.github.io/blob/main/code/sandbox/crossPage.html">本頁原始碼</a><br><br>
-    <textarea id="myTextarea"></textarea><br>
-    <button
-        onclick="otherWindow = window.open('', '_blank', 'width=500,height=500,location=1,menubar=0,toolbar=0,status=0,directories=0,scrollbars=1,resizable=1')">開啟空白新頁</button>
-    <button
-        onclick="otherWindow = window.open('crossPage.html', '_blank', 'width=500,height=500,location=1,menubar=0,toolbar=0,status=0,directories=0,scrollbars=1,resizable=1')">開啟相同新頁</button>
-    <button onclick="displayTextInNewTab()">同步文字</button>
+    <title>Button Example</title>
     <script>
-        let otherWindow;
-        function displayTextInNewTab() {
-            var text = document.getElementById("myTextarea").value;
-            otherWindow.document.body.innerHTML = text;
-        }
+        var newTab;
 
-        // 如果使用者關閉新開啟的分頁，則關閉原本的分頁
-        window.onunload = function () {
-            if (otherWindow && !otherWindow.closed) {
-                otherWindow.close();
+        function openNewTab() {
+            // Open a new tab with a specific URL
+            newTab = window.open("about:blank");
+            newTab.document.write("<h1>New Tab Content</h1><script>function myFunction(){alert('Hello World!');}</" + "script>");}
+        function runFunctionInNewTab() {
+            // Check if the new tab is available
+            if (newTab && !newTab.closed) {
+                // Run a function in the new tab
+                newTab.myFunction();
             }
-        };
+        }
     </script>
+</head>
+<body>
+    <button onclick="openNewTab()">Open New Tab</button>
+    <button onclick="runFunctionInNewTab()">Run Function in New Tab</button>
 </body>
-
 </html>
