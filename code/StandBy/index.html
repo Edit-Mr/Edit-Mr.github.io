@@ -168,7 +168,7 @@
       secondHand.style.transform = `rotate(${secondRotation}deg) translateY(-.5em)`;
 
       //digital clock
-      var digitalTime = ('0' + now.getHours()).slice(-2) + ":" + ('0' + now.getMinutes()).slice(-2);
+      var digitalTime = ('0' + now.getHours()).slice(-2) + ":" + ('0' + now.getMinutes()).slice(-2) +":" + ('0' + now.getSeconds()).slice(-2);
 
       document.querySelector('.time').innerHTML = digitalTime;
       document.querySelector('.image-time').innerHTML = digitalTime;
