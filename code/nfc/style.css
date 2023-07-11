@@ -1,0 +1,105 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f5;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    margin-left: 2em;
+ 
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    animation: title 2s forwards;
+}
+
+h2{
+    font-size: 0rem;
+    font-weight: 600;
+    animation: title2 1s forwards;
+    animation-delay: 1s;
+}
+
+.balls {
+    flex-grow: 1;
+    position: relative;
+    filter: blur(50px);
+    transform: rotate(5deg);
+}
+
+.ball {
+    width: 30vw;
+    height: 30vw;
+    background-color: #22c1c3;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+}
+
+#ballB {
+    background-color: #feca57;
+    animation-delay: 0.2s;
+    left: 75%;
+}
+
+#card{
+    position: fixed;
+    left: 75%;
+    top: 50vh;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 20vw;
+    background: linear-gradient( to bottom right, rgba(255, 255, 255, 0.6), rgba(233, 233, 233, 0.1) );
+    backdrop-filter: blur(12px);
+    border-radius: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+}
+}
+@keyframes title {
+    0% {
+        transform: translateX(-50px);
+    }
+
+    50% {
+        transform: translateX(0px);
+        font-size: 2rem;
+    }
+
+    100% {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes title2 {
+    0% {
+        font-size: 0rem;
+    }
+    100% {
+        font-size: 2rem;
+    }
+}
