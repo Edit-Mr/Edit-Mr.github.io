@@ -165,7 +165,7 @@ button:hover {
 .time {
     z-index: 2;
     mix-blend-mode: plus-lighter;
-    font-size: 6em;
+    font-size: 4em;
     color: #ffffffff;
     font-weight: 600;
     transform: scaleY(0.85);
