@@ -95,17 +95,71 @@
         button,
         input,
         select {
-            background: var(--color-light);
+            background: var(--color-primary);
             border: none;
             padding: .5rem 1rem;
             border-radius: .5rem;
-            color: var(--color-primary);
+            color: var(--color-light);
             font-size: 1rem;
             cursor: pointer;
 
         }
-        p{
+        input[type="text"]{
+            width: 100%;
+        }
+        input[type="number"]{
+            width: 6em;
+        }
+
+        p {
             font-size: 1rem;
+        }
+
+        button {
+            background: var(--color-dark);
+            color: var(--color-primary);
+            margin-top: .5rem;
+        }
+
+        span {
+            display: block;
+            margin-top: .5em;
+        }
+        .mobile{
+            display: none;
+            background: #ffffff79;
+            padding: 3rem;
+        }
+
+        @media (max-aspect-ratio: 4/3) {
+            main {
+                flex-direction: column;
+            }
+
+            #setting {
+                max-width: 100vw;
+                padding: 1rem;
+            }
+
+            #setting > div > div.c{
+                display: inline-block;
+            }
+
+            section {
+                min-height: 0;
+            }
+            body{
+                font-size: 1.25rem;
+            }
+            img{
+                height: auto;
+            }
+            #setting p{
+                display: none;
+            }
+            .mobile{
+                display: block;
+            }
         }
     </style>
 </head>
@@ -113,49 +167,52 @@
 <body>
     <main>
         <section id="setting">
-           <div>
-            <h1>QR Code 生成器</h1>
-            <h2>極簡 最快 最強</h2>
             <div>
-                <label for="text-input">連結</label>
-                <input type="text" id="text-input" placeholder="網址或任何內容">
+                <h1>QR Code 生成器</h1>
+                <h2>貼上連結自動生成QR</h2>
+                <div>
+                    <label for="text-input">連結</label>
+                    <input type="text" id="text-input" placeholder="網址或任何內容">
+                </div>
+                <div>
+                    <label for="width-input">寬度</label>
+                    <input type="number" id="width-input" value="512">
+                </div>
+                <div class="c">
+                    <label for="colorDark">深色顏色</label>
+                    <input type="color" value="#749BC2" id="colorDark">
+                </div>
+                <div  class="c">
+                    <label for="colorLight">背景顏色</label>
+                    <input type="color" value="#F6F4EB" id="colorLight">
+                </div>
+                <div>
+                    <label for="transparent">透明背景</label>
+                    <input type="checkbox" id="transparent">
+                </div>
+                <div>
+                    <label for="correct-level">容錯率</label>
+                    <select id="correct-level">
+                        <option value="L">Low 低</option>
+                        <option value="M">Medium 中</option>
+                        <option value="Q">Quartile 不錯</option>
+                        <option value="H">High 高</option>
+                    </select>
+                </div>
+                <div>
+                    <!-- <button onclick="generateQRCode()">重新生成 QR Code</button> -->
+                    <button onclick="downloadQRCode()">下載 QR Code</button>
+                </div>
             </div>
-            <div>
-                <label for="width-input">寬度</label>
-                <input type="number" id="width-input" value="512">
-            </div>
-            <div>
-                <label for="colorDark">深色顏色</label>
-                <input type="color" value="#749BC2" id="colorDark">
-            </div>
-            <div>
-                <label for="colorLight">背景顏色</label>
-                <input type="color" value="#F6F4EB" id="colorLight">
-            </div>
-            <div>
-                <label for="transparent">透明背景</label>
-                <input type="checkbox" id="transparent">
-            </div>
-            <div>
-                <label for="correct-level">容錯率</label>
-                <select id="correct-level">
-                    <option value="L">Low 低</option>
-                    <option value="M">Medium 中</option>
-                    <option value="Q">Quartile 不錯</option>
-                    <option value="H">High 高</option>
-                </select>
-            </div>
-            <div>
-                <button onclick="generateQRCode()">生成 QR Code</button>
-                <button onclick="downloadQRCode()">下載 QR Code</button>
-            </div>
-           </div>
-           <p>世界上最強、最快、即時更新的QR Code生成器。<br>自動抓取剪貼簿連結生成QR Code，也可輸入連結、文字、簡訊、電子名片、地理位置等。<br>容錯率為部分被遮住也可掃描 毛哥EM製作</p>
+            <p>世界上最強、最快、即時更新的QR Code生成器。<br>自動抓取剪貼簿連結生成QR
+                Code，也可輸入連結、文字、簡訊、電子名片、地理位置等。容錯率為部分被遮住也可掃描<br><span>毛哥EM製作</span></p>
         </section>
         <section id="qrcode"></section>
+        <p class="mobile">世界上最強、最快、即時更新的QR Code生成器。<br>自動抓取剪貼簿連結生成QR
+            Code，也可輸入連結、文字、簡訊、電子名片、地理位置等。容錯率為部分被遮住也可掃描<br><span>毛哥EM製作</span></p>
     </main>
 
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="qrcode.min.js"></script>
     <script>
 
         const qr = document.getElementById("qrcode");
