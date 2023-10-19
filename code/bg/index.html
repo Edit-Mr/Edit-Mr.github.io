@@ -4,17 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>html ,body{
-        background-color: #ffffff;
-        padding: 0;
-        margin: 0;
-        /* Or any color / image you want */
-    }
-        input{
+    <title>背景顏色 | 毛哥EM的基地</title>
+    <meta name="description" content="自由更改背景顏色或製作漸層" />
+    <meta name="author" content="毛哥EM" />
+    <meta name="keywords" content="毛哥EM, 背景, Edit Mr." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="背景顏色 | 毛哥EM的基地" />
+    <meta property="og:url" content="https://elvismao.com/code/bg" />
+    <meta property="og:site_name" content="毛哥EM的基地" />
+    <meta property="og:description" content="自由更改背景顏色或製作漸層" />
+    <meta property="og:locale" content="zh-TW" />
+    <meta property="article:author" content="毛哥EM" />
+    <style>
+        html,
+        body {
+            background-color: #ffffff;
+            padding: 0;
+            margin: 0;
+            /* Or any color / image you want */
+        }
+
+        input {
             display: block;
             width: 6rem;
         }
+
         div {
             position: fixed;
             right: 0;
@@ -24,7 +38,7 @@
             align-items: flex-end;
         }
 
-        body{
+        body {
             min-height: 100lvh;
             background: linear-gradient(90deg, #090979, #00d4ff);
             overflow: hidden;
@@ -40,77 +54,77 @@
         <input type="range" name="" id="deg" min="0" max="360">
     </div>
     <script>
-       // when any of the input changed, update the background color. If the checkbox is checked, use gradient color. Update the hex if uses color picker, update the color picker if uses hex.
+        // when any of the input changed, update the background color. If the checkbox is checked, use gradient color. Update the hex if uses color picker, update the color picker if uses hex.
 
-         // get the elements
-            let c1 = document.querySelector('#c1');
-            let c2 = document.querySelector('#c2');
-            let c1Hex = document.querySelector('#c1Hex');
-            let c2Hex = document.querySelector('#c2Hex');
-            let gra = document.querySelector('#gra');
-            let body = document.querySelector('body');
-            let range = document.querySelector('#deg');
+        // get the elements
+        let c1 = document.querySelector('#c1');
+        let c2 = document.querySelector('#c2');
+        let c1Hex = document.querySelector('#c1Hex');
+        let c2Hex = document.querySelector('#c2Hex');
+        let gra = document.querySelector('#gra');
+        let body = document.querySelector('body');
+        let range = document.querySelector('#deg');
 
-            // add event listener
-            c1.addEventListener('change', updateColor);
-            c2.addEventListener('change', updateColor);
-            c1Hex.addEventListener('change', updateColorHex);
-            c2Hex.addEventListener('change', updateColorHex);
-            gra.addEventListener('change', updateColor);
-            range.addEventListener('change', updateColor);
-            // update color
+        // add event listener
+        c1.addEventListener('change', updateColor);
+        c2.addEventListener('change', updateColor);
+        c1Hex.addEventListener('change', updateColorHex);
+        c2Hex.addEventListener('change', updateColorHex);
+        gra.addEventListener('change', updateColor);
+        range.addEventListener('change', updateColor);
+        // update color
 
-            function updateColor() {
-                if (gra.checked) {
-                    body.style.background = `linear-gradient(${range.value}deg, ${c1.value}, ${c2.value})`;
-                } else {
-                    body.style.background = c1.value;
-                }
-                c1Hex.value = c1.value;
-                c2Hex.value = c2.value;
+        function updateColor() {
+            if (gra.checked) {
+                body.style.background = `linear-gradient(${range.value}deg, ${c1.value}, ${c2.value})`;
+            } else {
+                body.style.background = c1.value;
             }
+            c1Hex.value = c1.value;
+            c2Hex.value = c2.value;
+        }
 
-            // update color hex
+        // update color hex
 
-            function updateColorHex() {
-                if (gra.checked) {
-                    body.style.background = `linear-gradient(${range.value}deg, ${c1.value}, ${c2.value})`;
-                } else {
-                    body.style.background = c1Hex.value;
-                }
-                c1.value = c1Hex.value;
-                c2.value = c2Hex.value;
+        function updateColorHex() {
+            if (gra.checked) {
+                body.style.background = `linear-gradient(${range.value}deg, ${c1.value}, ${c2.value})`;
+            } else {
+                body.style.background = c1Hex.value;
             }
+            c1.value = c1Hex.value;
+            c2.value = c2Hex.value;
+        }
 
-            //long press anywhere for full screen, both pc and mobile. Short press anywhere for showing and hiding the control panel.
+        //long press anywhere for full screen, both pc and mobile. Short press anywhere for showing and hiding the control panel.
 
-            let timer;
-            let div = document.querySelector('div');
-            body.addEventListener('mousedown', () => {
-                timer = setTimeout(() => {
-                    body.requestFullscreen();
-                }, 1000);
-            });
-            body.addEventListener('mouseup', () => {
-                clearTimeout(timer);
-            });
-            body.addEventListener('touchstart', () => {
-                timer = setTimeout(() => {
-                    body.requestFullscreen();
-                }, 1000);
-            });
-            body.addEventListener('touchend', () => {
-                clearTimeout(timer);
-            });
-            body.addEventListener('dblclick', () => {
-                if (div.style.display == 'none') {
-                    div.style.display = 'flex';
-                } else {
-                    div.style.display = 'none';
-                }
-            });
+        let timer;
+        let div = document.querySelector('div');
+        body.addEventListener('mousedown', () => {
+            timer = setTimeout(() => {
+                body.requestFullscreen();
+            }, 1000);
+        });
+        body.addEventListener('mouseup', () => {
+            clearTimeout(timer);
+        });
+        body.addEventListener('touchstart', () => {
+            timer = setTimeout(() => {
+                body.requestFullscreen();
+            }, 1000);
+        });
+        body.addEventListener('touchend', () => {
+            clearTimeout(timer);
+        });
+        body.addEventListener('dblclick', () => {
+            if (div.style.display == 'none') {
+                div.style.display = 'flex';
+            } else {
+                div.style.display = 'none';
+            }
+        });
 
-            
+
     </script>
 </body>
 
