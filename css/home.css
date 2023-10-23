@@ -396,6 +396,7 @@ a {
     color: transparent;
     background: url(https://s1.ax1x.com/2022/03/30/q20PFH.gif) center/cover;
     background-clip: text;
+    -webkit-background-clip: text;
     filter: grayscale(1) invert(1);
     mix-blend-mode: hard-light;
 }
