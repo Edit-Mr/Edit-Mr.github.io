@@ -355,6 +355,16 @@
                 margin: 30px;
                 filter: invert(1);
             }
+            .card-image img {
+                height: 6em;
+                opacity: 0.25;
+            }
+            .invert {
+                filter: invert(1);
+            }
+            .grayscale {
+                filter: grayscale(1) brightness(10000000);
+            }
         </style>
         <link
             href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rubik:wght@400;500&display=swap"
@@ -377,10 +387,72 @@
 
         <main>
             <div id="cards">
+                <div class="card" data-link="https://scaict.org/">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img
+                                class="grayscale"
+                                src="https://scaict.org/src/img/logo.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="card-info-wrapper">
+                            <div class="card-info">
+                                <i class="fa-solid fa-bolt"></i>
+                                <div class="card-info-title">
+                                    <h3>中電會官網</h3>
+                                    <h4>
+                                        是由一群熱愛資訊科技和社團活動的高中職生所組成
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div
                     class="card"
-                    data-link="https://edit-mr.github.io/code/qr"
+                    data-link="https://edit-mr.github.io/code/format-text"
                 >
+                    <div class="card-content">
+                        <div class="card-image">
+                            <i class="fa-solid fa-text-slash"></i>
+                        </div>
+                        <div class="card-info-wrapper">
+                            <div class="card-info">
+                                <i class="fa-solid fa-text-slash"></i>
+                                <div class="card-info-title">
+                                    <h3>文本格式化大師</h3>
+                                    <h4>
+                                        輕鬆地去除空白，換行，或特定符號。輕鬆將網路或論文加入筆記
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-link="https://food-personality.com/">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img
+                                class="invert"
+                                src="https://raw.githubusercontent.com/Edit-Mr/food-personality/main/android-chrome-192x192.png"
+                                alt=""
+                            />
+                        </div>
+                        <div class="card-info-wrapper">
+                            <div class="card-info">
+                                <i class="fa-solid fa-utensils"></i>
+                                <div class="card-info-title">
+                                    <h3>食物探析</h3>
+                                    <h4>
+                                        線上心理測驗，找出最能代表你的食物。
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-link="https://edit-mr.github.io/code/qr">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-qrcode"></i>
@@ -396,20 +468,23 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    class="card"
-                    data-link="https://langjue.com.tw/"
-                >
+                <div class="card" data-link="https://langjue.com.tw/">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-qrcode"></i>
+                            <img
+                                src="https://langjue.com.tw/img/logo.svg"
+                                alt=""
+                            />
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-qrcode"></i>
+                                <i class="fa-solid fa-briefcase"></i>
                                 <div class="card-info-title">
                                     <h3>WJ Studio</h3>
-                                    <h4>官方網頁，複雜的 3D 、三角函數、與漸層混和運算。</h4>
+                                    <h4>
+                                        官方網頁，複雜的 3D
+                                        、三角函數、與漸層混和運算。
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -436,10 +511,25 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    class="card"
-                    data-link="https://edit-mr.github.io/code/sr"
-                >
+                <div class="card" data-link="https://furryart-tw.github.io/">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <i class="fa-solid fa-paw"></i>
+                        </div>
+                        <div class="card-info-wrapper">
+                            <div class="card-info">
+                                <i class="fa-solid fa-palette"></i>
+                                <div class="card-info-title">
+                                    <h3>Furry Art in Taiwan</h3>
+                                    <h4>
+                                        台灣獸人繪師作品集，推廣台灣獸圈的各個出色繪師
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-link="https://edit-mr.github.io/code/sr">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-camera-retro"></i>
