@@ -19,66 +19,68 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                transition: background-color 0.2s ease-in-out;
+                transition: background-color 0.1s ease;
             }
             body:hover {
                 cursor: pointer;
                 background-color: #000;
             }
-            body:active {
-                background-color: #242424;
-            }
             textarea {
-                display: none;
+                opacity: 0;
+                position: absolute;
             }
         </style>
     </head>
-    <body onclick="load()">
+    <body>
         <script>
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get("a");
+            let decodedContent;
+            if (!token) {
+                document.body.innerHTML = "No token provided";
+            } else {
+                const apiUrl =
+                    "https://api.github.com/repos/Edit-Mr/clipboard-api/contents/clip.txt";
 
-            const load = () => {
-                if (!token) {
-                    document.body.innerHTML = "No token provided";
-                } else {
-                    const apiUrl =
-                        "https://api.github.com/repos/Edit-Mr/clipboard-api/contents/clip.txt";
-                    let decodedContent;
-
-                    fetch(apiUrl, {
-                        headers: {
-                            Authorization: `token ${token}`,
-                            "Content-Type": "application/json",
-                        },
+                fetch(apiUrl, {
+                    headers: {
+                        Authorization: `token ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then(response => {
+                        if (!response.ok)
+                            throw new Error(
+                                `Network response was not ok: ${response.status}`
+                            );
+                        return response.json();
                     })
-                        .then(response => {
-                            if (!response.ok)
-                                throw new Error(
-                                    `Network response was not ok: ${response.status}`
-                                );
-                            return response.json();
-                        })
-                        .then(data => {
-                            if (data.content) {
-                                decodedContent = atob(data.content);
-                                document.body.innerHTML = decodedContent;
-                                const textarea =
-                                    document.createElement("textarea");
-                                textarea.value = decodedContent;
-                                document.body.appendChild(textarea);
-                                textarea.select();
-                                document.execCommand("copy");
-                                document.body.removeChild(textarea);
-                                window.close();
-                            } else document.body.innerHTML = "No content found";
-                        })
-                        .catch(error => {
-                            console.error("Error:", error);
-                        });
-                }
+                    .then(data => {
+                        if (data.content) {
+                            decodedContent = atob(data.content);
+                            document.body.innerHTML = decodedContent;
+                        } else document.body.innerHTML = "No content found";
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            }
+            const copy = () => {
+                const textarea = document.createElement("textarea");
+                textarea.value = decodedContent;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                console.log("Copied to clipboard" + decodedContent);
+                document.body.style.backgroundColor = "#1a4100";
+                setTimeout(() => {
+                    document.body.style.backgroundColor = "#080808";
+                }, 100);
             };
-            load();
+            document.addEventListener("mousedown", copy);
+            document.addEventListener("touchstart", copy);
+            document.addEventListener("keydown", copy);
         </script>
     </body>
 </html>
