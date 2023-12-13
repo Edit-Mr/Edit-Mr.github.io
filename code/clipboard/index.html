@@ -63,7 +63,6 @@
                             if (data.content) {
                                 decodedContent = atob(data.content);
                                 document.body.innerHTML = decodedContent;
-
                                 const textarea =
                                     document.createElement("textarea");
                                 textarea.value = decodedContent;
@@ -72,10 +71,7 @@
                                 document.execCommand("copy");
                                 document.body.removeChild(textarea);
                                 window.close();
-                                load();
-                            } else {
-                                document.body.innerHTML = "No content found";
-                            }
+                            } else document.body.innerHTML = "No content found";
                         })
                         .catch(error => {
                             console.error("Error:", error);
