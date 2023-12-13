@@ -33,10 +33,11 @@
             }
         </style>
     </head>
-    <body onclick="copyToClipboard()">
+    <body onclick="load()">
         <script>
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get("a");
+
             const load = () => {
                 if (!token) {
                     document.body.innerHTML = "No token provided";
@@ -44,16 +45,7 @@
                     const apiUrl =
                         "https://api.github.com/repos/Edit-Mr/clipboard-api/contents/clip.txt";
                     let decodedContent;
-                    function copyToClipboard() {
-                        const textarea = document.createElement("textarea");
-                        textarea.value = decodedContent;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        document.execCommand("copy");
-                        document.body.removeChild(textarea);
-                        window.close();
-                        load();
-                    }
+
                     fetch(apiUrl, {
                         headers: {
                             Authorization: `token ${token}`,
@@ -71,6 +63,18 @@
                             if (data.content) {
                                 decodedContent = atob(data.content);
                                 document.body.innerHTML = decodedContent;
+
+                                const textarea =
+                                    document.createElement("textarea");
+                                textarea.value = decodedContent;
+                                document.body.appendChild(textarea);
+                                textarea.select();
+                                document.execCommand("copy");
+                                document.body.removeChild(textarea);
+                                window.close();
+                                load();
+                            } else {
+                                document.body.innerHTML = "No content found";
                             }
                         })
                         .catch(error => {
