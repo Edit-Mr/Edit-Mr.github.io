@@ -185,6 +185,20 @@
                 }
             }
         </style>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-9R5PZG2VQG");
+        </script>
     </head>
 
     <body>
@@ -199,6 +213,7 @@
                             type="text"
                             id="text-input"
                             placeholder="網址或任何內容"
+                            onclick="useClipBoard();document.getElementById('text-input').setAttribute('onclick','')"
                         />
                     </div>
                     <div>
@@ -296,36 +311,47 @@
                         document.getElementById("correct-level").value
                     ],
             });
-            if (navigator.clipboard) {
-                navigator.clipboard
-                    .readText()
-                    .then(text => {
-                        document.getElementById("text-input").value = text;
-                        qr.innerHTML = "";
-                        new QRCode(qr, {
-                            text: text,
-                            width: document.getElementById("width-input").value,
-                            height: document.getElementById("width-input")
-                                .value,
-                            colorDark:
-                                document.getElementById("colorDark").value,
-                            colorLight: document.getElementById("transparent")
-                                .checked
-                                ? "transparent"
-                                : document.getElementById("colorLight").value,
-                            correctLevel:
-                                QRCode.CorrectLevel[
-                                    document.getElementById("correct-level")
-                                        .value
-                                ],
+            const useClipBoard = () => {
+                if (navigator.clipboard) {
+                    navigator.clipboard
+                        .readText()
+                        .then(text => {
+                            document.getElementById("text-input").value = text;
+                            qr.innerHTML = "";
+                            new QRCode(qr, {
+                                text: text,
+                                width: document.getElementById("width-input")
+                                    .value,
+                                height: document.getElementById("width-input")
+                                    .value,
+                                colorDark:
+                                    document.getElementById("colorDark").value,
+                                colorLight: document.getElementById(
+                                    "transparent"
+                                ).checked
+                                    ? "transparent"
+                                    : document.getElementById("colorLight")
+                                          .value,
+                                correctLevel:
+                                    QRCode.CorrectLevel[
+                                        document.getElementById("correct-level")
+                                            .value
+                                    ],
+                            });
+                        })
+                        .catch(error => {
+                            console.error(
+                                "Error reading from clipboard:",
+                                error
+                            );
                         });
-                    })
-                    .catch(error => {
-                        console.error("Error reading from clipboard:", error);
-                    });
-            } else {
-                console.log("Clipboard API is not supported in this browser.");
-            }
+                } else {
+                    console.log(
+                        "Clipboard API is not supported in this browser."
+                    );
+                }
+            };
+            useClipBoard();
         </script>
     </body>
 </html>
