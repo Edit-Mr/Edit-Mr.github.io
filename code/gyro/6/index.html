@@ -133,6 +133,8 @@
         let startButton = document.getElementById('startButton');
         let alpha = 0, beta = 0, gamma = 0, listening = 0, Malpha = 0, Mbeta = 0, Mgamma = 0;
 
+        startButton.addEventListener('click', startShowingGyroData);
+        
         // Function to draw a 3D cube
         function drawCube(x, y, size, alpha, beta, gamma) {
             // Clear canvas
