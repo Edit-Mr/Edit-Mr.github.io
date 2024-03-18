@@ -134,7 +134,7 @@
         let alpha = 0, beta = 0, gamma = 0, listening = 0, Malpha = 0, Mbeta = 0, Mgamma = 0;
 
         startButton.addEventListener('click', startShowingGyroData);
-        
+
         // Function to draw a 3D cube
         function drawCube(x, y, size, alpha, beta, gamma) {
             // Clear canvas
@@ -223,6 +223,7 @@
             if (typeof DeviceOrientationEvent.requestPermission === 'function') {
                 DeviceOrientationEvent.requestPermission()
                     .then(response => {
+                        console.log(response)
                         if (response == 'granted') {
                             startShowingGyroDataMotion();
                             window.addEventListener('deviceorientation', handleOrientation);
@@ -326,7 +327,7 @@
             Malpha = event.rotationRate.alpha || 0; // Z rotation [0, 360]
             Mbeta = event.rotationRate.beta || 0; // X rotation [-180, 180]
             Mgamma = event.rotationRate.gamma || 0; // Y rotation [-90, 90]
-            motionData.innerHTML = `Alpha: ${alpha}<br> Beta: ${beta}<br> Gamma: ${gamma}`;
+            motionData.innerHTML = `Alpha: ${Malpha}<br> Beta: ${Mbeta}<br> Gamma: ${Mgamma}`;
         }
     </script>
 </body>
