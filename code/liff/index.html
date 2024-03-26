@@ -85,6 +85,13 @@
         alert('Please open this page in the LINE app to use the shareTargetPicker.');
       }
     }
+
+    //auto pate clipbard content to content when loaded
+    window.onload = function () {
+      navigator.clipboard.readText().then(
+        clipText => document.getElementById('content').value = clipText
+      );
+    }
   </script>
 </body>
 
