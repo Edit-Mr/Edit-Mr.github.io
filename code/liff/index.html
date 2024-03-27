@@ -18,10 +18,17 @@
       padding: 4px 12px;
       outline: none;
       border-radius: 3px;
-      background-color: #06c755;
+      color: #06c755;
       font-size: 12px;
       line-height: 24px;
       font-weight: 700;
+      border: #06c755 1px solid;
+      background: #FFF;
+      cursor: pointer;
+    }
+
+    .send {
+      background-color: #06c755;
       color: #fff;
       border: none;
     }
@@ -50,10 +57,10 @@
       style="display: none; visibility: hidden;"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
-<script>
-  // VConsole will be exported to `window.VConsole` by default.
-  var vConsole = new window.VConsole();
-</script>
+  <script>
+    // VConsole will be exported to `window.VConsole` by default.
+    var vConsole = new window.VConsole();
+  </script>
 </head>
 
 <body>
@@ -65,7 +72,9 @@
   <textarea id="content" rows="5" placeholder='{
         "type": "bubble"...
 }'></textarea>
-  <button onclick="sendMessage()">Send</button>
+  <button onclick="sendMessage()" class="send">Send</button>
+  <button onclick="to()">Open In Line</button>
+  <button onclick="simulator()">Simulator</button>
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
@@ -79,11 +88,25 @@
       // Check if LIFF is initialized
       if (liff.isInClient()) {
         // Send text via shareTargetPicker
+
+        // remove space and break row in content and check if ends with }}
+        const contentCheck = content.replace(/\s/g, '').replace(/\n/g, '').endsWith('}}');
+        if (!contentCheck) {
+          alert('Content is not valid. Please copy directly from Flex Message Simulator.');
+          return;
+        }
+        //check if its a vaild json
+        try {
+          content = JSON.parse(content);
+        } catch (e) {
+          alert('Content is not valid');
+          return;
+        }
         await liff.shareTargetPicker([
           {
             type: 'flex',
             altText: alt,
-            contents: JSON.parse(content)
+            contents: content
           }
         ]);
       } else {
@@ -96,6 +119,20 @@
       navigator.clipboard.readText().then(
         clipText => document.getElementById('content').value = clipText
       );
+    }
+
+    const to = () => {
+      liff.openWindow({
+        url: 'line://app/1656564267-XlA7y2d2',
+        external: false
+      });
+    }
+
+    const simulator = () => {
+      liff.openWindow({
+        url: 'https://developers.line.biz/flex-simulator/',
+        external: true
+      });
     }
   </script>
 </body>
