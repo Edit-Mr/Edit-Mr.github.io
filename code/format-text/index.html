@@ -103,7 +103,6 @@
                 background: var(--color-dark);
                 color: var(--color-primary);
                 margin: 0.5rem auto;
-                display: block;
                 padding: 0.5rem;
                 font-family: system-ui, -apple-system, BlinkMacSystemFont,
                     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -126,6 +125,7 @@
                 font-family: system-ui, -apple-system, BlinkMacSystemFont,
                     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
                     "Helvetica Neue", sans-serif;
+                cursor: text;
             }
 
             input {
@@ -226,16 +226,21 @@
                 <input type="checkbox" id="period" checked />
                 <label for="period">. 後補上空白</label>
                 <br />
+                <input type="checkbox" id="lowerCase" />
+                <label for="lowerCase">轉換為小寫</label>
                 <label for="replacement">以</label>
                 <input type="text" id="replacement" />
                 <label for="del">取代</label>
                 <input type="text" id="del" />
             </div>
+            <button onclick="autoPaste()">貼上</button>
             <button onclick="format()">格式化並複製</button>
             <textarea rows="10"></textarea>
             <p>
-                這個網站讓你可以輕鬆地去除空白，換行，或特定符號。讓你的文字變得更乾淨、更易閱讀，也可以讓你輕鬆將網路或論文加入筆記中。
+                這個網站讓你可以輕鬆地去除空白，換行，或特定符號。讓你的文字變得更乾淨、更易閱讀，也可以讓你輕鬆將網路或論文加入筆記中。點擊「格式化並複製」按鈕或是按下
+                Ctrl + Enter，即可將整理好的文字複製到剪貼簿中。
             </p>
+
             <footer>毛哥EM製作</footer>
         </main>
         <script>
@@ -249,6 +254,9 @@
                 }
                 if (document.querySelector("#replaceBrWithSpace").checked) {
                     text = text.replace(/\n/g, " ");
+                }
+                if (document.querySelector("#lowerCase").checked) {
+                    text = text.toLowerCase();
                 }
                 if (document.querySelector("#period").checked) {
                     text = text.replace(/\.([^\s])/g, ". $1");
@@ -284,9 +292,11 @@
 
             autoPaste();
 
-            document.querySelector("textarea").addEventListener("click", () => {
-                if (document.querySelector("textarea").value === "")
-                    autoPaste();
+            // ctrl + enter to format and copy
+            document.addEventListener("keydown", e => {
+                if (e.ctrlKey && e.key === "Enter") {
+                    format();
+                }
             });
         </script>
     </body>
