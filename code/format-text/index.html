@@ -250,9 +250,6 @@
                 if (document.querySelector("#replaceBrWithSpace").checked) {
                     text = text.replace(/\n/g, " ");
                 }
-                if (document.querySelector("#spaces").checked) {
-                    text = text.replace(/\s+/g, " ");
-                }
                 if (document.querySelector("#period").checked) {
                     text = text.replace(/\.([^\s])/g, ". $1");
                 }
@@ -261,6 +258,9 @@
                         new RegExp(document.querySelector("#del").value, "g"),
                         document.querySelector("#replacement").value
                     );
+                }
+                if (document.querySelector("#spaces").checked) {
+                    text = text.replace(/\s+/g, " ");
                 }
                 document.querySelector("textarea").value = text;
                 document.querySelector("textarea").select();
