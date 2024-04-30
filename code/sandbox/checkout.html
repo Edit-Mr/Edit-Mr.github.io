@@ -286,6 +286,18 @@
                 padding: 1rem 0;
             }
 
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+
             /* aspect ratio 4:3 */
             @media (max-aspect-ratio: 4/3) {
                 main {
@@ -337,6 +349,7 @@
                             name="payMethod"
                             id="creditCard"
                             value="creditCard"
+                            checked
                         />
                         <label for="creditCard">信用卡</label>
                         <input
