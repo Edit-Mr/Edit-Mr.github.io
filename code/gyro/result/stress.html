@@ -43,7 +43,7 @@
 
                             // Fill cells with data
                             cellTime.textContent = formattedDate;
-                            cellStress.textContent = item[1];
+                            cellStress.textContent = Math.abs(item[1]);
                         });
                     })
                     .catch(error =>
