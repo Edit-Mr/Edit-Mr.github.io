@@ -1,0 +1,166 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <title>日常活動追蹤</title>
+        <meta
+            name="description"
+            content="A simple web page to collect gyro data"
+        />
+        <meta name="keywords" content="gyro, data, collect" />
+        <meta name="author" content="Elvis Mao" />
+        <meta name="theme-color" content="#2e3440" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #2e3440;
+                color: #e5e9f0;
+                padding: 2em 1em;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                    "Helvetica Neue", sans-serif;
+                text-align: center;
+            }
+
+            main {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            h1 {
+                margin-bottom: 0.5em;
+            }
+            a {
+                display: block;
+                padding: 0.5em 1em;
+                font-size: 1em;
+                background: #5e81ac;
+                color: #eceff4;
+                border: none;
+                cursor: pointer;
+                text-decoration: none;
+                width: fit-content;
+                margin: 0.5em auto;
+            }
+
+            a:hover {
+                background: #81a1c1;
+            }
+
+            input {
+                margin: 0.5em;
+                background-color: #2e3440;
+                color: #eceff4;
+                border: 1px solid #5e81ac;
+                padding: 0.5em;
+            }
+            p {
+                background: #3b4252;
+                margin: 0 1em;
+                padding: 1em;
+                text-align: left;
+                line-height: 1.3;
+            }
+            footer {
+                color: #656a77;
+                margin-top: 2em;
+            }
+
+            .online {
+                background: #a3be8c;
+                color: #2e3440;
+                padding: 0.5em;
+                margin: 1em auto;
+                border-radius: 0.5em;
+                width: fit-content;
+            }
+            h2 {
+                margin: 2em 0 0.5em 0;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <h1>日常活動追蹤</h1>
+            <div class="online">手環狀態: 追蹤中</div>
+            <label for="hz">蒐集頻率</label>
+            <input type="text" value="每分鐘" />
+            <a href="start">套用設定</a>
+            <h2>壓力變化</h2>
+            <canvas id="myChart"></canvas>
+
+            <h2>今日活動</h2>
+            <p>
+                7:10 ~ 7:25 搭乘公車<br />
+                7:30 ~ 7:35 走路<br />
+                7:40 ~ 8:00 羽球揮拍<br />
+                8:05 ~ 8:10 跑步<br />
+                8:15 ~ 9:00 書寫<br />
+                9:00 ~ 9:05 滑手機
+            </p>
+            <h2>統計分析</h2>
+            <p>
+                運動: 30分鐘<br />
+                讀書: 45分鐘<br />
+                通勤: 15分鐘<br />
+                滑手機: 5分鐘
+            </p>
+            <footer>生活駭客 2024</footer>
+        </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var csvData = '7:10,20,搭乘公車\n7:30,30,走路\n7:40,40,羽球揮拍\n8:05,50,跑步\n8:15,60,書寫\n9:00,70,滑手機\n9:05,80,睡覺\n9:10,70,睡覺\n9:15,60,睡覺\n9:20,50,睡覺\n9:25,40,睡覺\n9:30,30,睡覺\n9:35,20,睡覺\n9:40,10,睡覺\n9:45,0,睡覺\n9:50,10,睡覺\n9:55,20,睡覺\n10:00,30,睡覺\n10:05,40,睡覺\n10:10,50,睡覺\n10:15,60,睡覺\n10:20,70,睡覺\n10:25,80,睡覺\n10:30,90,睡覺\n10:35,100,睡覺\n10:40,90,睡覺\n10:45,80,睡覺\n10:50,70,睡覺\n10:55,60,睡覺\n11:00,50,睡覺\n11:05,40,睡覺\n11:10,30,睡覺\n11:15,20,睡覺\n11:20,10,睡覺\n11:25,0,睡覺\n11:30,10,睡覺\n11:35,20,睡覺\n11:40,30,睡覺\n11:45,40,睡覺\n11:50,50,睡覺\n11:55,60,睡覺\n12:00,70,睡覺\n12:05,80,睡覺\n12:10,90,睡覺\n12:15,100,睡覺\n12:20,90,睡覺\n12:25,80,睡覺\n12:30,70,睡覺\n12:35,60,睡覺\n12:40,50,睡覺\n12:45,40,睡覺\n12:50,30,睡覺\n12:55,20,睡覺\n13:00,10,睡覺\n13:05,0,睡覺\n13:10,10,睡覺\n13:15,20,睡覺\n13:20,30,睡覺\n13:25,40,睡覺\n13:30,50,睡覺\n13:35,60,睡覺\n13:40,70,睡覺\n13:45,80,睡覺\n13:50,90,睡覺\n13:55,100,睡覺\n14:00,90,睡覺\n14:05,80,睡覺\n14:10,70,睡覺\n14:15,60,睡覺\n14:20,50,睡覺\n14:25,40,睡覺\n14:30,30,睡覺\n14:35,20,睡覺\n14:40,10,睡覺\n14:45,0,睡覺\n14:50,10,睡覺\n14:55,20,睡覺\n15:00,30,睡覺\n15:05,40,睡覺\n15:10,50,睡覺\n15:15,60,睡覺\n15:20,70,睡覺\n15:25,80,睡覺\n15:30,90,睡覺\n15:35,100,睡覺\n15:40,90,睡覺\n15:45,80,睡覺\n15:50,70,睡覺\n15:55,60,睡覺\n16:00,50,睡覺\n16:05,40,睡覺\n16:10,30,睡覺\n16:15,20,睡覺\n16:20,10,睡覺\n16:25,0,睡覺\n16:30,10,睡覺';
+                var rows = csvData.split('\n');
+                var labels = [];
+                var data = [];
+                var activities = [];
+            
+                rows.forEach(function(row) {
+                    var columns = row.split(',');
+                    labels.push(columns[0]); // 時間
+                    data.push(parseInt(columns[1], 10)); // 數字
+                    activities.push(columns[2]); // 活動
+                });
+            
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: '壓力指數',
+                            data: data,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    footer: function(tooltipItems) {
+                                        var tooltipItem = tooltipItems[0];
+                                        return '活動: ' + activities[tooltipItem.dataIndex];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+            </script>
+    </body>
+</html>
