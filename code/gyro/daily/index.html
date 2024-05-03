@@ -129,9 +129,13 @@
             <footer>生活駭客 2024</footer>
         </main>
         <script>
+            // get data params number from url
+            const urlParams = new URLSearchParams(window.location.search);
+            const dataDate = (urlParams.get("data")) ? urlParams.get("data") : "0502";
+console.log(dataDate); // 0501
             document.addEventListener("DOMContentLoaded", function () {
                 var csvData;
-                fetch("0501.csv")
+                fetch(dataDate + ".csv")
                     .then(response => response.text())
                     .then(data => {
                         csvData = data;
@@ -151,18 +155,18 @@
                         };
 
                         var activityColors = {
-                            跑步: "rgb(255, 99, 132)",
-                            運球: "rgb(54, 162, 235)",
-                            跳繩: "rgb(255, 206, 86)",
-                            網球: "rgb(75, 192, 192)",
-                            投籃: "rgb(153, 102, 255)",
-                            羽球: "rgb(255, 159, 64)",
-                            保齡球: "rgb(199, 199, 199)",
-                            騎腳踏車: "rgb(255, 205, 86)",
-                            搭公車: "rgb(75, 192, 192)",
-                            寫作業: "rgb(255, 99, 132)",
-                            划手機: "rgb(54, 162, 235)",
-                            休息: "rgb(255, 206, 86)",
+                            跑步: "#d9ed92",
+                            運球: "#b5e48c",
+                            跳繩: "#99d98c",
+                            網球: "#76c893",
+                            投籃: "#52b69a",
+                            羽球: "#34a0a4",
+                            保齡球: "#168aad",
+                            騎腳踏車: "#1a759f",
+                            搭公車: "#1e6091",
+                            寫作業: "#184e77",
+                            滑手機: "#e4c1f9",
+                            休息: "#778da9",
                         };
 
                         var ctxLine = document
@@ -217,11 +221,8 @@
                                 var time = row[0];
                                 var value = parseInt(row[1], 10);
                                 var activity = row[2].trim();
-                                console.log(activity); // 休息
-                                console.log(activityColors[activity]); // undefined
-                                console.log(activityColors["休息"]); // rgb(255, 206, 86)
                                 var color =
-                                    activityColors[activity] || "#808080";
+                                    activityColors[activity] || "#e0e1dd";
 
                                 lineChart.data.labels.push(time);
                                 lineChart.data.datasets.forEach(dataset => {
