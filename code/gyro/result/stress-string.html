@@ -18,15 +18,16 @@
                         var combined = "";
                         data.stressValuesArray.forEach(item => {
                             const date = new Date(item[0]); // Convert timestamp to Date object
-                            // get the time in format of 05:30
+                            // data add 8 hours to match the timezone
+                            date.setHours(date.getHours() + 8);
                             const formattedDate = date
                                 .toISOString()
                                 .substring(11, 16); // Format the date
                             // only if date is 04/30, then add to the combined string
-                            if (date.toISOString().substring(5, 10) == "04-30")
-                            combined+=formattedDate + "," + Math.abs(item[1]) + ",休息\n";
+                            if (date.toISOString().substring(5, 10) == "05-01" || 1)
+                            combined+=formattedDate + "," + Math.abs(item[1]) + ",休息<br>";
                         });
-                        document.getElementById("data").textContent = combined;
+                        document.getElementById("data").innerHTML = combined;
                     })
                     .catch(error =>
                         console.error("Error loading the data:", error)
