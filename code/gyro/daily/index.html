@@ -117,22 +117,18 @@
             <canvas id="myChart"></canvas>
             <h2>壓力統計</h2>
             <canvas id="pieChart"></canvas>
-            <div id="stress">
-            </div>
+            <div id="stress"></div>
             <h2>統計分析</h2>
-            <p>
-                運動: 30分鐘<br />
-                讀書: 45分鐘<br />
-                通勤: 15分鐘<br />
-                滑手機: 5分鐘
-            </p>
+            <canvas id="countChart"></canvas>
             <footer>生活駭客 2024</footer>
         </main>
         <script>
             // get data params number from url
             const urlParams = new URLSearchParams(window.location.search);
-            const dataDate = (urlParams.get("data")) ? urlParams.get("data") : "0502";
-console.log(dataDate); // 0501
+            const dataDate = urlParams.get("data")
+                ? urlParams.get("data")
+                : "0502";
+            console.log(dataDate); // 0501
             document.addEventListener("DOMContentLoaded", function () {
                 var csvData;
                 fetch(dataDate + ".csv")
@@ -168,6 +164,7 @@ console.log(dataDate); // 0501
                             滑手機: "#e4c1f9",
                             休息: "#778da9",
                         };
+                        var activityCounts = {};
 
                         var ctxLine = document
                             .getElementById("myChart")
@@ -223,7 +220,11 @@ console.log(dataDate); // 0501
                                 var activity = row[2].trim();
                                 var color =
                                     activityColors[activity] || "#e0e1dd";
-
+                                if (activityCounts[activity]) {
+                                    activityCounts[activity]++;
+                                } else {
+                                    activityCounts[activity] = 1;
+                                }
                                 lineChart.data.labels.push(time);
                                 lineChart.data.datasets.forEach(dataset => {
                                     dataset.data.push(value);
@@ -251,6 +252,54 @@ console.log(dataDate); // 0501
                             } else {
                                 clearInterval(interval); // Stop the interval when all data is loaded
                                 updatePieChart(); // Update pie chart after all data is loaded
+                                var ctxCount = document
+                                    .getElementById("countChart")
+                                    .getContext("2d");
+                                var countChart = new Chart(ctxCount, {
+                                    type: "bar",
+                                    data: {
+                                        labels: Object.keys(activityCounts),
+                                        datasets: [
+                                            {
+                                                label: "活動次數",
+                                                data: Object.values(
+                                                    activityCounts
+                                                ),
+                                                backgroundColor: Object.keys(
+                                                    activityCounts
+                                                ).map(
+                                                    activity =>
+                                                        activityColors[
+                                                            activity
+                                                        ] * 3
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    options: {
+                                        plugins: {
+                                            tooltip: {
+                                                callbacks: {
+                                                    label: function (context) {
+                                                        var label =
+                                                            context.dataset
+                                                                .data[
+                                                                context
+                                                                    .dataIndex
+                                                            ];
+                                                        var activity =
+                                                            context.label;
+                                                        return `${activity}: ${(
+                                                            value / 60
+                                                        ).toFixed(0)} 時 ${(
+                                                            value % 60
+                                                        ).toFixed(0)} 分`;
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                });
                             }
                         }
 
