@@ -117,7 +117,8 @@
             <canvas id="myChart"></canvas>
             <h2>壓力統計</h2>
             <canvas id="pieChart"></canvas>
-            <div id="stress"></div>
+            <div id="stress">
+            </div>
             <h2>統計分析</h2>
             <canvas id="countChart"></canvas>
             <footer>生活駭客 2024</footer>
@@ -125,10 +126,8 @@
         <script>
             // get data params number from url
             const urlParams = new URLSearchParams(window.location.search);
-            const dataDate = urlParams.get("data")
-                ? urlParams.get("data")
-                : "0502";
-            console.log(dataDate); // 0501
+            const dataDate = (urlParams.get("data")) ? urlParams.get("data") : "0502";
+console.log(dataDate); // 0501
             document.addEventListener("DOMContentLoaded", function () {
                 var csvData;
                 fetch(dataDate + ".csv")
@@ -221,9 +220,9 @@
                                 var color =
                                     activityColors[activity] || "#e0e1dd";
                                 if (activityCounts[activity]) {
-                                    activityCounts[activity]++;
+                                    activityCounts[activity]+=3;
                                 } else {
-                                    activityCounts[activity] = 1;
+                                    activityCounts[activity] = 3;
                                 }
                                 lineChart.data.labels.push(time);
                                 lineChart.data.datasets.forEach(dataset => {
@@ -269,9 +268,7 @@
                                                     activityCounts
                                                 ).map(
                                                     activity =>
-                                                        activityColors[
-                                                            activity
-                                                        ] * 3
+                                                        activityColors[activity]
                                                 ),
                                             },
                                         ],
@@ -282,18 +279,12 @@
                                                 callbacks: {
                                                     label: function (context) {
                                                         var label =
-                                                            context.dataset
-                                                                .data[
-                                                                context
-                                                                    .dataIndex
+                                                            context.dataset.data[
+                                                                context.dataIndex
                                                             ];
                                                         var activity =
                                                             context.label;
-                                                        return `${activity}: ${(
-                                                            value / 60
-                                                        ).toFixed(0)} 時 ${(
-                                                            value % 60
-                                                        ).toFixed(0)} 分`;
+                                                        return `${activity}: ${label} 分`;
                                                     },
                                                 },
                                             },
