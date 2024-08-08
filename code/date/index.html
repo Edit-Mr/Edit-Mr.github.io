@@ -1,0 +1,97 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Date-Time and Number Converter</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+            }
+
+            main {
+                text-align: center;
+            }
+
+            main > * {
+                display: block;
+                margin: 1rem auto;
+            }
+            
+            input {
+                padding: 8px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Date-Time and Number Converter</h1>
+            <p>Auto Update</p>
+            <label for="timestamp">Timestamp (milliseconds since epoch):</label>
+            <input type="number" id="timestamp" />
+
+            <label for="dateString">Date String (YYYY/MM/DD):</label>
+            <input type="text" id="dateString" placeholder="2024/5/12" />
+
+            <label for="dateSelect">Date Select:</label>
+            <input type="datetime-local" id="dateSelect" />
+        </main>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const timestampInput = document.getElementById("timestamp");
+                const dateStringInput = document.getElementById("dateString");
+                const dateSelectInput = document.getElementById("dateSelect");
+
+                function updateFromTimestamp() {
+                    const timestamp = parseInt(timestampInput.value);
+                    if (!isNaN(timestamp)) {
+                        const date = new Date(timestamp);
+                        dateStringInput.value = `${date.getFullYear()}/${
+                            date.getMonth() + 1
+                        }/${date.getDate()}`;
+                        dateSelectInput.value = date.toISOString().slice(0, 16);
+                    }
+                }
+
+                function updateFromDateString() {
+                    const dateString = dateStringInput.value;
+                    const date = new Date(dateString);
+                    if (!isNaN(date.getTime())) {
+                        timestampInput.value = date.getTime();
+                        dateSelectInput.value = date.toISOString().slice(0, 16);
+                    }
+                }
+
+                function updateFromDateSelect() {
+                    const dateSelect = dateSelectInput.value;
+                    const date = new Date(dateSelect);
+                    if (!isNaN(date.getTime())) {
+                        timestampInput.value = date.getTime();
+                        dateStringInput.value = `${date.getFullYear()}/${
+                            date.getMonth() + 1
+                        }/${date.getDate()}`;
+                    }
+                }
+
+                timestampInput.addEventListener("input", updateFromTimestamp);
+                dateStringInput.addEventListener("input", updateFromDateString);
+                dateSelectInput.addEventListener("input", updateFromDateSelect);
+            });
+        </script>
+    </body>
+</html>
