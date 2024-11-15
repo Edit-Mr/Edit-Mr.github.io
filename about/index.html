@@ -1,93 +1,39 @@
 <!-- @format -->
 
 <!DOCTYPE html>
-<html lang="zh-TW" data-default-color-scheme="auto">
+<html lang="en">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-9R5PZG2VQG");
-        </script>
         <meta charset="UTF-8" />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="https://EM-Tec.github.io/icons/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="https://EM-Tec.github.io/icons/favicon-32x32.png"
-        />
         <meta
+            id="ascii"
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1"
         />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="theme-color" content="#2f4154" />
-        <meta name="description" content="關於毛哥EM" />
-        <meta name="author" content="毛哥EM" />
-        <meta name="keywords" content="毛哥EM, EM's Base, Edit Mr." />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="關於 - 毛哥EM的基地" />
-        <meta property="og:url" content="https://elvismao.com/about" />
-        <meta property="og:site_name" content="毛哥EM的基地" />
-        <meta property="og:description" content="關於毛哥EM" />
-        <meta property="og:locale" content="zh-TW" />
-        <meta property="article:author" content="毛哥EM" />
-        <meta property="article:tag" content="毛哥EM, EM's Base, Edit Mr." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <title>關於 - 毛哥EM的基地</title>
+        <title>About - Elvis Mao</title>
+        <meta name="theme-color" content="#333" />
+        <meta
+            name="description"
+            content="Elvis Mao (毛哥EM) is a full stack developer, and a digital creator from Taiwan."
+        />
         <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                cursor: none;
-
-                /* outline: greenyellow 1px solid; */
-            }
-
-            body {
-                font-family: "Microsoft JhengHei", "微軟正黑體",
-                    "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-weight: 400;
-                line-height: 1.5;
-                overflow-x: hidden;
-                background-color: #fff;
-                min-height: 100vh;
-            }
-
-            #about {
-                color: #242424;
-                font-family: Articulat CF, system-ui, sans-serif;
-                margin: 0 auto 192px auto;
+            main {
+                margin: auto;
                 max-width: 1532px;
                 width: 100%;
-                padding: 0 84px;
+                padding: 25vh 84px 0;
+                line-height: 1.5;
             }
 
-            h1 {
+            main h1 {
                 font-size: 3rem;
                 font-weight: 700;
                 letter-spacing: -0.5px;
             }
 
-            h1 + h2 + p {
-                font-size: 1.5rem;
+            main h1 + h2 + p {
+                font-size: 1.3rem;
                 font-weight: 400;
-                line-height: 1.5;
                 margin-bottom: 3rem;
-
                 max-width: 800px;
             }
 
@@ -96,18 +42,20 @@
             }
 
             h2 {
-                margin-top: 1em;
-                font-size: 1.5em;
-                font-weight: 700;
+                margin-top: 2rem;
+                font-size: 1em;
+                font-weight: 900;
                 letter-spacing: 0.25rem;
                 padding-bottom: 0.5rem;
                 border-bottom: 1px solid #c4c4c4;
+                text-transform: uppercase;
             }
 
-            h1 + h2 {
+            main h1 + h2 {
                 letter-spacing: normal;
                 border: none;
                 margin-bottom: 1rem;
+                color: #f0f0f0;
             }
 
             .skill {
@@ -122,357 +70,490 @@
 
             .skill h3 {
                 font-weight: 600;
+                margin-bottom: 0.5rem;
             }
 
             .skill li {
                 list-style-type: none;
             }
 
-            .github {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .github img {
-                margin: 1rem;
-                max-width: 100%;
-                display: block;
-            }
-
             ul {
                 margin: 1rem;
+            }
+            li {
+                color: #e5e5e5;
             }
 
             ul li {
                 margin: 0.5rem;
             }
-
-            .cursor-circle {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                opacity: 0.5;
-                background-color: #00000071;
-                z-index: 9999;
-                pointer-events: none;
-                transform: translate(-50%, -50%);
-                transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-            }
-
-            a:hover + .cursor-circle {
-                background-color: #fff;
+            main span {
+                color: #999;
+                font-style: italic;
             }
 
             nav {
-                width: 100vw;
-                z-index: 10;
+                background-color: #000;
             }
-
-            nav img {
-                height: 4em;
-                margin: 30px;
-            }
-
-            a {
+            main a {
                 text-decoration: none;
+                position: relative;
             }
 
-            @media (max-aspect-ratio: 1/1) {
-                #about {
-                    width: 100%;
-                    padding: 0 16px;
-                }
+            main a::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #fff;
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transition: transform 0.3s;
             }
 
-            /* animation */
-            .fadeIn-bottom {
-                opacity: 0;
-                transform: translateY(50px);
-                transition: opacity 1s ease-out, transform 1s ease-out;
+            main a:hover::after {
+                transform: scaleX(1);
             }
 
-            .fadeIn-bottom.animated {
-                opacity: 1;
-                transform: translateY(0);
+            .education {
+                width: 100%;
+                padding-block: 2rem;
+                position: relative;
+                margin-top: 2rem;
+                margin-bottom: -1rem;
             }
 
-            .text-cursor {
-                margin-left: 0.25em;
-                animation: blink 1s linear infinite;
-            }
-
-            footer {
-                width: 90%;
-                color: gray;
-                display: flex;
-                margin: 0 auto;
-                padding: 1em;
-                border-top: #c4c4c4 1px solid;
-                font-size: 0.8em;
-            }
-
-            footer div {
-                display: flex;
-                align-items: center;
-            }
-
-            footer img {
+            .education::before {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                content: "";
                 display: block;
-                filter: brightness(0) saturate(100%) invert(54%) sepia(1%)
-                    saturate(1401%) hue-rotate(104deg) brightness(93%)
-                    contrast(97%);
+                width: 1px;
+                height: 100%;
+                background: linear-gradient(
+                    to bottom,
+                    #000,
+                    #fff 10%,
+                    #fff 80%,
+                    #000
+                );
+                margin: 1rem 0;
+            }
+            .education .school:nth-child(odd) {
+                padding-right: calc(50% + 2rem);
+
+                text-align: right;
+            }
+            .education .school:nth-child(even) {
+                padding-left: calc(50% + 2rem);
+            }
+            .school {
+                position: relative;
+            }
+            .school::after {
+                content: "";
+                display: block;
+                width: 1.5rem;
+                height: 1px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-100%, -50%);
+            }
+            .school:nth-child(odd)::after {
+                background: linear-gradient(90deg, #000, #fff);
+            }
+            .school:nth-child(even)::after {
+                background: linear-gradient(270deg, #000, #fff);
+                transform: translate(0%, -50%);
+            }
+            .school p {
+                margin-top: 0;
+                color: #999;
+            }
+            .speaker {
+                padding-top: 2rem;
+                margin-left: 1rem;
+            }
+            .speaker li {
             }
 
-            .social {
-                justify-content: flex-end;
-                flex-grow: 1;
-            }
-
-            .social img {
-                height: 1.5em;
-            }
-
-            .social a {
-                color: #808080;
-                margin: 0 0.5em;
-            }
-
-            .fridge {
+            .github {
                 display: flex;
                 align-items: center;
-                flex-wrap: wrap;
-                margin-top: 1rem;
+                justify-content: center;
                 gap: 1rem;
+                flex-wrap: wrap;
+                margin-block: 5rem;
+                width: 100%;
+            }
+            .github img {
+                height: 200px;
+            }
+            footer {
+                padding: 1.5rem 2rem;
+            }
+
+            .fridge a::after {
+                display: none;
+            }
+            .fridge a {
+                transition: 0.3s;
+            }
+            .fridge a:hover {
+                scale: 1.1;
+                filter: none;
+            }
+            .fridge img:hover {
+                filter: none;
             }
             .fridge img {
-                max-height: 140px;
+                height: 5rem;
+                filter: grayscale(0.5);
+                transition: 0.3s;
             }
 
-            @keyframes blink {
+            .fridge-container {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 8rem;
+                margin-bottom: 2rem;
+            }
+            .fridge-container::after {
+                content: "";
+                display: block;
+                width: calc(100% + 2rem);
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    #000 1rem,
+                    rgba(0, 0, 0, 0) 4em,
+                    rgba(0, 0, 0, 0) calc(100% - 4em),
+                    #000 calc(100% - 1em)
+                );
+                position: absolute;
+                top: 0;
+                left: -1rem;
+                pointer-events: none;
+            }
+            .fridge-list {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
+                animation: marquee 40s linear infinite;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .fridge-list:hover {
+                animation-play-state: paused;
+            }
+            @keyframes marquee {
                 0% {
-                    opacity: 0;
+                    transform: translateX(0);
                 }
 
-                49.999% {
-                    opacity: 0;
+                100% {
+                    transform: translateX(-50%);
                 }
+            }
 
-                50% {
-                    opacity: 1;
-                }
+            #speaker {
+                margin-top: 3rem;
             }
         </style>
+      <script type="module" crossorigin src="/assets/style-CHQ2NM0k.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/style-DwvhBAY_.css">
     </head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript
-            ><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD"
-                height="0"
-                width="0"
-                style="display: none; visibility: hidden"
-            ></iframe
-        ></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div class="cursor-circle"></div>
+        <nav>
+            <div class="left">
+                <h1><a href="/">Elvis Mao</a></h1>
+            </div>
+            <img src="/logo.svg" alt="" />
+            <div class="right">
+                <a href="/code"><span>Projects</span></a>
+                <a href="/about"><span>About</span></a>
+                <a href="https://emtech.cc" target="_blank"
+                    ><span>Blog</span></a
+                >
+            </div>
+        </nav>
         <main>
-            <nav>
-                <a href="/"><img src="/Logo.png" alt="" /></a>
-            </nav>
-            <div id="about">
-                <h1>毛哥EM</h1>
-                <h2>Elvis Dragon Mao</h2>
-                <p>數位創作者 全端工程師</p>
-                <h2>技能</h2>
-                <div class="skill">
-                    <div>
-                        <h3>程式</h3>
-                        <ol>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                            <li>Wordpress, Wix</li>
-                            <li>Line / Discord機器人</li>
-                            <li>自動化操作</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h3>數位媒體</h3>
-                        <ol>
-                            <li>電腦繪圖</li>
-                            <li>平面設計</li>
-                            <li>影片剪輯</li>
-                            <li>配樂製作</li>
-                        </ol>
-                    </div>
+            <h1>Elvis Dragon Mao</h1>
+            <h2>AKA 毛哥EM, EM, EDM</h2>
+            <p>
+                A digital creator with a passion for design, animation,
+                interaction, and problem-solving.
+            </p>
+            <h2>Skills</h2>
+            <div class="skill">
+                <div>
+                    <h3>I do</h3>
+                    <ol>
+                        <li>High School Homework <span>(sometimes)</span></li>
+                        <li>Full Stack Development</li>
+                        <li>Web Security</li>
+                        <li>DevOps</li>
+                        <li>UI / UX Design</li>
+                        <li>Digital Illustration</li>
+                        <li>Music Production</li>
+                        <li>Film Editing</li>
+                    </ol>
                 </div>
-                <h2>話很多</h2>
-                <ul>
-                    <li>AIS3 Club - 中電會社群經營分享</li>
-                    <li>COSCUP 2024 講者 - 前往自由的路上：中電喵的開源之旅</li>
-                    <li>
-                        113 年度國教署新興科技教育遠距示範服務計畫 - 超PY挑戰營
-                        總召
-                    </li>
-                    <li>
-                        SITCON 2024 講者 - 從捷徑到終端機，iPhone 的程式之旅
-                    </li>
-                    <li>中電會 2024 國中生課程講師 - Line 機器人</li>
-                    <li>
-                        113 年度國教署新興科技教育遠距示範服務計畫 - Arduino
-                        樂趣工坊 總召
-                    </li>
-                    <li>
-                        知資為資知 - 2024中電會聯合寒訓
-                        美術總監、釣魚網站課程講師
-                    </li>
-                    <li>中電會 2023 聯合迎新 - 網路爬蟲講師</li>
-                    <li>中電會 2023 十月主題課程 - 網頁設計課程講師</li>
-                    <li>2023 西苑高中微課程 - 網頁設計課程講師</li>
-                    <li>2023 優遊台中學 - 英文辯力店關主</li>
-                    <li>
-                        112 年度國教署新興科技教育遠距示範服務計畫 -
-                        Python爬蟲工作坊講師
-                    </li>
-                    <li>
-                        112 年度國教署新興科技教育遠距示範服務計畫 -
-                        網頁設計HTML CSS JS雙端建設兩日工作坊講師
-                    </li>
-                    <li>
-                        2023 受曉明女中邀請演講分享 - 玩轉CSS:製作驚艷的網頁動畫
-                    </li>
-                    <li>2022 資訊志工隊C語言程式設計營隊進階課程講師</li>
-                    <li>2022 受西苑高中邀請邀請演講 - IoT 物聯網應用</li>
-                </ul>
-                <h2>經歷</h2>
-                <ul>
-                    <li>8年網頁設計經驗</li>
-                    <li>SITCON Hackerthon 2024 - 最佳技術獎</li>
-                    <li>中部電資聯合會議 資訊組組長</li>
-                    <li>西苑高中資訊志工隊第三屆隊長</li>
-                    <li>2024 台中市中等學校優秀青年</li>
-                    <li>CSSREELS - 2 FEATURED</li>
-                    <li>2024 28 Apr CSS Light - Featured of the Day</li>
-                    <li>2024 TopDesignKing - King of the Day</li>
-                    <li>2024 Top CSS Gallery</li>
-                    <li>2024 19 APRIL Web Guru Award - GURU OF THE DAY</li>
-                    <li>
-                        2024 全國高中英語辯論比賽 Public Forum Debate -
-                        Honorable Mentioned Debater 優秀辯士
-                    </li>
-                    <li>
-                        2024 全國高中英語辯論比賽 Public Forum Debate - Judge's
-                        Choice 評審團講
-                    </li>
-                    <li>2024仰望盃全國科學 HomeRun 實作大賽 - 銅牌獎</li>
-                    <li>2023 臺中市中小學資訊網路應用競賽 - 英文打字組優等</li>
-                    <li>2023 臺中市中小學資訊網路應用競賽 - 專題製作組優等</li>
-                    <li>
-                        2023 iThome 鐵人【不用庫 也能酷 - 玩轉 CSS & Js
-                        特效】系列
-                    </li>
-                    <li>
-                        Musixmatch 前管理員 (Spotify, Apple Music
-                        等平台歌詞來源)
-                    </li>
-                    <li>2020 臺中市中小學資訊網路應用競賽 - 電腦繪圖組優等</li>
-                    <li>2020 臺中市中小學資訊網路應用競賽 - 動畫設計組優等</li>
-                    <li>
-                        2019 臺中市中小學資訊網路應用競賽 - 程式設計組第一名
-                    </li>
-                </ul>
-                <h2>冰箱</h2>
-                <div class="fridge">
-                    <img
-                        src="https://d1dwq032kyr03c.cloudfront.net/images/ironman_sticker/15/web.png"
-                        alt=""
-                    />
-                    <img src="/img/Featured Badge.svg" alt="" />
-                    <a href="https://zh.wikipedia.org/wiki/User_talk:Edit_Mr.">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Choco_chip_cookie.png/180px-Choco_chip_cookie.png"
-                            alt=""
-                        />
-                    </a>
-                    <a
-                        href="https://www.csslight.com/website/63649/Scaict"
-                        target="_blank"
-                    >
-                        <img
-                            src="http://www.csslight.com/ribbons/csslight-featured-ribbon-left.png"
-                        />
-                    </a>
-                    <a
-                        href="http://webguruawards.com/awards/GOTD/webguruawards_white_bg_color.jpg"
-                        target="_blank"
-                    >
-                        <img
-                            src="https://webguruawards.com/awards/GOTD/img_guru_of_the_day_right.png"
-                        />
-                    </a>
-                    <a
-                        href="https://www.topcssgallery.com/gallery/scaict/"
-                        target="_blank"
-                    >
-                        <img src="https://scaict.org/src/img/TCG.png" />
-                    </a>
-                    <a
-                        href="https://topdesignking.com/website/1502/scaict"
-                        target="_blank"
-                        ><img
-                            src="https://topdesignking.com/public/images/ribbon-neon.png"
-                            alt="TopDesignKing"
-                    /></a>
+                <div>
+                    <h3>Languages & Libraries</h3>
+                    <ol>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>React / Vue</li>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>C++ / C#</li>
+                    </ol>
                 </div>
-                <div class="github">
-                    <img
-                        src="https://github-readme-stats.vercel.app/api?username=Edit-Mr&show_icons=true"
-                        alt=""
-                    /><img
-                        src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Edit-Mr&layout=compact&exclude_lang=java+r"
-                        alt=""
-                    />
+                <div>
+                    <h3>Applications</h3>
+                    <ol>
+                        <li>Nginx</li>
+                        <li>Git</li>
+                        <li>MySQL / MariaDB</li>
+                        <li>Ps / Ai / Id / Ae</li>
+                        <li>Wordpress, Wix</li>
+                        <li>Figma</li>
+                    </ol>
                 </div>
             </div>
-            <footer class="" subject>
-                <div>© 2024 by Elvis Mao (毛哥EM)</div>
-                <div class="social">
-                    <a
-                        href="https://www.instagram.com/elvisdragonmao/"
-                        target="_blank"
-                        ><img src="/img/icon/envelope-regular.svg" alt="Mail"
-                    /></a>
-                    <a href="https://github.com/Edit-Mr" target="_blank"
-                        ><img src="/img/icon/github.svg" alt="Mail"
-                    /></a>
-                    <a
-                        href="https://www.instagram.com/elvisdragonmao/"
-                        target="_blank"
-                        ><img src="/img/icon/line.svg" alt="Line"
-                    /></a>
-                    <a
-                        href="https://www.instagram.com/elvisdragonmao/"
-                        target="_blank"
-                        ><img src="/img/icon/Instagram.svg" alt="Instagram"
-                    /></a>
+            <h2>Education</h2>
+            <div class="education">
+                <div class="school">
+                    <div>
+                        <h3>Wagor Bilingual Elementary School</h3>
+                        <p>2013 - 2019</p>
+                    </div>
                 </div>
-            </footer>
-        </main>
+                <div class="school">
+                    <div>
+                        <h3>St. Viator Catholic High School</h3>
+                        <p>2019 - 2022</p>
+                    </div>
+                </div>
+                <div class="school">
+                    <div>
+                        <h3>Shi-Yuan Senior High School</h3>
+                        <p>2022 - 2025</p>
+                    </div>
+                </div>
+                <div class="school">
+                    <div>
+                        <h3><span>???</span></h3>
+                        <p><span>2025 - ?</span></p>
+                    </div>
+                </div>
+            </div>
+            <h2>Awards</h2>
+            <ul>
+                <li>SITCON Hackathon 2024 - Best Technical Award</li>
+                <li>2024 Taichung City Outstanding Youth</li>
+                <li>CSSREELS Featured</li>
+                <li>CSS Light - Featured of the Day</li>
+                <li>TopDesignKing - King of the Day</li>
+                <li>Top CSS Gallery</li>
+                <li>Musixmatch Moderator</li>
+                <li>Web Guru Award - Guru of the Day</li>
+                <li>
+                    2024 National High School English Public Forum Debate -
+                    Honorable Mentioned Debater, Judge’s Choice Awards
+                </li>
+                <li>
+                    2024 Yangwang Cup National Science HomeRun Competition -
+                    Bronze Medal
+                </li>
+                <li>
+                    2023 Taichung Information Network Application Competition -
+                    English Typing, Champion
+                </li>
+                <li>
+                    2023 Taichung Information Network Application Competition -
+                    Project, Champion
+                </li>
+                <li>
+                    2024 iThome Ironman Series - "Watch Closely, GitHub Actions
+                    – I'll Only Demonstrate Once."
+                </li>
+                <li>
+                    2023 iThome Ironman Series - "Cool Without Libraries - Fun
+                    with CSS & JS Effects"
+                </li>
+                <li>
+                    2020 Taichung Information Network Application Competition -
+                    Computer Graphics, Champion
+                </li>
+                <li>
+                    2020 Taichung Information Network Application Competition -
+                    Animation Design, Champion
+                </li>
+                <li>
+                    2019 Taichung Information Network Application Competition -
+                    Programming, First Place
+                </li>
+            </ul>
+            <div class="fridge-container">
+                <div class="fridge">
+                    <div class="fridge-list">
+                        <a href="https://ithelp.ithome.com.tw/users/20139821/ironman/6133" target="_blank">
+                        <img
+                            src="https://d1dwq032kyr03c.cloudfront.net/images/ironman_sticker/15/web.png"
+                            alt=""
+                        /></a>
+                        <a href="https://ithelp.ithome.com.tw/users/20139821/ironman/7503" target="_blank">
+                            <img
+                            src="https://d1dwq032kyr03c.cloudfront.net/images/ironman_sticker/16/devops.png"
+                            alt=""
+                        /></a>
+                        <img
+                            src="https://elvismao.com/img/Featured Badge.svg"
+                            alt=""
+                        />
+                        <a
+                            href="https://www.csslight.com/website/63649/Scaict"
+                            target="_blank"
+                        >
+                            <img
+                                src="http://www.csslight.com/ribbons/csslight-featured-ribbon-left.png"
+                            />
+                        </a>
+                        <a
+                            href="http://webguruawards.com/awards/GOTD/webguruawards_white_bg_color.jpg"
+                            target="_blank"
+                        >
+                            <img
+                                src="https://webguruawards.com/awards/GOTD/img_guru_of_the_day_right.png"
+                            />
+                        </a>
+                        <a
+                            href="https://www.topcssgallery.com/gallery/scaict/"
+                            target="_blank"
+                        >
+                            <img src="https://scaict.org/src/img/TCG.png" />
+                        </a>
+                        <a
+                            href="https://topdesignking.com/website/1502/scaict"
+                            target="_blank"
+                            ><img
+                                src="https://topdesignking.com/public/images/ribbon-neon.png"
+                                alt="TopDesignKing"
+                        /></a>
+                    </div>
+                </div>
+            </div>
+            <h2>Experience</h2>
+            <ul>
+                <li>8 years of web development experience</li>
+                <li>NCTU Bamboo Fox - Team members</li>
+                <li>SCAICT - Information Leader <span>(Retired)</span></li>
+                <li>SYSV - Leader <span>(Retired)</span></li>
+            </ul>
+            <h2 id="speaker">Speaker <span>(bluh bluh bluh)</span></h2>
+            <div class="speaker">
+                <h3>2024</h3>
+                <ul>
+                    <li>
+                        <a href="https://coscup.org/"
+                            >COSCUP - The Path to Freedom: The Open Source
+                            Journey of SCAICT</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://sitcon.org/2024/">
+                            SITCON - From Shortcuts to Terminal: The Programming
+                            Journey on iPhone</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://ais3.org/"
+                            >AIS3 fridge - Community Management</a
+                        >
+                    </li>
 
+                    <li>
+                        <a href="https://www.k12ea.gov.tw/En/"
+                            >K12EA, Ministry of Education</a
+                        >
+                        - Python Camp
+                    </li>
+                    <li>SCAICT Junior High Course - Line Bot</li>
+                    <li>
+                        <a href="https://www.k12ea.gov.tw/En/"
+                            >K12EA, Ministry of Education</a
+                        >
+                        - Having Fun with Arduino Workshop
+                    </li>
+                    <li>
+                        <a href="https://wc.scaict.org/"
+                            >SCAICT United Winter Camp</a
+                        >
+                        - Art Director, Phishing Website Course Instructor
+                    </li>
+                </ul>
+                <h3>2023</h3>
+                <ul>
+                    <li>SCAICT United Orientation - Web Scraping Instructor</li>
+                    <li>SCAICT October Theme Course - Web Design Instructor</li>
+                    <li>
+                        Shi-Yuan Senior High School - Web Design Microcourse
+                    </li>
+                    <li>
+                        Taichung Youth Program - English Debate Station Host
+                    </li>
+                    <li>
+                        <a href="https://www.k12ea.gov.tw/En/"
+                            >K12EA, Ministry of Education</a
+                        >
+                        - Python Web Scraping Workshop
+                    </li>
+                    <li>
+                        <a href="https://www.k12ea.gov.tw/En/"
+                            >K12EA, Ministry of Education</a
+                        >
+                        - Web Design Workshop
+                    </li>
+                </ul>
+                <h3>2022</h3>
+                <ul>
+                    <li>
+                        Stella Matutina Girls' High School - Playing with CSS:
+                        Creating Stunning Animations
+                    </li>
+                    <li>SYTV - C Language Programming Camp Advanced Course</li>
+                    <li>SYTV Guest Speaker - IoT Applications</li>
+                </ul>
+            </div>
+            <div class="github">
+                <img
+                    src="https://github-readme-stats.vercel.app/api?username=Edit-Mr&show_icons=true&theme=dark"
+                    alt=""
+                /><img
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Edit-Mr&layout=compact&theme=dark"
+                    alt=""
+                />
+            </div>
+        </main>
+        <footer>© 2024 by Elvis Mao</footer>
         <script>
-            const cursorCircle = document.querySelector(".cursor-circle");
-            document.addEventListener("mousemove", e => {
-                var x = e.clientX;
-                var y = e.clientY;
-                cursorCircle.style.width = "20px";
-                cursorCircle.style.height = "20px";
-                cursorCircle.style.left = x + "px";
-                cursorCircle.style.top = y + "px";
-            });
+            // get width of .fridge-list
+            const fridgeList = document.querySelector(".fridge-list");
+            const fridgeListWidth = fridgeList.offsetWidth;
+            const repeat = Math.ceil(window.innerWidth / fridgeListWidth) * 2;
+            fridgeList.innerHTML = fridgeList.innerHTML.repeat(repeat);
         </script>
     </body>
 </html>
