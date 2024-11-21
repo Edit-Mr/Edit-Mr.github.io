@@ -3,21 +3,6 @@
 <!DOCTYPE html>
 <html lang="zh-tw" data-default-color-scheme="auto">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-
-            gtag("config", "G-9R5PZG2VQG");
-        </script>
         <meta charset="UTF-8" />
         <link
             rel="apple-touch-icon"
@@ -55,21 +40,23 @@
         <meta name="twitter:card" content="summary_large_image" />
         <title>毛哥EM的基地</title>
         <style>
+            @import "https://fonts.googleapis.com/css2?family=Audiowide&display=swap";
             :root {
-                --bg-color: rgb(20, 20, 20);
                 --card-color: rgb(23, 23, 23);
             }
 
             body {
-                background-color: var(--bg-color);
+                background-color:rgb(20, 20, 20);
+                overflow-x: hidden;
+                font-family: Audiowide, system-ui, -apple-system,
+                    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+                    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
             }
 
             * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                font-family: "Helvetica", "Arial", "黑體-繁", "微軟正黑體",
-                    sans-serif;
                 color: rgb(240, 240, 240);
             }
 
@@ -77,11 +64,16 @@
                 min-height: 100vh;
                 width: 100%;
                 height: 100vh;
+                position: relative;
+                z-index: 3;
             }
 
             footer {
                 text-align: center;
-                margin: 2rem;
+                padding: 2rem;
+                background-color: #000000a7;
+                position: relative;
+                z-index: 3;
             }
 
             footer a {
@@ -119,19 +111,19 @@
                 background: linear-gradient(to right, aquamarine, mediumpurple);
                 animation: rotate 20s infinite;
                 opacity: 0.8;
+                z-index: 1;
             }
 
             #blur {
                 height: 100%;
                 width: 100%;
-                position: absolute;
-
+                position: fixed;
                 z-index: 2;
-                backdrop-filter: blur(12vmax);
+                filter: blur(12vmax);
+                /* -webkit-backdrop-filter: blur(12vmax); */
             }
 
             h1 {
-                font-family: "Space Mono", monospace;
                 font-size: clamp(3rem, 10vw, 10rem);
                 color: white;
                 white-space: nowrap;
@@ -156,12 +148,14 @@
 
             main {
                 align-items: center;
-                background-color: var(--bg-color);
+                background: linear-gradient(#00000000, #000000a7 10rem, #000000a7);
                 display: flex;
                 justify-content: center;
                 margin: 0px;
                 overflow: hidden;
                 padding: 0px;
+                position: relative;
+                z-index: 3;
             }
 
             #cards {
@@ -176,7 +170,7 @@
                 opacity: 1;
             }
 
-            .card {
+            .card { 
                 background-color: rgba(255, 255, 255, 0.1);
                 border-radius: 10px;
                 cursor: pointer;
@@ -344,17 +338,7 @@
                 }
             }
 
-            nav {
-                width: 100vw;
-                z-index: 10;
-                position: fixed;
-            }
-
-            nav img {
-                height: 4em;
-                margin: 30px;
-                filter: invert(1);
-            }
+            
             .card-image img {
                 height: 6em;
                 width: 6rem;
@@ -369,23 +353,30 @@
                 filter: grayscale(1) brightness(10000000);
             }
         </style>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rubik:wght@400;500&display=swap"
-            rel="stylesheet"
-        />
         <script
             src="https://kit.fontawesome.com/5b12cc2fae.js"
             crossorigin="anonymous"
         ></script>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-9R5PZG2VQG");
+        </script>
     </head>
 
     <body>
-        <nav>
-            <a href="/"><img src="/Logo.png" alt="" /></a>
-        </nav>
+        <div id="blur"><div id="blob"></div></div>
+       
         <header>
-            <div id="blob"></div>
-            <div id="blur"></div>
             <div class="text">
                 <h1 data-value="EM'S BASE">EM'S BASE</h1>
                 <h2>毛哥EM的基地 各種網頁專案</h2>
@@ -397,11 +388,11 @@
                 <div class="card" data-link="https://github.com/emfont/emfont">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-a"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-a"></i>
                                 <div class="card-info-title">
                                     <h3>emfont</h3>
                                     <h4>中文免費 Webfont 服務。</h4>
@@ -414,11 +405,11 @@
                 <div class="card" data-link="https://sitcon.elvismao.com/">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-radio"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-radio"></i>
                                 <div class="card-info-title">
                                     <h3>SITCON 開場動畫自動播放</h3>
                                     <h4>活動當場 youtube-dl 很可憐</h4>
@@ -430,11 +421,11 @@
                 <div class="card" data-link="https://totp.emtech.cc/">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-key"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-key"></i>
                                 <div class="card-info-title">
                                     <h3>TOTP4All</h3>
                                     <h4>安全輕量的驗證碼管理器。</h4>
@@ -446,11 +437,11 @@
                 <div class="card" data-link="https://status.emtech.cc">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-heart-pulse"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-heart-pulse"></i>
                                 <div class="card-info-title">
                                     <h3>emstatus</h3>
                                     <h4>
@@ -468,11 +459,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-newspaper"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-newspaper"></i>
                                 <div class="card-info-title">
                                     <h3>學聲 EduVoice</h3>
                                     <h4>
@@ -490,11 +481,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>教育部因材網影片查詢機器人</h3>
                                     <h4>
@@ -511,11 +502,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>夾娃娃機遠端控制系統</h3>
                                     <h4>這台娃娃機會攻擊你。</h4>
@@ -530,11 +521,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>開冷氣關門很難嗎?</h3>
                                     <h4>
@@ -552,11 +543,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>Sync GitHub Issues to Notion</h3>
                                     <h4>
@@ -573,11 +564,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>PINlogger</h3>
                                     <h4>手機陀螺儀可能洩漏你的帳密</h4>
@@ -589,11 +580,11 @@
                 <div class="card" data-link="https://github.com/Edit-Mr/emdl">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>emdl</h3>
                                     <h4>
@@ -611,11 +602,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>Whisper 語音輸入</h3>
                                     <h4>OpenAI Whisper 語音轉文字轉錄器</h4>
@@ -627,11 +618,11 @@
                 <div class="card" data-link="https://food-personality.com/">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>食物探悉</h3>
                                     <h4>找出最能代表你的食物 來鬧的心理測驗</h4>
@@ -643,11 +634,11 @@
                 <div class="card" data-link="https://github.com/Edit-Mr/emform">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>emform</h3>
                                     <h4>開源的表單網站。</h4>
@@ -659,11 +650,11 @@
                 <div class="card" data-link="https://ifei.work/">
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>#2024超越錫蘭</h3>
                                     <h4>蘇裔非的夢想。使用 YouTube API。</h4>
@@ -823,11 +814,11 @@
                 >
                     <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-solid fa-paint-roller"></i>
+                            <i class="fa-solid fa-"></i>
                         </div>
                         <div class="card-info-wrapper">
                             <div class="card-info">
-                                <i class="fa-solid fa-paint-roller"></i>
+                                <i class="fa-solid fa-"></i>
                                 <div class="card-info-title">
                                     <h3>圖示上色 CSS濾鏡生成器</h3>
                                     <h4>
@@ -1266,6 +1257,16 @@
                     event.target.innerText = event.target.innerText
                         .split("")
                         .map((letter, index) => {
+                            if (
+                                // ' just retrn '
+                                letter === "'"
+                            )
+                                return "'";
+                            if (
+                                // ' just retrn '
+                                letter === " "
+                            )
+                                return " ";
                             if (index < iteration)
                                 return event.target.dataset.value[index];
                             return letters[Math.floor(Math.random() * 26)];
