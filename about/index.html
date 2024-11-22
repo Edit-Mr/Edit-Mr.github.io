@@ -15,12 +15,42 @@
             name="description"
             content="Elvis Mao (毛哥EM) is a full stack developer, and a digital creator from Taiwan."
         />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="https://emtech.cc/static/icons/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="https://emtech.cc/static/icons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="https://emtech.cc/static/icons/favicon-16x16.png"
+        />
+        <link
+            rel="manifest"
+            href="https://emtech.cc/static/icons/site.webmanifest"
+        />
+        <link
+            rel="shortcut icon"
+            href="https://emtech.cc/static/icons/favicon.ico"
+        />
+        <meta name="msapplication-TileColor" content="#2d89ef" />
+        <meta
+            name="msapplication-config"
+            content="/static/icons/browserconfig.xml"
+        />
         <style>
             main {
                 margin: auto;
                 max-width: 1532px;
                 width: 100%;
-                padding: 25vh 84px 0;
+                padding: 25vh min(84px, 5vw) 0;
                 line-height: 1.5;
             }
 
@@ -121,7 +151,9 @@
             }
 
             nav {
-                background-color: #000;
+                background-color: #0000003b;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
             main a {
                 text-decoration: none;
@@ -225,6 +257,7 @@
             }
             .github img {
                 height: 200px;
+                max-width: 100%;
             }
             footer {
                 padding: 1.5rem 2rem;
@@ -299,6 +332,17 @@
             #speaker {
                 margin-top: 3rem;
             }
+
+            @media (max-width: 50rem) {
+                .skill {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                .github img {
+                    height: unset;
+                }
+            }
         </style>
         <!-- Google tag (gtag.js) -->
         <script
@@ -314,23 +358,29 @@
 
             gtag("config", "G-9R5PZG2VQG");
         </script>
-      <script type="module" crossorigin src="/assets/style-DT-FYcbv.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/style-C5MfnmPh.css">
+      <script type="module" crossorigin src="/assets/style-Bgoe4ix7.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/style-DMR4qP61.css">
     </head>
 
     <body>
         <div class="cursor-circle"></div>
         <nav>
             <div class="left">
-                <h1><a href="/">Elvis Mao</a></h1>
+                <div class="nav-title"><a href="/">Elvis Mao</a></div>
             </div>
             <img src="/logo.svg" alt="" />
             <div class="right">
-                <a href="/code"><span>Projects</span></a>
-                <a href="/about"><span>About</span></a>
-                <a href="https://emtech.cc" target="_blank"
-                    ><span>Blog</span></a
-                >
+                <label for="burger-togggle" class="burger-label"
+                    ><div class="burger"></div
+                ></label>
+                <input type="checkbox" name="" id="burger-togggle" />
+                <div class="menu">
+                    <a href="/code/"><span>Projects</span></a>
+                    <a href="/about/"><span>About</span></a>
+                    <a href="https://emtech.cc" target="_blank"
+                        ><span>Blog</span></a
+                    >
+                </div>
             </div>
         </nav>
         <main>
@@ -607,6 +657,9 @@
             const fridgeListWidth = fridgeList.offsetWidth;
             const repeat = Math.ceil(window.innerWidth / fridgeListWidth) * 2;
             fridgeList.innerHTML = fridgeList.innerHTML.repeat(repeat);
+
+            document.querySelector(".fridge-list").style.animationDuration =
+                window.innerWidth / 50 + "s";
         </script>
     </body>
 </html>
