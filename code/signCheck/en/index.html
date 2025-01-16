@@ -3,33 +3,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>毛哥EM 檔案簽名檢查 | 毛哥EM的基地</title>
+        <title>EM File Signature Verification</title>
         <meta
             name="description"
-            content="毛哥EM 檔案簽名檢查，確保檔案沒有經過竄改。"
+            content="Verify the signature of the file provided by EM."
         />
         <link rel="stylesheet" href="../style.css" />
     </head>
     <body>
         <main>
-            <h1>毛哥EM 檔案簽名檢查</h1>
+            <h1>EM File Signature Verification</h1>
             <p>
-                你可以在此上傳毛哥EM
-                所提供的文件進行驗證，確保檔案沒有經過竄改。
+                This page is used to verify the signature of the file provided
+                by EM. Please upload the file and click the "Check" button to
+                verify the signature.
             </p>
             <p id="result"></p>
             <input type="file" id="fileInput" />
             <div>
-                <button onclick="verifySignature()">檢查</button>
+                <button onclick="verifySignature()">Verify</button>
                 <button onclick="downloadSign()" class="download">
-                    下載簽名
+                    Download Signature
                 </button>
             </div>
         </main>
         <footer>
             <p>
-                此網站使用上傳的檔案、網址內的簽名、以及網頁中的公鑰進行簽名驗證，不會將任何資料上傳到伺服器。
-                <br />© 2024 毛哥EM
+                File, signature, and public key in the webpage are used for
+                signature verification. No data will be uploaded to the server.
+                <br />© 2024 Elvis Mao
             </p>
         </footer>
 
@@ -69,8 +71,7 @@ WQIDAQAB
             ).get("sign");
             // check if the signature is provided in the URL
             if (!signatureBase64) {
-                resultText.textContent =
-                    "This link is invalid.";
+                resultText.textContent = "This link is invalid.";
                 resultText.classList = "invalid";
                 throw new Error("No signature provided in the URL.");
             }
