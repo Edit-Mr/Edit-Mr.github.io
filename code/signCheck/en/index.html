@@ -8,7 +8,7 @@
             name="description"
             content="毛哥EM 檔案簽名檢查，確保檔案沒有經過竄改。"
         />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../style.css" />
     </head>
     <body>
         <main>
@@ -70,14 +70,14 @@ WQIDAQAB
             // check if the signature is provided in the URL
             if (!signatureBase64) {
                 resultText.textContent =
-                    "此連結無效，請重新點擊毛哥EM提供的連結。";
+                    "This link is invalid.";
                 resultText.classList = "invalid";
                 throw new Error("No signature provided in the URL.");
             }
             // check browser support
             if (!window.crypto || !window.crypto.subtle) {
                 resultText.textContent =
-                    "你的瀏覽器不支援 Web Cryptography API，請使用最新版的瀏覽器。";
+                    "Web Cryptography API is not supported in this browser.";
                 throw new Error(
                     "Web Cryptography API is not supported in this browser."
                 );
@@ -115,8 +115,8 @@ WQIDAQAB
                 );
 
                 resultText.textContent = isValid
-                    ? "簽名有效。"
-                    : "簽名無效，請確保點擊的連結正確或是檔案可能已經被竄改。";
+                    ? "Valid signature."
+                    : "Invalid signature. Please make sure the link is correct or the file may have been tampered with.";
                 resultText.classList = isValid ? "valid" : "invalid";
             }
 
