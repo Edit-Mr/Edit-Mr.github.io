@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9R5PZG2VQG');
+  </script>
+  <meta charset="UTF-8">
+  <title>勾選框疊疊樂 | 毛哥EM的基地</title>
+  <meta name="description" content="一個使用勾選框製作的疊疊樂">
+  <meta name="keywords" content="EM's Base, Edit Mr., fullstack, 疊疊樂">
+  <meta name="author" content="Elvis Mao">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="勾選框疊疊樂 | 毛哥EM的基地" />
+  <meta property="og:url" content="https://https://elvismao.com/code/fullstack" />
+  <meta property="og:site_name" content="毛哥EM的基地" />
+  <meta property="og:description" content="一個使用勾選框製作的疊疊樂" />
+  <meta property="og:locale" content="zh-TW" />
+  <meta property="article:author" content="毛哥EM" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="https://pages-themes.github.io/cayman/assets/css/style.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="screen">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="game">
+    <h1 class="project-name">勾選框疊疊樂</h1>
+    <p>By <a target="_blank" href="https://elvismao.com/">Edit Mr.</a><br />
+      <span class="game-status">&nbsp;</span>
+      <span class="game-score"></span><br /><button class="restart btn">重新</button>
+      <button class="mode btn">簡單</button>
+    </p>
+    <div class="game-canvas"></div>
+  </div>
+
+  <script>
+    //thanks for hakim.se(https://hakim.se/)
+    const COLUMNS = 18;
+    const ROW_TEMPLATE = '<input type="checkbox"/>'.repeat(COLUMNS);
+
+    const easy = {
+      currentScore: 0,
+      currentRow: 1,
+      currentMultiplier: 1,
+
+      // time in ms to swing pendulum from side to the other
+      currentSpeed: 1000,
+
+      // initial width of the pendulum
+      currentWidth: 6
+    }
+
+    const hard = {
+      ...easy,
+      currentMultiplier: 3,
+      currentSpeed: 600,
+      currentWidth: 4
+    }
+
+    let currentSettings = easy;
+
+    let game = document.querySelector('.game');
+    let canvas = document.querySelector('.game-canvas');
+    let status = document.querySelector('.game-status');
+    let score = document.querySelector('.game-score');
+    let modeButton = document.querySelector('.mode');
+    let restartButton = document.querySelector('.restart');
+
+    let rows;
+    let rowHeight;
+    let state;
+
+    let startTime;
+
+    window.onresize = resize;
+    restartButton.onmousedown = reset;
+    modeButton.onmousedown = toggleMode;
+    document.onkeydown = event => {
+      if (event.keyCode === 32) click(event);
+      if (event.keyCode === 82) reset();
+    }
+
+    if ('ontouchstart' in window) {
+      window.ontouchstart = click;
+    }
+    else {
+      window.onmousedown = click;
+    }
+
+    build();
+    reset();
+    paint();
+
+    function reset() {
+
+      setState('playing');
+
+      rows.forEach(row => row.forEach(box => box.checked = false));
+
+      startTime = Date.now();
+
+      ({
+        currentRow,
+        currentSpeed,
+        currentWidth,
+        currentScore,
+        currentMultiplier
+      } = currentSettings)
+
+      selectBoxes({
+        row: 0,
+        index: Math.floor(COLUMNS / 2 - currentWidth / 2),
+        width: currentWidth
+      });
+
+      score.innerHTML = '分數: <em>' + currentScore + '</em>';
+
+    }
+
+    function resize() {
+      if (build()) reset();
+    }
+
+    function click(event) {
+
+      if (!event.type.startsWith('key') && event.target.matches('a, button')) return;
+
+      event.preventDefault();
+
+      if (state === 'playing') {
+        step();
+      }
+      else {
+        reset();
+      }
+
+    }
+
+    function setState(value) {
+
+      state = value;
+
+      if (state === 'playing') status.textContent = '空白鍵開始，縮放來調整難度';
+      else if (state === 'won') status.textContent = '你贏了! 🏅✌️';
+      else if (state === 'lost') status.textContent = '再試一次吧 💥';
+
+    }
+
+    function toggleMode() {
+
+      if (/easy/i.test(modeButton.textContent)) {
+        currentSettings = hard;
+        modeButton.textContent = '困難';
+      }
+      else {
+        currentSettings = easy;
+        modeButton.textContent = '簡單';
+      }
+
+      reset();
+
+    }
+
+    function build() {
+
+      let canvasHeight = canvas.offsetHeight;
+
+      // only rebuild if the number of rows has changed
+      if (typeof rowHeight === 'number' && rows.length === Math.floor(canvasHeight / rowHeight) - 1) {
+        return false;
+      }
+
+      rows = [];
+      canvas.innerHTML = '';
+
+      let firstRow = generateRow();
+      rowHeight = firstRow.offsetHeight;
+
+      Array(Math.floor(canvasHeight / rowHeight) - 2).fill().map(generateRow); //2
+
+      return true;
+
+    }
+
+    function generateRow() {
+
+      let row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = ROW_TEMPLATE;
+      canvas.appendChild(row);
+
+      rows.unshift(Array.from(row.childNodes));
+
+      return row;
+
+    }
+
+    function selectBoxes({ row = currentRow, index, width }) {
+
+      rows[row].forEach((box, i) => box.checked = i >= index && i <= index + width - 1);
+
+    }
+
+    function step() {
+
+      currentWidth = 0;
+
+      // currentWidth = adjacent checked boxes on previous row
+      rows[currentRow].forEach((box, i) => {
+        if (box.checked && rows[currentRow - 1][i].checked) {
+          currentWidth += 1;
+        }
+      });
+
+      currentRow += 1;
+
+      // score
+      let multiplier = currentMultiplier * (1 + (currentRow / rows.length));
+      currentScore = Math.ceil(currentScore + currentWidth * multiplier);
+
+      // :(
+      if (currentWidth === 0) {
+        setState('lost');
+      }
+      // :)
+      else if (currentRow >= rows.length) {
+        currentScore += 30 * multiplier;
+        setState('won');
+      }
+
+      score.innerHTML = '分數: <em>' + currentScore + '</em>';
+
+    }
+
+    function paint() {
+
+      if (state === 'playing') {
+
+        let time = (Date.now() - startTime) % (currentSpeed * 2);
+        if (time > currentSpeed) time = currentSpeed * 2 - time;
+
+        selectBoxes({
+          index: Math.floor(time / currentSpeed * (COLUMNS - currentWidth + 1)),
+          width: currentWidth
+        });
+
+      }
+
+      requestAnimationFrame(paint);
+
+    }
+  </script>
+
+</body>
+
+</html>

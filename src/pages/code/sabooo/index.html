@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-9R5PZG2VQG");
+    </script>
+    <meta charset="utf-8" />
+    <title>薩波進度查詢表</title>
+    <meta name="description" content="委託、圖換、贈圖進度查詢表" />
+    <meta name="author" content="Edit Mr." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="thumbnail.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="screen">
+    <meta name="theme-color" content="orange" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+        body {
+            font-family: "Arial","cwTeXYen","微軟正黑體";
+            background-color: #fee5bd;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 25px;
+        }
+
+        h2 {
+            font-size: 23px;
+            margin: 0;
+            text-align: center;
+            font-weight: 150;
+            color: #e69137;
+            animation: fadeIn;
+            animation-duration: 1.5s;
+            animate-delay: 0.9s;
+        }
+
+        h1 {
+            font-size: 35px;
+            margin: 20px 0 0 0;
+            text-align: center;
+            size: 30px;
+            color: #351c75;
+            animation: zoomIn;
+            animation-duration: 1s;
+        }
+
+        li {
+            border-radius: 3px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .responsive-table .table-header,
+        .table-note {
+            background-color: #f9a756;
+            font-size: 30px;
+            margin-top: 0px;
+            padding: 25px 30px 25px 30px;
+            animation: slideInUp;
+            animation-duration: 1.5s;
+        }
+
+        .table-note {
+            font-size: 20px;
+            display: none;
+        }
+
+        .responsive-table {
+            margin: 0;
+            padding: 0;
+        }
+
+        .responsive-table .table-row {
+            background-color: #fff;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+            animation: backInLeft;
+            animation-duration: 1.5s;
+        }
+        .table-row{}
+        .responsive-table .col-1 {
+            flex-basis: 25%;
+        }
+
+        .responsive-table .col-2 {
+            flex-basis: 30%;
+        }
+
+        .responsive-table .col-3 {
+            flex-basis: 30%;
+        }
+
+        .responsive-table .col-4 {
+            flex-basis: 15%;
+        }
+
+        @media all and (max-width: 767px) {
+            .responsive-table .table-header {
+                display: none;
+            }
+
+            .table-note {
+                display: block;
+            }
+
+            .responsive-table li {
+                display: block;
+            }
+
+            .responsive-table .col {
+                flex-basis: 100%;
+            }
+
+            .responsive-table .col {
+                display: flex;
+                padding: 10px 0;
+            }
+
+            .responsive-table .col:before {
+                color: #6c7a89;
+                padding-right: 10px;
+                content: attr(data-label);
+                flex-basis: 50%;
+                text-align: right;
+            }
+        }
+
+        .header {
+            width: 150px;
+            display: block;
+            margin: auto;
+            animation: slideInUp;
+            animation-duration: 1.5s;
+        }
+
+        .finished {
+            color: green;
+        }
+
+        p,
+        a {
+            text-align: center;
+            font-size: 15px;
+            color: #6c7a89;
+            text-decoration: none;
+            animation: fadeIn;
+            animation-duration: 1.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>薩波2022委託與贈圖表</h1>
+        <h2>這些不代表畫的順序 會跳著畫</h2>
+        <img src="header.png" class="header" />
+        <li class="table-note">
+            如果要一次看完整表格請切換到電腦版網頁喔
+        </li>
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">委託人姓名</div>
+                <div class="col col-2">委託項目</div>
+                <div class="col col-3">付款狀態</div>
+                <div class="col col-4">進度狀態</div>
+            </li>
+            資料載入中
+        </ul>
+        <p><a href="https://www.facebook.com/Sabo9335">薩波FB</a> · <a
+                href="https://instagram.com/sabooo_9335?igshid=YmMyMTA2M2Y=">薩波IG</a> · <a
+                href="https://discord.gg/ve9ERWVEPR">橘子牌太空船</a><br />Made by <a href="https://twitter.com/EdenDragonMao">EDM</a> with❤</p>    </div>
+    <script>
+        let requestURL = "https://script.google.com/macros/s/AKfycbxq942U9fZK5tR6Vi1OZkr5Hq0Bv_qPSm1rOOYFFZUS_vyrTu60QuW7xmU-d09UpI1XLQ/exec";
+        let request = new XMLHttpRequest();
+        request.open("GET", requestURL);
+        request.responseType = "text";
+        request.send();
+        request.onload = function () {
+            console.log("loaded");
+            console.log(request.response);
+            $("p").addClass('animate_animated','animate_fadeOut')
+            $(".responsive-table").html(request.response);
+        };
+    </script>
+</body>
