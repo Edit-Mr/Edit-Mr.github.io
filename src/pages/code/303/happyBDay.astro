@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+---
+import GA from "../components/GA.astro";
+import Favicon from "../components/Favicon.astro";
+---
+<!doctype html>
 <html>
     <head>
         <style>
@@ -81,10 +85,10 @@
                     balloonBaseVel: 0.4,
                     balloonAddedVel: 0.4,
                     balloonBaseRadian: -(Math.PI / 2 - 0.5),
-                    balloonAddedRadian: -1,
+                    balloonAddedRadian: -1
                 },
                 calc = {
-                    totalWidth: opts.charSpacing * Math.max(opts.strings[0].length, opts.strings[1].length),
+                    totalWidth: opts.charSpacing * Math.max(opts.strings[0].length, opts.strings[1].length)
                 },
                 Tau = Math.PI * 2,
                 TauQuarter = Tau / 4,
@@ -372,9 +376,7 @@
 
             for (var i = 0; i < opts.strings.length; ++i) {
                 for (var j = 0; j < opts.strings[i].length; ++j) {
-                    letters.push(
-                        new Letter(opts.strings[i][j], j * opts.charSpacing + opts.charSpacing / 2 - (opts.strings[i].length * opts.charSize) / 2, i * opts.lineHeight + opts.lineHeight / 2 - (opts.strings.length * opts.lineHeight) / 2)
-                    );
+                    letters.push(new Letter(opts.strings[i][j], j * opts.charSpacing + opts.charSpacing / 2 - (opts.strings[i].length * opts.charSize) / 2, i * opts.lineHeight + opts.lineHeight / 2 - (opts.strings.length * opts.lineHeight) / 2));
                 }
             }
 

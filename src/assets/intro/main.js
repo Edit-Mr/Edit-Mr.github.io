@@ -43,16 +43,11 @@ material.side = THREE.DoubleSide;
 // Sizes
 const sizes = {
     width: window.innerWidth,
-    height: window.innerHeight,
+    height: window.innerHeight
 };
 
 // Camera
-const camera = new THREE.PerspectiveCamera(
-    45,
-    sizes.width / sizes.height,
-    0.1,
-    2000
-);
+const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer();
@@ -67,7 +62,7 @@ let ASCIIColor = "white";
 function createEffect() {
     effect = new AsciiEffect(renderer, characters, {
         invert: true,
-        resolution: effectSize.amount,
+        resolution: effectSize.amount
     });
     effect.setSize(sizes.width, sizes.height);
     effect.domElement.style.color = ASCIIColor;
@@ -142,7 +137,7 @@ const keyframes = [
         rz: 1.2544634559949106,
         px: -0.18851380350171026,
         py: 0.003374259693436188,
-        pz: 0.03300631548899701,
+        pz: 0.03300631548899701
     },
     {
         px: -2.1797208198865823,
@@ -150,7 +145,7 @@ const keyframes = [
         pz: 1.259941607611314,
         rx: -0.10187680375576487,
         ry: -1.3965809813885177,
-        rz: -0.10034508895856986,
+        rz: -0.10034508895856986
     },
     {
         px: -1.1034436569318822,
@@ -158,7 +153,7 @@ const keyframes = [
         pz: 1.9652184488834998,
         rx: -0.029276658833755884,
         ry: -0.18859301653013388,
-        rz: -0.005490215016934513,
+        rz: -0.005490215016934513
     },
     {
         px: 3.6492892876810172,
@@ -166,7 +161,7 @@ const keyframes = [
         pz: 4.25,
         rx: -0.2220876074269339,
         ry: 0.684948575340779,
-        rz: 0.14189637418696438,
+        rz: 0.14189637418696438
     },
     {
         px: 3.6492892876810172,
@@ -174,16 +169,14 @@ const keyframes = [
         pz: 4.25,
         rx: -0.2220876074269339,
         ry: 0.684948575340779,
-        rz: 0.14189637418696438,
-    },
+        rz: 0.14189637418696438
+    }
 ];
 
 let lastScroll = 0;
 let counted = true;
 const creates = document.querySelector(".creates");
-var lineHeight = document
-    .querySelector(".create")
-    .getBoundingClientRect().height;
+var lineHeight = document.querySelector(".create").getBoundingClientRect().height;
 const do1 = document.querySelector(".type-do1");
 const do2 = document.querySelector(".type-do2");
 const scrollAnimation = () => {
@@ -195,35 +188,17 @@ const scrollAnimation = () => {
     // 100 to transition, 50 to stop
     const data = Math.floor(process);
     process -= data;
-    camera.position.x =
-        keyframes[data].px +
-        (keyframes[data + 1].px - keyframes[data].px) * process +
-        0.2 +
-        (window.innerWidth - 1536) * 0.0004;
-    camera.position.y =
-        keyframes[data].py +
-        (keyframes[data + 1].py - keyframes[data].py) * process;
-    camera.position.z =
-        keyframes[data].pz +
-        (keyframes[data + 1].pz - keyframes[data].pz) * process;
-    camera.rotation.x =
-        keyframes[data].rx +
-        (keyframes[data + 1].rx - keyframes[data].rx) * process;
-    camera.rotation.y =
-        keyframes[data].ry +
-        (keyframes[data + 1].ry - keyframes[data].ry) * process;
-    camera.rotation.z =
-        keyframes[data].rz +
-        (keyframes[data + 1].rz - keyframes[data].rz) * process;
+    camera.position.x = keyframes[data].px + (keyframes[data + 1].px - keyframes[data].px) * process + 0.2 + (window.innerWidth - 1536) * 0.0004;
+    camera.position.y = keyframes[data].py + (keyframes[data + 1].py - keyframes[data].py) * process;
+    camera.position.z = keyframes[data].pz + (keyframes[data + 1].pz - keyframes[data].pz) * process;
+    camera.rotation.x = keyframes[data].rx + (keyframes[data + 1].rx - keyframes[data].rx) * process;
+    camera.rotation.y = keyframes[data].ry + (keyframes[data + 1].ry - keyframes[data].ry) * process;
+    camera.rotation.z = keyframes[data].rz + (keyframes[data + 1].rz - keyframes[data].rz) * process;
     if (t < 1.7) {
         creates.style.opacity = 0;
     } else {
         creates.style.opacity = 1;
-        creates.style.top =
-            Math.min(
-                0 - Math.min(Math.floor((t - 1.9) * 5), 2) * lineHeight,
-                0
-            ) + "px";
+        creates.style.top = Math.min(0 - Math.min(Math.floor((t - 1.9) * 5), 2) * lineHeight, 0) + "px";
         if (t < 2.5 && !counted) {
             counted = true;
             const numbers = document.querySelectorAll(".number");
@@ -250,20 +225,13 @@ const scrollAnimation = () => {
                     } else {
                         count = endCount;
                     }
-                    number.textContent =
-                        count >= 1000
-                            ? count >= 1000000
-                                ? (count / 1000000).toFixed(1) + "M"
-                                : (count / 1000).toFixed(1) + "K"
-                            : Math.floor(count);
+                    number.textContent = count >= 1000 ? (count >= 1000000 ? (count / 1000000).toFixed(1) + "M" : (count / 1000).toFixed(1) + "K") : Math.floor(count);
                 }
                 updateCounter();
             }
         } else if (t > 3.2) {
             // create o * (t-3)*10
-            document.getElementById("alot-o").innerHTML = "o".repeat(
-                Math.floor((t - 3.2) * 20)
-            );
+            document.getElementById("alot-o").innerHTML = "o".repeat(Math.floor((t - 3.2) * 20));
         }
     }
     do1.classList.toggle("typed", t > 4);

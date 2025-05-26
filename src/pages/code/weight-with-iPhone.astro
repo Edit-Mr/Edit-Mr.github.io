@@ -1,0 +1,289 @@
+<html lang="en">
+    <head>
+       
+        <meta charset="UTF-8" />
+        <title>iPhone 3D Touch觸控秤</title>
+        <meta name="description" content="用你的iPhone來秤重吧" />
+        <meta name="keywords" content="iPhone, 3D Touch, Edit Mr." />
+        <meta name="author" content="Elvis Mao" />
+        <meta property="og:url" content="http://https://elvismao.com/code/weight-with-iPhone" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <style>
+            * {
+                -webkit-user-select: none;
+            }
+
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+            }
+
+            #container {
+                width: 100%;
+                max-width: 415px;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+                box-sizing: border-box;
+                max-height: 800px;
+            }
+
+            #footer {
+                width: 100%;
+                height: 130px;
+                background: linear-gradient(90deg, #fc00ff, #00dbde);
+                position: absolute;
+                bottom: 0;
+                border-radius: 10px;
+            }
+
+            #controls {
+                width: 100%;
+                height: 50px;
+                position: absolute;
+                background: rgba(0, 0, 0, 0.4);
+                bottom: 0;
+            }
+
+            #weight {
+                width: 100%;
+                height: 75px;
+                text-align: center;
+                font-size: 52px;
+                color: #fff;
+                line-height: 75px;
+                top: 0;
+                position: absolute;
+            }
+
+            #tare {
+                background: rgba(0, 0, 0, 0.4);
+                color: #fff;
+                text-align: center;
+                width: 50%;
+                font-size: 24px;
+                line-height: 50px;
+                height: 50px;
+                left: 0;
+            }
+
+            select {
+                width: 40%;
+                position: absolute;
+                right: 20px;
+                height: 25px;
+                -webkit-appearance: none;
+                bottom: 5px;
+                display: block;
+                padding-right: 15px;
+                border: none;
+                outline: 0;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 14px;
+                padding: 0 5px;
+            }
+
+            #label {
+                position: absolute;
+                left: 50%;
+                font-size: 12px;
+                width: 50%;
+                top: 0;
+                text-align: center;
+                top: 4px;
+                color: #fff;
+            }
+
+            a,
+            a:active,
+            a:hover,
+            a:visited {
+                color: #fff;
+            }
+
+            #logo {
+                height: 30px;
+                width: 150px;
+                text-align: center;
+                line-height: 30px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                color: #fff;
+                background: linear-gradient(90deg, #fc00ff, #00dbde);
+            }
+
+            #circle {
+                width: 350px;
+                bottom: 145px;
+                position: absolute;
+                top: 35px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                border: 4px dashed #ddd;
+            }
+
+            #circle2 {
+                position: absolute;
+                border-radius: 50%;
+                background: #f8e14b;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 0;
+                height: 0;
+            }
+
+            #message {
+                height: 100px;
+                width: 320px;
+                text-align: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                font-size: 12px;
+                color: #777;
+            }
+
+            #shortcutor {
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                color: #fff;
+                background: linear-gradient(90deg, #fc00ff, #fc00ff);
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            #warning {
+                position: absolute;
+                width: 100%;
+                height: 40px;
+                color: #8b0000;
+                font-weight: 700;
+                text-align: center;
+                bottom: 5px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                display: none;
+                -webkit-animation: fade ease-in-out 0.5s;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="logo" class=""><a target="_blank" style="text-decoration: none" href="#">3D觸控秤</a></div>
+            <div id="circle">
+                <div id="message">
+                    放置一些導電的東西，比如蘋果。<br />
+                    <span style="color: #00f"><b>不要放置任何會劃傷屏幕的東西!</b></span
+                    ><br />
+                    如果您更改了3D Touch靈敏度，請在下方進行設置。<br />
+                </div>
+                <div id="circle2"></div>
+                <div id="warning" style="display: none">
+                    Multi-Touch Weighing<br />
+                    (usually less accurate)
+                </div>
+            </div>
+            <div id="footer">
+                <div id="weight">0.00g</div>
+                <div id="controls">
+                    <div id="tare">歸零</div>
+                    <select id="sense">
+                        <option value="0">輕</option>
+                        <option value="1" selected>中等</option>
+                        <option value="2">重</option>
+                    </select>
+                    <div id="label">3D Touch靈敏度</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var currentTouchF,
+                tare = document.getElementById("tare"),
+                warning = document.getElementById("warning");
+            function transformTare() {
+                void 0 !== currentTouchF && (tare.style.webkitTransform = "rotateX(" + 60 * currentTouchF.force + "deg)");
+            }
+            function tareTouchStart(e) {
+                e.preventDefault(), (currentTouchF = e.touches[0]), (tareForce = e.touches[0].force);
+            }
+            setInterval(transformTare, 10), tare.addEventListener("touchstart", tareTouchStart, !1);
+            var currentTouch,
+                weight = document.getElementById("weight"),
+                forceConversions = [0.8, 1, 1.2],
+                fcIndex = 1,
+                circle2 = ((tare = document.getElementById("tare")), document.getElementById("circle2")),
+                maxForce = 6.666666667,
+                tareForce = 0,
+                updater = 0,
+                numTouches = 0,
+                touches = {},
+                force = 0;
+            document.getElementById("sense").onchange = function (e) {
+                (fcIndex = this.selectedIndex), (document.cookie = "fc=" + fcIndex);
+            };
+            var fcCookie = ("; " + document.cookie).split("; fc=").pop().split(";").shift();
+            function onForceStart(e) {
+                (currentTouch = e.touches[0]), (numTouches = e.touches.length);
+            }
+            function onForceMove(e) {
+                e.preventDefault(), (currentTouch = e.touches[0]), (numTouches = e.touches.length);
+            }
+            function onForceEnded(e) {
+                e.preventDefault(),
+                    setTimeout(function () {
+                        (currentTouch = void 0), (force = 0), delete touches[e.changedTouches[0].identifier];
+                    }, 2),
+                    (numTouches = e.touches.length);
+            }
+            function onForceChange(e) {
+                e.preventDefault(), (currentTouch = e.changedTouches[0]);
+                for (var c = (force = 0); c < e.changedTouches.length; c++) touches[e.changedTouches[c].identifier] = e.changedTouches[c].force;
+                for (var t in ((numTouches = Object.keys(touches).length), touches)) touches.hasOwnProperty(t) && (force += touches[t]);
+            }
+            function weigh(e) {
+                var c = 405.257 * (e - tareForce) * forceConversions[fcIndex] + 2.056 * forceConversions[fcIndex];
+                return c < 12 && (c -= 2.056 * forceConversions[fcIndex]), c.toFixed(2);
+            }
+            function updateForce() {
+                (warning.style.display = 1 < numTouches ? "inline-block" : "none"), (circle2.style.height = (force / numTouches) * 345 + "px"), (circle2.style.width = (force / numTouches) * 345 + "px"), (document.getElementById("container").style.webkitTransform = "rotateX(" + (force / numTouches) * -20 + "deg) scale(" + (1 - (force / numTouches) * 0.06) + ")");
+                var e = (force / numTouches) * 5 + "px";
+                0 < force && (document.body.style.boxShadow = "0px 0px  15px " + e + " rgba(0, 0, 0, 0.333) inset"), (weight.innerHTML = weigh(force) + "g");
+            }
+            (fcIndex = "" == fcCookie ? fcIndex : +fcCookie), (document.getElementById("sense").selectedIndex = fcIndex), setInterval(updateForce, 1);
+            var circle = document.getElementById("circle");
+            circle.addEventListener("touchmove", onForceMove, !1), circle.addEventListener("touchstart", onForceStart, !1), circle.addEventListener("touchend", onForceEnded, !1), circle.addEventListener("touchforcechange", onForceChange, !1);
+        </script>
+    </body>
+</html>

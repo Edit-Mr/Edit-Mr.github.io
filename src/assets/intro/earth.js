@@ -9,7 +9,7 @@ function initEarth() {
     window.camera = new THREE.PerspectiveCamera(1, WIDTH / HEIGHT, 0.1, 1000);
     window.renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: true
     });
     //scene.background = new THREE.Color( 0xffffff );
     renderer.setSize(WIDTH, HEIGHT);
@@ -24,7 +24,7 @@ function initEarth() {
         emissive: 0x000000,
         roughness: 1,
         metalness: 1,
-        map: texture,
+        map: texture
     });
     window.globe = new THREE.Mesh(geometry, material);
     window.globe.rotation.z = Math.PI;
@@ -42,9 +42,7 @@ function initEarth() {
     camera.position.z = 345;
     document.body.appendChild(renderer.domElement);
     window.gl = window.renderer.context;
-    window.pixels = new Uint8Array(
-        gl.drawingBufferWidth * gl.drawingBufferHeight * 4
-    );
+    window.pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
 
     renderEarth();
 }
@@ -62,15 +60,7 @@ function renderEarth() {
     if (window.scrollY / window.innerHeight < 4) return;
     window.globe.rotation.y -= 0.01;
     window.renderer.render(window.scene, window.camera);
-    window.gl.readPixels(
-        0,
-        0,
-        window.WIDTH,
-        window.HEIGHT,
-        gl.RGBA,
-        gl.UNSIGNED_BYTE,
-        pixels
-    );
+    window.gl.readPixels(0, 0, window.WIDTH, window.HEIGHT, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
     var text = grayscale10(window.pixels).map(asciify).join("");
     text = text.split("\n").map(reverseString).join("\n");
     window.outputEl.innerHTML = text;
@@ -84,12 +74,7 @@ function grayscale10(pixels) {
     var length = pixels.length;
     var gsPixels = [];
     for (var i = 0; i < length; i += 4) {
-        gsPixels.push(
-            Math.floor(
-                ((pixels[i] + pixels[i + 1] + pixels[i + 2]) / 768) *
-                    window.ASCII.length
-            )
-        );
+        gsPixels.push(Math.floor(((pixels[i] + pixels[i + 1] + pixels[i + 2]) / 768) * window.ASCII.length));
     }
     return gsPixels;
 }

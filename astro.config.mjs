@@ -1,5 +1,19 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
-export default defineConfig({});
+
+export default defineConfig({
+    site: "https://elvismao.com",
+    base: "",
+    output: "static",
+    trailingSlash: "always"
+    //   integrations: [
+    //     i18n({
+    //       locales: { zh: "zh-Hant", en: "en-US" },
+    //       defaultLocale: "zh",
+    //       redirectDefaultLocale: true,
+    //     }),
+    //     astroIcon(),
+    //   ],
+});
