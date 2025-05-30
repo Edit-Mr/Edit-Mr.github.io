@@ -2,6 +2,7 @@
 import GA from "@components/GA.astro";
 import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-Hant">
     <head>
@@ -199,9 +200,9 @@ import Favicon from "@components/Favicon.astro";
                 -webkit-animation: fade ease-in-out 0.5s;
             }
         </style>
-    <Favicon />
-<GA />
-</head>
+        <Favicon />
+        <GA />
+    </head>
 
     <body>
         <div id="container">
@@ -209,8 +210,7 @@ import Favicon from "@components/Favicon.astro";
             <div id="circle">
                 <div id="message">
                     放置一些導電的東西，比如蘋果。<br />
-                    <span style="color: #00f"><b>不要放置任何會劃傷屏幕的東西!</b></span
-                    ><br />
+                    <span style="color: #00f"><b>不要放置任何會劃傷屏幕的東西!</b></span><br />
                     如果您更改了3D Touch靈敏度，請在下方進行設置。<br />
                 </div>
                 <div id="circle2"></div>

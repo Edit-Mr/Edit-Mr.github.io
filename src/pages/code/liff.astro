@@ -72,22 +72,18 @@ import Favicon from "@components/Favicon.astro";
             // VConsole will be exported to `window.VConsole` by default.
             var vConsole = new window.VConsole();
         </script>
-    <Favicon />
-<GA />
-</head>
+        <Favicon />
+        <GA />
+    </head>
 
     <body>
         <h1>LINE Flex Message Sender</h1>
         <label for="alt">Alt </label>
         <input type="text" id="alt" placeholder="Alt" />
         <label for="content">Content</label>
-        <textarea
-            id="content"
-            rows="5"
-            placeholder='{
+        <textarea id="content" rows="5" placeholder='{
         "type": "bubble"...
-}'
-        ></textarea>
+}'></textarea>
         <button onclick="sendMessage()" class="send">Send</button>
         <button onclick="to()">Open In Line</button>
         <button onclick="simulator()">Simulator</button>

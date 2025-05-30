@@ -1,7 +1,8 @@
 ---
-import GA from "/src/components/GA.astro";
-import Favicon from "/src/components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-tw">
     <head>
@@ -15,7 +16,7 @@ import Favicon from "/src/components/Favicon.astro";
         <meta property="og:description" content=">即時更新的西苑高中課程時間表，方便學生和老師掌握上下課時間，避免拖堂。" />
         <meta name="author" content="毛哥EM" />
         <meta property="og:url" content="http://https://elvismao.com/code/sysh/time" />
-       
+
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.3/dist/confetti.browser.min.js"></script>
         <style>
             * {
@@ -97,9 +98,7 @@ import Favicon from "/src/components/Favicon.astro";
                 color: #f48484;
             }
         </style>
-    
-
-    <body>
+    </head><body>
         <main>
             <div class="progress"></div>
             <div id="time">我想一下</div>
