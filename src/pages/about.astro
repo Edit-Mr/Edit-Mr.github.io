@@ -2,8 +2,8 @@
 import Nav from "@components/Nav.astro";
 import GA from "@components/GA.astro";
 import Favicon from "@components/Favicon.astro";
-import "../assets/intro/base.css";
-import "../assets/intro/about.css";
+import "@assets/intro/base.css";
+import "@assets/intro/about.css";
 import Footer from "@components/Footer.astro";
 ---
 
@@ -259,7 +259,7 @@ import Favicon from "@components/Favicon.astro";
             </div>
         </main>
         <Footer />
-        <script src="../assets/intro/style.js"></script>
+        <script src="@assets/intro/style.js"></script>
         <script is:inline>
             const fridgeList = document.querySelector(".fridge-list");
             const fridgeListWidth = fridgeList.offsetWidth;

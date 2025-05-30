@@ -2,8 +2,8 @@
 import Nav from "@components/Nav.astro";
 import GA from "@components/GA.astro";
 import Favicon from "@components/Favicon.astro";
-import "../assets/intro/base.css";
-import "../assets/intro/home.css";
+import "@assets/intro/base.css";
+import "@assets/intro/home.css";
 ---
 
 <html lang="zh-Hant">
@@ -18,8 +18,8 @@ import "../assets/intro/home.css";
         <link rel="alternate" hreflang="en" href="https://elvismao.com/en" />
         <link rel="alternate" hreflang="zh-Hant" href="https://elvismao.com/zh-hant/about" />
         <link rel="alternate" hreflang="x-default" href="https://elvismao.com" />
-        <script src="../assets/intro/main.js"></script>
-        <script src="../assets/intro/earth.js"></script>
+        <script src="@assets/intro/main.js"></script>
+        <script src="@assets/intro/earth.js"></script>
         
     <Favicon />
 <GA />
@@ -130,7 +130,7 @@ import "../assets/intro/home.css";
                 <footer>© 2025 by Elvis Mao</footer>
             </div>
         </main>
-        <script src="../assets/intro/style.js"></script>
+        <script src="@assets/intro/style.js"></script>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org/",
