@@ -1,11 +1,13 @@
 
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8" />
         <title>毛哥EM 檔案簽名檢查 | 毛哥EM的基地</title>
         <meta name="description" content="毛哥EM 檔案簽名檢查，確保檔案沒有經過竄改。" />
         <style>
@@ -113,7 +115,9 @@ import Favicon from "../components/Favicon.astro";
             }
             
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
     <body>
         <main>
             <h1>毛哥EM 檔案簽名檢查</h1>
@@ -132,7 +136,7 @@ import Favicon from "../components/Favicon.astro";
             </p>
         </footer>
 
-        <script>
+        <script is:inline>
             const resultText = document.getElementById("result");
             const publicKeyPem = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApiok7/5kVTwwLHocad32

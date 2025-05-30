@@ -1,9 +1,10 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -248,10 +249,9 @@ import Favicon from "../components/Favicon.astro";
                 border-radius: 50%;
             }
         </style>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <!-- ul>(ol>div#stage$@+div.show)*11 -->
@@ -366,7 +366,7 @@ Con summary
             <h2 id="s">By EM<br />Press space to continue</h2>
         </section>
         <div class="bell"><button onclick="up.play()"></button></div>
-        <script>
+        <script is:inline>
             var status = 0;
             let s;
             const section = document.querySelector("section");

@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html>
     <head>
@@ -549,12 +550,11 @@ import Favicon from "../components/Favicon.astro";
                 display: none;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div class="color-picker">
             <div class="color-option" style="background-color: #7aaaf1" onclick="changeFontColor('#7aaaf1')"></div>
             <div class="color-option" style="background-color: #8683ff" onclick="changeFontColor('#8683ff')"></div>
@@ -638,7 +638,7 @@ import Favicon from "../components/Favicon.astro";
                 </div>
             </section>
         </main>
-        <script>
+        <script is:inline>
             const currentDate = new Date();
             const currentMonth = currentDate.getMonth();
             const currentYear = currentDate.getFullYear();

@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html>
     <head>
@@ -34,13 +35,15 @@ import Favicon from "../components/Favicon.astro";
                 overflow: hidden;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
     <body>
         <canvas id="c"></canvas>
         <p>
             祝陳亦敬<a>生日快樂 學業進步</a><span>, 還有上課少玩點手機~ 來自 <a href="github.com/Edit-Mr">毛哥EM</a></span>
         </p>
-        <script>
+        <script is:inline>
             var w = (c.width = window.innerWidth),
                 h = (c.height = window.innerHeight),
                 ctx = c.getContext("2d"),

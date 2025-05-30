@@ -1,8 +1,8 @@
+---
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
+---
 
----
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
----
 <!doctype html>
 <html lang="zh-tw">
     <head>
@@ -14,9 +14,6 @@ import Favicon from "../components/Favicon.astro";
         <meta property="og:title" content="圖示上色 CSS濾鏡生成器" />
         <meta property="og:description" content="圖示上色 CSS濾鏡生成器。上半部背景是CSS background-color真實顏色，下半部是CSS filter。如果對結果不滿意可以再次生成" />
         <meta property="description" content="圖示上色 CSS濾鏡生成器。上半部背景是CSS background-color真實顏色，下半部是CSS filter。如果對結果不滿意可以再次生成" />
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <style>
             * {
@@ -121,7 +118,9 @@ import Favicon from "../components/Favicon.astro";
                 text-decoration: none;
             }
         </style>
-       
+
+        <Favicon />
+        <GA />
     </head>
 
     <body>
@@ -141,7 +140,7 @@ import Favicon from "../components/Favicon.astro";
         </main>
         <div class="pixel realPixel">CSS background-color</div>
         <div class="pixel filterPixel">CSS filter</div>
-        <script>
+        <script is:inline>
             "use strict";
             //credit to https://codepen.io/sosuke
             class Color {
@@ -387,10 +386,18 @@ import Favicon from "../components/Favicon.astro";
                 return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
             }
 
-            $(document).ready(() => {
-                $("button.execute").click(() => {
-                    const rgb = hexToRgb($("input.target").val());
-                    if (rgb.length !== 3) {
+            document.addEventListener("DOMContentLoaded", () => {
+                const executeButton = document.querySelector("button.execute");
+                const changeButton = document.querySelector("button.change");
+                const targetInput = document.querySelector("input.target");
+                const realPixel = document.querySelector(".realPixel");
+                const filterPixel = document.querySelector(".filterPixel");
+                const filterDetail = document.querySelector(".filterDetail");
+                const lossDetail = document.querySelector(".lossDetail");
+
+                executeButton.addEventListener("click", () => {
+                    const rgb = hexToRgb(targetInput.value);
+                    if (!rgb || rgb.length !== 3) {
                         alert("Invalid format!");
                         return;
                     }
@@ -410,20 +417,19 @@ import Favicon from "../components/Favicon.astro";
                         lossMsg = "這個顏色差的挺多的，可以考慮再生成一次";
                     }
 
-                    $(".realPixel").css("background-color", color.toString());
-                    $(".filterPixel").attr("style", result.filter + "background-color:#000");
-                    $(".filterDetail").text(result.filter);
-                    $(".lossDetail").html(`誤差值: ${result.loss.toFixed(1)} <b>${lossMsg}</b>`);
+                    realPixel.style.backgroundColor = color.toString();
+                    filterPixel.setAttribute("style", result.filter + "background-color:#000");
+                    filterDetail.textContent = result.filter;
+                    lossDetail.innerHTML = `誤差值: ${result.loss.toFixed(1)} <b>${lossMsg}</b>`;
                 });
-                $("button.change").click(() => {
-                    var buttonText = $("button.change");
-                    var picker = $("input.target");
-                    if (buttonText.text() == "#") {
-                        buttonText.text("🎨");
-                        picker.attr("type", "text");
+
+                changeButton.addEventListener("click", () => {
+                    if (changeButton.textContent === "#") {
+                        changeButton.textContent = "🎨";
+                        targetInput.setAttribute("type", "text");
                     } else {
-                        buttonText.text("#");
-                        picker.attr("type", "color");
+                        changeButton.textContent = "#";
+                        targetInput.setAttribute("type", "color");
                     }
                 });
             });

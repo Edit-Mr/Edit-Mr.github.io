@@ -1,15 +1,14 @@
+---
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
+---
 
----
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
----
 <!doctype html>
 <html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <title>Gemini API 聊天 Demo</title>
-        <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js
-"></script>
+        <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
         <style>
             * {
                 padding: 0;
@@ -51,7 +50,10 @@ import Favicon from "../components/Favicon.astro";
                 margin-top: 1rem;
             }
         </style>
-    </head>
+        <Favicon />
+<GA />
+</head
+    >
     <body>
         <h1>Gemini API 聊天 Demo</h1>
         <p>毛哥EM製作 <a href="https://emtech.cc/post/gemini-html">教學文章</a></p>
@@ -63,7 +65,7 @@ import Favicon from "../components/Favicon.astro";
             <input type="text" id="messageInput" placeholder="Type your message here..." />
             <button onclick="sendMessage()">Send</button>
         </div>
-        <script>
+        <script is:inline>
             const converter = new showdown.Converter();
             let thread = [];
             function sendMessage() {

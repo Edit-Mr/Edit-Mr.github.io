@@ -1,11 +1,9 @@
 ---
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 import "/src/assets/code/frog.css";
 ---
 
----
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
----
 <!doctype html>
 <head>
     <meta charset="utf-8" />
@@ -17,14 +15,16 @@ import Favicon from "../components/Favicon.astro";
     <link href="check-list.png" rel="icon" type="image/x-icon" />
     <meta name="theme-color" content="#00BFFF" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<Favicon />
+<GA />
 </head>
 <body>
     <main>
         <h1>大眼蛙教練點名系統</h1>
         <p>主選單</p>
-        <button onclick="window.location='check-in';">報到</button>
-        <button onclick="window.location='search';">查詢紀錄</button>
-        <button onclick="window.location='sign-up';">新增學生</button>
-        <p><a href="../../../">毛哥EM</a>製作</p>
+        <button onclick="window.location='/code/frog/check-in';">報到</button>
+        <button onclick="window.location='/code/frog/search';">查詢紀錄</button>
+        <button onclick="window.location='/code/frog/sign-up';">新增學生</button>
+        <p><a href="/">毛哥EM</a>製作</p>
     </main>
 </body>

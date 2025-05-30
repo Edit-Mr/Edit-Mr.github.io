@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html>
     <head>
@@ -102,12 +103,11 @@ import Favicon from "../components/Favicon.astro";
                 height: 100%;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <main>
             <h1>線上螢幕錄影</h1>
             <p>免費 極簡 快速</p>
@@ -120,7 +120,7 @@ import Favicon from "../components/Favicon.astro";
             <footer><a href="/">毛哥EM</a>製作</footer>
         </main>
 
-        <script>
+        <script is:inline>
             let recorder, stream, videoBlob;
 
             const recordBtn = document.getElementById("recordBtn");

@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-tw">
     <head>
@@ -26,16 +27,21 @@ import Favicon from "../components/Favicon.astro";
                 color: #fff;
             }
 
-            img {
+            /* img {
                 width: 100%;
-            }
+            } */
+             #xyz-img{
+                font-size: 50vw;
+             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <div id="ro"></div>
-        <img src="/src/assets/code/pistol.webp" alt="" id="xyz-img" />
-        <script>
+        <div id="xyz-img">🔫</div>
+        <script is:inline>
             document.addEventListener("mousedown", requestFullScreen);
             document.addEventListener("touchstart", requestFullScreen);
             let elem = document.documentElement; // get the root element of the document

@@ -1,9 +1,10 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
        
         <meta charset="UTF-8" />
@@ -19,8 +20,6 @@ import Favicon from "../components/Favicon.astro";
         <meta property="og:locale" content="zh-TW" />
         <meta property="article:author" content="毛哥EM" />
 
-        <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png" />
         <link rel="stylesheet" type="text/css" href="https://pages-themes.github.io/cayman/assets/css/style.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="screen" />
         <style>
@@ -110,12 +109,11 @@ import Favicon from "../components/Favicon.astro";
                 border-color: rgba(255, 255, 255, 0.3);
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div class="game">
             <h1 class="project-name">勾選框疊疊樂</h1>
             <p>
@@ -127,7 +125,7 @@ import Favicon from "../components/Favicon.astro";
             <div class="game-canvas"></div>
         </div>
 
-        <script>
+        <script is:inline>
             //thanks for hakim.se(https://hakim.se/)
             const COLUMNS = 18;
             const ROW_TEMPLATE = '<input type="checkbox"/>'.repeat(COLUMNS);

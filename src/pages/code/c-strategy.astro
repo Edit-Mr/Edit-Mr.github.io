@@ -1,10 +1,11 @@
 
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,14 +27,16 @@ import Favicon from "../components/Favicon.astro";
                 font-size: 18px;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
     <body>
         <h1>猜題策略模擬器</h1>
         <p>輸入模擬次數：</p>
         <input type="number" id="simulations" placeholder="輸入模擬次數" min="1" />
         <button onclick="runSimulation()">開始模擬</button>
         <div class="output" id="results"></div>
-        <script>
+        <script is:inline>
             function runSimulation() {
                 const numQuestions = 100; // 每張考卷 100 題
                 const numOptions = 4; // 每題有 4 個選項 (A, B, C, D)

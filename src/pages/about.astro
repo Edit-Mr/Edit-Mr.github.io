@@ -1,18 +1,19 @@
 ---
-import Nav from "../components/Nav.astro";
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import Nav from "@components/Nav.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 import "../assets/intro/base.css";
 import "../assets/intro/about.css";
-import Footer from "../components/Footer.astro";
+import Footer from "@components/Footer.astro";
 ---
 
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta id="ascii" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
@@ -28,13 +29,13 @@ import Favicon from "../components/Favicon.astro";
         <meta
             name="description"
             content="Elvis Dragon Mao (also known as Elvis Mao, 毛哥EM) (born May 12, 2007, in Taipei, Taiwan) is a Taiwanese full stack developer, digital creator, and student. Renowned for his expertise in web development, EM has earned recognition in both technical and creative domains. He is actively affiliated with organizations such as SITCON, COSCUP, and SCAICT and has received accolades including the 2024 Taichung City Outstanding Youth award and an Honorable Mention from Awwwards. As the founder of emtech.cc, EM champions innovative digital solutions and advocates for open-source initiatives."
-        />
-        <Favicon />
-        <link rel="alternate" hreflang="en" href="https://elvismao.com/en/about/" />
+        /> <link rel="alternate" hreflang="en" href="https://elvismao.com/en/about/" />
         <link rel="alternate" hreflang="zh-Hant" href="https://elvismao.com/zh-hant/about/" />
         <link rel="alternate" hreflang="x-default" href="https://elvismao.com/en/about/" />
-        <GA />
-    </head>
+        
+    <Favicon />
+<GA />
+</head>
 
     <body style="background-color: #000">
         <Nav />
@@ -259,7 +260,7 @@ import Favicon from "../components/Favicon.astro";
         </main>
         <Footer />
         <script src="../assets/intro/style.js"></script>
-        <script>
+        <script is:inline>
             const fridgeList = document.querySelector(".fridge-list");
             const fridgeListWidth = fridgeList.offsetWidth;
             const repeat = Math.ceil(window.innerWidth / fridgeListWidth) * 2;

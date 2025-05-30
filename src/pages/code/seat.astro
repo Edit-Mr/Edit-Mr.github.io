@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-tw">
     <head>
@@ -21,8 +22,7 @@ import Favicon from "../components/Favicon.astro";
         <meta property="og:locale" content="zh-TW" />
 
         <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
-       
-        <style>
+        <style is:global>
             :root {
                 --settWidth: calc(50vw - 47.5svh - 2em);
                 --settWidth: calc(50dvw - 47.5svh - 2em);
@@ -217,7 +217,7 @@ import Favicon from "../components/Favicon.astro";
                 }
             }
         </style>
-        <script>
+        <script is:inline>
             let activeSquare = null;
             let activeOffsetX = 0;
             let activeOffsetY = 0;
@@ -350,12 +350,11 @@ import Favicon from "../components/Favicon.astro";
                 });
             }
         </script>
+        <Favicon />
+        <GA />
     </head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div id="setting">
             <h1>座位表生成器</h1>
             <h2>毛哥EM製作</h2>
@@ -368,8 +367,8 @@ import Favicon from "../components/Favicon.astro";
         </div>
         <div id="delete">
             <div>
-                    <div>拖曳至此刪除<br /><img src="/src/assets/img/icon/trash-can.png" alt="trash-can" /></div>
-                </div>
+                <div>拖曳至此刪除<br /><img src="/src/assets/img/icon/trash-can.png" alt="trash-can" /></div>
+            </div>
         </div>
         <div id="room"></div>
         <div class="notice">請將螢幕橫過來使用</div>

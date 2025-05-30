@@ -7,7 +7,7 @@ export default defineConfig({
     site: "https://elvismao.com",
     base: "",
     output: "static",
-    trailingSlash: "always"
+    trailingSlash: "never"
     //   integrations: [
     //     i18n({
     //       locales: { zh: "zh-Hant", en: "en-US" },

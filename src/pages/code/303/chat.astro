@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-tw">
     <head>
@@ -15,12 +16,11 @@ import Favicon from "../components/Favicon.astro";
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="screen" />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div class="header">
             <h1 class="project-name">303電腦課留言系統</h1>
             <h2 class="project-tagline"><a href="../../" target="_blank">毛哥EM</a>製作<br />新訊息在上方</h2>
@@ -54,7 +54,7 @@ import Favicon from "../components/Favicon.astro";
                 </div>
             </div>
         </center>
-        <script>
+        <script is:inline>
             var t1 = window.setInterval(hello, 2000);
             function hello() {
                 let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";

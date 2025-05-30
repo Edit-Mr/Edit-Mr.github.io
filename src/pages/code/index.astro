@@ -1,8 +1,9 @@
 
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html lang="zh-tw" data-default-color-scheme="auto">
     <head>
@@ -532,7 +533,9 @@ import Favicon from "../components/Favicon.astro";
             }
         </style>
         <script src="https://kit.fontawesome.com/5b12cc2fae.js" crossorigin="anonymous"></script>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <div id="blur"><div id="blob"></div></div>
@@ -1255,7 +1258,7 @@ import Favicon from "../components/Favicon.astro";
         <footer>
             <p>© 2025 by Elvis Mao (毛哥EM)</p>
         </footer>
-        <script>
+        <script is:inline>
             /* -- Glow effect -- */
 
             const blob = document.getElementById("blob");

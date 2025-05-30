@@ -1,7 +1,8 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <html>
     <head>
@@ -10,8 +11,6 @@ import Favicon from "../components/Favicon.astro";
         <title>麥克風視覺化 | 毛哥EM的基地</title>
         <meta name="author" content="Elvis Mao" />
         <meta name="theme-color" content="#050d61" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://EM-Tec.github.io/icons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="https://EM-Tec.github.io/icons/favicon-32x32.png" />
         <meta property="og:url" content="http://https://elvismao.com/code/vi" />
         <style type="text/css">
             html,
@@ -58,12 +57,11 @@ import Favicon from "../components/Favicon.astro";
                 stroke-width: 0.5px;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <mask id="mask">
@@ -80,7 +78,7 @@ import Favicon from "../components/Favicon.astro";
         </svg>
 
         <h1>In <a href="https://codepen.io/zapplebee/full/gbNbZE/">Full Page view</a>, please allow the use of your microphone</h1>
-        <script>
+        <script is:inline>
             window.onload = function () {
                 "use strict";
                 var paths = document.getElementsByTagName("path");

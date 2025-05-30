@@ -1,8 +1,9 @@
 ---
 import "/src/assets/code/frog.css";
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
 <head>
     
@@ -15,13 +16,12 @@ import Favicon from "../components/Favicon.astro";
     <link href="../check-list.png" rel="icon" type="image/x-icon" />
     <meta name="theme-color" content="deepskyblue" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<Favicon />
+<GA />
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <main>
-        <h1><a href="../">大眼蛙教練點名系統</a></h1>
+        <h1><a href="/code/frog">大眼蛙教練點名系統</a></h1>
         <p>紀錄查詢</p>
         <input type="text" id="name" />
         <button type="button" id="send">查詢</button>
@@ -36,11 +36,11 @@ import Favicon from "../components/Favicon.astro";
             <tbody id="dataView"></tbody>
         </table>
         <p>
-            <a href="../../../">毛哥EM</a>製作<br />
+            <a href="/">毛哥EM</a>製作<br />
             送出後請稍等數秒
         </p>
     </main>
-    <script>
+    <script is:inline>
         $(function () {
             $("#send").click(function (e) {
                 var status = true;

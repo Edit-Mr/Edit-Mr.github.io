@@ -1,9 +1,10 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -160,7 +161,9 @@ import Favicon from "../components/Favicon.astro";
                 }
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <div id="card">
@@ -184,7 +187,7 @@ import Favicon from "../components/Favicon.astro";
             <section></section>
             <section></section>
         </main>
-        <script>
+        <script is:inline>
             const card = document.querySelector("#card");
             const all = document.querySelector("#all");
             window.addEventListener("scroll", function () {

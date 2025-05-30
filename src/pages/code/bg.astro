@@ -1,9 +1,10 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,7 +48,9 @@ import Favicon from "../components/Favicon.astro";
                 overflow: hidden;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <div>
@@ -55,7 +58,7 @@ import Favicon from "../components/Favicon.astro";
             <input type="checkbox" name="" id="gra" />
             <input type="range" name="" id="deg" min="0" max="360" />
         </div>
-        <script>
+        <script is:inline>
             // when any of the input changed, update the background color. If the checkbox is checked, use gradient color. Update the hex if uses color picker, update the color picker if uses hex.
 
             // get the elements

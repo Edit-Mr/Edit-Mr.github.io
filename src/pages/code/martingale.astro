@@ -1,10 +1,11 @@
 
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,7 +49,9 @@ import Favicon from "../components/Favicon.astro";
                 color: green;
             }
         </style>
-    </head>
+    <Favicon />
+<GA />
+</head>
     <body>
         <main>
             <h1>馬丁格爾策略模擬</h1>
@@ -68,7 +71,7 @@ import Favicon from "../components/Favicon.astro";
 
         <div id="output"></div>
 
-        <script>
+        <script is:inline>
             let totalRounds = 0;
             let finalBalance = 0;
             function simulateMartingale() {

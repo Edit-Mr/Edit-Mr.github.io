@@ -4,6 +4,11 @@
     "exclude": ["dist"],
     "compilerOptions": {
         "checkJs": false,
-        "target": "es6"
+        "target": "es6",
+        "baseUrl": ".",
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@layouts/*": ["src/layouts/*"]
+        }
     }
 }

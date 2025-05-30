@@ -1,9 +1,10 @@
 ---
-import GA from "../components/GA.astro";
-import Favicon from "../components/Favicon.astro";
+import GA from "@components/GA.astro";
+import Favicon from "@components/Favicon.astro";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,15 +67,14 @@ import Favicon from "../components/Favicon.astro";
                 box-sizing: border-box;
             }
         </style>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHBZ3RD" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
-        <script>
+        <script is:inline>
             // VConsole will be exported to `window.VConsole` by default.
             var vConsole = new window.VConsole();
         </script>
-    </head>
+    <Favicon />
+<GA />
+</head>
 
     <body>
         <h1>LINE Flex Message Sender</h1>
@@ -93,10 +93,10 @@ import Favicon from "../components/Favicon.astro";
         <button onclick="simulator()">Simulator</button>
 
         <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-        <script>
+        <script is:inline>
             async function sendMessage() {
                 const alt = document.getElementById("alt").value;
-                const content = document.getElementById("content").value;
+                let content = document.getElementById("content").value;
 
                 // Initialize LIFF
                 await liff.init({ liffId: "1656564267-XlA7y2d2" });
