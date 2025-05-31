@@ -23,3 +23,5 @@ export const L = url => {
         return posix.join(basePath, path).replace(/\/+$/, "");
     };
 };
+
+export const local = url => getLocale(url);

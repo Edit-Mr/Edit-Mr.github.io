@@ -6,6 +6,14 @@ import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { AsciiEffect } from "three/examples/jsm/effects/AsciiEffect.js";
 //import html2canvas from "html2canvas";
+import { getLocale } from "astro-i18n-aut";
+
+const MUCH =
+    {
+        "zh-Hant": "多",
+        "zh-Hans": "多",
+        en: "o"
+    }[getLocale(document.location.pathname)] || "o";
 
 //LightMode
 let lightMode = true;
@@ -230,8 +238,7 @@ const scrollAnimation = () => {
                 updateCounter();
             }
         } else if (t > 3.2) {
-            // create o * (t-3)*10
-            document.getElementById("alot-o").innerHTML = "o".repeat(Math.floor((t - 3.2) * 20));
+            document.getElementById("alot-o").innerHTML = MUCH.repeat(Math.floor((t - 3.2) * 20));
         }
     }
     do1.classList.toggle("typed", t > 4);

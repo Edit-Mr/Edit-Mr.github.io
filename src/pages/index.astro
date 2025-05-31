@@ -15,13 +15,123 @@ const t = i18n.T(Astro.url, {
         "zh-Hant": "毛哥EM (毛宥鈞) 一名熱愛科技、設計、和解決問題的學生。",
         "zh-Hans": "毛哥EM (毛宥钧) 一名热爱科技、设计、和解决问题的学生。",
         en: "Elvis Mao (毛哥EM) is a full stack developer, and a digital creator from Taiwan."
+    },
+    thisIs: {
+        "zh-Hant": "這裡是",
+        "zh-Hans": "这里是",
+        en: "This is "
+    },
+    period: {
+        "zh-Hant": "。",
+        "zh-Hans": "。",
+        en: "."
+    },
+    aStudent: {
+        "zh-Hant": "一名高中生，",
+        "zh-Hans": "一名高中生，",
+        en: "a high school student, "
+    },
+    a: {
+        "zh-Hant": "一位",
+        "zh-Hans": "一位",
+        en: "a "
+    },
+    fullStackDeveloper: {
+        "zh-Hant": "全端工程師，",
+        "zh-Hans": "全栈工程师，",
+        en: " full stack developer, "
+    },
+    alsoA: {
+        "zh-Hant": "也是一位",
+        "zh-Hans": "也是一个",
+        en: "and a "
+    },
+    digitalArtist: {
+        "zh-Hant": "數位創作者。",
+        "zh-Hans": "数字创作者。",
+        en: "digital artist."
+    },
+    iLoveCreating: {
+        "zh-Hant": "我喜歡創造",
+        "zh-Hans": "我喜欢创造",
+        en: "I love creating "
+    },
+    experience: {
+        "zh-Hant": "體驗",
+        "zh-Hans": "体验",
+        en: "experiences"
+    },
+    animations: {
+        "zh-Hant": "特效",
+        "zh-Hans": "特效",
+        en: "animations"
+    },
+    future: {
+        "zh-Hant": "未來",
+        "zh-Hans": "未来",
+        en: "future"
+    },
+    pr: {
+        "zh-Hant": "Pull Request",
+        "zh-Hans": "Pull Request",
+        en: "Pull Request"
+    },
+    openSource: {
+        "zh-Hant": "開源專案",
+        "zh-Hans": "开源项目",
+        en: "OSS Projects"
+    },
+    docTranslated: {
+        "zh-Hant": "文件翻譯字數",
+        "zh-Hans": "文档翻译字数",
+        en: "Docs Translated"
+    },
+    wordsInBlog: {
+        "zh-Hant": "部落格字數",
+        "zh-Hans": "博客字数",
+        en: "Words in Blog"
+    },
+    thats: {
+        "zh-Hant": "這真的很",
+        "zh-Hans": "这真的很",
+        en: "That's a lo"
+    },
+    lot: {
+        "zh-Hant": "多",
+        "zh-Hans": "多",
+        en: "t"
+    },
+    noMatter: {
+        "zh-Hant": "但無論如何，",
+        "zh-Hans": "但无论如何，",
+        en: "But no matter what I do,"
+    },
+    littleDifferent: {
+        "zh-Hant": "我只希望我能讓這世界有一點點不一樣。",
+        "zh-Hans": "我只希望我能让这个世界有一点点不一样。",
+        en: "I just hope to make this world a little different."
+    },
+    title: {
+        "zh-Hant": "數位創作者 | 全端工程師",
+        "zh-Hans": "数字创作者 | 全栈工程师",
+        en: "Full Stack Developer | Digital Artist"
+    },
+    project: {
+        "zh-Hant": "專案",
+        "zh-Hans": "项目",
+        en: "Projects"
+    },
+    about: {
+        "zh-Hant": "關於",
+        "zh-Hans": "关于",
+        en: "About"
     }
 });
 ---
 
-<html lang="zh-Hant">
+<html lang={i18n.local(Astro.url)}>
     <head>
-        <Head i18n={t} path="" favicon={true} title={t.elvismao} description={t.description} image="/img/thumbnail.webp" theme="#FFF" />
+        <Head i18n={t} path="" favicon={true} title={t.elvismao} description={t.description} image="/img/thumbnail.webp" theme="#333" />
         <script src="@assets/intro/main.js"></script>
         <script src="@assets/intro/earth.js"></script>
     </head>
@@ -37,23 +147,26 @@ const t = i18n.T(Astro.url, {
                 <div id="intro">
                     <div>
                         <div class="type">
-                            <span>This is </span><b>Elvis Mao</b><span>.</span><br />
-                            <span>A high school student,</span><br />
-                            <span>a </span> full stack developer,<br />
-                            <span>and a </span> digital artist.<span></span>
+                            <span>{t.thisIs}</span>
+                            <b>{t.elvismao}</b><span>{t.period}</span><br />
+                            <span>{t.aStudent}</span><br />
+                            <span>{t.a}</span>
+                            {t.fullStackDeveloper}<br />
+                            <span>{t.alsoA}</span>
+                            {t.digitalArtist}<span></span>
                         </div>
                     </div>
                 </div>
                 <div id="about">
                     <div>
                         <div id="create">
-                            I love creating
+                            {t.iLoveCreating}
                             <div class="create">
-                                experiences
+                                {t.experience}
                                 <div class="creates">
-                                    <div>experiences</div>
-                                    <div>animations</div>
-                                    <div>future...</div>
+                                    <div>{t.experience}</div>
+                                    <div>{t.animations}</div>
+                                    <div>{t.future}...</div>
                                 </div>
                             </div>
                         </div>
@@ -66,13 +179,13 @@ const t = i18n.T(Astro.url, {
                             <div class="data-number">
                                 <span class="number" data-n="82">0</span>+
                             </div>
-                            <div class="data-title">Pull Requests in 2024</div>
+                            <div class="data-title">{t.pr}</div>
                         </div>
                         <div>
                             <div class="data-number">
                                 <span class="number" data-n="45">0</span>+
                             </div>
-                            <div class="data-title">OSS Projects</div>
+                            <div class="data-title">{t.openSource}</div>
                         </div>
                     </div>
                     <div class="data-space"></div>
@@ -81,39 +194,39 @@ const t = i18n.T(Astro.url, {
                             <div class="data-number">
                                 <span class="number" data-n="1400000">0</span>
                             </div>
-                            <div class="data-title">Docs translated</div>
+                            <div class="data-title">{t.docTranslated}</div>
                         </div>
                         <div>
                             <div class="data-number">
                                 <span class="number" data-n="1500000">0</span>
                             </div>
-                            <div class="data-title">Words in blog</div>
+                            <div class="data-title">{t.wordsInBlog}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="alot">
-                <div id="alot">That's a lo<span id="alot-o"></span>t</div>
+                <div id="alot">{t.thats}<span id="alot-o"></span>{t.lot}</div>
             </div>
             <div id="earth">
                 <div class="earth-text">
-                    <div class="type type-do1">But no matter what I do,</div>
-                    <div class="type type-do2">I just hope to make this world a little different.</div>
+                    <div class="type type-do1">{t.noMatter}</div>
+                    <div class="type type-do2">{t.littleDifferent}</div>
                 </div>
             </div>
             <div id="contact">
                 <div class="contact">
                     <div class="contact-container">
-                        <h2 class="aos">Elvis Mao</h2>
-                        <p class="aos">Full Stack Developer | Digital Artist</p>
+                        <h2 class="aos">{t.elvismao}</h2>
+                        <p class="aos">{t.title}</p>
                         <div class="socials aos">
                             <a class="cybr-btn" href="/code">
-                                <span id="thisClassTitleG">Projects</span><span aria-hidden>_</span>
-                                <span aria-hidden class="cybr-btn__glitch" id="thisClassTitle">Projects</span>
+                                <span id="thisClassTitleG">{t.project}</span><span aria-hidden>_</span>
+                                <span aria-hidden class="cybr-btn__glitch" id="thisClassTitle">{t.project}</span>
                             </a>
                             <a class="cybr-btn" href="/about/">
-                                <span id="thisMeetTitleG">About</span><span aria-hidden>_</span>
-                                <span aria-hidden class="cybr-btn__glitch" id="thisMeetTitle">About</span>
+                                <span id="thisMeetTitleG">{t.about}</span><span aria-hidden>_</span>
+                                <span aria-hidden class="cybr-btn__glitch" id="thisMeetTitle">{t.about}</span>
                             </a>
                         </div>
                         <div class="social-links aos">
@@ -139,7 +252,7 @@ const t = i18n.T(Astro.url, {
                 "image": "https://emtech.cc/static/img/EMprofile.png",
                 "url": "https://elvismao.com/",
                 "logo": "https://emtech.cc/static/img/EMprofile.png",
-                "name": "毛哥EM的基地",
+                "name": "Elvis Mao",
                 "alternateName": ["毛宥鈞", "毛哥EM", "EM"],
                 "description": "Elvis Mao (毛哥EM) is a full stack developer, and a digital creator from Taiwan.",
                 "email": "info@elvismao.com",

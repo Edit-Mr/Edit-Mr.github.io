@@ -16,6 +16,12 @@ export default defineConfig({
     build: {
         format: "directory"
     },
+    redirects: {
+        "/zh": {
+            status: 301,
+            destination: "/zh-Hant/"
+        }
+    },
     integrations: [
         i18n({
             locales,
