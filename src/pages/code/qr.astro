@@ -1,13 +1,11 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html lang="zh-Hant">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        
         <meta name="theme-color" content="#749BC2" />
         <meta name="description" content="世界上最強、最快、即時更新的QR Code生成器。自動抓取剪貼簿連結生成QR Code，也可輸入連結、文字、簡訊、電子名片、地理位置等。" />
         <meta name="author" content="毛哥EM" />
@@ -174,8 +172,7 @@ import Favicon from "@components/Favicon.astro";
             }
         </style>
 
-        <Favicon />
-        <GA />
+        <Head />
     </head>
 
     <body>

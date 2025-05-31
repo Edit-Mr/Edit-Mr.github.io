@@ -1,9 +1,7 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html>
     <head>
         <style>
@@ -35,8 +33,7 @@ import Favicon from "@components/Favicon.astro";
                 overflow: hidden;
             }
         </style>
-        <Favicon />
-        <GA />
+        <Head />
     </head>
     <body>
         <canvas id="c"></canvas>

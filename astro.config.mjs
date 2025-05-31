@@ -1,19 +1,32 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
+import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
+const defaultLocale = "zh-Hant";
+const locales = {
+    en: "en-US", // the `defaultLocale` value must present in `locales` keys
+    "zh-Hant": "zh-Hant",
+    "zh-Hans": "zh-Hans"
+};
 
 export default defineConfig({
     site: "https://elvismao.com",
-    base: "",
-    output: "static",
-    trailingSlash: "never"
-    //   integrations: [
-    //     i18n({
-    //       locales: { zh: "zh-Hant", en: "en-US" },
-    //       defaultLocale: "zh",
-    //       redirectDefaultLocale: true,
-    //     }),
-    //     astroIcon(),
-    //   ],
+    trailingSlash: "always",
+    build: {
+        format: "directory"
+    },
+    integrations: [
+        i18n({
+            locales,
+            defaultLocale
+        }),
+        sitemap({
+            i18n: {
+                locales,
+                defaultLocale
+            },
+            filter: filterSitemapByDefaultLocale({ defaultLocale })
+        })
+    ]
 });

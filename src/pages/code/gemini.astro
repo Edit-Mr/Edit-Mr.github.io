@@ -1,12 +1,10 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html lang="zh-Hant">
     <head>
-        <meta charset="UTF-8" />
+        
         <title>Gemini API 聊天 Demo</title>
         <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
         <style>
@@ -50,8 +48,7 @@ import Favicon from "@components/Favicon.astro";
                 margin-top: 1rem;
             }
         </style>
-        <Favicon />
-        <GA />
+        <Head />
     </head>
     <body>
         <h1>Gemini API 聊天 Demo</h1>

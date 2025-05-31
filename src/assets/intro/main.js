@@ -74,7 +74,7 @@ createEffect();
 
 document.body.appendChild(effect.domElement);
 
-document.getElementById("ascii").style.whiteSpace = "prewrap";
+//document.getElementById("ascii").style.whiteSpace = "prewrap";
 const loadModel = () => {
     stlLoader.load("/src/assets/intro/EM.stl", function (geometry) {
         myMesh.material = material;

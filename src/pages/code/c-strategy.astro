@@ -1,13 +1,11 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html lang="zh-Hant">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        
         <title>猜題策略模擬器</title>
         <style>
             body {
@@ -26,8 +24,7 @@ import Favicon from "@components/Favicon.astro";
                 font-size: 18px;
             }
         </style>
-        <Favicon />
-        <GA />
+        <Head />
     </head>
     <body>
         <h1>猜題策略模擬器</h1>

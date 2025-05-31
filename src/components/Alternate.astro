@@ -1,0 +1,10 @@
+---
+const { data, path } = Astro.props;
+const links = Object.keys(data)
+    .map(lang => `<link rel="alternate" hreflang="${lang}" href="https://elvismao.com/${lang}/${path}" />`)
+    .join("\n");
+const xDefault = `<link rel="alternate" hreflang="x-default" href="https://elvismao.com/${path}" />`;
+---
+
+<!-- Use set:html to inject the raw string -->
+<Fragment set:html={`${links}\n${xDefault}`} />

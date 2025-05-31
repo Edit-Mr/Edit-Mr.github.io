@@ -1,14 +1,12 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html lang="zh-tw">
     <head>
-        <meta charset="UTF-8" />
+        
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
         <title>找不到頁面</title>
         <style>
             html,
@@ -41,8 +39,7 @@ import Favicon from "@components/Favicon.astro";
                 opacity: 0.4;
             }
         </style>
-        <Favicon />
-        <GA />
+        <Head />
     </head>
 
     <body>

@@ -1,21 +1,19 @@
 ---
-import GA from "@components/GA.astro";
-import Favicon from "@components/Favicon.astro";
+import Head from "@components/Head.astro";
 ---
 
-<!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
         <meta property="og:title" content="iOS StandBy By EM" />
         <meta property="og:description" content=">iOS StandBy By EM" />
         <meta property="og:url" content="http://https://elvismao.com/code/StandBy" />
         <title>iOS StandBy By EM</title>
 
         <style>
-            @font-face {
+            /* @font-face {
                 font-family: "San Francisco";
                 src: local("San Francisco"), url("SF-Pro-Display-Regular.otf");
             }
@@ -23,7 +21,7 @@ import Favicon from "@components/Favicon.astro";
             @font-face {
                 font-family: "San Francisco Rounded";
                 src: local("San Francisco Rounded"), url("SF-Pro-Rounded.ttf");
-            }
+            } */
 
             :root {
                 --main-color: #ffffff;
@@ -550,8 +548,7 @@ import Favicon from "@components/Favicon.astro";
                 display: none;
             }
         </style>
-        <Favicon />
-        <GA />
+        <Head />
     </head>
 
     <body>
