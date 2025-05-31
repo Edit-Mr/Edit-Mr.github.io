@@ -3,12 +3,7 @@ import Head from "@components/Head.astro";
 ---
 
 <head>
-    <title>旌旗青年週報下載器|毛哥EM的基地</title>
-    <meta name="description" content="輕鬆下載旌旗青年週報pdf檔" />
-    <meta name="keywords" content="旌旗教會, Edit Mr., 週報" />
-    <meta name="author" content="Elvis Mao" />
-    
-    <meta name="theme-color" content="#00adb5" />
+    <Head path="code/weekly" title="旌旗青年週報下載器" description="輕鬆下載旌旗青年週報 PDF 檔" theme="#00adb5" favicon={false} />
     <link href="https://www.bannerch.org/templates/fortune_bannerch/favicon.png" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://pages-themes.github.io/cayman/assets/css/style.css" media="screen" />
@@ -20,8 +15,6 @@ import Head from "@components/Head.astro";
             window.open(Link);
         }
     </script>
-    
-    <Head />
 </head>
 <body>
     <section class="page-header">

@@ -4,11 +4,6 @@ import Head from "@components/Head.astro";
 ---
 
 <head>
-    <title>大眼蛙教練點名系統</title>
-    <meta name="description" content="快速紀錄出缺席" />
-    <meta name="keywords" content="大眼蛙教練, Edit Mr., 毛哥EM" />
-    <meta name="theme-color" content="deepskyblue" />
-    <link href="../check-list.png" rel="icon" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script is:inline>
         window.onload = () => {
@@ -70,7 +65,7 @@ import Head from "@components/Head.astro";
             $(id).fadeOut();
         }
     </script>
-    <Head />
+    <Head path="code/frog/check-in/" title="大眼蛙教練點名系統" description="快速紀錄出缺席" theme="#00BFFF" />
 </head>
 <body>
     <main>

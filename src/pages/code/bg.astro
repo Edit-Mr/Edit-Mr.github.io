@@ -4,19 +4,8 @@ import Head from "@components/Head.astro";
 
 <html lang="zh-Hant">
     <head>
-        
-        
-        <title>背景顏色 | 毛哥EM的基地</title>
-        <meta name="description" content="自由更改背景顏色或製作漸層" />
-        <meta name="author" content="毛哥EM" />
-        <meta name="keywords" content="毛哥EM, 背景, Edit Mr." />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="背景顏色 | 毛哥EM的基地" />
-        <meta property="og:url" content="https://elvismao.com/code/bg" />
-        <meta property="og:site_name" content="毛哥EM的基地" />
-        <meta property="og:description" content="自由更改背景顏色或製作漸層" />
+        <Head path="code/bg" title="背景顏色 | 毛哥EM的基地" description="自由更改背景顏色或製作漸層" theme="#FFF" />
         <meta property="og:locale" content="zh-TW" />
-        <meta property="article:author" content="毛哥EM" />
         <style>
             html,
             body {
@@ -46,9 +35,7 @@ import Head from "@components/Head.astro";
                 overflow: hidden;
             }
         </style>
-        <Head />
     </head>
-
     <body>
         <div>
             <input type="color" id="c1" value="#090979" /><input type="text" id="c1Hex" value="#090979" />

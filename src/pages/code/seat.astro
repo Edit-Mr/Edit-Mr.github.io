@@ -4,22 +4,7 @@ import Head from "@components/Head.astro";
 
 <html lang="zh-tw">
     <head>
-        
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        
-        <meta property="og:title" content="座位表生成器-隨機、自訂座位" />
-        <meta property="og:description" content="輸入人數會自動生成排序，點擊隨機排序進行洗牌，所有方塊均可拖曳自訂位置，拖曳至垃圾桶刪除方塊" />
-        <meta property="description" content="輸入人數會自動生成排序，點擊隨機排序進行洗牌，所有方塊均可拖曳自訂位置，拖曳至垃圾桶刪除方塊" />
-
-        <meta name="author" content="毛哥EM" />
-        <meta name="keywords" content="毛哥EM, 背景, Edit Mr." />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="背景顏色 | 毛哥EM的基地" />
-        <meta property="og:url" content="http://https://elvismao.com/code/seat" />
-        <meta property="og:site_name" content="毛哥EM的基地" />
-        <meta property="og:locale" content="zh-TW" />
-
-        <title>座位表生成器-隨機、自訂座位 | 毛哥EM的基地</title>
+        <Head path="code/seat" title="座位表生成器-隨機、自訂座位 | 毛哥EM的基地" description="輸入人數會自動生成排序，點擊隨機排序進行洗牌，所有方塊均可拖曳自訂位置，拖曳至垃圾桶刪除方塊" theme="#0081c9" />
         <style is:global>
             :root {
                 --settWidth: calc(50vw - 47.5svh - 2em);
@@ -348,9 +333,7 @@ import Head from "@components/Head.astro";
                 });
             }
         </script>
-        <Head />
     </head>
-
     <body>
         <div id="setting">
             <h1>座位表生成器</h1>
