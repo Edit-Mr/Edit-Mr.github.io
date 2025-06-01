@@ -17,3 +17,6 @@ Thanks Awwwards for honoring a 17-year-old boy's site ❤️
 The spinning avatar is made with **three.js** to turn STL module into ASCII art. If you like to check out the clean source code you can go to [Edit-Mr/intro](https://github.com/Edit-Mr/intro/tree/main). This is where everything begins.
 
 Feel free to steal the code and add you creativity inside, and I would like to see your result (: Consider [buying me a coffee](buymeacoffee.com/elvismao) to support my projects if it help.
+
+> [!NOTE]  
+> This site is now deployed on Cloudflare Pages instead of GitHub for optimization.
