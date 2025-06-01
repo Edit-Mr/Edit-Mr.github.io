@@ -1,11 +1,12 @@
 ---
 const { i18n, path = "", favicon = true, ga = true, title, description, image, theme = "#000" } = Astro.props;
-
+console.log("i18n:", i18n);
 const links = i18n
-    ? Object.keys(i18n)
-          .map(lang => `<link rel="alternate" hreflang="${lang}" href="https://elvismao.com/${lang}/${path}" />`)
-          .join("\n")
-    : "";
+    .map(lang => {
+        const url = lang === "en" ? "" : "/" + lang;
+        return `<link rel="alternate" hreflang="${lang}" href="https://elvismao.com${url}/${path}" />`;
+    })
+    .join("\n");
 
 const xDefault = `<link rel="alternate" hreflang="x-default" href="https://elvismao.com/${path}" />`;
 const canonical = `https://elvismao.com/${path}`;
