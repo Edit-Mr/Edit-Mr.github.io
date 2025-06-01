@@ -30,13 +30,18 @@ main .largeName + h2 {
     transition-delay: 0.2s;
 }
 
+html[lang="zh-Hant"] main .largeName + h2,
+html[lang="zh-Hans"] main .largeName + h2 {
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
 h2 + p {
     transition-delay: 0.4s;
 }
 
 main .largeName + h2 + p {
     font-size: 1.3rem;
-    font-weight: 400;
     margin-bottom: 3rem;
     max-width: 800px;
 }
@@ -99,13 +104,18 @@ main .largeName + h2 {
 .emSitcon {
     margin: auto;
 }
+
 .emSitcon img {
     max-width: 100%;
     width: 30rem;
 }
 
+.awards {
+    margin-bottom: 2rem;
+}
+
 ul {
-    margin: 1rem;
+    margin: 0rem 1rem 1.5rem 1rem;
 }
 li {
     color: #e5e5e5;

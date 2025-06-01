@@ -5,7 +5,8 @@ import "@assets/intro/home.css";
 import * as i18n from "src/i18n";
 import Head from "@components/Head.astro";
 
-const t = i18n.T(Astro.url, {
+const lang = i18n.local(Astro.url.pathname);
+const t = i18n.T(lang, {
     elvismao: {
         "zh-Hant": "毛哥EM",
         "zh-Hans": "毛哥EM",
@@ -129,7 +130,7 @@ const t = i18n.T(Astro.url, {
 });
 ---
 
-<html lang={i18n.local(Astro.url)}>
+<html lang={lang}>
     <head>
         <Head i18n={t} path="" favicon={true} title={t.elvismao} description={t.description} image="/img/thumbnail.webp" theme="#333" />
         <script src="@assets/intro/main.js"></script>
@@ -177,7 +178,7 @@ const t = i18n.T(Astro.url, {
                     <div class="data-container">
                         <div>
                             <div class="data-number">
-                                <span class="number" data-n="82">0</span>+
+                                <span class="number" data-n="187">0</span>+
                             </div>
                             <div class="data-title">{t.pr}</div>
                         </div>

@@ -1,12 +1,13 @@
 ---
 import Nav from "@components/Nav.astro";
-import * as i18n from "src/i18n";
+import * as i18n from "@i18n";
 import "@assets/intro/base.css";
 import "@assets/intro/about.css";
 import Footer from "@components/Footer.astro";
 import Head from "@components/Head.astro";
 
-const t = i18n.T(Astro.url, {
+const lang = i18n.local(Astro.url.pathname);
+const t = i18n.T(lang, {
     title: {
         en: "About - Elvis Mao",
         "zh-Hant": "關於 - 毛哥EM",
@@ -24,13 +25,13 @@ const t = i18n.T(Astro.url, {
     },
     aka: {
         en: "AKA 毛哥EM, EM, EDM",
-        "zh-Hant": "又稱 毛哥EM, EM, EDM",
-        "zh-Hans": "又称 毛哥EM, EM, EDM"
+        "zh-Hant": "Elvis Dragon Mao",
+        "zh-Hans": "Elvis Dragon Mao"
     },
     intro: {
         en: "A digital creator with a passion for design, animation, interaction, and problem-solving.",
-        "zh-Hant": "一位熱衷於設計、動畫、互動和解決問題的數位創作者。",
-        "zh-Hans": "一位热衷于设计、动画、互动和解决问题的数字创作者。"
+        "zh-Hant": "一名熱愛科技與藝術的數位創作者。",
+        "zh-Hans": "一名热爱科技与艺术的数字创作者。"
     },
     skills: {
         en: "Skills",
@@ -39,13 +40,13 @@ const t = i18n.T(Astro.url, {
     },
     ido: {
         en: "I do",
-        "zh-Hant": "我做的事",
-        "zh-Hans": "我做的事"
+        "zh-Hant": "專業",
+        "zh-Hans": "专业"
     },
     langLib: {
         en: "Languages & Libraries",
         "zh-Hant": "語言與函式庫",
-        "zh-Hans": "语言与函式库"
+        "zh-Hans": "语言与库"
     },
     applications: {
         en: "Applications",
@@ -79,18 +80,18 @@ const t = i18n.T(Astro.url, {
     },
     sometimes: {
         en: "(sometimes)",
-        "zh-Hant": "（有時候）",
-        "zh-Hans": "（有时候）"
+        "zh-Hant": "（偶爾）",
+        "zh-Hans": "（偶尔）"
     },
     retired: {
         en: "(Retired)",
-        "zh-Hant": "（已退任）",
-        "zh-Hans": "（已退任）"
+        "zh-Hant": "（已卸任）",
+        "zh-Hans": "（已卸任）"
     },
     bluhbluh: {
         en: "(bluh bluh bluh)",
-        "zh-Hant": "（講講講）",
-        "zh-Hans": "（讲讲讲）"
+        "zh-Hant": "(bluh bluh bluh)",
+        "zh-Hans": "(bluh bluh bluh)"
     },
     homework: {
         en: "Homework",
@@ -104,8 +105,8 @@ const t = i18n.T(Astro.url, {
     },
     websecurity: {
         en: "Web Security",
-        "zh-Hant": "網頁安全",
-        "zh-Hans": "网页安全"
+        "zh-Hant": "網路安全",
+        "zh-Hans": "网络安全"
     },
     devops: {
         en: "DevOps",
@@ -119,8 +120,8 @@ const t = i18n.T(Astro.url, {
     },
     digitalillustration: {
         en: "Digital Illustration",
-        "zh-Hant": "數位插畫",
-        "zh-Hans": "数字插画"
+        "zh-Hant": "數位藝術",
+        "zh-Hans": "数字艺术"
     },
     musicproduction: {
         en: "Music Production",
@@ -144,23 +145,23 @@ const t = i18n.T(Astro.url, {
     },
     sysh: {
         en: "Shi-Yuan Senior High School",
-        "zh-Hant": "聖揚高級中學",
-        "zh-Hans": "圣扬高级中学"
+        "zh-Hant": "臺中市立西苑高級中學",
+        "zh-Hans": "台中市立西苑高级中学"
     },
-    nycy: {
+    nycu: {
         en: "National Yang Ming Chiao Tung University CS",
         "zh-Hant": "國立陽明交通大學 資訊工程學系",
         "zh-Hans": "国立阳明交通大学 资讯工程学系"
     },
     NTNU2025: {
         en: "2025 National High School English Public Forum Debate - Winning Team, Honorable Mentioned Debater",
-        "zh-Hant": "2025全國高中英語公開論壇辯論賽 - 獲勝隊伍，榮譽辯手",
-        "zh-Hans": "2025全国高中英语公开论坛辩论赛 - 获胜队伍，荣誉辩手"
+        "zh-Hant": "114 年全國高級中等學校英語辯論比賽 - 優勝隊伍、優秀辯士",
+        "zh-Hans": "114 年全国高级中等学校英语辩论比赛 - 优胜队伍、优秀辩士"
     },
     awwwards2024: {
         en: "Awwwards - Honorable Mention",
-        "zh-Hant": "Awwwards - 榮譽提名",
-        "zh-Hans": "Awwwards - 荣誉提名"
+        "zh-Hant": "Awwwards - Honorable Mention",
+        "zh-Hans": "Awwwards - Honorable Mention"
     },
     sitcon2024: {
         en: "2024 SITCON Hackathon - Best Technical Award",
@@ -169,28 +170,28 @@ const t = i18n.T(Astro.url, {
     },
     taichung2024: {
         en: "2024 Taichung City Outstanding Youth",
-        "zh-Hant": "2024台中市優秀青年",
-        "zh-Hans": "2024台中市优秀青年"
+        "zh-Hant": "2024 台中市政府 優秀青年",
+        "zh-Hans": "2024 台中市政府 优秀青年"
     },
     ithome2024: {
         en: '2024 iThome Ironman Series - "Watch Closely, GitHub Actions – I\'ll Only Demonstrate Once."',
-        "zh-Hant": "2024 iThome 鐵人系列 - 「仔細看，GitHub Actions – 我只會演示一次。」",
-        "zh-Hans": "2024 iThome 铁人系列 - 「仔细看，GitHub Actions – 我只会演示一次。」"
+        "zh-Hant": "2024 iThome 鐵人賽 DevOps 組佳作【看好了 GitHub Actions，我只示範一次】",
+        "zh-Hans": "2024 iThome 铁人赛 DevOps 组佳作【看好了 GitHub Actions，我只示范一次】"
     },
     cssreels: {
         en: "CSSREELS Featured",
-        "zh-Hant": "CSSREELS 精選",
-        "zh-Hans": "CSSREELS 精选"
+        "zh-Hant": "CSSREELS Featured",
+        "zh-Hans": "CSSREELS Featured"
     },
     csslight: {
         en: "CSS Light - Featured of the Day",
-        "zh-Hant": "CSS Light - 當日精選",
-        "zh-Hans": "CSS Light - 当日精选"
+        "zh-Hant": "CSS Light - Featured of the Day",
+        "zh-Hans": "CSS Light - Featured of the Day"
     },
     topdesignking: {
         en: "TopDesignKing - King of the Day",
-        "zh-Hant": "TopDesignKing - 當日之王",
-        "zh-Hans": "TopDesignKing - 当日之王"
+        "zh-Hant": "TopDesignKing - King of the Day",
+        "zh-Hans": "TopDesignKing - King of the Day"
     },
     topcssgallery: {
         en: "Top CSS Gallery",
@@ -199,23 +200,23 @@ const t = i18n.T(Astro.url, {
     },
     webguruaward: {
         en: "Web Guru Award - Guru of the Day",
-        "zh-Hant": "Web Guru Award - 當日大師",
-        "zh-Hans": "Web Guru Award - 当日大师"
+        "zh-Hant": "Web Guru Award - Guru of the Day",
+        "zh-Hans": "Web Guru Award - Guru of the Day"
     },
     nhs2024: {
         en: "2024 National High School English Public Forum Debate - Judge's Choice Awards, Honorable Mentioned Debater",
-        "zh-Hant": "2024全國高中英語公開論壇辯論賽 - 評審選擇獎，榮譽辯手",
-        "zh-Hans": "2024全国高中英语公开论坛辩论赛 - 评审选择奖，荣誉辩手"
+        "zh-Hant": "113 年全國高級中等學校英語辯論比賽 - 評審團講、優良辯士",
+        "zh-Hans": "113 年全国高级中等学校英语辩论比赛 - 评审团讲、优良辩士"
     },
     yangwang2024: {
         en: "2024 Yangwang Cup National Science HomeRun Competition - Bronze Medal",
-        "zh-Hant": "2024陽光盃全國科學HomeRun競賽 - 銅牌",
-        "zh-Hans": "2024阳光杯全国科学HomeRun竞赛 - 铜牌"
+        "zh-Hant": "2024 仰望盃全國科學HomeRun實作大賽 - 銅牌獎",
+        "zh-Hans": "2024 仰望杯全国科学HomeRun实作大赛 - 铜牌奖"
     },
     ithome2023: {
         en: '2023 iThome Ironman Series - "Cool Without Libraries - Fun with CSS & JS Effects"',
-        "zh-Hant": "2023 iThome 鐵人系列 - 「無庫的酷 - CSS & JS 效果的樂趣」",
-        "zh-Hans": "2023 iThome 铁人系列 - 「无库的酷 - CSS & JS 效果的乐趣」"
+        "zh-Hant": "2023 iThome 鐵人賽 Modern Web 組鐵人【不用庫 也能酷 - 玩轉 CSS & Js 特效】",
+        "zh-Hans": "2023 iThome 铁人赛 Modern Web 组铁人【不用库 也能酷 - 玩转 CSS & Js 特效】"
     },
     yearsDeveloping: {
         en: "9 years of web development experience",
@@ -228,143 +229,151 @@ const t = i18n.T(Astro.url, {
         "zh-Hans": "Awwwards 评审"
     },
     bamboofox: {
-        en: "NCTU BambooFox - Security Team members",
-        "zh-Hant": "竹狐科技 - 創辦人兼執行長",
-        "zh-Hans": "竹狐科技 - 创办人兼执行长"
+        en: "NCTU BambooFox - Team members",
+        "zh-Hant": "交大網路安全策進會 (Bamboofox) - 社團／竹狐戰隊成員",
+        "zh-Hans": "交大网络安全策进会 (Bamboofox) - 社团／竹狐战队成员"
     },
     SITCONCamp2025: {
         en: "2025 SITCON Camp IT Group Leader",
-        "zh-Hant": "SITCON 營隊 2025 - 組織者",
-        "zh-Hans": "SITCON 营队 2025 - 组织者"
+        "zh-Hant": "SITCON 夏令營 2025 - 資訊組組長、設計組組員",
+        "zh-Hans": "SITCON 夏令营 2025 - 信息组组长、设计组成员"
     },
     SCAICT: {
         en: "SCAICT - IT Group Leader",
-        "zh-Hant": "SCAICT - 成員",
-        "zh-Hans": "SCAICT - 成员"
+        "zh-Hant": "SCAICT - 資訊組組長",
+        "zh-Hans": "SCAICT - 信息组组长"
     },
     SYTV: {
-        en: "SYSV - Leader",
-        "zh-Hant": "聖揚電視台 - 創辦人兼執行長",
-        "zh-Hans": "圣扬电视台 - 创办人兼执行长"
+        en: "SYSV SYSH Tech Volunteer - Leader",
+        "zh-Hant": "SYSV 西苑高中資訊志工隊 - 隊長",
+        "zh-Hans": "SYSV 西苑高中信息志愿队 - 队长"
     },
     musixmatchCurator: {
         en: "Musixmatch Curator",
-        "zh-Hant": "Musixmatch 游標 - 創作者",
-        "zh-Hans": "Musixmatch 游标 - 创作者"
+        "zh-Hant": "Musixmatch 管理員",
+        "zh-Hans": "Musixmatch 管理员"
     },
     musixmatchTranslation: {
         en: "Musixmatch Translation Curator",
-        "zh-Hant": "Musixmatch 翻譯 - 貢獻者",
-        "zh-Hans": "Musixmatch 翻译 - 贡献者"
+        "zh-Hant": "Musixmatch 翻譯管理員",
+        "zh-Hans": "Musixmatch 翻译管理员"
     },
     radio: {
         en: "Amateur Radio Operator's Certificate (Call sign: BM4LTC)",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "三等業餘無線電人員 (呼號 BM4LTC)",
+        "zh-Hans": "三等业余无线电人员 (呼号 BM4LTC)"
     },
     TOEIC: {
         en: "TOEIC - Golden Certificate",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "TOEIC 多益 - 金色證書",
+        "zh-Hans": "TOEIC 多益 - 金色证书"
     },
     LINEOfficialAccount: {
         en: "LINE Official Account Expert Certification",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "LINE 官方帳號專家認證",
+        "zh-Hans": "LINE 官方账号专家认证"
     },
     SITCON2025: {
         en: "SITCON 2025 - Frontend Effect: Middle School Math",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "SITCON 2025 - 前端特效：不都國中數學",
+        "zh-Hans": "SITCON 2025 - 前端特效：不都国中数学"
     },
     COSCUP2024: {
-        en: "",
-        "zh-Hant": "COSCUP 2024 - The Path to Freedom: The Open Source Journey of SCAICT",
-        "zh-Hans": ""
+        en: "COSCUP 2024 - The Path to Freedom: The Open Source Journey of SCAICT",
+        "zh-Hant": "COSCUP 2024 - 前往自由的路上: 中電喵的開源之旅",
+        "zh-Hans": "COSCUP 2024 - 前往自由的路上: 中电喵的开源之旅"
     },
     SITCON2024: {
         en: "SITCON 2024 - From Shortcuts to Terminal: The Programming Journey on iPhone",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "SITCON 2024 - 從捷徑到終端：iPhone 上的程式設計之旅",
+        "zh-Hans": "SITCON 2024 - 从捷径到终端：iPhone 上的编程之旅"
     },
     AIS3Club: {
         en: "AIS3 Club - Community Management",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "AIS3 Club - 中電會社群經營",
+        "zh-Hans": "AIS3 Club - 中电会社区经营"
     },
     SYTVPython: {
         en: "SYTV K12EA, Ministry of Education - Python Camp",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "國教署新興科技教育遠距示範服務計畫 - Python 爬蟲工作坊講師",
+        "zh-Hans": "国教署新兴科技教育远距示范服务计划 - Python 爬虫工作坊讲师"
     },
     SCAICTJuniorHighCourse: {
         en: "SCAICT Junior High Course - Line Bot",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "中電會 國中生課程 - Line 機器人講師",
+        "zh-Hans": "中电会 国中生课程 - Line 机器人讲师"
     },
     SYTVArduino: {
         en: "SYTV K12EA, Ministry of Education - Having Fun with Arduino Workshop",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "國教署新興科技教育遠距示範服務計畫 - Arduino 樂趣工坊 總召",
+        "zh-Hans": "国教署新兴科技教育远距示范服务计划 - Arduino 乐趣工坊 总召"
     },
     SCAICTWinter: {
         en: "SCAICT Winter Camp - Art Director, Phishing Website Course Instructor ",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "知資為資知 - 2024中電會聯合寒訓 美術總監、釣魚網站課程講師",
+        "zh-Hans": "知资为资知 - 2024中电会联合寒训 美术总监、钓鱼网站课程讲师"
     },
     StrightANotes: {
         en: "Apple Stright A - Sharing of digital note-taking skills",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "Apple Stright A 好筆記給你神助力 - 筆記技巧分享",
+        "zh-Hans": "Apple Stright A 好笔记给你神助力 - 笔记技巧分享"
     },
     SCAICTScarping: {
         en: "SCAICT United Orientation - Web Scraping Instructor",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "中電會聯合幹訓 - 網路爬蟲講師",
+        "zh-Hans": "中电会联合干训 - 网络爬虫讲师"
     },
     SCAICTTheme: {
         en: "SCAICT October Theme Course - Web Design Instructor",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "中電會十月主題課程 - 網頁設計講師",
+        "zh-Hans": "中电会十月主题课程 - 网页设计讲师"
     },
     SYSHMicrocourse: {
         en: "Shi-Yuan Senior High School - Web Design Microcourse",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "西苑高中大學微課程 - 網頁設計講師",
+        "zh-Hans": "西苑高中大学微课程 - 网页设计讲师"
     },
     TYPDebate: {
         en: "Taichung Youth Program - English Debate Station Host",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "優遊台中學 - 英文辯力店關主",
+        "zh-Hans": "优游台中学 - 英文辩力店关主"
     },
     SYTVScarping: {
         en: "SYTV K12EA, Ministry of Education - Web Design Workshop",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "國教署新興科技教育遠距示範服務計畫 - 網頁設計工作坊 總召、講師",
+        "zh-Hans": "国教署新兴科技教育远距示范服务计划 - 网页设计工作坊 总召、讲师"
     },
     SYTVWebDesign: {
         en: "SYTV K12EA, Ministry of Education - Python Web Scraping Workshop",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "國教署新興科技教育遠距示範服務計畫 - Python 網路爬蟲 講師",
+        "zh-Hans": "国教署新兴科技教育远距示范服务计划 - Python 网络爬虫 讲师"
     },
     StellaMatutinaCSS: {
         en: "Stella Matutina Girls' High School - Playing with CSS: Creating Stunning Animations ",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "曉明女中自主學習分享 - 玩轉CSS：製作驚艷的網頁動畫",
+        "zh-Hans": "晓明女中自主学习分享 - 玩转CSS：制作惊艳的网页动画"
     },
     SYTVC: {
         en: "SYTV - C Language Programming Camp Advanced Course",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "西苑高中資訊志工隊 C 語言程式設計營隊 - 進階課程講師",
+        "zh-Hans": "西苑高中信息志愿队 C 语言程序设计营队 - 高级课程讲师"
     },
     SYTVIoT: {
         en: "SYTV Guest Speaker - IoT Applications",
-        "zh-Hant": "",
-        "zh-Hans": ""
+        "zh-Hant": "西苑高中資訊志工隊 C 語言程式設計營隊 - IoT 物聯網應用 講師",
+        "zh-Hans": "西苑高中信息志愿队 C 语言程序设计营队 - IoT 物联网应用 讲师"
+    },
+    SITCONCamp2025Speaker: {
+        en: "SITCON Camp 2025 Elective Tracks Speaker - More than CSS",
+        "zh-Hant": "SITCON Camp 2025 廣度課程 - 不止於 CSS",
+        "zh-Hans": "SITCON Camp 2025 广度课程 - 不止于 CSS"
+    },
+    chungHsin2025: {
+        en: "Hsinchu ChungHsin Foundation Speech & Debate Open Invitational - Champion",
+        "zh-Hant": "忠信英文演講及辯論公開邀請賽 - 冠軍",
+        "zh-Hans": "忠信英文演讲及辩论公开邀请赛 - 冠军"
     }
 });
-
-const lang = i18n.local(Astro.url);
 ---
 
 <html lang={lang}>
@@ -415,9 +424,9 @@ const lang = i18n.local(Astro.url);
                 <div>
                     <h3>{t.applications}</h3>
                     <ol>
-                        <li>Nginx</li>
+                        <li>Nginx / Caddy</li>
                         <li>Git</li>
-                        <li>MySQL / MariaDB</li>
+                        <li>MySQL / PostgreSQL / MongoDB</li>
                         <li>Ps / Ai / Id / Ae</li>
                         <li>Wordpress, Wix</li>
                         <li>Figma</li>
@@ -451,9 +460,10 @@ const lang = i18n.local(Astro.url);
                     </div>
                 </div>
             </div>
-            <h2>{t.awards}</h2>
+            <h2 class="awards">{t.awards}</h2>
             <h3>2025</h3>
             <ul>
+                <li>{t.chungHsin2025}</li>
                 <li>{t.NTNU2025}</li>
             </ul>
             <h3>2024</h3>
@@ -527,6 +537,9 @@ const lang = i18n.local(Astro.url);
                     <h3>2025</h3>
                     <ul>
                         <li>
+                            <a href="https://sitcon.camp">{t.SITCONCamp2025Speaker}</a>
+                        </li>
+                        <li>
                             <a href="https://sitcon.org/2025/agenda/aa71e5/">{t.SITCON2025}</a>
                         </li>
                     </ul>
@@ -577,9 +590,7 @@ const lang = i18n.local(Astro.url);
                     <img src="/src/assets/intro/sitcon.jpg" alt="Elvis Mao presenting a talk about iPhone programming at SITCON 2024 conference" />
                 </div>
             </div>
-            <div class="github">
-                <img src="https://github-readme-stats.vercel.app/api?username=Edit-Mr&show_icons=true&theme=dark" alt="" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Edit-Mr&layout=compact&theme=dark" alt="" />
-            </div>
+            <div class="github"></div>
         </main>
         <Footer />
         <script src="@assets/intro/style.js"></script>

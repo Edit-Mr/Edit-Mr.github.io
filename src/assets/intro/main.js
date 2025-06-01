@@ -6,14 +6,14 @@ import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { AsciiEffect } from "three/examples/jsm/effects/AsciiEffect.js";
 //import html2canvas from "html2canvas";
-import { getLocale } from "astro-i18n-aut";
+import { local } from "@i18n";
 
 const MUCH =
     {
-        "zh-Hant": "多",
-        "zh-Hans": "多",
+        "zh-Hant": "很",
+        "zh-Hans": "很",
         en: "o"
-    }[getLocale(document.location.pathname)] || "o";
+    }[local(document.location.pathname)] || "o";
 
 //LightMode
 let lightMode = true;

@@ -1,10 +1,7 @@
-import { getLocale } from "astro-i18n-aut";
-
-export const T = (url, data) => {
+export const T = (lang, data) => {
     const result = {};
-    const lang = getLocale(url);
     for (const key in data) {
-        result[key] = data[key][lang] || data[key]["zh-Hant"];
+        result[key] = data[key][lang] || data[key]["en"];
     }
     return result;
 };
@@ -24,4 +21,7 @@ export const L = url => {
     };
 };
 
-export const local = url => getLocale(url);
+export const local = url => {
+    const langs = ["en", "zh-Hant", "zh-Hans"];
+    return langs.find(lang => url.toString().startsWith(`/${lang}`)) || "en";
+};

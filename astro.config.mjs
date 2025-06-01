@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import sitemap from "@astrojs/sitemap";
 
-const defaultLocale = "zh-Hant";
+const defaultLocale = "en";
 const locales = {
     en: "en-US", // the `defaultLocale` value must present in `locales` keys
     "zh-Hant": "zh-Hant",
@@ -25,7 +25,8 @@ export default defineConfig({
     integrations: [
         i18n({
             locales,
-            defaultLocale
+            defaultLocale,
+            redirectDefaultLocale: true
         }),
         sitemap({
             i18n: {
