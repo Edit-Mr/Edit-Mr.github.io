@@ -1,5 +1,6 @@
 ---
 import Head from "@components/Head.astro";
+import trash from "@assets/img/icon/trash-can.png";
 ---
 
 <html lang="zh-tw">
@@ -347,7 +348,7 @@ import Head from "@components/Head.astro";
         </div>
         <div id="delete">
             <div>
-                <div>拖曳至此刪除<br /><img src="/src/assets/img/icon/trash-can.png" alt="trash-can" /></div>
+                <div>拖曳至此刪除<br /><img src={trash.src} alt="trash-can" /></div>
             </div>
         </div>
         <div id="room"></div>

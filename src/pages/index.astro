@@ -9,6 +9,7 @@ import envelope from "@assets/img/icon/envelope-regular.svg";
 import github from "@assets/img/icon/github.svg";
 import telegram from "@assets/img/icon/telegram.svg";
 import instagram from "@assets/img/icon/instagram.svg";
+import ogImage from "@assets/img/thumbnail.webp";
 
 const lang = i18n.local(Astro.url.pathname);
 const t = i18n.t(lang, {
@@ -137,7 +138,7 @@ const t = i18n.t(lang, {
 
 <html lang={lang}>
     <head>
-        <Head i18n={t.t} path="" favicon={true} title={t.elvismao} description={t.description} image="/img/thumbnail.webp" theme="#333" />
+        <Head i18n={t.t} path="" title={t.elvismao} description={t.description} image={ogImage.src} theme="#333" />
         <script src="@assets/intro/main.js"></script>
         <script src="@assets/intro/earth.js"></script>
     </head>

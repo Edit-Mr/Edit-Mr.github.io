@@ -5,6 +5,12 @@ import "@assets/intro/base.css";
 import "@assets/intro/about.css";
 import Footer from "@components/Footer.astro";
 import Head from "@components/Head.astro";
+import ogImage from "@assets/img/thumbnail.webp";
+import head from "@assets/intro/head.webp";
+import avatar from "@assets/intro/avatar.png";
+import awwwards from "@assets/intro/awwwards.svg";
+import cssreel from "@assets/intro/cssreel.svg";
+import sitcon from "@assets/intro/sitcon.jpg";
 
 const lang = i18n.local(Astro.url.pathname);
 const t = i18n.t(lang, {
@@ -378,7 +384,7 @@ const t = i18n.t(lang, {
 
 <html lang={lang}>
     <head>
-        <Head title={t.title} description={t.description} theme="#333" image="/src/assets/intro/sitcon.jpg" />
+        <Head i18n={t.t} title={t.title} description={t.description} theme="#333" image={ogImage.src} />
     </head>
 
     <body style="background-color: #000">
@@ -390,8 +396,8 @@ const t = i18n.t(lang, {
                 <p class="aos">{t.intro}</p>
                 <h2>{t.skills}</h2>
                 <picture>
-                    <source srcset="/src/assets/intro/head.webp" />
-                    <img src="/src/assets/intro/avatar.png" alt="Portrait photo of Elvis Mao" class="em" /></picture
+                    <source srcset={head.src} />
+                    <img src={avatar.src} alt="Portrait photo of Elvis Mao" class="em" /></picture
                 >
             </div>
             <div class="em"></div>
@@ -487,10 +493,10 @@ const t = i18n.t(lang, {
             <div class="fridge-container">
                 <div class="fridge">
                     <div class="fridge-list">
-                        <a href="https://www.awwwards.com/sites/elvis-mao" target="_blank"> <img src="/src/assets/intro/awwwards.svg" alt="awwwawds badge" /></a>
+                        <a href="https://www.awwwards.com/sites/elvis-mao" target="_blank"> <img src={awwwards.src} alt="awwwawds badge" /></a>
                         <a href="https://ithelp.ithome.com.tw/users/20139821/ironman/6133" target="_blank"> <img src="https://d1dwq032kyr03c.cloudfront.net/images/ironman_sticker/15/web.png" alt="" /></a>
                         <a href="https://ithelp.ithome.com.tw/users/20139821/ironman/7503" target="_blank"> <img src="https://d1dwq032kyr03c.cloudfront.net/images/ironman_sticker/16/devops.png" alt="" /></a>
-                        <img src="/src/assets/intro/Featured Badge.svg" alt="" />
+                        <img src={cssreel.src} alt="CSSREEL" />
                         <a href="https://www.csslight.com/website/63649/Scaict" target="_blank">
                             <img src="http://www.csslight.com/ribbons/csslight-featured-ribbon-left.png" />
                         </a>
@@ -587,7 +593,7 @@ const t = i18n.t(lang, {
                 </div>
 
                 <div class="emSitcon">
-                    <img src="/src/assets/intro/sitcon.jpg" alt="Elvis Mao presenting a talk about iPhone programming at SITCON 2024 conference" />
+                    <img src={sitcon.src} alt="Elvis Mao presenting a talk about iPhone programming at SITCON 2024 conference" />
                 </div>
             </div>
             <div class="github"></div>
