@@ -15,6 +15,7 @@ import Head from "@components/Head.astro";
             body {
                 background-color: #181c27;
                 color: #ddd;
+                line-height: 1.5;
             }
 
             nav {
@@ -144,9 +145,13 @@ import Head from "@components/Head.astro";
                     grid-template-columns: 1fr;
                 }
             }
+
+            .none {
+                display: none;
+            }
         </style>
     </head>
-    <body>
+    <body class="emfont-GenYoMinTW-min">
         <nav>
             <a href="/code/303/">班級成員</a>
 
@@ -154,6 +159,7 @@ import Head from "@components/Head.astro";
         </nav>
         <header>
             <h1>指導老師</h1>
+            <div class="none">指導老師</div>
         </header>
         <main>
             {
@@ -262,7 +268,7 @@ import Head from "@components/Head.astro";
                     <div class="student">
                         <img src={`https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/teacher/${teacher.name}.webp`} alt={teacher.name} />
                         <div>
-                            <h3>{teacher.name}</h3>
+                            <h3 class="emfont-GenYoMinTW-min-700">{teacher.name}</h3>
                             <p>{teacher.description}</p>
                         </div>
                     </div>
@@ -283,6 +289,10 @@ import Head from "@components/Head.astro";
                 }
             }
             type();
+        </script>
+        <script type="module">
+            import "https://font.emtech.cc/emfont.js";
+            emfont.init();
         </script>
     </body>
 </html>
