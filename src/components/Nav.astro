@@ -1,6 +1,8 @@
 ---
+const { blur } = Astro.props;
 import * as i18n from "src/i18n";
-const t = i18n.T(Astro.url, {
+const l = i18n.l(Astro.url);
+const t = i18n.t(i18n.local(Astro.url.pathname), {
     projects: {
         en: "Projects",
         "zh-Hant": "專案",
@@ -21,29 +23,24 @@ const t = i18n.T(Astro.url, {
 
 <nav>
     <div class="left">
-        <div class="nav-title"><a href="/">Elvis Mao</a></div>
+        <div class="nav-title"><a href={l("/")}>Elvis Mao</a></div>
     </div>
     <img src="/logo.svg" alt="" />
     <div class="right">
         <input type="checkbox" name="" id="burger-togggle" />
         <label for="burger-togggle" class="burger-label"><div class="burger"></div></label>
         <div class="menu">
-            <a href="/code/"><span>{t.projects}</span></a>
-            <a href="/about/"><span>{t.about}</span></a>
+            <a href={l("/code/")}><span>{t.projects}</span></a>
+            <a href={l("/about/")}><span>{t.about}</span></a>
             <a href="https://emtech.cc" target="_blank"><span>{t.blog}</span></a>
             <div class="lang-dropdown">
                 <button id="toggleLang" class="dropbtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                        ><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                        <path
-                            d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"
-                        ></path></svg
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages-icon lucide-languages"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/en/">English</a>
-                    <a href="/zh-Hant/">繁體中文</a>
-                    <a href="/zh-Hans/">简体中文</a>
+                    <a href={l("", "en")}>English</a>
+                    <a href={l("", "zh-Hant")}>繁體中文</a>
+                    <a href={l("", "zh-Hans")}>简体中文</a>
                 </div>
             </div>
         </div>
@@ -68,7 +65,6 @@ const t = i18n.T(Astro.url, {
     }
     .dropbtn svg {
         width: 1.3em;
-        fill: white;
     }
 
     .dropdown-content {
@@ -127,7 +123,14 @@ const t = i18n.T(Astro.url, {
         height: 3rem;
         height: 10vh;
         padding-inline: 3rem;
+        transition: all 0.3s;
     }
+    nav.filter {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background-color: #0000003b;
+    }
+
     nav > div {
         flex: 1;
     }
@@ -285,6 +288,11 @@ const t = i18n.T(Astro.url, {
         white-space: nowrap;
     }
 
+    html[lang="zh-Hant"] .right a,
+    html[lang="zh-Hans"] .right a {
+        margin-left: 2em;
+    }
+
     .right span {
         transition: transform 0.3s;
         display: inline-block;
@@ -320,3 +328,12 @@ const t = i18n.T(Astro.url, {
         transform: scaleX(1);
     }
 </style>
+
+{blur &&  (
+    <script>
+     const nav = document.querySelector("nav");
+            window.onscroll = () => {
+                nav.classList.toggle("filter", window.scrollY > window.innerHeight);
+            };
+    </script>
+)}

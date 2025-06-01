@@ -1,15 +1,13 @@
 ---
 import Head from "@components/Head.astro";
+import "@assets/intro/base.css";
+import Nav from "@components/Nav.astro";
 ---
 
 <html lang="zh-tw" data-default-color-scheme="auto">
     <head>
-        <Head path="code" title="毛哥EM的基地" description="毛哥EM的各種網頁專案" theme="#333"  />
+        <Head path="code" title="毛哥EM的基地" description="毛哥EM的各種網頁專案" theme="#333" />
         <style>
-            :root {
-                --card-color: rgb(23, 23, 23);
-            }
-
             body {
                 background-color: rgb(20, 20, 20);
                 overflow-x: hidden;
@@ -171,7 +169,7 @@ import Head from "@components/Head.astro";
             }
 
             .card > .card-content {
-                background-color: var(--card-color);
+                background-color: rgb(23, 23, 23);
                 border-radius: inherit;
                 display: flex;
                 flex-direction: column;
@@ -309,217 +307,12 @@ import Head from "@components/Head.astro";
                 text-decoration: none;
                 color: inherit;
             }
-
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                display: flex;
-                justify-content: center;
-                z-index: 999;
-                align-items: center;
-                width: 100%;
-                height: 3rem;
-                height: 10vh;
-                padding-inline: 3rem;
-                transition: all 0.3s;
-            }
-
-            nav.filter {
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                background-color: #0000003b;
-            }
-            nav > div {
-                flex: 1;
-            }
-
-            nav > img {
-                height: 2rem;
-            }
-            nav a {
-                text-decoration: none;
-            }
-            .burger {
-                display: none;
-            }
-            #burger-togggle {
-                display: none;
-            }
-            @media (max-width: 65rem) {
-                .burger {
-                    display: block;
-                    position: relative;
-                }
-                .burger,
-                .burger::before,
-                .burger::after {
-                    width: 40px;
-                    height: 3px;
-                    background-color: #fff;
-                    transition: all 0.3s ease-out;
-                }
-                .burger::before,
-                .burger::after {
-                    content: "";
-                    position: absolute;
-                    display: block;
-                    left: 0;
-                }
-
-                .burger::before {
-                    top: -8px;
-                    /* transform-origin: left center; */
-                }
-                .right {
-                    flex: unset;
-                }
-
-                .burger::after {
-                    top: 8px;
-                    /* transform-origin: left center; */
-                }
-
-                .menu {
-                    pointer-events: none;
-                    position: fixed;
-                    padding: 5rem;
-                    font-size: 1.5rem;
-                    top: calc(-5vh + 20px);
-                    right: 0;
-                    width: calc(100vw + 3rem);
-                    height: 100vh;
-                    background-color: rgba(42, 42, 42, 0.255);
-                    backdrop-filter: blur(10px);
-                    -webkit-backdrop-filter: blur(10px);
-                    transition: opacity 0.3s ease-out;
-                    z-index: -1;
-                    opacity: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-
-                nav > img {
-                    order: -1;
-                    margin-right: 0.5rem;
-                    margin-left: 1.5rem;
-                }
-                .burger-label {
-                    margin-left: auto;
-                    width: fit-content;
-                    height: 40px;
-                    display: block;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    margin-right: 1.5rem;
-                }
-
-                #burger-togggle:checked ~ .menu {
-                    opacity: 1;
-                    pointer-events: all;
-                }
-
-                #burger-togggle:checked ~ .burger-label .burger {
-                    /* transform: rotate(45deg); */
-                    height: 0;
-                    transform: translateX(20px);
-                }
-
-                #burger-togggle:checked ~ .burger-label .burger::before {
-                    transform: rotate(-45deg) translate(-50%, -50%);
-                    top: 0;
-                    width: 20px;
-                }
-
-                #burger-togggle:checked ~ .burger-label .burger::after {
-                    transform: rotate(45deg) translate(-50%, -50%);
-                    top: 1px;
-                    width: 22px;
-                    left: -1.5px;
-                }
-                nav {
-                    padding: 0;
-                }
-            }
-
-            .right a::before {
-                content: "/";
-            }
-
-            .left {
-                text-align: left;
-            }
-            .right {
-                text-align: right;
-            }
-            .right a {
-                margin-left: 1.5em;
-                white-space: nowrap;
-            }
-
-            .right span {
-                transition: transform 0.3s;
-                display: inline-block;
-            }
-
-            .right a:hover span {
-                transform: translateX(0.5rem);
-            }
-            .left,
-            .right {
-                transform: translateX(2px);
-            }
-
-            nav .nav-title a {
-                text-decoration: none;
-                position: relative;
-                font-size: min(2.125rem, 8vw);
-            }
-
-            nav .nav-title a::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                background-color: #fff;
-                bottom: 0;
-                left: 0;
-                transform: scaleX(0);
-                transition: transform 0.3s;
-            }
-
-            nav .nav-title a:hover::after {
-                transform: scaleX(1);
-            }
-
-            footer {
-                font-size: 1.3rem;
-                color: #5f5f5f;
-            }
         </style>
         <script src="https://kit.fontawesome.com/5b12cc2fae.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="blur"><div id="blob"></div></div>
-        <nav>
-            <div class="left">
-                <div class="nav-title"><a href="/">Elvis Mao</a></div>
-            </div>
-            <img src="/logo.svg" alt="" />
-            <div class="right">
-                <label for="burger-togggle" class="burger-label"><div class="burger"></div></label>
-                <input type="checkbox" name="" id="burger-togggle" />
-                <div class="menu">
-                    <a href="/code/"><span>Projects</span></a>
-                    <a href="/about/"><span>About</span></a>
-                    <a href="https://emtech.cc" target="_blank"><span>Blog</span></a>
-                </div>
-            </div>
-        </nav>
+        <Nav blur="true" />
         <header>
             <div class="text">
                 <h1 data-value="EM'S BASE">EM'S BASE</h1>
@@ -801,7 +594,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/format-text">
+                <div class="card" data-link="https://elvismao.com/code/format-text">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-text-slash"></i>
@@ -834,7 +627,7 @@ import Head from "@components/Head.astro";
                     </div>
                 </div>
 
-                <div class="card" data-link="https://edit-mr.github.io/code/format-text">
+                <div class="card" data-link="https://elvismao.com/code/format-text">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-address-book"></i>
@@ -866,7 +659,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/qr">
+                <div class="card" data-link="https://elvismao.com/code/qr">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-qrcode"></i>
@@ -899,7 +692,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/svg-filter">
+                <div class="card" data-link="https://elvismao.com/code/svg-filter">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-palette"></i>
@@ -931,7 +724,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/sr">
+                <div class="card" data-link="https://elvismao.com/code/sr">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-camera-retro"></i>
@@ -947,7 +740,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/StandBy">
+                <div class="card" data-link="https://elvismao.com/code/StandBy">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-calendar-days"></i>
@@ -963,7 +756,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/sysh/time">
+                <div class="card" data-link="https://elvismao.com/code/sysh/time">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-clock"></i>
@@ -995,7 +788,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/EM-SFW">
+                <div class="card" data-link="https://elvismao.com/code/EM-SFW">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-camera"></i>
@@ -1059,7 +852,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/303">
+                <div class="card" data-link="https://elvismao.com/code/303">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-regular fa-images"></i>
@@ -1075,7 +868,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/weight-with-iPhone">
+                <div class="card" data-link="https://elvismao.com/code/weight-with-iPhone">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-weight-scale"></i>
@@ -1107,7 +900,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/303/chat">
+                <div class="card" data-link="https://elvismao.com/code/303/chat">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-sharp fa-solid fa-comments"></i>
@@ -1123,7 +916,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/frog">
+                <div class="card" data-link="https://elvismao.com/code/frog">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-clipboard-list"></i>
@@ -1139,7 +932,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/fullstack">
+                <div class="card" data-link="https://elvismao.com/code/fullstack">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-boxes-stacked"></i>
@@ -1155,7 +948,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/meet">
+                <div class="card" data-link="https://elvismao.com/code/meet">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-person-chalkboard"></i>
@@ -1171,7 +964,7 @@ import Head from "@components/Head.astro";
                         </div>
                     </div>
                 </div>
-                <div class="card" data-link="https://edit-mr.github.io/code/weekly">
+                <div class="card" data-link="https://elvismao.com/code/weekly">
                     <div class="card-content">
                         <div class="card-image">
                             <i class="fa-solid fa-file-arrow-down"></i>
@@ -1221,6 +1014,7 @@ import Head from "@components/Head.astro";
                 </div>
             </div>
         </main>
+        <script src="@assets/intro/style.js"></script>
         <footer>
             <p>© 2025 by Elvis Mao (毛哥EM)</p>
         </footer>
@@ -1291,11 +1085,6 @@ import Head from "@components/Head.astro";
                     window.open(div.getAttribute("data-link"), "_blank");
                 });
             });
-            const nav = document.querySelector("nav");
-            // if scroll more than 100vh, add class to nav
-            window.onscroll = () => {
-                nav.classList.toggle("filter", window.scrollY > window.innerHeight);
-            };
         </script>
     </body>
 </html>

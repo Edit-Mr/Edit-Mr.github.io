@@ -230,7 +230,7 @@ main a:hover::after {
     align-items: center;
     justify-content: space-between;
 }
-.github {
+/* .github {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,8 +242,9 @@ main a:hover::after {
 .github img {
     height: 200px;
     max-width: 100%;
-}
+} */
 footer {
+    margin-top: 2rem    ;
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
