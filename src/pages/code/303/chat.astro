@@ -4,16 +4,10 @@ import Head from "@components/Head.astro";
 
 <html lang="zh-tw">
     <head>
-        
-        <title>303電腦課留言系統</title>
-        <meta name="description" content="303電腦課留言系統" />
-        <meta name="keywords" content="EM's Base, Edit Mr." />
-        <meta name="author" content="Elvis Mao" />
-        <link href="chat.png" rel="icon" type="image/x-icon" />
+        <Head title="303電腦課留言系統" description="303電腦課留言系統" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="screen" />
-        <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            </head>
+    </head>
     <body>
         <div class="header">
             <h1 class="project-name">303電腦課留言系統</h1>
@@ -49,7 +43,7 @@ import Head from "@components/Head.astro";
             </div>
         </center>
         <script is:inline>
-            var t1 = window.setInterval(hello, 2000);
+            //var t1 = window.setInterval(hello, 2000);
             function hello() {
                 let requestURL = "https://script.google.com/macros/s/AKfycbyBMmqH6mir6KV1Sklt3jxr4sPVsubVjYjToGZvEfdeuw9KaZgZPtpFCc3I2vCzPLFP/exec";
                 let request = new XMLHttpRequest();

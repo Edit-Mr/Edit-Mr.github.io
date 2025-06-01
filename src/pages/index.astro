@@ -4,6 +4,11 @@ import "@assets/intro/base.css";
 import "@assets/intro/home.css";
 import * as i18n from "src/i18n";
 import Head from "@components/Head.astro";
+import awwwards from "@assets/intro/awwwards.svg";
+import envelope from "@assets/img/icon/envelope-regular.svg";
+import github from "@assets/img/icon/github.svg";
+import telegram from "@assets/img/icon/telegram.svg";
+import instagram from "@assets/img/icon/instagram.svg";
 
 const lang = i18n.local(Astro.url.pathname);
 const t = i18n.t(lang, {
@@ -231,15 +236,15 @@ const t = i18n.t(lang, {
                             </a>
                         </div>
                         <div class="social-links aos">
-                            <a href="mailto:info@elvismao.com"><img src="/src/assets/img/icon/envelope-regular.svg" alt="Mail" /></a>
-                            <a href="https://github.com/Edit-Mr" target="_blank"><img src="/src/assets/img/icon/github.svg" alt="Mail" /></a>
-                            <a href="https://t.me/elvisdragonmao" target="_blank"><img src="/src/assets/img/icon/telegram.svg" alt="Telegram" /></a>
-                            <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src="/src/assets/img/icon/Instagram.svg" alt="Instagram" /></a>
+                            <a href="mailto:info@elvismao.com"><img src={envelope.src} alt="Mail" /></a>
+                            <a href="https://github.com/Edit-Mr" target="_blank"><img src={github.src} alt="GitHub" /></a>
+                            <a href="https://t.me/elvisdragonmao" target="_blank"><img src={telegram.src} alt="Telegram" /></a>
+                            <a href="https://www.instagram.com/elvisdragonmao/" target="_blank"><img src={instagram.src} alt="Instagram" /></a>
                         </div>
                     </div>
                 </div>
                 <div id="awwwards">
-                    <a href="https://www.awwwards.com/sites/elvis-mao" target="_blank"><img src="/src/assets/intro/awwwards.svg" alt="" /></a>
+                    <a href="https://www.awwwards.com/sites/elvis-mao" target="_blank"><img src={awwwards.src} alt="Awwwards" /></a>
                 </div>
                 <div id="output"></div>
                 <footer>© 2025 by Elvis Mao</footer>

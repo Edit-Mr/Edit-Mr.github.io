@@ -7,6 +7,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { AsciiEffect } from "three/examples/jsm/effects/AsciiEffect.js";
 //import html2canvas from "html2canvas";
 import { local } from "@i18n";
+import EMModelURL from "@assets/intro/EM.stl?url";
 
 const MUCH =
     {
@@ -84,7 +85,7 @@ document.body.appendChild(effect.domElement);
 
 //document.getElementById("ascii").style.whiteSpace = "prewrap";
 const loadModel = () => {
-    stlLoader.load("/src/assets/intro/EM.stl", function (geometry) {
+    stlLoader.load(EMModelURL, function (geometry) {
         myMesh.material = material;
         myMesh.geometry = geometry;
 
