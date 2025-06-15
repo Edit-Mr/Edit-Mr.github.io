@@ -39,6 +39,11 @@ const t = i18n.t(lang, {
         "zh-Hant": "一名熱愛科技與藝術的數位創作者。",
         "zh-Hans": "一名热爱科技与艺术的数字创作者。"
     },
+    nownownow: {
+        en: " /Now",
+        "zh-Hant": "/我的近況",
+        "zh-Hans": "/我的近況"
+    },
     skills: {
         en: "Skills",
         "zh-Hant": "技能",
@@ -393,7 +398,9 @@ const t = i18n.t(lang, {
             <div class="top">
                 <div class="largeName aos">{t.elvisdragonmao}</div>
                 <h2 class="aos">{t.aka}</h2>
-                <p class="aos">{t.intro}</p>
+                <p class="aos intro">
+                    {t.intro}<br><a class="nownownow" href="https://emtech.cc/p/now/" target="_blank">{t.nownownow}</a>
+                </p>
                 <h2>{t.skills}</h2>
                 <picture>
                     <source srcset={head.src} />

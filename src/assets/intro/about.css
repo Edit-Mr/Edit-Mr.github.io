@@ -40,10 +40,26 @@ h2 + p {
     transition-delay: 0.4s;
 }
 
-main .largeName + h2 + p {
+.intro {
     font-size: 1.3rem;
     margin-bottom: 3rem;
     max-width: 800px;
+}
+
+.nownownow {
+    color: #999;
+    font-style: italic;
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+    transition: color 0.3s ease;
+}
+
+.nownownow::after {
+    display: none;
+}
+
+.nownownow:hover {
+    color: #d1d1d1;
 }
 
 p {
@@ -244,7 +260,7 @@ main a:hover::after {
     max-width: 100%;
 } */
 footer {
-    margin-top: 2rem    ;
+    margin-top: 2rem;
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
