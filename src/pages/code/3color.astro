@@ -97,6 +97,24 @@ import Head from "@components/Head.astro";
             input {
                 border: none;
                 outline: transparent;
+                height: 1.5rem;
+                width: 2.3rem;
+            }
+             input[type="color"]{
+                cursor: pointer;
+             }
+
+            input[type="color"]::-moz-color-swatch {
+                border: none;
+            }
+
+            input[type="color"]::-webkit-color-swatch-wrapper {
+                padding: 0;
+                border-radius: 0;
+            }
+
+            input[type="color"]::-webkit-color-swatch {
+                border: none;
             }
 
             h1 {
@@ -117,7 +135,7 @@ import Head from "@components/Head.astro";
 
             .picker {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 gap: 1rem;
             }
 
