@@ -5,7 +5,7 @@ import Head from "@components/Head.astro";
 <html lang="zh-Hant">
     <head>
         <Head path="code/qr" title="QR Code生成器 | 毛哥EM的基地" description="世界上最強、最快、即時更新的QR Code生成器。自動抓取剪貼簿連結生成QR Code。" theme="#749BC2" />
-        <style>
+        <style is:global>
             :root {
                 --color-primary: #f6f4eb;
                 --color-secondary: #91c8e4;
@@ -159,7 +159,7 @@ import Head from "@components/Head.astro";
                 }
             }
         </style>
-        </head>
+    </head>
     <body>
         <main>
             <section id="setting">
@@ -197,7 +197,7 @@ import Head from "@components/Head.astro";
                     </div>
                     <div>
                         <!-- <button onclick="generateQRCode()">重新生成 QR Code</button> -->
-                        <button onclick="downloadQRCode()">下載 QR Code</button>
+                        <button class="downloadQRCode">下載 QR Code</button>
                     </div>
                 </div>
                 <p>世界上最強、最快、即時更新的QR Code生成器。<br />自動抓取剪貼簿連結生成QR Code，也可輸入連結、文字、簡訊、電子名片、地理位置等。容錯率為部分被遮住也可掃描<br /><span>毛哥EM製作</span></p>
@@ -228,6 +228,8 @@ import Head from "@components/Head.astro";
                     link.download = "qrcode.png"; // Set the download file name
                     link.click(); // Trigger the download
                 };
+
+                document.querySelector(".downloadQRCode").addEventListener("click", downloadQRCode);
                 const inputElements = document.querySelectorAll("input");
                 inputElements.forEach(input => {
                     input.addEventListener("change", generateQRCode);
