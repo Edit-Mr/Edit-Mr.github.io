@@ -1,6 +1,7 @@
 ---
 import Head from "@components/Head.astro";
 ---
+
 <html lang="zh-Hant">
     <head>
         <Head path="code/counter-call" title="叫號系統 | 毛哥EM的基地" description="簡易叫號系統" theme="#FFF" />
@@ -150,7 +151,7 @@ import Head from "@components/Head.astro";
                 if (newStart > currentNumber) {
                     currentNumber = newStart;
                 }
-  // fill freeSince with current time
+                // fill freeSince with current time
                 const newCounters = Array(newCount).fill(null);
                 const newFreeSince = Array(newCount).fill(new Date().getTime());
 
@@ -186,6 +187,9 @@ import Head from "@components/Head.astro";
                     alert("所有櫃檯都在忙碌中！");
                     return;
                 }
+                const msg = new SpeechSynthesisUtterance(`請 ${currentNumber} 號，到櫃檯 ${bestIndex + 1}`);
+                msg.lang = "zh-TW"; // 設定語言為中文（台灣）
+                speechSynthesis.speak(msg);
 
                 counters[bestIndex] = currentNumber++;
                 freeSince[bestIndex] = null; // 現在這櫃檯正在服務中
