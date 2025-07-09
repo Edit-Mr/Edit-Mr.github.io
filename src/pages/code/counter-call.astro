@@ -209,7 +209,7 @@ import Head from "@components/Head.astro";
                 }
                 const msg = new SpeechSynthesisUtterance(`請 ${currentNumber} 號，到櫃檯 ${bestIndex + 1}`);
                 msg.lang = "zh-TW"; // 設定語言為中文（台灣）
-              //  speechSynthesis.speak(msg);
+              speechSynthesis.speak(msg);
 
                 counters[bestIndex] = currentNumber++;
                 freeSince[bestIndex] = null; // 現在這櫃檯正在服務中
