@@ -37,7 +37,10 @@ import Head from "@components/Head.astro";
             h1 {
                 color: #0d6efd;
                 font-size: 3em;
-                margin-bottom: 2em;
+            }
+            p{
+                font-size: 2em;
+                margin-block: .5em 1em;
             }
             .settings {
                 margin-bottom: 2em;
@@ -136,7 +139,7 @@ import Head from "@components/Head.astro";
     </head>
     <body>
         <h1>即時叫號</h1>
-
+        <p contenteditable="true">叫號三次未到即視為過號，請至前方找「叫號人員」協助。</p>
         <div class="settings">
             <label>
                 開始號碼：
@@ -206,7 +209,7 @@ import Head from "@components/Head.astro";
                 }
                 const msg = new SpeechSynthesisUtterance(`請 ${currentNumber} 號，到櫃檯 ${bestIndex + 1}`);
                 msg.lang = "zh-TW"; // 設定語言為中文（台灣）
-                speechSynthesis.speak(msg);
+              //  speechSynthesis.speak(msg);
 
                 counters[bestIndex] = currentNumber++;
                 freeSince[bestIndex] = null; // 現在這櫃檯正在服務中
