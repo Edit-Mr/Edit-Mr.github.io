@@ -207,7 +207,7 @@ import Head from "@components/Head.astro";
                     alert("所有櫃檯都在忙碌中！");
                     return;
                 }
-                const msg = new SpeechSynthesisUtterance(`請 ${currentNumber} 號，到櫃檯 ${bestIndex + 1}`);
+                const msg = new SpeechSynthesisUtterance(`請 ${currentNumber} 號，到 ${bestIndex + 1}號櫃檯`);
                 msg.lang = "zh-TW"; // 設定語言為中文（台灣）
               speechSynthesis.speak(msg);
 
@@ -231,7 +231,7 @@ import Head from "@components/Head.astro";
 
                     div.innerHTML = `
         <div>
-          <div class="counter-title">櫃檯 ${idx + 1}</div>
+          <div class="counter-title">${idx + 1}號櫃檯</div>
           ${status}
         </div>
         <button onclick="markFree(${idx})">沒人</button>
