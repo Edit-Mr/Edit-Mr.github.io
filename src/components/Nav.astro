@@ -1,5 +1,5 @@
 ---
-const { blur } = Astro.props;
+const { blur = true } = Astro.props;
 import * as i18n from "src/i18n";
 const l = i18n.l(Astro.url);
 const t = i18n.t(i18n.local(Astro.url.pathname), {
@@ -21,7 +21,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
 });
 ---
 
-<nav>
+<nav class={blur ? "filter" : ""}>
     <div class="left">
         <div class="nav-title"><a href={l("/")}>Elvis Mao</a></div>
     </div>
@@ -33,6 +33,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
             <a href={l("/code/")}><span>{t.projects}</span></a>
             <a href={l("/about/")}><span>{t.about}</span></a>
             <a href="https://emtech.cc" target="_blank"><span>{t.blog}</span></a>
+            <a href={l("/hmmm/")}><span>hmmm</span></a>
             <div class="lang-dropdown">
                 <button id="toggleLang" class="dropbtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages-icon lucide-languages"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
@@ -47,7 +48,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
     </div>
 </nav>
 
-<style is:global>
+<style>
     .lang-dropdown {
         position: relative;
         display: inline-block;
@@ -328,12 +329,3 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
         transform: scaleX(1);
     }
 </style>
-
-{blur &&  (
-    <script>
-     const nav = document.querySelector("nav");
-            window.onscroll = () => {
-                nav.classList.toggle("filter", window.scrollY > window.innerHeight);
-            };
-    </script>
-)}

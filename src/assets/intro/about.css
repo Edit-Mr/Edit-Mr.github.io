@@ -153,11 +153,6 @@ main span {
     font-style: italic;
 }
 
-nav {
-    background-color: #0000003b;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
 main a {
     text-decoration: none;
     position: relative;

@@ -1100,6 +1100,14 @@ import Nav from "@components/Nav.astro";
                     window.open(div.getAttribute("data-link"), "_blank");
                 });
             });
+        </script><script>
+            (() => {
+                const nav = document.querySelector("nav.filter");
+                if (!nav) return;
+                window.onscroll = () => {
+                    nav.classList.toggle("filter", window.scrollY > window.innerHeight);
+                };
+            })();
         </script>
     </body>
 </html>
