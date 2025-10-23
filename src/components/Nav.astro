@@ -130,6 +130,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         background-color: #0000003b;
+        transition: 0.3s;
     }
 
     nav > div {
@@ -175,7 +176,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
             top: -8px;
             /* transform-origin: left center; */
         }
-        .right {
+        nav .right {
             flex: unset;
         }
 
@@ -193,7 +194,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
             right: 0;
             width: calc(100vw + 3rem);
             height: 100vh;
-            background-color: rgba(42, 42, 42, 0.255);
+            background-color: rgba(28, 28, 28, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: opacity 0.3s ease-out;
@@ -225,6 +226,11 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
         #burger-togggle:checked ~ .menu {
             opacity: 1;
             pointer-events: all;
+        }
+
+        :global(nav.filter:has(#burger-togggle:checked)) {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         #burger-togggle:checked ~ .burger-label .burger {
@@ -311,6 +317,7 @@ const t = i18n.t(i18n.local(Astro.url.pathname), {
         text-decoration: none;
         position: relative;
         font-size: min(2.125rem, 8vw);
+        flex-wrap: nowrap;
     }
 
     nav .nav-title a::after {

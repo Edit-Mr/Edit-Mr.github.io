@@ -9,7 +9,7 @@ main {
 }
 
 main .largeName {
-    font-size: 3rem;
+    font-size: min(10vw, 3rem);
     font-weight: 700;
     letter-spacing: -0.5px;
 }
@@ -119,6 +119,7 @@ main .largeName + h2 {
 }
 .emSitcon {
     margin: auto;
+    padding-right: 1rem;
 }
 
 .emSitcon img {
@@ -131,7 +132,7 @@ main .largeName + h2 {
 }
 
 ul {
-    margin: 0rem 1rem 1.5rem 1rem;
+    margin: 0rem 0 1.5rem 1rem;
 }
 li {
     color: #e5e5e5;
@@ -240,6 +241,7 @@ main a:hover::after {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 }
 /* .github {
     display: flex;
