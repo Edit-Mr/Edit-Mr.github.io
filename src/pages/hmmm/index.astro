@@ -407,7 +407,7 @@ const t = i18n.t(lang, {
             font-weight: bold;
             border-radius: 2px;
             display: none;
-            line-height: 0;
+            line-height: 1;
         }
 
         .form-status.success {
@@ -438,8 +438,12 @@ const t = i18n.t(lang, {
             display: none;
         }
 
-        :global(.social-links, footer) {
+        :global(.social-links, footer div) {
             text-align: center;
+        }
+
+        :global(footer) {
+            padding: 1rem;
         }
 
         @media (max-width: 768px) {
