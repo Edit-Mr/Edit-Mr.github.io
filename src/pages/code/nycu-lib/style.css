@@ -1,6 +1,6 @@
 :root {
     --primary: #0033a0;
-    --sliver: #8a8d8f;
+    --silver: #8a8d8f;
     --black: #1b1b1b;
     --white: #ffffff;
     --max-width: 400px;
@@ -93,7 +93,6 @@ a {
 }
 
 button {
-    font-family: inherit;
 }
 
 .box {
@@ -103,6 +102,7 @@ button {
 
 .btn,
 input[type="date"] {
+    font-family: inherit;
     background: var(--primary);
     border: none;
     color: var(--white);
@@ -120,18 +120,19 @@ input[type="date"] {
 h2 {
     font-size: 1.5rem;
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 hr {
     margin: 1rem 0;
     border: none;
-    border-top: 1px solid var(--sliver);
+    border-top: 1px solid var(--silver);
 }
 
 ol {
     list-style: inside disc;
     text-align: left;
-    margin-block: 2rem;
+    margin-block: 1rem 2rem;
     text-align: left;
 }
 
@@ -170,10 +171,54 @@ ol {
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .image-container svg:first-child {
     position: static;
+}
+
+.image-container svg.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Floor map animations */
+.floor-map {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation-name: fadeInUp;
+}
+
+.fade-in-down {
+    animation-name: fadeInDown;
 }
 
 .date-container {
@@ -207,10 +252,17 @@ ol {
 
 .floor-container svg {
     cursor: pointer;
+    transition: filter 0.2s ease;
 }
 
 .floor-container svg:hover {
     filter: brightness(0.8);
+}
+
+.floor-container svg.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .time-container {
@@ -221,30 +273,79 @@ ol {
     padding: 1rem;
 }
 
+.room {
+    display: flex;
+    flex-direction: column;
+}
+
 .rooms {
     flex: 1;
     display: flex;
     gap: 0.5rem;
     overflow: auto;
     margin-bottom: 1rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE, old Edge */
+}
+
+.rooms::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.room-name {
+    background: var(--primary);
+    color: var(--white);
+    padding: 2px 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .time-slot {
+    border: none;
     border-bottom: 1px solid #bdbdbd;
     background: #a7a7a7;
     color: var(--white);
     padding: 5px 4px;
     line-height: 1;
     font-family: sans-serif;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+    width: 100%;
+    text-align: center;
 }
 
+.time-slot:hover {
+    background: #8f8f8f;
+    transform: scale(1.02);
+}
+
+.time-slot.selected {
+    background: var(--primary);
+    font-weight: 600;
+}
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 label {
     display: block;
+    margin-bottom: 0.5rem;
 }
 
 h3 {
     font-size: 1rem;
-    border-bottom: 1px solid var(--sliver);
+    border-bottom: 1px solid var(--silver);
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -253,4 +354,29 @@ h3 {
     background-color: #eee;
     border: none;
     padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.friend {
+    background: var(--silver);
+    border: none;
+    color: var(--white);
+    padding: 0.25rem .4rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.friend span {
+    font-size: 0.8rem;
+    margin-left: 0.25rem;
+}
+
+#friends{
+    display: flex;
+    flex-wrap: wrap;justify-content: center;
+    gap: 0.5rem;
+}
+
+i{
+    color: var(--primary);
 }

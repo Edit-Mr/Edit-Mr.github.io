@@ -6,7 +6,7 @@ import logo from "@assets/img/nycu-lib.png";
 
 <html>
     <head>
-        <Head path="code/nycu-lib/" title="交大圖書館 免登入開房系統" description="鏡頭檢視工具，讓視訊畫面不再顛倒/模糊/切割" theme="#00298F" />
+        <Head path="code/nycu-lib/" title="交大圖書館 免登入開房系統" description="與你的好友在圖書館中開個包廂，享受私密的單獨時光。" theme="#00298F" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet" />
@@ -33,10 +33,12 @@ import logo from "@assets/img/nycu-lib.png";
                     <h2>注意事項</h2>
                     <ol>
                         <li>此系統為個人專案，與學校無關。</li>
+                        <li><s>如果預約遲到 30 分鐘會被取消並且記點。</s></li>
+                        <li><s>進去之後卡片記得要放在裡面，不然 30 分鐘沒卡會自動退房。</s></li>
+                        <li><s>圖書館系統規定單次最多可預約 4 小時、14 天以內。</s></li>
+                        <li><i>使用此系統沒有以上說的任何限制，但不相關規定是不道德的行為。</i></li>
                         <li>三人才能開房。</li>
-                        <li>如果預約遲到 30 分鐘會被取消並且記點。</li>
-                        <li>進去之後卡片記得要放在裡面，不然 30 分鐘沒卡會自動退房。</li>
-                        <li>圖書館系統規定單次最多可預約 4 小時、14 天以內。此系統則無這些限制。但不相關規定是不道德的行為。</li>
+                        <li>沒有完全隔音，不要叫太大聲。</li>
                         <li>此專案<a href="https://github.com/Edit-Mr/Edit-Mr.github.io" target="_blank">開源於 GitHub</a>，有任何問題、建議或反饋歡迎開 Issue。</li>
                     </ol>
                     <button class="btn to" data-link="home">返回首頁</button>
@@ -44,7 +46,7 @@ import logo from "@assets/img/nycu-lib.png";
             </section>
             <section id="time">
                 <div class="image-container">
-                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-2F">
+                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-2F" class="floor-map">
                         <rect x="128" y="28" width="74" height="91" fill="#FDFDFE"></rect>
                         <path
                             d="M146.926 80V68.176H150.078C151.294 68.176 152.329 68.3947 153.182 68.832C154.046 69.2693 154.702 69.92 155.15 70.784C155.609 71.648 155.838 72.736 155.838 74.048C155.838 75.3493 155.609 76.4427 155.15 77.328C154.702 78.2133 154.057 78.88 153.214 79.328C152.371 79.776 151.363 80 150.19 80H146.926ZM149.038 78.288H149.934C150.723 78.288 151.395 78.1387 151.95 77.84C152.515 77.5307 152.942 77.0613 153.23 76.432C153.529 75.8027 153.678 75.008 153.678 74.048C153.678 73.0667 153.529 72.272 153.23 71.664C152.942 71.056 152.515 70.608 151.95 70.32C151.395 70.032 150.723 69.888 149.934 69.888H149.038V78.288ZM157.422 80V78.784C158.489 77.76 159.412 76.8427 160.19 76.032C160.969 75.2107 161.566 74.4693 161.982 73.808C162.409 73.136 162.622 72.5067 162.622 71.92C162.622 71.504 162.548 71.152 162.398 70.864C162.26 70.576 162.052 70.352 161.774 70.192C161.497 70.0213 161.15 69.936 160.734 69.936C160.286 69.936 159.876 70.064 159.502 70.32C159.14 70.576 158.804 70.8747 158.494 71.216L157.326 70.064C157.849 69.488 158.393 69.0507 158.958 68.752C159.534 68.4427 160.217 68.288 161.006 68.288C161.742 68.288 162.382 68.432 162.926 68.72C163.47 69.008 163.892 69.4187 164.19 69.952C164.5 70.4747 164.654 71.0933 164.654 71.808C164.654 72.4907 164.462 73.184 164.078 73.888C163.694 74.592 163.188 75.312 162.558 76.048C161.929 76.784 161.23 77.552 160.462 78.352C160.772 78.32 161.102 78.2933 161.454 78.272C161.806 78.24 162.121 78.224 162.398 78.224H165.198V80H157.422ZM170.656 80.224C169.866 80.224 169.178 79.9947 168.592 79.536C168.005 79.0667 167.552 78.3893 167.232 77.504C166.912 76.608 166.752 75.5093 166.752 74.208C166.752 72.9067 166.912 71.8187 167.232 70.944C167.552 70.0693 168.005 69.408 168.592 68.96C169.178 68.512 169.866 68.288 170.656 68.288C171.456 68.288 172.149 68.512 172.736 68.96C173.322 69.408 173.77 70.0693 174.08 70.944C174.4 71.8187 174.56 72.9067 174.56 74.208C174.56 75.5093 174.4 76.608 174.08 77.504C173.77 78.3893 173.322 79.0667 172.736 79.536C172.149 79.9947 171.456 80.224 170.656 80.224ZM170.656 78.56C171.029 78.56 171.36 78.4267 171.648 78.16C171.936 77.8827 172.16 77.424 172.32 76.784C172.49 76.144 172.576 75.2853 172.576 74.208C172.576 73.12 172.49 72.2667 172.32 71.648C172.16 71.0187 171.936 70.576 171.648 70.32C171.36 70.064 171.029 69.936 170.656 69.936C170.293 69.936 169.968 70.064 169.68 70.32C169.392 70.576 169.162 71.0187 168.992 71.648C168.821 72.2667 168.736 73.12 168.736 74.208C168.736 75.2853 168.821 76.144 168.992 76.784C169.162 77.424 169.392 77.8827 169.68 78.16C169.968 78.4267 170.293 78.56 170.656 78.56ZM175.985 80V78.784C177.052 77.76 177.974 76.8427 178.753 76.032C179.532 75.2107 180.129 74.4693 180.545 73.808C180.972 73.136 181.185 72.5067 181.185 71.92C181.185 71.504 181.11 71.152 180.961 70.864C180.822 70.576 180.614 70.352 180.337 70.192C180.06 70.0213 179.713 69.936 179.297 69.936C178.849 69.936 178.438 70.064 178.065 70.32C177.702 70.576 177.366 70.8747 177.057 71.216L175.889 70.064C176.412 69.488 176.956 69.0507 177.521 68.752C178.097 68.4427 178.78 68.288 179.569 68.288C180.305 68.288 180.945 68.432 181.489 68.72C182.033 69.008 182.454 69.4187 182.753 69.952C183.062 70.4747 183.217 71.0933 183.217 71.808C183.217 72.4907 183.025 73.184 182.641 73.888C182.257 74.592 181.75 75.312 181.121 76.048C180.492 76.784 179.793 77.552 179.025 78.352C179.334 78.32 179.665 78.2933 180.017 78.272C180.369 78.24 180.684 78.224 180.961 78.224H183.761V80H175.985Z"
@@ -58,13 +60,13 @@ import logo from "@assets/img/nycu-lib.png";
                             d="M62.9259 80V68.176H66.0779C67.2939 68.176 68.3285 68.3947 69.1819 68.832C70.0459 69.2693 70.7019 69.92 71.1499 70.784C71.6085 71.648 71.8379 72.736 71.8379 74.048C71.8379 75.3493 71.6085 76.4427 71.1499 77.328C70.7019 78.2133 70.0565 78.88 69.2139 79.328C68.3712 79.776 67.3632 80 66.1899 80H62.9259ZM65.0379 78.288H65.9339C66.7232 78.288 67.3952 78.1387 67.9499 77.84C68.5152 77.5307 68.9419 77.0613 69.2299 76.432C69.5285 75.8027 69.6779 75.008 69.6779 74.048C69.6779 73.0667 69.5285 72.272 69.2299 71.664C68.9419 71.056 68.5152 70.608 67.9499 70.32C67.3952 70.032 66.7232 69.888 65.9339 69.888H65.0379V78.288ZM73.4224 80V78.784C74.489 77.76 75.4117 76.8427 76.1904 76.032C76.969 75.2107 77.5664 74.4693 77.9824 73.808C78.409 73.136 78.6224 72.5067 78.6224 71.92C78.6224 71.504 78.5477 71.152 78.3984 70.864C78.2597 70.576 78.0517 70.352 77.7744 70.192C77.497 70.0213 77.1504 69.936 76.7344 69.936C76.2864 69.936 75.8757 70.064 75.5024 70.32C75.1397 70.576 74.8037 70.8747 74.4944 71.216L73.3264 70.064C73.849 69.488 74.393 69.0507 74.9584 68.752C75.5344 68.4427 76.217 68.288 77.0064 68.288C77.7424 68.288 78.3824 68.432 78.9264 68.72C79.4704 69.008 79.8917 69.4187 80.1904 69.952C80.4997 70.4747 80.6544 71.0933 80.6544 71.808C80.6544 72.4907 80.4624 73.184 80.0784 73.888C79.6944 74.592 79.1877 75.312 78.5584 76.048C77.929 76.784 77.2304 77.552 76.4624 78.352C76.7717 78.32 77.1024 78.2933 77.4544 78.272C77.8064 78.24 78.121 78.224 78.3984 78.224H81.1984V80H73.4224ZM86.6556 80.224C85.8663 80.224 85.1783 79.9947 84.5916 79.536C84.005 79.0667 83.5516 78.3893 83.2316 77.504C82.9116 76.608 82.7516 75.5093 82.7516 74.208C82.7516 72.9067 82.9116 71.8187 83.2316 70.944C83.5516 70.0693 84.005 69.408 84.5916 68.96C85.1783 68.512 85.8663 68.288 86.6556 68.288C87.4556 68.288 88.149 68.512 88.7356 68.96C89.3223 69.408 89.7703 70.0693 90.0796 70.944C90.3996 71.8187 90.5596 72.9067 90.5596 74.208C90.5596 75.5093 90.3996 76.608 90.0796 77.504C89.7703 78.3893 89.3223 79.0667 88.7356 79.536C88.149 79.9947 87.4556 80.224 86.6556 80.224ZM86.6556 78.56C87.029 78.56 87.3596 78.4267 87.6476 78.16C87.9356 77.8827 88.1596 77.424 88.3196 76.784C88.4903 76.144 88.5756 75.2853 88.5756 74.208C88.5756 73.12 88.4903 72.2667 88.3196 71.648C88.1596 71.0187 87.9356 70.576 87.6476 70.32C87.3596 70.064 87.029 69.936 86.6556 69.936C86.293 69.936 85.9676 70.064 85.6796 70.32C85.3916 70.576 85.1623 71.0187 84.9916 71.648C84.821 72.2667 84.7356 73.12 84.7356 74.208C84.7356 75.2853 84.821 76.144 84.9916 76.784C85.1623 77.424 85.3916 77.8827 85.6796 78.16C85.9676 78.4267 86.293 78.56 86.6556 78.56ZM95.6169 80.224C94.9982 80.224 94.4489 80.1493 93.9689 80C93.4889 79.8507 93.0622 79.6533 92.6889 79.408C92.3155 79.1627 91.9955 78.8853 91.7289 78.576L92.7369 77.248C93.0889 77.5893 93.4835 77.8827 93.9209 78.128C94.3582 78.3733 94.8649 78.496 95.4409 78.496C95.8675 78.496 96.2409 78.432 96.5609 78.304C96.8809 78.1653 97.1262 77.968 97.2969 77.712C97.4782 77.4453 97.5689 77.136 97.5689 76.784C97.5689 76.3787 97.4675 76.032 97.2649 75.744C97.0729 75.456 96.7315 75.2373 96.2409 75.088C95.7502 74.928 95.0675 74.848 94.1929 74.848V73.312C94.9502 73.312 95.5422 73.232 95.9689 73.072C96.4062 72.912 96.7155 72.6933 96.8969 72.416C97.0889 72.1387 97.1849 71.824 97.1849 71.472C97.1849 70.992 97.0355 70.6187 96.7369 70.352C96.4382 70.0747 96.0222 69.936 95.4889 69.936C95.0515 69.936 94.6462 70.0373 94.2729 70.24C93.8995 70.4427 93.5369 70.7093 93.1849 71.04L92.1129 69.728C92.6035 69.3013 93.1315 68.9547 93.6969 68.688C94.2622 68.4213 94.8862 68.288 95.5689 68.288C96.3049 68.288 96.9502 68.4053 97.5049 68.64C98.0702 68.8747 98.5075 69.2213 98.8169 69.68C99.1369 70.128 99.2969 70.672 99.2969 71.312C99.2969 71.9627 99.1155 72.5067 98.7529 72.944C98.4009 73.3813 97.9155 73.7227 97.2969 73.968V74.032C97.7449 74.1493 98.1502 74.336 98.5129 74.592C98.8755 74.848 99.1582 75.168 99.3609 75.552C99.5742 75.936 99.6809 76.384 99.6809 76.896C99.6809 77.6 99.4942 78.2027 99.1209 78.704C98.7582 79.1947 98.2675 79.5733 97.6489 79.84C97.0409 80.096 96.3635 80.224 95.6169 80.224Z"
                             fill="black"></path>
                     </svg>
-                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-5F">
+                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-5F" class="floor-map">
                         <rect x="133" y="44" width="71" height="59" fill="#FDFDFE"></rect>
                         <path
                             d="M159.43 80.224C158.811 80.224 158.257 80.1493 157.766 80C157.286 79.8507 156.859 79.6533 156.486 79.408C156.123 79.1627 155.793 78.9013 155.494 78.624L156.486 77.28C156.71 77.4933 156.955 77.696 157.222 77.888C157.489 78.0693 157.782 78.2187 158.102 78.336C158.433 78.4427 158.79 78.496 159.174 78.496C159.601 78.496 159.979 78.4053 160.31 78.224C160.641 78.0427 160.902 77.776 161.094 77.424C161.286 77.072 161.382 76.6507 161.382 76.16C161.382 75.424 161.185 74.8587 160.79 74.464C160.406 74.0587 159.899 73.856 159.27 73.856C158.907 73.856 158.598 73.9093 158.342 74.016C158.086 74.112 157.782 74.272 157.43 74.496L156.438 73.856L156.79 68.176H162.934V69.952H158.598L158.358 72.72C158.593 72.6027 158.827 72.512 159.062 72.448C159.307 72.384 159.579 72.352 159.878 72.352C160.539 72.352 161.142 72.4853 161.686 72.752C162.241 73.0187 162.678 73.4293 162.998 73.984C163.329 74.528 163.494 75.232 163.494 76.096C163.494 76.9707 163.302 77.7173 162.918 78.336C162.534 78.944 162.033 79.4133 161.414 79.744C160.806 80.064 160.145 80.224 159.43 80.224ZM168.999 80.224C168.221 80.224 167.538 79.9947 166.951 79.536C166.365 79.0773 165.906 78.3893 165.575 77.472C165.255 76.5547 165.095 75.4133 165.095 74.048C165.095 72.6827 165.255 71.552 165.575 70.656C165.906 69.76 166.365 69.088 166.951 68.64C167.538 68.192 168.221 67.968 168.999 67.968C169.799 67.968 170.487 68.192 171.063 68.64C171.65 69.088 172.103 69.76 172.423 70.656C172.743 71.552 172.903 72.6827 172.903 74.048C172.903 75.4133 172.743 76.5547 172.423 77.472C172.103 78.3893 171.65 79.0773 171.063 79.536C170.487 79.9947 169.799 80.224 168.999 80.224ZM168.999 78.56C169.373 78.56 169.703 78.416 169.991 78.128C170.279 77.84 170.503 77.3707 170.663 76.72C170.834 76.0587 170.919 75.168 170.919 74.048C170.919 72.928 170.834 72.0427 170.663 71.392C170.503 70.7413 170.279 70.2827 169.991 70.016C169.703 69.7387 169.373 69.6 168.999 69.6C168.637 69.6 168.311 69.7387 168.023 70.016C167.735 70.2827 167.506 70.7413 167.335 71.392C167.165 72.0427 167.079 72.928 167.079 74.048C167.079 75.168 167.165 76.0587 167.335 76.72C167.506 77.3707 167.735 77.84 168.023 78.128C168.311 78.416 168.637 78.56 168.999 78.56ZM174.985 80V78.288H177.561V70.448H175.417V69.136C175.993 69.0293 176.489 68.9013 176.905 68.752C177.331 68.592 177.721 68.4 178.073 68.176H179.641V78.288H181.913V80H174.985Z"
                             fill="black"></path>
                     </svg>
-                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-6F">
+                    <svg width="338" height="148" viewBox="0 0 338 148" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-6F" class="floor-map">
                         <rect y="1" width="68.2338" height="63.0646" fill="#FDFDFE"></rect>
                         <rect x="94.08" y="58" width="70.3015" height="43.4215" fill="#FDFDFE"></rect>
                         <rect x="173.686" y="58" width="72.3692" height="43.4215" fill="#FDFDFE"></rect>
@@ -95,172 +97,16 @@ import logo from "@assets/img/nycu-lib.png";
                     <input type="date" name="" id="date" />
                     <h3>選擇時段</h3>
                     <div class="floor-container">
-                        <svg width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg id="floor-up" width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.1244 0L24.2487 21H0L12.1244 0Z" fill="white"></path>
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+                        <svg id="floor-down" xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
                             <path d="M12.1244 21L0 0L24.2487 2.11989e-06L12.1244 21Z" fill="white"></path>
                         </svg>
                     </div>
                 </div>
                 <div class="time-container box">
-                    <div class="rooms">
-                        <div class="room">
-                            <div class="room-name">D602</div>
-                            <div class="time-slot">08:00~08:30</div>
-                            <div class="time-slot">08:30~09:00</div>
-                            <div class="time-slot">09:00~09:30</div>
-                            <div class="time-slot">09:30~10:00</div>
-                            <div class="time-slot">10:00~10:30</div>
-                            <div class="time-slot">10:30~11:00</div>
-                            <div class="time-slot">11:00~11:30</div>
-                            <div class="time-slot">11:30~12:00</div>
-                            <div class="time-slot">12:00~12:30</div>
-                            <div class="time-slot">12:30~13:00</div>
-                            <div class="time-slot">13:00~13:30</div>
-                            <div class="time-slot">13:30~14:00</div>
-                            <div class="time-slot">14:00~14:30</div>
-                            <div class="time-slot">14:30~15:00</div>
-                            <div class="time-slot">15:00~15:30</div>
-                            <div class="time-slot">15:30~16:00</div>
-                            <div class="time-slot">16:00~16:30</div>
-                            <div class="time-slot">16:30~17:00</div>
-                            <div class="time-slot">17:00~17:30</div>
-                            <div class="time-slot">17:30~18:00</div>
-                            <div class="time-slot">18:00~18:30</div>
-                            <div class="time-slot">18:30~19:00</div>
-                            <div class="time-slot">19:00~19:30</div>
-                            <div class="time-slot">19:30~20:00</div>
-                            <div class="time-slot">20:00~20:30</div>
-                            <div class="time-slot">20:30~21:00</div>
-                            <div class="time-slot">21:00~21:30</div>
-                            <div class="time-slot">21:30~22:00</div>
-                        </div>
-                        <div class="room">
-                            <div class="room-name">D602</div>
-                            <div class="time-slot">08:00~08:30</div>
-                            <div class="time-slot">08:30~09:00</div>
-                            <div class="time-slot">09:00~09:30</div>
-                            <div class="time-slot">09:30~10:00</div>
-                            <div class="time-slot">10:00~10:30</div>
-                            <div class="time-slot">10:30~11:00</div>
-                            <div class="time-slot">11:00~11:30</div>
-                            <div class="time-slot">11:30~12:00</div>
-                            <div class="time-slot">12:00~12:30</div>
-                            <div class="time-slot">12:30~13:00</div>
-                            <div class="time-slot">13:00~13:30</div>
-                            <div class="time-slot">13:30~14:00</div>
-                            <div class="time-slot">14:00~14:30</div>
-                            <div class="time-slot">14:30~15:00</div>
-                            <div class="time-slot">15:00~15:30</div>
-                            <div class="time-slot">15:30~16:00</div>
-                            <div class="time-slot">16:00~16:30</div>
-                            <div class="time-slot">16:30~17:00</div>
-                            <div class="time-slot">17:00~17:30</div>
-                            <div class="time-slot">17:30~18:00</div>
-                            <div class="time-slot">18:00~18:30</div>
-                            <div class="time-slot">18:30~19:00</div>
-                            <div class="time-slot">19:00~19:30</div>
-                            <div class="time-slot">19:30~20:00</div>
-                            <div class="time-slot">20:00~20:30</div>
-                            <div class="time-slot">20:30~21:00</div>
-                            <div class="time-slot">21:00~21:30</div>
-                            <div class="time-slot">21:30~22:00</div>
-                        </div>
-                        <div class="room">
-                            <div class="room-name">D602</div>
-                            <div class="time-slot">08:00~08:30</div>
-                            <div class="time-slot">08:30~09:00</div>
-                            <div class="time-slot">09:00~09:30</div>
-                            <div class="time-slot">09:30~10:00</div>
-                            <div class="time-slot">10:00~10:30</div>
-                            <div class="time-slot">10:30~11:00</div>
-                            <div class="time-slot">11:00~11:30</div>
-                            <div class="time-slot">11:30~12:00</div>
-                            <div class="time-slot">12:00~12:30</div>
-                            <div class="time-slot">12:30~13:00</div>
-                            <div class="time-slot">13:00~13:30</div>
-                            <div class="time-slot">13:30~14:00</div>
-                            <div class="time-slot">14:00~14:30</div>
-                            <div class="time-slot">14:30~15:00</div>
-                            <div class="time-slot">15:00~15:30</div>
-                            <div class="time-slot">15:30~16:00</div>
-                            <div class="time-slot">16:00~16:30</div>
-                            <div class="time-slot">16:30~17:00</div>
-                            <div class="time-slot">17:00~17:30</div>
-                            <div class="time-slot">17:30~18:00</div>
-                            <div class="time-slot">18:00~18:30</div>
-                            <div class="time-slot">18:30~19:00</div>
-                            <div class="time-slot">19:00~19:30</div>
-                            <div class="time-slot">19:30~20:00</div>
-                            <div class="time-slot">20:00~20:30</div>
-                            <div class="time-slot">20:30~21:00</div>
-                            <div class="time-slot">21:00~21:30</div>
-                            <div class="time-slot">21:30~22:00</div>
-                        </div>
-                        <div class="room">
-                            <div class="room-name">D602</div>
-                            <div class="time-slot">08:00~08:30</div>
-                            <div class="time-slot">08:30~09:00</div>
-                            <div class="time-slot">09:00~09:30</div>
-                            <div class="time-slot">09:30~10:00</div>
-                            <div class="time-slot">10:00~10:30</div>
-                            <div class="time-slot">10:30~11:00</div>
-                            <div class="time-slot">11:00~11:30</div>
-                            <div class="time-slot">11:30~12:00</div>
-                            <div class="time-slot">12:00~12:30</div>
-                            <div class="time-slot">12:30~13:00</div>
-                            <div class="time-slot">13:00~13:30</div>
-                            <div class="time-slot">13:30~14:00</div>
-                            <div class="time-slot">14:00~14:30</div>
-                            <div class="time-slot">14:30~15:00</div>
-                            <div class="time-slot">15:00~15:30</div>
-                            <div class="time-slot">15:30~16:00</div>
-                            <div class="time-slot">16:00~16:30</div>
-                            <div class="time-slot">16:30~17:00</div>
-                            <div class="time-slot">17:00~17:30</div>
-                            <div class="time-slot">17:30~18:00</div>
-                            <div class="time-slot">18:00~18:30</div>
-                            <div class="time-slot">18:30~19:00</div>
-                            <div class="time-slot">19:00~19:30</div>
-                            <div class="time-slot">19:30~20:00</div>
-                            <div class="time-slot">20:00~20:30</div>
-                            <div class="time-slot">20:30~21:00</div>
-                            <div class="time-slot">21:00~21:30</div>
-                            <div class="time-slot">21:30~22:00</div>
-                        </div>
-                        <div class="room">
-                            <div class="room-name">D602</div>
-                            <div class="time-slot">08:00~08:30</div>
-                            <div class="time-slot">08:30~09:00</div>
-                            <div class="time-slot">09:00~09:30</div>
-                            <div class="time-slot">09:30~10:00</div>
-                            <div class="time-slot">10:00~10:30</div>
-                            <div class="time-slot">10:30~11:00</div>
-                            <div class="time-slot">11:00~11:30</div>
-                            <div class="time-slot">11:30~12:00</div>
-                            <div class="time-slot">12:00~12:30</div>
-                            <div class="time-slot">12:30~13:00</div>
-                            <div class="time-slot">13:00~13:30</div>
-                            <div class="time-slot">13:30~14:00</div>
-                            <div class="time-slot">14:00~14:30</div>
-                            <div class="time-slot">14:30~15:00</div>
-                            <div class="time-slot">15:00~15:30</div>
-                            <div class="time-slot">15:30~16:00</div>
-                            <div class="time-slot">16:00~16:30</div>
-                            <div class="time-slot">16:30~17:00</div>
-                            <div class="time-slot">17:00~17:30</div>
-                            <div class="time-slot">17:30~18:00</div>
-                            <div class="time-slot">18:00~18:30</div>
-                            <div class="time-slot">18:30~19:00</div>
-                            <div class="time-slot">19:00~19:30</div>
-                            <div class="time-slot">19:30~20:00</div>
-                            <div class="time-slot">20:00~20:30</div>
-                            <div class="time-slot">20:30~21:00</div>
-                            <div class="time-slot">21:00~21:30</div>
-                            <div class="time-slot">21:30~22:00</div>
-                        </div>
-                    </div>
+                    <div class="rooms" id="rooms-container"></div>
                     <button class="btn to" data-link="confirm">下一步</button>
                 </div>
             </section>
@@ -274,13 +120,16 @@ import logo from "@assets/img/nycu-lib.png";
                     <input type="text" id="add-student" />
                     <label for="friends">歷史好朋友</label>
                     <div id="friends">
-                        <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
-                        <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
-                        <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
-                        <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
-                        <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
+                        <button class="friend" id="114550020">毛宥鈞<span>1145500000</span></button>
+                        <button class="friend" id="114550020">毛宥鈞<span>1145500000</span></button>
+                        <button class="friend" id="114550020">毛宥鈞<span>1145500000</span></button>
+                        <button class="friend" id="114550020">毛宥鈞<span>1145500000</span></button>
+                        <button class="friend" id="114550020">毛宥鈞<span>1145500000</span></button>
                     </div>
-                    <button class="btn to" data-link="result">確認開房</button>
+                    <div class="actions">
+                        <button class="btn to" data-link="time">返回</button>
+                        <button class="btn to" data-link="result">確認開房</button>
+                    </div>
                 </div>
             </section>
             <section id="result">
@@ -289,7 +138,7 @@ import logo from "@assets/img/nycu-lib.png";
                     <h3>房間／時段</h3>
                     <p id="success-time">5/12 11:00~12:00<br />5/12 11:00~12:00</p>
                     <h3>參與者</h3>
-                    <p>毛宥鈞 1145500250<br />毛宥鈞 1145500250<br />毛宥鈞 1145500250</p>
+                    <p>毛宥鈞 1145500000<br />毛宥鈞 1145500000<br />毛宥鈞 1145500000</p>
                     <div class="actions">
                         <button class="btn to" data-link="home">回首頁</button>
                         <button class="btn">前往圖書館系統</button>
@@ -315,6 +164,121 @@ import logo from "@assets/img/nycu-lib.png";
             title.addEventListener("click", () => {
                 location.reload();
             });
+
+            // Floor switching
+            const floors = [
+                { id: "2F", rooms: ["D203", "D202", "D201"] },
+                { id: "5F", rooms: ["501"] },
+                { id: "6F", rooms: ["D601", "D602", "C601", "C602", "C603", "C604"] }
+            ];
+            let currentFloorIndex = 0;
+
+            const floorUpBtn = document.getElementById("floor-up");
+            const floorDownBtn = document.getElementById("floor-down");
+            const imageContainer = document.querySelector(".image-container");
+            const roomsContainer = document.getElementById("rooms-container");
+
+            const timeSlots = ["08:00~08:30", "08:30~09:00", "09:00~09:30", "09:30~10:00", "10:00~10:30", "10:30~11:00", "11:00~11:30", "11:30~12:00", "12:00~12:30", "12:30~13:00", "13:00~13:30", "13:30~14:00", "14:00~14:30", "14:30~15:00", "15:00~15:30", "15:30~16:00", "16:00~16:30", "16:30~17:00", "17:00~17:30", "17:30~18:00", "18:00~18:30", "18:30~19:00", "19:00~19:30", "19:30~20:00", "20:00~20:30", "20:30~21:00", "21:00~21:30", "21:30~22:00"];
+
+            function updateFloorDisplay(direction = "none") {
+                const currentFloor = floors[currentFloorIndex];
+                const floorMaps = document.querySelectorAll(".floor-map");
+
+                // Hide all floor maps
+                floorMaps.forEach(map => {
+                    map.classList.remove("active", "fade-in-up", "fade-in-down");
+                });
+
+                // Show current floor map with animation
+                const currentMap = document.getElementById(`map-${currentFloor.id}`);
+                if (currentMap) {
+                    currentMap.classList.add("active");
+                    if (direction === "up") {
+                        currentMap.classList.add("fade-in-up");
+                    } else if (direction === "down") {
+                        currentMap.classList.add("fade-in-down");
+                    }
+                }
+
+                // Update rooms
+                roomsContainer.innerHTML = "";
+                currentFloor.rooms.forEach(roomName => {
+                    const roomDiv = document.createElement("div");
+                    roomDiv.className = "room";
+                    roomDiv.dataset.room = roomName;
+
+                    const nameDiv = document.createElement("div");
+                    nameDiv.className = "room-name";
+                    nameDiv.textContent = roomName;
+                    roomDiv.appendChild(nameDiv);
+
+                    timeSlots.forEach(time => {
+                        const button = document.createElement("button");
+                        button.className = "time-slot";
+                        button.dataset.time = time;
+                        button.textContent = time;
+                        button.addEventListener("click", toggleTimeSlot);
+                        roomDiv.appendChild(button);
+                    });
+
+                    roomsContainer.appendChild(roomDiv);
+                });
+            }
+
+            floorUpBtn.addEventListener("click", () => {
+                if (currentFloorIndex < floors.length - 1) {
+                    currentFloorIndex++;
+                    updateFloorDisplay("up");
+                    updateButtonStates();
+                }
+            });
+
+            floorDownBtn.addEventListener("click", () => {
+                if (currentFloorIndex > 0) {
+                    currentFloorIndex--;
+                    updateFloorDisplay("down");
+                    updateButtonStates();
+                }
+            });
+
+            function updateButtonStates() {
+                if (currentFloorIndex >= floors.length - 1) {
+                    floorUpBtn.classList.add("disabled");
+                } else {
+                    floorUpBtn.classList.remove("disabled");
+                }
+
+                if (currentFloorIndex <= 0) {
+                    floorDownBtn.classList.add("disabled");
+                } else {
+                    floorDownBtn.classList.remove("disabled");
+                }
+            }
+
+            // Initialize button states and first floor
+            updateButtonStates();
+            updateFloorDisplay();
+
+            // Set initial floor as active
+            const initialMap = document.getElementById("map-2F");
+            if (initialMap) {
+                initialMap.classList.add("active");
+            }
+
+            // Time slot selection
+            function toggleTimeSlot(e) {
+                e.target.classList.toggle("selected");
+            }
+
+            // Add click listeners to initial time slots
+            document.querySelectorAll(".time-slot").forEach(slot => {
+                slot.addEventListener("click", toggleTimeSlot);
+            });
+
+            // select date of today
+            const dateInput = document.getElementById("date") as HTMLInputElement;
+            const today = new Date().toISOString().split("T")[0];
+            dateInput.value = today;
         </script>
     </body>
 </html>
