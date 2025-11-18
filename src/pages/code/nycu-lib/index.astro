@@ -1,36 +1,46 @@
 ---
 import Head from "@components/Head.astro";
-import "style.css";
-import logo from "@assets/images/img/nycu-lib.png";
+import "./style.css";
+import logo from "@assets/img/nycu-lib.png";
 ---
 
 <html>
     <head>
         <Head path="code/nycu-lib/" title="交大圖書館 免登入開房系統" description="鏡頭檢視工具，讓視訊畫面不再顛倒/模糊/切割" theme="#00298F" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet" />
     </head>
     <body>
         <nav>
-            <img src={logo.src} alt="NYCU Library Logo" />
-            <h1>交大圖書館 免登入開房系統</h1>
+            <div>
+                <img src={logo.src} alt="NYCU Library Logo" height="25" width="27" />
+                <h1>交大圖書館免登入開房系統</h1>
+            </div>
         </nav>
-        <main>
+        <main class="home">
             <section id="home">
-                <h1>交大圖書館 免登入開房系統</h1>
-                <button class="btn to" data-link="time">進入</button>
-                <p class="warning">此專案並非圖書館官方系統 請勿亂幫朋友開房害他被記點</p>
-                <button class="link">注意事項</button>
+                <div class="box">
+                    <h2>交大圖書館<br />免登入開房系統</h2>
+                    <hr />
+                    <p>此專案並非圖書館官方系統<br />請勿亂幫朋友開房害他被記點</p>
+                    <button class="btn to" data-link="time">進入</button>
+                    <button class="link to" data-link="reminder">注意事項</button>
+                </div>
             </section>
             <section id="reminder">
-                <h2>注意事項</h2>
-                <ol>
-                    <li>此系統為個人專案，與學校無關。</li>
-                    <li>三人才能開房。</li>
-                    <li>如果預約遲到 30 分鐘會被取消並且記點（之後可能會添加自動取消功能）。</li>
-                    <li>進去之後卡片記得要放在裡面，不然 30 分鐘沒卡會自動退房。</li>
-                    <li>圖書館系統規定單次最多可預約 4 小時、14 天以內。此系統則無這些限制。但不相關規定是不道德的行為。</li>
-                    <li>此專案開源於 GitHub，有任何問題、建議或反饋歡迎開 Issue。</li>
-                </ol>
-                <button class="btn to" data-link="home">返回首頁</button>
+                <div class="box">
+                    <h2>注意事項</h2>
+                    <ol>
+                        <li>此系統為個人專案，與學校無關。</li>
+                        <li>三人才能開房。</li>
+                        <li>如果預約遲到 30 分鐘會被取消並且記點。</li>
+                        <li>進去之後卡片記得要放在裡面，不然 30 分鐘沒卡會自動退房。</li>
+                        <li>圖書館系統規定單次最多可預約 4 小時、14 天以內。此系統則無這些限制。但不相關規定是不道德的行為。</li>
+                        <li>此專案<a href="https://github.com/Edit-Mr/Edit-Mr.github.io" target="_blank">開源於 GitHub</a>，有任何問題、建議或反饋歡迎開 Issue。</li>
+                    </ol>
+                    <button class="btn to" data-link="home">返回首頁</button>
+                </div>
             </section>
             <section id="time">
                 <div class="image-container">
@@ -83,32 +93,179 @@ import logo from "@assets/images/img/nycu-lib.png";
                 </div>
                 <div class="date-container">
                     <input type="date" name="" id="date" />
-                    <label for="date">2025/11/18</label>
                     <h3>選擇時段</h3>
                     <div class="floor-container">
                         <svg width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.1244 0L24.2487 21H0L12.1244 0Z" fill="white"></path>
                         </svg>
-                        <svg width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.1244 0L24.2487 21H0L12.1244 0Z" fill="white"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+                            <path d="M12.1244 21L0 0L24.2487 2.11989e-06L12.1244 21Z" fill="white"></path>
                         </svg>
                     </div>
-                    <div class="time-container">
-                        <div class="rooms">
-                            <div class="room">
-                                <div class="room-name">D602</div>
-                                <div class="time-slot">08:00~10:00</div>
-                                <div class="time-slot">10:00~12:00</div>
-                                <div class="time-slot">12:00~14:00</div>
-                                <div class="time-slot">14:00~16:00</div>
-                                <div class="time-slot">16:00~18:00</div>
-                                <div class="time-slot">18:00~20:00</div>
-                            </div>
-                            <button class="btn to" data-link="confirm">下一步</button>
+                </div>
+                <div class="time-container box">
+                    <div class="rooms">
+                        <div class="room">
+                            <div class="room-name">D602</div>
+                            <div class="time-slot">08:00~08:30</div>
+                            <div class="time-slot">08:30~09:00</div>
+                            <div class="time-slot">09:00~09:30</div>
+                            <div class="time-slot">09:30~10:00</div>
+                            <div class="time-slot">10:00~10:30</div>
+                            <div class="time-slot">10:30~11:00</div>
+                            <div class="time-slot">11:00~11:30</div>
+                            <div class="time-slot">11:30~12:00</div>
+                            <div class="time-slot">12:00~12:30</div>
+                            <div class="time-slot">12:30~13:00</div>
+                            <div class="time-slot">13:00~13:30</div>
+                            <div class="time-slot">13:30~14:00</div>
+                            <div class="time-slot">14:00~14:30</div>
+                            <div class="time-slot">14:30~15:00</div>
+                            <div class="time-slot">15:00~15:30</div>
+                            <div class="time-slot">15:30~16:00</div>
+                            <div class="time-slot">16:00~16:30</div>
+                            <div class="time-slot">16:30~17:00</div>
+                            <div class="time-slot">17:00~17:30</div>
+                            <div class="time-slot">17:30~18:00</div>
+                            <div class="time-slot">18:00~18:30</div>
+                            <div class="time-slot">18:30~19:00</div>
+                            <div class="time-slot">19:00~19:30</div>
+                            <div class="time-slot">19:30~20:00</div>
+                            <div class="time-slot">20:00~20:30</div>
+                            <div class="time-slot">20:30~21:00</div>
+                            <div class="time-slot">21:00~21:30</div>
+                            <div class="time-slot">21:30~22:00</div>
+                        </div>
+                        <div class="room">
+                            <div class="room-name">D602</div>
+                            <div class="time-slot">08:00~08:30</div>
+                            <div class="time-slot">08:30~09:00</div>
+                            <div class="time-slot">09:00~09:30</div>
+                            <div class="time-slot">09:30~10:00</div>
+                            <div class="time-slot">10:00~10:30</div>
+                            <div class="time-slot">10:30~11:00</div>
+                            <div class="time-slot">11:00~11:30</div>
+                            <div class="time-slot">11:30~12:00</div>
+                            <div class="time-slot">12:00~12:30</div>
+                            <div class="time-slot">12:30~13:00</div>
+                            <div class="time-slot">13:00~13:30</div>
+                            <div class="time-slot">13:30~14:00</div>
+                            <div class="time-slot">14:00~14:30</div>
+                            <div class="time-slot">14:30~15:00</div>
+                            <div class="time-slot">15:00~15:30</div>
+                            <div class="time-slot">15:30~16:00</div>
+                            <div class="time-slot">16:00~16:30</div>
+                            <div class="time-slot">16:30~17:00</div>
+                            <div class="time-slot">17:00~17:30</div>
+                            <div class="time-slot">17:30~18:00</div>
+                            <div class="time-slot">18:00~18:30</div>
+                            <div class="time-slot">18:30~19:00</div>
+                            <div class="time-slot">19:00~19:30</div>
+                            <div class="time-slot">19:30~20:00</div>
+                            <div class="time-slot">20:00~20:30</div>
+                            <div class="time-slot">20:30~21:00</div>
+                            <div class="time-slot">21:00~21:30</div>
+                            <div class="time-slot">21:30~22:00</div>
+                        </div>
+                        <div class="room">
+                            <div class="room-name">D602</div>
+                            <div class="time-slot">08:00~08:30</div>
+                            <div class="time-slot">08:30~09:00</div>
+                            <div class="time-slot">09:00~09:30</div>
+                            <div class="time-slot">09:30~10:00</div>
+                            <div class="time-slot">10:00~10:30</div>
+                            <div class="time-slot">10:30~11:00</div>
+                            <div class="time-slot">11:00~11:30</div>
+                            <div class="time-slot">11:30~12:00</div>
+                            <div class="time-slot">12:00~12:30</div>
+                            <div class="time-slot">12:30~13:00</div>
+                            <div class="time-slot">13:00~13:30</div>
+                            <div class="time-slot">13:30~14:00</div>
+                            <div class="time-slot">14:00~14:30</div>
+                            <div class="time-slot">14:30~15:00</div>
+                            <div class="time-slot">15:00~15:30</div>
+                            <div class="time-slot">15:30~16:00</div>
+                            <div class="time-slot">16:00~16:30</div>
+                            <div class="time-slot">16:30~17:00</div>
+                            <div class="time-slot">17:00~17:30</div>
+                            <div class="time-slot">17:30~18:00</div>
+                            <div class="time-slot">18:00~18:30</div>
+                            <div class="time-slot">18:30~19:00</div>
+                            <div class="time-slot">19:00~19:30</div>
+                            <div class="time-slot">19:30~20:00</div>
+                            <div class="time-slot">20:00~20:30</div>
+                            <div class="time-slot">20:30~21:00</div>
+                            <div class="time-slot">21:00~21:30</div>
+                            <div class="time-slot">21:30~22:00</div>
+                        </div>
+                        <div class="room">
+                            <div class="room-name">D602</div>
+                            <div class="time-slot">08:00~08:30</div>
+                            <div class="time-slot">08:30~09:00</div>
+                            <div class="time-slot">09:00~09:30</div>
+                            <div class="time-slot">09:30~10:00</div>
+                            <div class="time-slot">10:00~10:30</div>
+                            <div class="time-slot">10:30~11:00</div>
+                            <div class="time-slot">11:00~11:30</div>
+                            <div class="time-slot">11:30~12:00</div>
+                            <div class="time-slot">12:00~12:30</div>
+                            <div class="time-slot">12:30~13:00</div>
+                            <div class="time-slot">13:00~13:30</div>
+                            <div class="time-slot">13:30~14:00</div>
+                            <div class="time-slot">14:00~14:30</div>
+                            <div class="time-slot">14:30~15:00</div>
+                            <div class="time-slot">15:00~15:30</div>
+                            <div class="time-slot">15:30~16:00</div>
+                            <div class="time-slot">16:00~16:30</div>
+                            <div class="time-slot">16:30~17:00</div>
+                            <div class="time-slot">17:00~17:30</div>
+                            <div class="time-slot">17:30~18:00</div>
+                            <div class="time-slot">18:00~18:30</div>
+                            <div class="time-slot">18:30~19:00</div>
+                            <div class="time-slot">19:00~19:30</div>
+                            <div class="time-slot">19:30~20:00</div>
+                            <div class="time-slot">20:00~20:30</div>
+                            <div class="time-slot">20:30~21:00</div>
+                            <div class="time-slot">21:00~21:30</div>
+                            <div class="time-slot">21:30~22:00</div>
+                        </div>
+                        <div class="room">
+                            <div class="room-name">D602</div>
+                            <div class="time-slot">08:00~08:30</div>
+                            <div class="time-slot">08:30~09:00</div>
+                            <div class="time-slot">09:00~09:30</div>
+                            <div class="time-slot">09:30~10:00</div>
+                            <div class="time-slot">10:00~10:30</div>
+                            <div class="time-slot">10:30~11:00</div>
+                            <div class="time-slot">11:00~11:30</div>
+                            <div class="time-slot">11:30~12:00</div>
+                            <div class="time-slot">12:00~12:30</div>
+                            <div class="time-slot">12:30~13:00</div>
+                            <div class="time-slot">13:00~13:30</div>
+                            <div class="time-slot">13:30~14:00</div>
+                            <div class="time-slot">14:00~14:30</div>
+                            <div class="time-slot">14:30~15:00</div>
+                            <div class="time-slot">15:00~15:30</div>
+                            <div class="time-slot">15:30~16:00</div>
+                            <div class="time-slot">16:00~16:30</div>
+                            <div class="time-slot">16:30~17:00</div>
+                            <div class="time-slot">17:00~17:30</div>
+                            <div class="time-slot">17:30~18:00</div>
+                            <div class="time-slot">18:00~18:30</div>
+                            <div class="time-slot">18:30~19:00</div>
+                            <div class="time-slot">19:00~19:30</div>
+                            <div class="time-slot">19:30~20:00</div>
+                            <div class="time-slot">20:00~20:30</div>
+                            <div class="time-slot">20:30~21:00</div>
+                            <div class="time-slot">21:00~21:30</div>
+                            <div class="time-slot">21:30~22:00</div>
                         </div>
                     </div>
+                    <button class="btn to" data-link="confirm">下一步</button>
                 </div>
-                <section id="confirm">
+            </section>
+            <section id="confirm">
+                <div class="box">
                     <h2>訂房確認</h2>
                     <h3>房間／時段</h3>
                     <p id="confirm-time">5/12 11:00~12:00<br />5/12 11:00~12:00</p>
@@ -124,20 +281,40 @@ import logo from "@assets/images/img/nycu-lib.png";
                         <button class="friend" id="114550020">毛宥鈞<span>1145500250</span></button>
                     </div>
                     <button class="btn to" data-link="result">確認開房</button>
-                </section>
-                <section id="result">
+                </div>
+            </section>
+            <section id="result">
+                <div class="box">
                     <h2>訂房成功</h2>
                     <h3>房間／時段</h3>
                     <p id="success-time">5/12 11:00~12:00<br />5/12 11:00~12:00</p>
                     <h3>參與者</h3>
                     <p>毛宥鈞 1145500250<br />毛宥鈞 1145500250<br />毛宥鈞 1145500250</p>
                     <div class="actions">
-                        <button class="btn to" data-link="result">前往圖書館系統</button>
+                        <button class="btn to" data-link="home">回首頁</button>
                         <button class="btn">前往圖書館系統</button>
                     </div>
-                </section>
+                </div>
             </section>
-            <footer><a href="https://elvismao.com/">毛哥EM</a>製作</footer>
         </main>
+        <footer><a href="https://elvismao.com/" target="_blank">毛哥EM</a>製作</footer>
+        <script>
+            // Navigation
+            const main = document.querySelector("main");
+            const toButtons = document.querySelectorAll(".to");
+            const sections = document.querySelectorAll("main section");
+            toButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const targetId = button.getAttribute("data-link");
+                    main.classList = targetId;
+                });
+            });
+
+            // press h1 for refresh page
+            const title = document.querySelector("nav>div");
+            title.addEventListener("click", () => {
+                location.reload();
+            });
+        </script>
     </body>
 </html>
