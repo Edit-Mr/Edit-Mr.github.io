@@ -1,11 +1,11 @@
 ---
 const { i18n = [], path = "", favicon = true, ga = true, title, description, image, theme = "#000" } = Astro.props;
 const links = i18n
-    .map(lang => {
-        const url = lang === "en" ? "" : "/" + lang;
-        return `<link rel="alternate" hreflang="${lang}" href="https://elvismao.com${url}/${path}" />`;
-    })
-    .join("\n");
+	.map(lang => {
+		const url = lang === "en" ? "" : "/" + lang;
+		return `<link rel="alternate" hreflang="${lang}" href="https://elvismao.com${url}/${path}" />`;
+	})
+	.join("\n");
 
 const xDefault = `<link rel="alternate" hreflang="x-default" href="https://elvismao.com/${path}" />`;
 const canonical = `https://elvismao.com/${path}`;
@@ -29,30 +29,30 @@ const fullImage = `https://elvismao.com${image}`;
 
 <!-- Favicon -->
 {
-    favicon && (
-        <>
-            <link rel="apple-touch-icon" sizes="180x180" href="https://emtech.cc/static/icons/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="https://emtech.cc/static/icons/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="https://emtech.cc/static/icons/favicon-16x16.png" />
-            <link rel="manifest" href="https://emtech.cc/static/icons/site.webmanifest" />
-            <link rel="shortcut icon" href="https://emtech.cc/static/icons/favicon.ico" />
-            <meta name="msapplication-TileColor" content="#2d89ef" />
-            <meta name="msapplication-config" content="/static/icons/browserconfig.xml" />
-        </>
-    )
+	favicon && (
+		<>
+			<link rel="apple-touch-icon" sizes="180x180" href="https://emtech.cc/static/icons/apple-touch-icon.png" />
+			<link rel="icon" type="image/png" sizes="32x32" href="https://emtech.cc/static/icons/favicon-32x32.png" />
+			<link rel="icon" type="image/png" sizes="16x16" href="https://emtech.cc/static/icons/favicon-16x16.png" />
+			<link rel="manifest" href="https://emtech.cc/static/icons/site.webmanifest" />
+			<link rel="shortcut icon" href="https://emtech.cc/static/icons/favicon.ico" />
+			<meta name="msapplication-TileColor" content="#2d89ef" />
+			<meta name="msapplication-config" content="/static/icons/browserconfig.xml" />
+		</>
+	)
 }
 
 <!-- Google Analytics -->
 {
-    ga && (
-        <>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG" />
-            <script>
-                {`window.dataLayer = window.dataLayer || [];
+	ga && (
+		<>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-9R5PZG2VQG" />
+			<script>
+				{`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-9R5PZG2VQG');`}
-            </script>
-        </>
-    )
+			</script>
+		</>
+	)
 }

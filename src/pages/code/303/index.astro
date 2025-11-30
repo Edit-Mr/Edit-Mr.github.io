@@ -3,242 +3,475 @@ import Head from "@components/Head.astro";
 ---
 
 <html lang="zh-Hant">
-    <head>
-        <Head title="第65屆國三3電子畢冊" theme="#333" image="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/main/group.webp" favicon={false} theme="#2f4154" />
-        <link rel="icon" href="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/teacher/%E6%9D%8E%E8%8B%A5%E8%96%87.webp" />
-        <style is:global>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body {
-                background-color: #181c27;
-                color: #ddd;
-                line-height: 1.5;
-            }
+	<head>
+		<Head title="第65屆國三3電子畢冊" theme="#333" image="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/main/group.webp" favicon={false} theme="#2f4154" />
+		<link rel="icon" href="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/teacher/%E6%9D%8E%E8%8B%A5%E8%96%87.webp" />
+		<style is:global>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background-color: #181c27;
+				color: #ddd;
+				line-height: 1.5;
+			}
 
-            nav {
-                background-color: #d8d8d83a;
-                backdrop-filter: blur(10px);
-                --webkit-backdrop-filter: blur(10px);
-                position: fixed;
-                top: 1rem;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-                padding: 1rem 2rem;
-                border-radius: 2000px;
-                z-index: 1000;
-            }
+			nav {
+				background-color: #d8d8d83a;
+				backdrop-filter: blur(10px);
+				--webkit-backdrop-filter: blur(10px);
+				position: fixed;
+				top: 1rem;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				padding: 1rem 2rem;
+				border-radius: 2000px;
+				z-index: 1000;
+			}
 
-            nav a {
-                text-decoration: none;
-            }
+			nav a {
+				text-decoration: none;
+			}
 
-            a {
-                color: #ddd;
-                font-weight: bold;
-                transition: color 0.3s ease;
-            }
+			a {
+				color: #ddd;
+				font-weight: bold;
+				transition: color 0.3s ease;
+			}
 
-            a:hover {
-                color: #30a9de;
-                text-decoration: underline;
-            }
+			a:hover {
+				color: #30a9de;
+				text-decoration: underline;
+			}
 
-            header {
-                height: 600px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: url(https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/main/group.webp) no-repeat center center;
-                background-size: cover;
-                backdrop-filter: opacity(0.5);
-                position: relative;
-            }
+			header {
+				height: 600px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: url(https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/main/group.webp) no-repeat center center;
+				background-size: cover;
+				backdrop-filter: opacity(0.5);
+				position: relative;
+			}
 
-            header::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-            }
+			header::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
 
-            header h1 {
-                position: relative;
-                z-index: 1;
-                color: #fff;
-                font-size: 2rem;
-                text-align: center;
-            }
+			header h1 {
+				position: relative;
+				z-index: 1;
+				color: #fff;
+				font-size: 2rem;
+				text-align: center;
+			}
 
-            h1::after {
-                content: "_";
-                animation: blink 1s infinite;
-            }
-            @keyframes blink {
-                0%,
-                100% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-            }
+			h1::after {
+				content: "_";
+				animation: blink 1s infinite;
+			}
+			@keyframes blink {
+				0%,
+				100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+			}
 
-            main {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 1rem;
-                padding: 2rem;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
+			main {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 1rem;
+				padding: 2rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
 
-            .student {
-                background-color: #2f4154;
-                border-radius: 10px;
-                padding: 1rem;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                transition: transform 0.3s ease;
-            }
-            .student:hover {
-                transform: scale(1.05);
-            }
-            .student img {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: top;
-            }
-            .student div {
-                flex: 1;
-            }
-            .student h3 {
-                margin-bottom: 0.5rem;
-            }
-            .student p {
-                margin: 0.2rem 0;
-            }
-            .student a {
-                color: #30a9de;
-                text-decoration: none;
-            }
-            .student a:hover {
-                text-decoration: underline;
-            }
-            @media (max-width: 600px) {
-                header h1 {
-                    font-size: 1.5rem;
-                }
-                nav {
-                    flex-direction: column;
-                    gap: 0.5rem;
-                }
-                main {
-                    grid-template-columns: 1fr;
-                }
-            }
+			.student {
+				background-color: #2f4154;
+				border-radius: 10px;
+				padding: 1rem;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				transition: transform 0.3s ease;
+			}
+			.student:hover {
+				transform: scale(1.05);
+			}
+			.student img {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				object-fit: cover;
+				object-position: top;
+			}
+			.student div {
+				flex: 1;
+			}
+			.student h3 {
+				margin-bottom: 0.5rem;
+			}
+			.student p {
+				margin: 0.2rem 0;
+			}
+			.student a {
+				color: #30a9de;
+				text-decoration: none;
+			}
+			.student a:hover {
+				text-decoration: underline;
+			}
+			@media (max-width: 600px) {
+				header h1 {
+					font-size: 1.5rem;
+				}
+				nav {
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+				main {
+					grid-template-columns: 1fr;
+				}
+			}
 
-            .none {
-                display: none;
-            }
-        </style>
-    </head>
-    <body class="emfont-GenYoMinTW-min">
-        <nav>
-            <a href="/code/303/">班級成員</a>
+			.none {
+				display: none;
+			}
+		</style>
+	</head>
+	<body class="emfont-GenYoMinTW-min">
+		<nav>
+			<a href="/code/303/">班級成員</a>
 
-            <a href="/code/303/teacher/">指導老師</a>
-        </nav>
-        <header>
-            <h1>衛道中學第65屆國三3電子畢冊</h1>
-            <div class="none">衛道中學第65屆國三3電子畢冊</div>
-        </header>
-        <main>
-            <div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/0.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">李若薇</h3><p>祝福你們 在這寬廣的世界找到自己真正的熱情所在，全心投入、堅持到底。</p><p>🗓️ 2021-12-21 🏷️ undefined 🔗 <a href="tel:+886-920-570-347" target="_blank">0920570347</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/1.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">丁尹然</h3><p>三年的時光就這麼過去了，很感謝和大家有過這段美好的回憶</p><p>🗓️ 2007-7-17 🏷️ undefined 🔗 <a href="https://www.instagram.com/ko._.no._.dio._.da" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/2.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">毛宥鈞</h3><p>轉眼間就要畢業了。感謝所有陪伴我渡過這段時光的同學喝老師們</p><p>🗓️ 2007-5-12 🏷️ undefined 🔗 <a href="https://www.facebook.com/elvismao.070512/" target="_blank">Facebook</a> <a href="https://www.instagram.com/elvisdragonmao" target="_blank">Instagram</a> <a href="https://discordapp.com/users/685630394431045863" target="_blank">Discord</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/3.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">黃守呈</h3><p>ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</p><p>🗓️ 2022-8-13 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100057765236497" target="_blank">Facebook</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/4.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">楊祚恩</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/5.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">李宇洋</h3><p>很高興能夠與三班的同學們以及老師們一起度過國中三年。這段時間，我們一起創造了許多難忘的回憶，希望大家能找到屬於自己的未來，珍重再見。</p><p>🗓️ 2007-3-16 🏷️ undefined 🔗 <a href="https://www.instagram.com/aurum960316" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/6.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">李侑宸</h3><p>大家畢業快樂拉 記得我就好哈哈</p><p>🗓️ 2007-2-6 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100040317574262" target="_blank">Facebook</a></p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/7.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">李孟樸</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/8.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">李恩齊</h3><p>這三年來的校園生活過得非常快樂，感覺非常捨不得，希望未來有緣再相遇</p><p>🗓️ 2007-1-15 🏷️ undefined 🔗 <a href="https://www.instagram.com/0115.nchi" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/9.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">卓煜晉</h3><p>在303的三年，我認識了很多有趣的同學，大家都會互相支持，整個班級就像一個大家庭一樣。</p><p>🗓️ 2007-1-2 🏷️ undefined 🔗 <a href="https://www.instagram.com/c_eugene.0102" target="_blank">Instagram</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/10.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">林重佑</h3><p>畢業了！請不要悲傷，因為我們只是暫時的分別！畢業了，請不要流淚，我們會在大學門口相遇！離別是短暫的！請大家彼此珍重！</p><p>🗓️ 2006-10-23 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/11.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">林尉然</h3><p>和大家相處的這三年，會成為我們珍貴的回憶，希望我們畢業之後，不會在舊的記憶逗留太久，而是專注的向前邁進</p><p>🗓️ 2007-3-27 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/12.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">林嵩皓</h3><p>感謝大家這三年來的陪伴 希望排球比賽得冠軍</p><p>🗓️ 2007-7-10 🏷️ undefined 🔗 <a href="tel:+886-900-797-117" target="_blank">0916785030</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/13.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">施冠任</h3><p>感謝各位同學這三年來的陪伴，祝福大家都能考上理想的高中</p><p>🗓️ 2006-10-31 🏷️ undefined 🔗</p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/14.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">胡凱鈞</h3><p>時光任苒</p><p>🗓️ 2007-1-17 🏷️ undefined 🔗 <a href="tel:+886-900-797-117" target="_blank">0900797117</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/15.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">張銓益</h3><p>有幸相識</p><p>🗓️ 2007-7-7 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/16.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">莊証傑</h3><p>謝謝大家這三年來的陪伴，祝大家畢業快樂!!</p><p>🗓️ 2007-1-7 🏷️ undefined 🔗 <a href="tel:+886-905-027-298" target="_blank">0905027298</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/17.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">許安頡</h3><p>國中是一個我們都還在成長的階段，一起瘋狂，一起歡笑，真的很棒！</p><p>🗓️ 2007-7-9 🏷️ undefined 🔗 <a href="https://www.instagram.com/alvin960709" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/18.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">許鈞凱</h3><p>國三的三年終於要結束了，感謝各位同學陪我留下美好的回憶。</p><p>🗓️ 2006-9-6 🏷️ undefined 🔗 <a href="https://www.instagram.com/jacky.0906" target="_blank">Instagram</a></p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/19.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳亦敬</h3><p>謝謝大家三年的陪伴，祝大家畢業快樂。</p><p>🗓️ 2007-3-14 🏷️ undefined 🔗</p></div></div><div
-                class="student"
-            >
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/20.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳信愷</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/21.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳宣儒</h3><p>這三年跟大家經歷了很多事情也成長了很多，雖然在國中生涯裡難免會遇到挫折，但我身後永遠會有一群熱情的 知心的朋友挺著我，謝謝你們參與我的國中生活。</p><p>🗓️ 2007-8-21 🏷️ undefined 🔗 <a href="tel:+886-979-067-366" target="_blank">0979067366</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/22.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳柏諺</h3><p>國中三年感覺一下子就過了， 也留下了許多有趣的回憶</p><p>🗓️ 2006-10-14 🏷️ undefined 🔗 <a href="https://www.instagram.com/brian_951014" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/23.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳泰銘</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/24.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">曾瀞頡</h3><p>快要畢業了很開心</p><p>🗓️ 2006-10-22 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/25.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">童仕博</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/26.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">黃柏瑄</h3><p>byebye</p><p>🗓️ 2007-6-6 🏷️ undefined 🔗</p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/27.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">黃榮基</h3><p>我很高興我畢業了，祝3班全部人畢業快樂，有緣高中再見面。</p><p>🗓️ 2006-9-2 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/28.webp" /><div>
-                    <h3 class="emfont-GenYoMinTW-min-700">張宇寬</h3><p>謝謝大家這三年來的陪伴與照顧🙏//～短短的國中生涯也完美結束了🎉，這些年我們一起經歷了不少精彩的人生階段，像是大家一起完成了一齣話劇、園遊會及運動會等等，還有因為新冠肺炎疫情而開始的線上學習初體驗，都是我們一起創造的難忘回憶～☺️希望大家都能繼續勇往直前、不畏風雨追求自己的理想，也祝福大家都能擁有自己夢寐以求的美好未來！❤️</p><p>
-                        🗓️ 2006-10-23 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100024172117517" target="_blank">Facebook</a>
-                        <a href="https://www.instagram.com/yukuan1023" target="_blank">Instagram</a>
-                        <a href="tel:+886-912-227-023" target="_blank">0912227023</a>
-                        <a href="mailto:yu.kuan10231023@gmail.com" target="_blank">Mail</a>
-                    </p>
-                </div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/29.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">劉政佑</h3><p>畢業了，不想說再見，不想，只想說，親愛的老師，同學們，我們永遠在一起!</p><p>🗓️ 2007-4-25 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/30.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">張兆霖</h3><p>我們即將步入新的生活，但前面的路還很長，希望我們都能更加珍惜擁有的青春和友誼。</p><p>🗓️ 2006-9-21 🏷️ undefined 🔗 <a href="tel:+886-975-732-288" target="_blank">0975732288</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/31.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">鄭為桓</h3><p>謝謝你們陪伴我度過國中生活，我絕對不會忘記班上發生的點點滴滴。</p><p>🗓️ 2006-11-26 🏷️ undefined 🔗 <a href="https://www.facebook.com/weihuan.cheng.9" target="_blank">Facebook</a> <a href="https://www.instagram.com/littlebonezero" target="_blank">Instagram</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/32.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">鄭原任</h3><p>茫茫人海中我們遇到了彼此，雖然不久後就要分開，但我相信未來一定會再見！</p><p>🗓️ 2007-4-8 🏷️ undefined 🔗 <a href="tel:+886-958-519-364" target="_blank">0958519364</a></p></div>
-            </div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/33.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">盧建安</h3><p>在這三年裡這個班帶給了我很多的歡樂，很開心有這個緣分可以遇到大家，希望畢業之後也可以繼續保持聯繫。最後也祝大家畢業快樂，以後的求學之路也都可以一路順遂。</p><p>🗓️ 2006-9-12 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100039639813365" target="_blank">Facebook</a> <a href="https://www.instagram.com/ryanlu.09.12" target="_blank">Instagram</a> <a href="tel:+886-905-021-968" target="_blank">0905021968</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/34.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">賴郁中</h3><p>準備要升上ㄧ中了，希望未來可以以再跟大家相遇</p><p>🗓️ 2006-2-13 🏷️ undefined 🔗 <a href="tel:+886-968-967-802" target="_blank">0968967802</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/35.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">簡葳鋐</h3><p>風格優美 每個人各有特色 排版精緻。這三年與各個同學一起參預了許許多多的活動，也與從屁孩成長了些，在不管甚麼時候與每位同學都可以自在地笑，與每個人交流都是充滿熱情，在國中之年充滿無盡的歡樂</p><p>🗓️ 2007-7-11 🏷️ undefined 🔗 <a href="tel:+886-961-506-196" target="_blank">0961506196</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/36.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">賴富瑋</h3><p>經過這三年的日子，有苦，有辣，有酸，有甜，謝謝你們能夠包容我的缺點，我很感謝有來到這一班，這是我的榮幸，謝謝你們，畢業快樂。</p><p>🗓️ 2006-12-29 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/37.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">傅偉勝</h3><p>很開心能進入三年三班也很開心能認識大家雖然以後可能上了不同的高中但我相信大家的友誼還是可以一樣好</p><p>🗓️ 2006-11-5 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/38.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">季佳穎</h3><p>謝謝你們出現在我的人生，謝謝你們這三年的陪伴，我們後會有期。祝大家畢業快樂，追夢成功，未來可期。</p><p>🗓️ 2007-2-28 🏷️ undefined 🔗 <a href="https://www.instagram.com/ryanlu.09.12" target="_blank">Instagram</a> <a href="https://twitter.com/XingYueQiuBai" target="_blank">Twitter</a> <a href="https://www.youtube.com/channel/UC9aU7NUidhTlsIl64SZuzfQ" target="_blank">YouTube</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/39.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">施欣彤</h3><p>我很珍惜這三年和三班一起度過的時光，雖然我們不是最優秀，最討人喜愛的班，但在我心中，三班的每個人都是最獨特的，那些一起大笑，一起氣憤，一起後悔，一起努力的回憶，絕對會成為我生命中最難忘的一部分。</p><p>🗓️ 2006-9-23 🏷️ undefined 🔗 <a href="https://www.instagram.com/doris.950923" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/40.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">吳沛穎</h3><p>很幸運能夠跟國三三班的大家一起在國中三年留下很多美好的回憶，希望大家到了高中也要保持聯絡。祝大家畢業快樂！</p><p>🗓️ 2006-9-7 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100021481625194" target="_blank">Facebook</a> <a href="https://www.instagram.com/_164.wu" target="_blank">Instagram</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/41.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">張棋淇</h3><p>在這三年中 經歷了許多歡笑與淚水 現在都成為難忘的回憶 祝大家畢業快樂🎉</p><p>🗓️ 2007-6-21 🏷️ undefined 🔗</p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/42.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳函妘</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/43.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">陳思縈</h3><p>我很開心地度過了3年國中生活，祝大家畢業快樂!</p><p>🗓️ 2006-10-31 🏷️ undefined 🔗 <a href="https://www.instagram.com/ssying10.31" target="_blank">Instagram</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/44.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">曾若溱</h3><p>很高興能跟各位同班，祝大家畢業快樂</p><p>🗓️ 2007-3-15 🏷️ undefined 🔗 <a href="https://www.instagram.com/janice__0315" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/45.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">黃宜珏</h3><p>這三年很快就結束了 很高興能跟大家同班 也一起經歷了開心的事 祝大家的高中生活都能順順利利 畢業快樂!</p><p>🗓️ 2007-1-16 🏷️ undefined 🔗 <a href="https://www.instagram.com/yi_chiuh" target="_blank">Instagram</a></p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/46.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">詹云宜</h3><p>畢業快樂大家！跟大家相處了3年，有快樂也有各種，反正希望大家未來順利開開心心🥰</p><p>🗓️ 2007-2-27 🏷️ undefined 🔗 <a href="https://www.instagram.com/yun__yi0227" target="_blank">Instagram</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/47.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">蔡依潔</h3><p>三年的時間ㄧ下子就過了，祝大家畢業快樂～</p><p>🗓️ 2007-1-26 🏷️ undefined 🔗</p></div></div><div class="student">
-                <img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/48.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">鄭少涵</h3><p>很喜歡班上的氣氛，大家都很nice，畢業會捨不得。</p><p>🗓️ 2007-7-17 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100036648353186" target="_blank">Facebook</a></p></div>
-            </div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/49.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">何姵儀</h3><p>終於畢業了，畢業快樂</p><p>🗓️ 2006-10-27 🏷️ undefined 🔗</p></div></div><div class="student"><img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/50.webp" /><div><h3 class="emfont-GenYoMinTW-min-700">蘇郁婷</h3><p>在這裡待了三年，發現自己有很多很蠢的回憶，同學人也都很好</p><p>🗓️ 2006-12-29 🏷️ undefined 🔗 <a href="https://www.instagram.com/yuting_.1229" target="_blank">Instagram</a></p></div></div>
-            <script is:inline>
-                // typing effect
-                const header = document.querySelector("header h1");
-                const text = header.textContent;
-                header.textContent = "";
-                let index = 0;
-                function type() {
-                    if (index < text.length) {
-                        header.textContent += text.charAt(index);
-                        index++;
-                        setTimeout(type, 100);
-                    }
-                }
-                type();
-            </script>
-        </main>
-        <script type="module">
-            import "https://font.emtech.cc/emfont.js";
-            emfont.init();
-        </script>
-    </body>
+			<a href="/code/303/teacher/">指導老師</a>
+		</nav>
+		<header>
+			<h1>衛道中學第65屆國三3電子畢冊</h1>
+			<div class="none">衛道中學第65屆國三3電子畢冊</div>
+		</header>
+		<main>
+			<div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/0.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">李若薇</h3><p>祝福你們 在這寬廣的世界找到自己真正的熱情所在，全心投入、堅持到底。</p><p>
+						🗓️ 2021-12-21 🏷️ undefined 🔗 <a href="tel:+886-920-570-347" target="_blank">0920570347</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/1.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">丁尹然</h3><p>三年的時光就這麼過去了，很感謝和大家有過這段美好的回憶</p><p>
+						🗓️ 2007-7-17 🏷️ undefined 🔗 <a href="https://www.instagram.com/ko._.no._.dio._.da" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/2.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">毛宥鈞</h3><p>轉眼間就要畢業了。感謝所有陪伴我渡過這段時光的同學喝老師們</p><p>
+						🗓️ 2007-5-12 🏷️ undefined 🔗 <a href="https://www.facebook.com/elvismao.070512/" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com/elvisdragonmao" target="_blank">Instagram</a>
+						<a href="https://discordapp.com/users/685630394431045863" target="_blank">Discord</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/3.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">黃守呈</h3><p>ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</p><p>
+						🗓️ 2022-8-13 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100057765236497" target="_blank">Facebook</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/4.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">楊祚恩</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/5.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">李宇洋</h3><p>很高興能夠與三班的同學們以及老師們一起度過國中三年。這段時間，我們一起創造了許多難忘的回憶，希望大家能找到屬於自己的未來，珍重再見。</p><p
+					>
+						🗓️ 2007-3-16 🏷️ undefined 🔗 <a href="https://www.instagram.com/aurum960316" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/6.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">李侑宸</h3><p>大家畢業快樂拉 記得我就好哈哈</p><p>
+						🗓️ 2007-2-6 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100040317574262" target="_blank">Facebook</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/7.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">李孟樸</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/8.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">李恩齊</h3><p>這三年來的校園生活過得非常快樂，感覺非常捨不得，希望未來有緣再相遇</p><p>
+						🗓️ 2007-1-15 🏷️ undefined 🔗 <a href="https://www.instagram.com/0115.nchi" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/9.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">卓煜晉</h3><p>在303的三年，我認識了很多有趣的同學，大家都會互相支持，整個班級就像一個大家庭一樣。</p><p>
+						🗓️ 2007-1-2 🏷️ undefined 🔗 <a href="https://www.instagram.com/c_eugene.0102" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/10.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">林重佑</h3><p>畢業了！請不要悲傷，因為我們只是暫時的分別！畢業了，請不要流淚，我們會在大學門口相遇！離別是短暫的！請大家彼此珍重！</p><p>
+						🗓️ 2006-10-23 🏷️ undefined 🔗
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/11.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">林尉然</h3><p>和大家相處的這三年，會成為我們珍貴的回憶，希望我們畢業之後，不會在舊的記憶逗留太久，而是專注的向前邁進</p><p>
+						🗓️ 2007-3-27 🏷️ undefined 🔗
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/12.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">林嵩皓</h3><p>感謝大家這三年來的陪伴 希望排球比賽得冠軍</p><p>
+						🗓️ 2007-7-10 🏷️ undefined 🔗 <a href="tel:+886-900-797-117" target="_blank">0916785030</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/13.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">施冠任</h3><p>感謝各位同學這三年來的陪伴，祝福大家都能考上理想的高中</p><p>🗓️ 2006-10-31 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/14.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">胡凱鈞</h3><p>時光任苒</p><p>🗓️ 2007-1-17 🏷️ undefined 🔗 <a href="tel:+886-900-797-117" target="_blank">0900797117</a></p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/15.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">張銓益</h3><p>有幸相識</p><p>🗓️ 2007-7-7 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/16.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">莊証傑</h3><p>謝謝大家這三年來的陪伴，祝大家畢業快樂!!</p><p>
+						🗓️ 2007-1-7 🏷️ undefined 🔗 <a href="tel:+886-905-027-298" target="_blank">0905027298</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/17.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">許安頡</h3><p>國中是一個我們都還在成長的階段，一起瘋狂，一起歡笑，真的很棒！</p><p>
+						🗓️ 2007-7-9 🏷️ undefined 🔗 <a href="https://www.instagram.com/alvin960709" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/18.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">許鈞凱</h3><p>國三的三年終於要結束了，感謝各位同學陪我留下美好的回憶。</p><p>
+						🗓️ 2006-9-6 🏷️ undefined 🔗 <a href="https://www.instagram.com/jacky.0906" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/19.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳亦敬</h3><p>謝謝大家三年的陪伴，祝大家畢業快樂。</p><p>🗓️ 2007-3-14 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/20.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳信愷</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/21.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳宣儒</h3><p>
+						這三年跟大家經歷了很多事情也成長了很多，雖然在國中生涯裡難免會遇到挫折，但我身後永遠會有一群熱情的 知心的朋友挺著我，謝謝你們參與我的國中生活。
+					</p><p>🗓️ 2007-8-21 🏷️ undefined 🔗 <a href="tel:+886-979-067-366" target="_blank">0979067366</a></p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/22.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳柏諺</h3><p>國中三年感覺一下子就過了， 也留下了許多有趣的回憶</p><p>
+						🗓️ 2006-10-14 🏷️ undefined 🔗 <a href="https://www.instagram.com/brian_951014" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/23.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳泰銘</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/24.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">曾瀞頡</h3><p>快要畢業了很開心</p><p>🗓️ 2006-10-22 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/25.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">童仕博</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/26.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">黃柏瑄</h3><p>byebye</p><p>🗓️ 2007-6-6 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/27.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">黃榮基</h3><p>我很高興我畢業了，祝3班全部人畢業快樂，有緣高中再見面。</p><p>🗓️ 2006-9-2 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/28.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">張宇寬</h3><p>
+						謝謝大家這三年來的陪伴與照顧🙏//～短短的國中生涯也完美結束了🎉，這些年我們一起經歷了不少精彩的人生階段，像是大家一起完成了一齣話劇、園遊會及運動會等等，還有因為新冠肺炎疫情而開始的線上學習初體驗，都是我們一起創造的難忘回憶～☺️希望大家都能繼續勇往直前、不畏風雨追求自己的理想，也祝福大家都能擁有自己夢寐以求的美好未來！❤️
+					</p><p>
+						🗓️ 2006-10-23 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100024172117517" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com/yukuan1023" target="_blank">Instagram</a>
+						<a href="tel:+886-912-227-023" target="_blank">0912227023</a>
+						<a href="mailto:yu.kuan10231023@gmail.com" target="_blank">Mail</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/29.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">劉政佑</h3><p>畢業了，不想說再見，不想，只想說，親愛的老師，同學們，我們永遠在一起!</p><p>🗓️ 2007-4-25 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/30.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">張兆霖</h3><p>我們即將步入新的生活，但前面的路還很長，希望我們都能更加珍惜擁有的青春和友誼。</p><p>
+						🗓️ 2006-9-21 🏷️ undefined 🔗 <a href="tel:+886-975-732-288" target="_blank">0975732288</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/31.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">鄭為桓</h3><p>謝謝你們陪伴我度過國中生活，我絕對不會忘記班上發生的點點滴滴。</p><p>
+						🗓️ 2006-11-26 🏷️ undefined 🔗 <a href="https://www.facebook.com/weihuan.cheng.9" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com/littlebonezero" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/32.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">鄭原任</h3><p>茫茫人海中我們遇到了彼此，雖然不久後就要分開，但我相信未來一定會再見！</p><p>
+						🗓️ 2007-4-8 🏷️ undefined 🔗 <a href="tel:+886-958-519-364" target="_blank">0958519364</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/33.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">盧建安</h3><p>
+						在這三年裡這個班帶給了我很多的歡樂，很開心有這個緣分可以遇到大家，希望畢業之後也可以繼續保持聯繫。最後也祝大家畢業快樂，以後的求學之路也都可以一路順遂。
+					</p><p>
+						🗓️ 2006-9-12 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100039639813365" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com/ryanlu.09.12" target="_blank">Instagram</a>
+						<a href="tel:+886-905-021-968" target="_blank">0905021968</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/34.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">賴郁中</h3><p>準備要升上ㄧ中了，希望未來可以以再跟大家相遇</p><p>
+						🗓️ 2006-2-13 🏷️ undefined 🔗 <a href="tel:+886-968-967-802" target="_blank">0968967802</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/35.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">簡葳鋐</h3><p>
+						風格優美 每個人各有特色 排版精緻。這三年與各個同學一起參預了許許多多的活動，也與從屁孩成長了些，在不管甚麼時候與每位同學都可以自在地笑，與每個人交流都是充滿熱情，在國中之年充滿無盡的歡樂
+					</p><p>🗓️ 2007-7-11 🏷️ undefined 🔗 <a href="tel:+886-961-506-196" target="_blank">0961506196</a></p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/36.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">賴富瑋</h3><p>經過這三年的日子，有苦，有辣，有酸，有甜，謝謝你們能夠包容我的缺點，我很感謝有來到這一班，這是我的榮幸，謝謝你們，畢業快樂。</p><p>
+						🗓️ 2006-12-29 🏷️ undefined 🔗
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/37.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">傅偉勝</h3><p>很開心能進入三年三班也很開心能認識大家雖然以後可能上了不同的高中但我相信大家的友誼還是可以一樣好</p><p>🗓️ 2006-11-5 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/38.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">季佳穎</h3><p>謝謝你們出現在我的人生，謝謝你們這三年的陪伴，我們後會有期。祝大家畢業快樂，追夢成功，未來可期。</p><p>
+						🗓️ 2007-2-28 🏷️ undefined 🔗 <a href="https://www.instagram.com/ryanlu.09.12" target="_blank">Instagram</a>
+						<a href="https://twitter.com/XingYueQiuBai" target="_blank">Twitter</a>
+						<a href="https://www.youtube.com/channel/UC9aU7NUidhTlsIl64SZuzfQ" target="_blank">YouTube</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/39.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">施欣彤</h3><p>
+						我很珍惜這三年和三班一起度過的時光，雖然我們不是最優秀，最討人喜愛的班，但在我心中，三班的每個人都是最獨特的，那些一起大笑，一起氣憤，一起後悔，一起努力的回憶，絕對會成為我生命中最難忘的一部分。
+					</p><p>🗓️ 2006-9-23 🏷️ undefined 🔗 <a href="https://www.instagram.com/doris.950923" target="_blank">Instagram</a></p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/40.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">吳沛穎</h3><p>很幸運能夠跟國三三班的大家一起在國中三年留下很多美好的回憶，希望大家到了高中也要保持聯絡。祝大家畢業快樂！</p><p>
+						🗓️ 2006-9-7 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100021481625194" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com/_164.wu" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/41.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">張棋淇</h3><p>在這三年中 經歷了許多歡笑與淚水 現在都成為難忘的回憶 祝大家畢業快樂🎉</p><p>🗓️ 2007-6-21 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/42.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳函妘</h3><p></p><p>🗓️ -- 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/43.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">陳思縈</h3><p>我很開心地度過了3年國中生活，祝大家畢業快樂!</p><p>
+						🗓️ 2006-10-31 🏷️ undefined 🔗 <a href="https://www.instagram.com/ssying10.31" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/44.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">曾若溱</h3><p>很高興能跟各位同班，祝大家畢業快樂</p><p>
+						🗓️ 2007-3-15 🏷️ undefined 🔗 <a href="https://www.instagram.com/janice__0315" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/45.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">黃宜珏</h3><p>這三年很快就結束了 很高興能跟大家同班 也一起經歷了開心的事 祝大家的高中生活都能順順利利 畢業快樂!</p><p>
+						🗓️ 2007-1-16 🏷️ undefined 🔗 <a href="https://www.instagram.com/yi_chiuh" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/46.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">詹云宜</h3><p>畢業快樂大家！跟大家相處了3年，有快樂也有各種，反正希望大家未來順利開開心心🥰</p><p>
+						🗓️ 2007-2-27 🏷️ undefined 🔗 <a href="https://www.instagram.com/yun__yi0227" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/47.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">蔡依潔</h3><p>三年的時間ㄧ下子就過了，祝大家畢業快樂～</p><p>🗓️ 2007-1-26 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/48.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">鄭少涵</h3><p>很喜歡班上的氣氛，大家都很nice，畢業會捨不得。</p><p>
+						🗓️ 2007-7-17 🏷️ undefined 🔗 <a href="https://www.facebook.com/profile.php?id=100036648353186" target="_blank">Facebook</a>
+					</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/49.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">何姵儀</h3><p>終於畢業了，畢業快樂</p><p>🗓️ 2006-10-27 🏷️ undefined 🔗</p>
+				</div>
+			</div><div class="student">
+				<img src="https://raw.githubusercontent.com/Edit-Mr/2022-vtsh-graduation/refs/heads/main/profile/50.webp" /><div>
+					<h3 class="emfont-GenYoMinTW-min-700">蘇郁婷</h3><p>在這裡待了三年，發現自己有很多很蠢的回憶，同學人也都很好</p><p>
+						🗓️ 2006-12-29 🏷️ undefined 🔗 <a href="https://www.instagram.com/yuting_.1229" target="_blank">Instagram</a>
+					</p>
+				</div>
+			</div>
+			<script is:inline>
+				// typing effect
+				const header = document.querySelector("header h1");
+				const text = header.textContent;
+				header.textContent = "";
+				let index = 0;
+				function type() {
+					if (index < text.length) {
+						header.textContent += text.charAt(index);
+						index++;
+						setTimeout(type, 100);
+					}
+				}
+				type();
+			</script>
+		</main>
+		<script type="module">
+			import "https://font.emtech.cc/emfont.js";
+			emfont.init();
+		</script>
+	</body>
 </html>
